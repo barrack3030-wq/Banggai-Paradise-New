@@ -1,5 +1,5 @@
 /** Build a GitHub Pages-safe URL for files stored in /public. */
 export const assetUrl = (path: string): string => {
-  const cleanPath = path.replace(/^\\/+/, '');
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
   return `${import.meta.env.BASE_URL}${cleanPath}`;
 };
