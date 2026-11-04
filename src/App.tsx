@@ -32,6 +32,7 @@ export default function App() {
     : window.location.pathname.replace(/^\/+/, '');
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
   const page: Page = route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
+  const isArticleReadingPage = page === 'blog' && routePath.split('/').filter(Boolean).length > 1;
 
   const handleSelectLanguage = (lang: Language) => {
     setLanguage(lang);
@@ -88,19 +89,19 @@ export default function App() {
         <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />
         <TravelBlog language={language} showAllArticles />
       </> : <>
-        <section className="page-intro">
+        {!isArticleReadingPage && <section className="page-intro">
           <div className="container">
             <span className="eyebrow">{page === 'packages' ? 'TOUR EXPERIENCES' : page === 'destinations' ? 'BANGGAI ISLANDS' : page === 'about' ? 'OUR STORY' : 'TRAVEL JOURNAL'}</span>
             <h1>{intro[page][0]}</h1>
             <p>{intro[page][1]}</p>
           </div>
-        </section>
+        </section>}
         {page === 'packages' && <TourPackages onSelectPackage={setSelectedPackage} searchFilter="all" language={language} />}
         {page === 'destinations' && <DestinationsPage onPlanTrip={(name) => { sessionStorage.setItem('destination_interest', name); scrollTo('contact'); }} language={language} />}
         {page === 'about' && <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />}
         {page === 'blog' && <TravelBlog language={language} />}
       </>}
-      <FinalCTA onPlanTripClick={() => scrollTo('contact')} language={language} />
+      {!isArticleReadingPage && <FinalCTA onPlanTripClick={() => scrollTo('contact')} language={language} />}
     </main>
     <Footer language={language} />
     {selectedPackage && (page === 'home' || page === 'packages') && <PackageModal pkg={selectedPackage} onClose={() => setSelectedPackage(null)} />}
