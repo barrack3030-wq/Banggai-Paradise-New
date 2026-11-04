@@ -17,12 +17,15 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const basePath = import.meta.env.BASE_URL;
+  const currentPath = window.location.pathname.replace(basePath, '').split('/').filter(Boolean)[0] || 'home';
+  const [activeSection, setActiveSection] = useState(currentPath);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 24);
 
+      if (currentPath !== 'home') return;
       const sections = ['home', 'packages', 'destinations', 'how', 'about', 'blog', 'contact'];
       const scrollPos = window.scrollY + 160;
 
@@ -42,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [currentPath]);
 
   // Lock body scroll on mobile when menu is open
   useEffect(() => {
@@ -65,57 +68,50 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  const closeMenu = () => setMobileMenuOpen(false);
 
   return (
     <header className={`site-header ${isScrolled ? 'scrolled' : ''}`} id="top">
       <div className="nav">
         {/* Brand Logo from extracted assets */}
-        <a className="brand" href="#home" aria-label="Banggai Paradise Tour & Travel, home" onClick={(e) => handleNavClick(e, '#home')}>
+        <a className="brand" href={basePath} aria-label="Banggai Paradise Tour & Travel, home" onClick={closeMenu}>
           <img src={assetUrl('assets/img/logo-white.png')} alt="Banggai Paradise Tour & Travel" width="530" height="250" />
         </a>
 
         {/* Navigation Menu */}
         <nav className={`menu ${mobileMenuOpen ? 'open' : ''}`} id="menu" aria-label="Main navigation">
           <a
-            href="#home"
+            href={basePath}
             className={activeSection === 'home' ? 'is-active' : ''}
-            onClick={(e) => handleNavClick(e, '#home')}
+            onClick={closeMenu}
           >
             {language === 'ID' ? 'Beranda' : 'Home'}
           </a>
           <a
-            href="#packages"
+            href={basePath + "#packages"}
             className={activeSection === 'packages' ? 'is-active' : ''}
-            onClick={(e) => handleNavClick(e, '#packages')}
+            onClick={closeMenu}
           >
             {language === 'ID' ? 'Paket Wisata' : 'Tour Package'}
           </a>
           <a
-            href="#destinations"
+            href={basePath + "destinations/"}
             className={activeSection === 'destinations' ? 'is-active' : ''}
-            onClick={(e) => handleNavClick(e, '#destinations')}
+            onClick={closeMenu}
           >
             {language === 'ID' ? 'Destinasi' : 'Destination'}
           </a>
           <a
-            href="#about"
+            href={basePath + "about/"}
             className={activeSection === 'about' ? 'is-active' : ''}
-            onClick={(e) => handleNavClick(e, '#about')}
+            onClick={closeMenu}
           >
             {language === 'ID' ? 'Tentang Kami' : 'About Us'}
           </a>
           <a
-            href="#blog"
+            href={basePath + "blog/"}
             className={activeSection === 'blog' ? 'is-active' : ''}
-            onClick={(e) => handleNavClick(e, '#blog')}
+            onClick={closeMenu}
           >
             {language === 'ID' ? 'Blog Wisata' : 'Travel Blog'}
           </a>
