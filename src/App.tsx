@@ -40,6 +40,11 @@ export default function App() {
   };
 
   useEffect(() => {
+    document.body.classList.toggle('blog-reading-mode', isArticleReadingPage);
+    return () => document.body.classList.remove('blog-reading-mode');
+  }, [isArticleReadingPage]);
+
+  useEffect(() => {
     document.documentElement.lang = language.toLowerCase();
     document.documentElement.classList.add('js');
     const reveals = document.querySelectorAll('[data-reveal]');
