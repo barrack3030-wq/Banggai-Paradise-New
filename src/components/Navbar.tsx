@@ -88,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {language === 'ID' ? 'Beranda' : 'Home'}
           </a>
           <a
-            href={basePath + "#packages"}
+            href={basePath + "packages/"}
             className={activeSection === 'packages' ? 'is-active' : ''}
             onClick={closeMenu}
           >
