@@ -30,35 +30,16 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             </p>
             <div className="soc">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/aji_zulficar/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram"
+                aria-label="Instagram @aji_zulficar"
               >
                 <svg className="ic">
                   <use href="#i-ig" />
                 </svg>
               </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-              >
-                <svg className="ic">
-                  <use href="#i-fb" />
-                </svg>
-              </a>
-              <a
-                href="https://tiktok.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TikTok"
-              >
-                <svg className="ic">
-                  <use href="#i-tt" />
-                </svg>
-              </a>
+
             </div>
           </div>
 
@@ -89,11 +70,11 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             <h4>{isEn ? 'Contact & Office' : 'Kontak & Kantor'}</h4>
             <nav>
               <a
-                href="https://wa.me/628124567890"
+                href="https://wa.me/6285820830530"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                WhatsApp: +62 812-4567-890
+                WhatsApp: 0858 2083 0530
               </a>
               <a href="mailto:info@banggaiparadise.com">
                 info@banggaiparadise.com
