@@ -5,6 +5,7 @@ import { Hero } from './components/Hero';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { TourPackages } from './components/TourPackages';
 import { ExploreDestinations } from './components/ExploreDestinations';
+import { DestinationsPage } from './components/DestinationsPage';
 import { AboutUs } from './components/AboutUs';
 import { TravelBlog } from './components/TravelBlog';
 
@@ -95,7 +96,7 @@ export default function App() {
           </div>
         </section>
         {page === 'packages' && <TourPackages onSelectPackage={setSelectedPackage} searchFilter="all" language={language} />}
-        {page === 'destinations' && <ExploreDestinations onPlanTripForDestination={() => scrollTo('contact')} language={language} />}
+        {page === 'destinations' && <DestinationsPage onPlanTrip={(name) => { sessionStorage.setItem('destination_interest', name); scrollTo('contact'); }} language={language} />}
         {page === 'about' && <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />}
         {page === 'blog' && <TravelBlog language={language} />}
       </>}
