@@ -6,14 +6,12 @@ import { Language } from '../i18n/translations';
 
 interface TourPackagesProps {
   onSelectPackage: (pkg: TourPackage) => void;
-  currency: 'IDR' | 'USD';
   searchFilter: string;
   language: Language;
 }
 
 export const TourPackages: React.FC<TourPackagesProps> = ({
   onSelectPackage,
-  currency,
   searchFilter,
   language,
 }) => {
@@ -36,8 +34,6 @@ export const TourPackages: React.FC<TourPackagesProps> = ({
       daysId: 'Hari fleksibel (3H2M / 4H3M)',
       typeEn: 'Private or group',
       typeId: 'Private atau open trip',
-      priceIdr: 2850000,
-      priceUsd: 190,
       originalPkg: TOUR_PACKAGES[0],
     },
     {
@@ -54,8 +50,6 @@ export const TourPackages: React.FC<TourPackagesProps> = ({
       daysId: 'Hari fleksibel (4H3M)',
       typeEn: 'Private or group · Free Drone',
       typeId: 'Private trip · Gratis Drone',
-      priceIdr: 3450000,
-      priceUsd: 230,
       originalPkg: TOUR_PACKAGES[1],
     },
     {
@@ -72,8 +66,6 @@ export const TourPackages: React.FC<TourPackagesProps> = ({
       daysId: 'Hari fleksibel (5H4M)',
       typeEn: 'Private speedboat',
       typeId: 'Speedboat private',
-      priceIdr: 4750000,
-      priceUsd: 315,
       originalPkg: TOUR_PACKAGES[2],
     },
   ];
@@ -145,29 +137,18 @@ export const TourPackages: React.FC<TourPackagesProps> = ({
                     <span>{isEn ? pkg.typeEn : pkg.typeId}</span>
                   </li>
                 </ul>
-
-                {/* Price and CTA row */}
                 <div className="prow">
-                  <div>
-                    <small>{isEn ? 'Price' : 'Mulai Dari'}</small>
-                    <b>
-                      {currency === 'IDR'
-                        ? `Rp ${pkg.priceIdr.toLocaleString('id-ID')}`
-                        : `$${pkg.priceUsd} USD`}
-                    </b>
-                  </div>
+                  <span className="text-sm font-semibold text-[#0A3A40]">{isEn ? 'View itinerary' : 'Lihat Itinerary'}</span>
                   <button
                     type="button"
                     className="round cursor-pointer"
-                    aria-label={`Enquire about ${isEn ? pkg.titleEn : pkg.titleId}`}
+                    aria-label={`View details for ${isEn ? pkg.titleEn : pkg.titleId}`}
                     onClick={(e) => {
                       e.stopPropagation();
                       onSelectPackage(pkg.originalPkg);
                     }}
                   >
-                    <svg className="ic">
-                      <use href="#i-arrow" />
-                    </svg>
+                    <svg className="ic"><use href="#i-arrow" /></svg>
                   </button>
                 </div>
               </div>
