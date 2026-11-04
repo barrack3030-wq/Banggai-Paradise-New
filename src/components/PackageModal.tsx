@@ -5,20 +5,11 @@ import { TourPackage } from '../types';
 interface PackageModalProps {
   pkg: TourPackage | null;
   onClose: () => void;
-  currency: 'IDR' | 'USD';
 }
 
-export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, currency }) => {
+export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose }) => {
   if (!pkg) return null;
 
-  const unitPrice = currency === 'IDR' ? pkg.priceIdr : pkg.priceUsd;
-
-  const formattedPrice = (price: number) => {
-    if (currency === 'IDR') {
-      return `Rp ${price.toLocaleString('id-ID')}`;
-    }
-    return `$${price.toLocaleString('en-US')}`;
-  };
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
@@ -161,14 +152,10 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, curren
 
             </div>
 
-            {/* Price & Contact Information */}
+            {/* Contact Information */}
             <div className="lg:col-span-5 bg-slate-50/90 rounded-2xl p-6 border border-slate-200/80 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-semibold text-slate-500 uppercase">Mulai Dari</span>
-                <div className="mt-2 text-2xl font-extrabold text-[#0A3A40]">
-                  {formattedPrice(unitPrice)}
-                  <span className="ml-1 text-xs font-medium text-slate-500">/ orang</span>
-                </div>
+                <h3 className="text-lg font-bold text-[#0A3A40]">Informasi &amp; Konsultasi</h3>
                 <p className="mt-4 text-sm leading-relaxed text-slate-600">
                   Untuk informasi ketersediaan, penyesuaian itinerary, dan penawaran terbaru, silakan hubungi tim kami.
                 </p>
