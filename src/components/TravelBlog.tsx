@@ -54,6 +54,9 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language, showAllArticle
       {id:'long-beach',name:'Long Beach',en:'Long Beach',image:'https://banggaiwonderland.my.id/images/long%20b.jpg',desc:'Pantai terpencil berpasir putih yang dicapai dengan perahu.',descEn:'A secluded white-sand beach reached by boat.'}
     ].filter(d => relatedDestinationIds.includes(d.id));
     return <article className="blog-reading-page"><div className="blog-reading-container">
+      <nav className="article-breadcrumb" aria-label={isEn ? 'Breadcrumb' : 'Navigasi halaman'}>
+        <a href={basePath}>{isEn ? 'Home' : 'Beranda'}</a><span>/</span><a href={basePath + 'blog/'}>Blog</a><span>/</span><span aria-current="page">{titleOf(selectedArticle)}</span>
+      </nav>
       <a className="blog-back-link" href={basePath + 'blog/'}>← {isEn ? 'Back to all articles' : 'Kembali ke semua artikel'}</a>
       <header className="article-header">
         <div className="blog-reading-meta"><span className="article-category">{selectedArticle.category}</span><span>{selectedArticle.readTime}</span></div>
@@ -61,6 +64,7 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language, showAllArticle
         <div className="blog-reading-byline"><span className="article-author-mark">BP</span><span className="article-author-copy"><small>{isEn ? 'Written by' : 'Ditulis oleh'}</small><strong>{author}</strong></span><span className="article-date"><small>{isEn ? 'Published' : 'Diterbitkan'}</small><time dateTime={publishedAt}>{formatDate(publishedAt)}</time></span></div>
       </header>
       <figure className="article-hero-media"><img className="blog-reading-cover" src={selectedArticle.img} alt={titleOf(selectedArticle)} /><figcaption>{isEn ? 'Explore the Banggai Islands with thoughtful local travel planning.' : 'Jelajahi Kepulauan Banggai dengan perencanaan perjalanan bersama tim lokal.'}</figcaption></figure>
+      <div className="article-topic-tags" aria-label={isEn ? 'Article topics' : 'Topik artikel'}><span>{selectedArticle.category}</span><span>{isEn ? 'Banggai Islands' : 'Kepulauan Banggai'}</span><span>{isEn ? 'Travel Guide' : 'Panduan Perjalanan'}</span></div>
       <div className="blog-reading-content"><p>{contentOf(selectedArticle)}</p></div>
       <section className="article-related-section"><div className="article-section-heading"><span className="eyebrow">{isEn ? 'KEEP READING' : 'LANJUTKAN MEMBACA'}</span><h2>{isEn ? 'Related travel stories' : 'Artikel yang mungkin Anda sukai'}</h2></div>
         <div className="article-related-grid">{relatedArticles.map(a => <a className="article-related-card" href={basePath + 'blog/' + a.slug + '/'} key={a.slug}><img src={a.img} alt={titleOf(a)} loading="lazy"/><div><span>{a.category} · {a.readTime}</span><h3>{titleOf(a)}</h3><p>{excerptOf(a)}</p><strong>{isEn ? 'Read article' : 'Baca artikel'} →</strong></div></a>)}</div>
@@ -69,6 +73,10 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language, showAllArticle
         <div className="article-destination-grid">{destinationCards.map(d=><a className="article-destination-card" href={basePath + 'destinations/#' + d.id} key={d.id}><img src={d.image} alt={isEn?d.en:d.name} loading="lazy"/><div><h3>{isEn?d.en:d.name}</h3><p>{isEn?d.descEn:d.desc}</p><strong>{isEn?'Explore destination':'Lihat destinasi'} →</strong></div></a>)}</div>
         <a className="article-all-destinations" href={basePath + 'destinations/'}>{isEn ? 'View all destinations' : 'Lihat semua destinasi'} →</a>
       </section>
+      <aside className="article-end-cta">
+        <div><span className="eyebrow">{isEn ? 'PLAN YOUR JOURNEY' : 'RENCANAKAN PERJALANAN'}</span><h2>{isEn ? 'Ready to explore the Banggai Islands?' : 'Siap menjelajahi Kepulauan Banggai?'}</h2><p>{isEn ? 'Turn these ideas into a thoughtful trip with a local team.' : 'Wujudkan inspirasi dari artikel ini menjadi perjalanan yang lebih terencana bersama tim lokal.'}</p></div>
+        <a href="https://wa.me/6285820830530" target="_blank" rel="noreferrer">{isEn ? 'Discuss your trip' : 'Konsultasikan perjalanan'} <span aria-hidden="true">→</span></a>
+      </aside>
     </div></article>;
   }
 
