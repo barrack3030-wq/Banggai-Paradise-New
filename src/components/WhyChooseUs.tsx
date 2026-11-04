@@ -1,4 +1,5 @@
 import React from 'react';
+import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
 
 interface WhyChooseUsProps {
@@ -112,7 +113,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
             <li className="step">
               <div className="sc">
                 <img
-                  src="/assets/img/beach-photo.jpg"
+                  src={assetUrl('assets/img/beach-photo.jpg')}
                   alt="Share your dream trip"
                   loading="lazy"
                   width={310}
@@ -132,7 +133,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
             <li className="step">
               <div className="sc">
                 <img
-                  src="/assets/img/aerial.svg"
+                  src={assetUrl('assets/img/aerial.svg')}
                   alt="We craft your plan"
                   loading="lazy"
                   width={600}
@@ -152,7 +153,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
             <li className="step">
               <div className="sc">
                 <img
-                  src="/assets/img/sunset.svg"
+                  src={assetUrl('assets/img/sunset.svg')}
                   alt="Pack and enjoy"
                   loading="lazy"
                   width={600}
