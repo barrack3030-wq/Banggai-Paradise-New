@@ -36,7 +36,41 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language, showAllArticle
     return () => { document.body.classList.remove('blog-reading-mode'); document.getElementById('blog-jsonld')?.remove(); };
   }, [language, selectedArticle]);
 
-  if (selectedArticle) return <article className="blog-reading-page"><div className="blog-reading-container"><a className="blog-back-link" href={basePath + 'blog/'}>← {isEn ? 'Back to all articles' : 'Kembali ke semua artikel'}</a><div className="blog-reading-meta"><span>{selectedArticle.category}</span><span>{selectedArticle.readTime}</span></div><h1>{titleOf(selectedArticle)}</h1><div className="blog-reading-byline"><span>{isEn ? 'Written by' : 'Ditulis oleh'} <strong>{author}</strong></span><time dateTime={publishedAt}>{formatDate(publishedAt)}</time></div><img className="blog-reading-cover" src={selectedArticle.img} alt={titleOf(selectedArticle)} /><div className="blog-reading-content"><p>{contentOf(selectedArticle)}</p></div></div></article>;
+  if (selectedArticle) {
+    const relatedArticles = articles.filter(a => a.slug !== selectedArticle.slug);
+    const relatedDestinationIds = selectedArticle.slug === 'island-hopping-guide'
+      ? ['paisu-pok','paisu-batango','kawalu-bay']
+      : selectedArticle.slug === 'snorkeling-basics'
+        ? ['poganda','pulau-dua','mbuang-mbuang']
+        : ['kilo-5','pulau-dua','long-beach'];
+    const destinationCards = [
+      {id:'paisu-pok',name:'Danau Paisu Pok',en:'Lake Paisu Pok',image:'https://banggaiwonderland.my.id/images/DSCF7073-5.webp',desc:'Danau jernih dan lanskap pulau yang ikonik.',descEn:'A clear lake and an iconic island landscape.'},
+      {id:'paisu-batango',name:'Paisu Batango',en:'Paisu Batango',image:'https://banggaiwonderland.my.id/images/paisu.jpg',desc:'Laguna alami dengan perpaduan air tawar dan laut.',descEn:'A natural lagoon where fresh and seawater meet.'},
+      {id:'kawalu-bay',name:'Kawalu Bay',en:'Kawalu Bay',image:'https://banggaiwonderland.my.id/images/kawalu.webp',desc:'Teluk tenang dengan air toska dan mangrove.',descEn:'A quiet bay with turquoise water and mangroves.'},
+      {id:'poganda',name:'Pantai Poganda',en:'Poganda Beach',image:'https://banggaiwonderland.my.id/images/Poganda-Beach-Banggai-IndonesiaJuara-Trip.webp',desc:'Pantai pasir putih dan perairan dangkal.',descEn:'A white-sand beach with shallow coastal waters.'},
+      {id:'pulau-dua',name:'Pulau Dua Balantak',en:'Pulau Dua Balantak',image:'https://banggaiwonderland.my.id/images/images%20(2).jpg',desc:'Perbukitan savana dan panorama laut terbuka.',descEn:'Savannah hills and expansive ocean views.'},
+      {id:'kilo-5',name:'Pantai Kilo 5',en:'Kilo 5 Beach',image:'https://banggaiwonderland.my.id/images/Pantai-Kilo-5-1.webp',desc:'Pantai populer untuk menikmati laut dan senja.',descEn:'A popular beach for the sea and sunset.'},
+      {id:'mbuang-mbuang',name:'Pulau Mbuang-Mbuang',en:'Mbuang-Mbuang Island',image:'https://banggaiwonderland.my.id/images/mbuang%20mbuang.jpg',desc:'Pulau dengan danau, pantai, dan kehidupan bawah laut.',descEn:'An island with lakes, beaches and marine life.'},
+      {id:'long-beach',name:'Long Beach',en:'Long Beach',image:'https://banggaiwonderland.my.id/images/long%20b.jpg',desc:'Pantai terpencil berpasir putih yang dicapai dengan perahu.',descEn:'A secluded white-sand beach reached by boat.'}
+    ].filter(d => relatedDestinationIds.includes(d.id));
+    return <article className="blog-reading-page"><div className="blog-reading-container">
+      <a className="blog-back-link" href={basePath + 'blog/'}>← {isEn ? 'Back to all articles' : 'Kembali ke semua artikel'}</a>
+      <header className="article-header">
+        <div className="blog-reading-meta"><span className="article-category">{selectedArticle.category}</span><span>{selectedArticle.readTime}</span></div>
+        <h1>{titleOf(selectedArticle)}</h1><p className="article-deck">{excerptOf(selectedArticle)}</p>
+        <div className="blog-reading-byline"><span className="article-author-mark">BP</span><span className="article-author-copy"><small>{isEn ? 'Written by' : 'Ditulis oleh'}</small><strong>{author}</strong></span><span className="article-date"><small>{isEn ? 'Published' : 'Diterbitkan'}</small><time dateTime={publishedAt}>{formatDate(publishedAt)}</time></span></div>
+      </header>
+      <figure className="article-hero-media"><img className="blog-reading-cover" src={selectedArticle.img} alt={titleOf(selectedArticle)} /><figcaption>{isEn ? 'Explore the Banggai Islands with thoughtful local travel planning.' : 'Jelajahi Kepulauan Banggai dengan perencanaan perjalanan bersama tim lokal.'}</figcaption></figure>
+      <div className="blog-reading-content"><p>{contentOf(selectedArticle)}</p></div>
+      <section className="article-related-section"><div className="article-section-heading"><span className="eyebrow">{isEn ? 'KEEP READING' : 'LANJUTKAN MEMBACA'}</span><h2>{isEn ? 'Related travel stories' : 'Artikel yang mungkin Anda sukai'}</h2></div>
+        <div className="article-related-grid">{relatedArticles.map(a => <a className="article-related-card" href={basePath + 'blog/' + a.slug + '/'} key={a.slug}><img src={a.img} alt={titleOf(a)} loading="lazy"/><div><span>{a.category} · {a.readTime}</span><h3>{titleOf(a)}</h3><p>{excerptOf(a)}</p><strong>{isEn ? 'Read article' : 'Baca artikel'} →</strong></div></a>)}</div>
+      </section>
+      <section className="article-related-section article-destinations-section"><div className="article-section-heading"><span className="eyebrow">{isEn ? 'EXPLORE THE REGION' : 'JELAJAHI KAWASAN'}</span><h2>{isEn ? 'Destinations connected to this story' : 'Destinasi terkait artikel ini'}</h2><p>{isEn ? 'Continue your journey with places that match this travel topic.' : 'Lanjutkan inspirasi perjalanan dengan destinasi yang sesuai dengan topik ini.'}</p></div>
+        <div className="article-destination-grid">{destinationCards.map(d=><a className="article-destination-card" href={basePath + 'destinations/#' + d.id} key={d.id}><img src={d.image} alt={isEn?d.en:d.name} loading="lazy"/><div><h3>{isEn?d.en:d.name}</h3><p>{isEn?d.descEn:d.desc}</p><strong>{isEn?'Explore destination':'Lihat destinasi'} →</strong></div></a>)}</div>
+        <a className="article-all-destinations" href={basePath + 'destinations/'}>{isEn ? 'View all destinations' : 'Lihat semua destinasi'} →</a>
+      </section>
+    </div></article>;
+  }
 
   return <section className="section blog" id="blog"><div className="container"><div className="head-row"><div><span className="eyebrow">{isEn ? 'Travel Blog' : 'Blog Wisata'}</span><h2>{isEn ? 'Stories & travel tips' : 'Kisah & Tips Perjalanan'}</h2></div>{showAllArticles && <a className="btn btn-outline btn-sm" href={basePath + 'blog/'}><span>{isEn ? 'All articles' : 'Semua Artikel'}</span><svg className="ic"><use href="#i-arrow" /></svg></a>}</div><div className="bgrid">{articles.map(art => <article key={art.id} className={`bcard ${art.isBig ? 'big' : ''}`}><a className="blog-card-link" href={basePath + 'blog/' + art.slug + '/'} aria-label={isEn ? 'Read article: ' + titleOf(art) : 'Baca artikel: ' + titleOf(art)}><div className="ba"><img src={art.img} alt={titleOf(art)} loading="lazy" width="600" height="700" /></div><div className="bb"><div className="bm"><em>{art.category}</em><span>{art.readTime}</span></div><h3>{titleOf(art)}</h3><p>{excerptOf(art)}</p><div className="blog-byline"><span>{isEn ? 'By' : 'Oleh'} <strong>{author}</strong></span><time dateTime={publishedAt}>{formatDate(publishedAt)}</time></div><div className="rm"><span>{isEn ? 'Read article' : 'Baca artikel'}</span><svg className="ic"><use href="#i-arrow" /></svg></div></div></a></article>)}</div></div></section>;
 };
