@@ -6,8 +6,6 @@ export interface TourPackage {
   category: 'relax' | 'adventure' | 'island-hopping' | 'overland';
   duration: string;
   groupType: string;
-  priceIdr: number;
-  priceUsd: number;
   image: string;
   rating: number;
   reviewCount: number;
