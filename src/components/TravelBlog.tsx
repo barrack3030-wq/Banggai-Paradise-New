@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
 
@@ -9,6 +9,23 @@ interface TravelBlogProps {
 export const TravelBlog: React.FC<TravelBlogProps> = ({ language }) => {
   const [selectedArticle, setSelectedArticle] = useState<any | null>(null);
   const isEn = language === 'EN';
+  const author = 'Banggai Paradise Editorial Team';
+  const publishedAt = '2026-11-05';
+  const formatDate = (value: string) => new Intl.DateTimeFormat(isEn ? 'en' : 'id', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(value + 'T00:00:00Z'));
+
+  useEffect(() => {
+    const pageUrl = window.location.href.split('#')[0];
+    const data = { '@context': 'https://schema.org', '@type': 'Blog', name: isEn ? 'Banggai Paradise Travel Blog' : 'Blog Wisata Banggai Paradise', url: pageUrl, publisher: { '@type': 'Organization', name: 'Banggai Paradise' }, blogPost: articles.map((article: any) => ({ '@type': 'BlogPosting', headline: isEn ? article.titleEn : article.titleId, description: isEn ? article.excerptEn : article.excerptId, articleSection: article.category, datePublished: publishedAt, dateModified: publishedAt, author: { '@type': 'Organization', name: author }, publisher: { '@type': 'Organization', name: 'Banggai Paradise' }, mainEntityOfPage: pageUrl, image: new URL(article.img, window.location.origin).href, inLanguage: isEn ? 'en' : 'id-ID' })) };
+    let script = document.getElementById('blog-jsonld') as HTMLScriptElement | null;
+    if (!script) { script = document.createElement('script'); script.id = 'blog-jsonld'; script.type = 'application/ld+json'; document.head.appendChild(script); }
+    script.textContent = JSON.stringify(data);
+    document.title = isEn ? 'Banggai Islands Travel Blog & Guides | Banggai Paradise' : 'Blog Wisata Kepulauan Banggai | Banggai Paradise';
+    const description = isEn ? 'Read travel guides, island-hopping advice and practical tips for exploring the Banggai Islands with Banggai Paradise.' : 'Baca panduan wisata, tips island hopping, dan informasi perjalanan untuk menjelajahi Kepulauan Banggai bersama Banggai Paradise.';
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name', 'description'); document.head.appendChild(meta); }
+    meta.setAttribute('content', description);
+    return () => { document.getElementById('blog-jsonld')?.remove(); };
+  }, [language]);
 
   const articles = [
     {
@@ -104,6 +121,7 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language }) => {
                 </div>
                 <h3>{isEn ? art.titleEn : art.titleId}</h3>
                 <p>{isEn ? art.excerptEn : art.excerptId}</p>
+                <div className="blog-byline"><span>{isEn ? 'By' : 'Oleh'} <strong>{author}</strong></span><time dateTime={publishedAt}>{formatDate(publishedAt)}</time></div>
 
                 <div className="rm">
                   <span>{isEn ? 'Read article' : 'Baca artikel'}</span>
