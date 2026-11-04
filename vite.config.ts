@@ -5,6 +5,9 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // GitHub Pages serves this repository under /Banggai-Paradise-New/.
+    // Keep local development and AI Studio previews at the domain root.
+    base: process.env.GITHUB_ACTIONS === 'true' ? '/Banggai-Paradise-New/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
