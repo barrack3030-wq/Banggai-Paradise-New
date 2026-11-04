@@ -7,7 +7,7 @@ import { TourPackages } from './components/TourPackages';
 import { ExploreDestinations } from './components/ExploreDestinations';
 import { AboutUs } from './components/AboutUs';
 import { TravelBlog } from './components/TravelBlog';
-import { BlogPage } from './components/BlogPage';
+
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { PackageModal } from './components/PackageModal';
@@ -97,7 +97,7 @@ export default function App() {
         {page === 'packages' && <TourPackages onSelectPackage={setSelectedPackage} searchFilter="all" language={language} />}
         {page === 'destinations' && <ExploreDestinations onPlanTripForDestination={() => scrollTo('contact')} language={language} />}
         {page === 'about' && <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />}
-        {page === 'blog' && <BlogPage language={language} />}
+        {page === 'blog' && <TravelBlog language={language} />}
       </>}
       <FinalCTA onPlanTripClick={() => scrollTo('contact')} language={language} />
     </main>
