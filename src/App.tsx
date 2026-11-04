@@ -7,11 +7,9 @@ import { TourPackages } from './components/TourPackages';
 import { ExploreDestinations } from './components/ExploreDestinations';
 import { AboutUs } from './components/AboutUs';
 import { TravelBlog } from './components/TravelBlog';
-import { Testimonials } from './components/Testimonials';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { PackageModal } from './components/PackageModal';
-import { TripPlannerModal } from './components/TripPlannerModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { ErrorPage404 } from './components/ErrorPage404';
 import { TourPackage } from './types';
@@ -24,10 +22,6 @@ export default function App() {
     return saved === 'ID' || saved === 'EN' ? (saved as Language) : 'EN';
   });
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
-  const [isTripPlannerOpen, setIsTripPlannerOpen] = useState(false);
-  const [plannerDestination, setPlannerDestination] = useState<string>('');
-  const [searchFilter, setSearchFilter] = useState<string>('all');
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [is404Active, setIs404Active] = useState<boolean>(() => {
     return window.location.hash === '#/404' || window.location.hash === '#404' || window.location.hash === '#error';
   });
@@ -94,25 +88,9 @@ export default function App() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleSearch = (filters: { destination: string; date: string; guests: string }) => {
-    setSearchFilter(filters.destination || 'all');
-    if (filters.destination) {
-      setPlannerDestination(filters.destination);
-    }
-    showToast(
-      language === 'ID'
-        ? 'Pilihan menarik! Menampilkan paket yang sesuai...'
-        : "Great choice! Let's explore your matching journeys."
-    );
-    const el = document.getElementById('packages');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleOpenPlannerForDestination = (destName: string) => {
-    setPlannerDestination(destName);
-    setIsTripPlannerOpen(true);
+  const handleContactScroll = () => {
+    const el = document.getElementById('contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   // If 404 route is active, render dedicated Error 404 page
@@ -148,10 +126,7 @@ export default function App() {
 
       {/* Top Header Navigation */}
       <Navbar
-        onPlanTripClick={() => {
-          setPlannerDestination('');
-          setIsTripPlannerOpen(true);
-        }}
+        onPlanTripClick={handleContactScroll}
         currency={currency}
         onToggleCurrency={handleToggleCurrency}
         language={language}
@@ -164,16 +139,12 @@ export default function App() {
         <Hero
           onExplorePackages={handleExplorePackages}
           onViewDestinations={handleViewDestinations}
-          onSearch={handleSearch}
           language={language}
         />
 
         {/* Section 2: Trust & How It Works */}
         <WhyChooseUs
-          onPlanTripClick={() => {
-            setPlannerDestination('');
-            setIsTripPlannerOpen(true);
-          }}
+          onPlanTripClick={handleContactScroll}
           language={language}
         />
 
@@ -181,45 +152,27 @@ export default function App() {
         <TourPackages
           onSelectPackage={(pkg) => setSelectedPackage(pkg)}
           currency={currency}
-          searchFilter={searchFilter}
+          searchFilter="all"
           language={language}
         />
 
         {/* Section 4: Explore Destinations (Bento Grid) */}
         <ExploreDestinations
-          onPlanTripForDestination={handleOpenPlannerForDestination}
+          onPlanTripForDestination={handleContactScroll}
           language={language}
         />
 
         {/* Section 5: About Us */}
         <AboutUs
-          onMeetTeamClick={() => {
-            setPlannerDestination('');
-            setIsTripPlannerOpen(true);
-          }}
+          onMeetTeamClick={handleContactScroll}
           language={language}
         />
 
         {/* Section 6: Travel Blog */}
         <TravelBlog language={language} />
 
-        {/* Section 7: Testimonials */}
-        <Testimonials
-          onPlanTripClick={() => {
-            setPlannerDestination('');
-            setIsTripPlannerOpen(true);
-          }}
-          language={language}
-        />
-
-        {/* Section 8: Final CTA */}
-        <FinalCTA
-          onPlanTripClick={() => {
-            setPlannerDestination('');
-            setIsTripPlannerOpen(true);
-          }}
-          language={language}
-        />
+        {/* Section 7: Final CTA */}
+        <FinalCTA onPlanTripClick={handleContactScroll} language={language} />
       </main>
 
       {/* Footer */}
@@ -234,24 +187,11 @@ export default function App() {
         />
       )}
 
-      {isTripPlannerOpen && (
-        <TripPlannerModal
-          isOpen={isTripPlannerOpen}
-          onClose={() => setIsTripPlannerOpen(false)}
-          currency={currency}
-          initialDestination={plannerDestination}
-        />
-      )}
+}
 
       {/* Floating WhatsApp Quick Action Button */}
       <FloatingWhatsApp />
 
-      {/* Global Interactive Toast Notification */}
-      {toastMessage && (
-        <div id="toast" className="toast show" role="alert">
-          {toastMessage}
-        </div>
-      )}
     </>
   );
 }
