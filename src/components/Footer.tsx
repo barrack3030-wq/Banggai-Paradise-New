@@ -1,4 +1,5 @@
 import React from 'react';
+import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
 
 interface FooterProps {
@@ -16,7 +17,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           {/* Brand Info */}
           <div className="fbrand">
             <img
-              src="/assets/img/logo-white.png"
+              src={assetUrl('assets/img/logo-white.png')}
               alt="Banggai Paradise Tour & Travel"
               width={530}
               height={250}
