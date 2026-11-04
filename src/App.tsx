@@ -14,7 +14,7 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { TourPackage } from './types';
 import { Language } from './i18n/translations';
 
-type Page = 'home' | 'destinations' | 'about' | 'blog';
+type Page = 'home' | 'packages' | 'destinations' | 'about' | 'blog';
 
 export default function App() {
   const [language, setLanguage] = useState<Language>(() => {
@@ -29,7 +29,7 @@ export default function App() {
     ? window.location.pathname.slice(basePath.length)
     : window.location.pathname.replace(/^\/+/, '');
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
-  const page: Page = route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
+  const page: Page = route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
 
   const handleSelectLanguage = (lang: Language) => {
     setLanguage(lang);
@@ -59,6 +59,9 @@ export default function App() {
   };
 
   const intro = {
+    packages: language === 'ID'
+      ? ['Paket Tour Kepulauan Banggai', 'Pilih pengalaman perjalanan yang sesuai, mulai dari wisata pantai dan island hopping hingga petualangan laut bersama tim lokal Banggai Paradise.']
+      : ['Banggai Islands Tour Packages', 'Choose a trip that suits your travel style, from beach escapes and island hopping to ocean adventures with the local Banggai Paradise team.'],
     destinations: language === 'ID'
       ? ['Jelajahi Destinasi Kepulauan Banggai', 'Kenali dan rencanakan perjalanan ke danau sebening kristal, pantai pasir putih, gugusan pulau, dan lanskap pesisir Banggai.']
       : ['Explore the Banggai Islands', 'Discover and plan a journey to crystal-clear lakes, white-sand beaches, island groups and the coastal landscapes of Banggai.'],
@@ -85,11 +88,12 @@ export default function App() {
       </> : <>
         <section className="page-intro">
           <div className="container">
-            <span className="eyebrow">{page === 'destinations' ? 'BANGGAI ISLANDS' : page === 'about' ? 'OUR STORY' : 'TRAVEL JOURNAL'}</span>
+            <span className="eyebrow">{page === 'packages' ? 'TOUR EXPERIENCES' : page === 'destinations' ? 'BANGGAI ISLANDS' : page === 'about' ? 'OUR STORY' : 'TRAVEL JOURNAL'}</span>
             <h1>{intro[page][0]}</h1>
             <p>{intro[page][1]}</p>
           </div>
         </section>
+        {page === 'packages' && <TourPackages onSelectPackage={setSelectedPackage} searchFilter="all" language={language} />}
         {page === 'destinations' && <ExploreDestinations onPlanTripForDestination={() => scrollTo('contact')} language={language} />}
         {page === 'about' && <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />}
         {page === 'blog' && <TravelBlog language={language} />}
@@ -97,7 +101,7 @@ export default function App() {
       <FinalCTA onPlanTripClick={() => scrollTo('contact')} language={language} />
     </main>
     <Footer language={language} />
-    {selectedPackage && page === 'home' && <PackageModal pkg={selectedPackage} onClose={() => setSelectedPackage(null)} />}
+    {selectedPackage && (page === 'home' || page === 'packages') && <PackageModal pkg={selectedPackage} onClose={() => setSelectedPackage(null)} />}
     <FloatingWhatsApp />
   </>;
 }
