@@ -1,0 +1,6 @@
+{
+  "name": "Banggai Paradise Tour & Travel",
+  "description": "Discover the hidden paradise of Banggai Islands with trusted local guides, private trips, free drone documentation, and premium land & sea adventures.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
