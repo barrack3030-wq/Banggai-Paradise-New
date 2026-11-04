@@ -673,3 +673,20 @@ h2{font-size:clamp(1.85rem,3.5vw,3rem);line-height:1.12}
 .blog-reading-content{max-width:700px;margin:34px auto 0;color:#405b63;font-size:1.08rem;line-height:2}
 .blog-reading-content p{margin-bottom:1.3em}
 @media(max-width:600px){.blog-reading-page{padding:28px 18px 60px}.blog-reading-cover{border-radius:12px}.blog-reading-content{font-size:1rem;line-height:1.85}}
+
+/* Destination listing follows the Tour Packages card system */
+.destinations-lead{max-width:720px;margin-top:12px;color:var(--muted);line-height:1.75}
+.destinations-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+.destination-card{min-width:0}
+.destination-card .pa{height:250px;min-height:250px;position:relative;overflow:hidden}
+.destination-card .pa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .65s}
+.destination-card:hover .pa img{transform:scale(1.045)}
+.destination-card .pb{display:flex;flex-direction:column;flex:1}
+.destination-card .pb h3{margin-top:9px}
+.destination-card .pb p{min-height:78px}
+.destination-location{font-size:.7rem;line-height:1.45;color:#7b9298;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.destination-card .prow{margin-top:auto;padding-top:18px}
+.destinations-source{margin-top:28px;color:var(--muted);font-size:.78rem}
+.destinations-source a{color:var(--deep);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:900px){.destinations-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.destination-card .pa{height:230px;min-height:230px}}
+@media(max-width:600px){.destinations-grid{grid-template-columns:1fr;gap:20px}.destination-card .pa{height:245px;min-height:245px}.destination-card .pb p{min-height:0}}
