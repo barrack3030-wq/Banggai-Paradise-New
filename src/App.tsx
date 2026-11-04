@@ -135,7 +135,7 @@ export default function App() {
 
       {/* Main Content Sections */}
       <main id="main">
-        {/* Section 1: Hero & Booking Bar */}
+        {/* Section 1: Hero */}
         <Hero
           onExplorePackages={handleExplorePackages}
           onViewDestinations={handleViewDestinations}
@@ -186,8 +186,6 @@ export default function App() {
           currency={currency}
         />
       )}
-
-}
 
       {/* Floating WhatsApp Quick Action Button */}
       <FloatingWhatsApp />
