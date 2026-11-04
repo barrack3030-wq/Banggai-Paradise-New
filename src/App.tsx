@@ -14,6 +14,7 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { ErrorPage404 } from './components/ErrorPage404';
 import { TourPackage } from './types';
 import { Language } from './i18n/translations';
+import { applySeo } from './seo/applySeo';
 
 export default function App() {
   const [language, setLanguage] = useState<Language>(() => {
@@ -36,6 +37,11 @@ export default function App() {
       setToastMessage(null);
     }, 4500);
   };
+
+  // Keep <html lang>, <title> and description/social meta in sync with the chosen language
+  useEffect(() => {
+    applySeo(language);
+  }, [language]);
 
   // Scroll reveal observer
   useEffect(() => {

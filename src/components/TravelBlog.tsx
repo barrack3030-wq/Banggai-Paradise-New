@@ -144,7 +144,7 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language }) => {
             <div className="rounded-2xl overflow-hidden h-60 mb-6 bg-slate-100">
               <img
                 src={selectedArticle.img}
-                alt=""
+                alt={isEn ? selectedArticle.titleEn : selectedArticle.titleId}
                 className="w-full h-full object-cover"
               />
             </div>

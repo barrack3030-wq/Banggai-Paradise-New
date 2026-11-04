@@ -1,51 +1,151 @@
 <!doctype html>
-<html lang="id" class="scroll-smooth">
+<!--
+  SEO NOTE: every absolute URL below uses the production site URL
+  https://barrack3030-wq.github.io/Banggai-Paradise-New/
+  When a custom domain is attached, replace it everywhere (see README.md > SEO).
+-->
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Banggai Paradise Tour &amp; Travel — Discover the Hidden Paradise of Banggai</title>
-    <meta name="description" content="Discover the hidden paradise of Banggai Islands with trusted local guides, private trips, free drone documentation, and premium land &amp; sea adventures." />
-    
-    <!-- OpenGraph & Social Metadata -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Banggai Paradise Tour &amp; Travel — Discover the Hidden Paradise of Banggai" />
-    <meta property="og:description" content="Discover the hidden paradise of Banggai Islands with trusted local guides, private trips, free drone documentation, and premium land &amp; sea adventures." />
-    <meta property="og:site_name" content="Banggai Paradise Tour &amp; Travel" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Banggai Paradise Tour &amp; Travel" />
-    <meta name="twitter:description" content="Discover the hidden paradise of Banggai Islands with trusted local guides, private trips, and free drone documentation." />
 
+    <!-- Primary SEO -->
+    <title>Banggai Islands Tour Packages | Banggai Paradise</title>
+    <meta name="description" content="Private Banggai Islands tours with licensed local guides: Paisu Pok Lake, Sombori karst lagoons, jellyfish lake and island hopping. Free drone documentation." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://barrack3030-wq.github.io/Banggai-Paradise-New/" />
+    <meta name="application-name" content="Banggai Paradise" />
+
+    <!-- Icons -->
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%assets/img/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="%BASE_URL%assets/img/favicon-48.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%BASE_URL%assets/img/apple-touch-icon.png" />
     <meta name="theme-color" content="#052C37" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn, Telegram) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Banggai Paradise Tour &amp; Travel" />
+    <meta property="og:url" content="https://barrack3030-wq.github.io/Banggai-Paradise-New/" />
+    <meta property="og:title" content="Banggai Islands Tour Packages | Banggai Paradise" />
+    <meta property="og:description" content="Private Banggai Islands tours with licensed local guides: Paisu Pok Lake, Sombori karst lagoons, jellyfish lake and island hopping. Free drone documentation." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="id_ID" />
+    <meta property="og:image" content="https://barrack3030-wq.github.io/Banggai-Paradise-New/assets/img/og-banggai-paradise.jpg" />
+    <meta property="og:image:secure_url" content="https://barrack3030-wq.github.io/Banggai-Paradise-New/assets/img/og-banggai-paradise.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Aerial view of the Sombori karst islands and turquoise lagoon in the Banggai Islands, with a traditional wooden boat" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Banggai Islands Tour Packages | Banggai Paradise" />
+    <meta name="twitter:description" content="Private Banggai Islands tours with licensed local guides: Paisu Pok Lake, Sombori karst lagoons, jellyfish lake and island hopping. Free drone documentation." />
+    <meta name="twitter:image" content="https://barrack3030-wq.github.io/Banggai-Paradise-New/assets/img/og-banggai-paradise.jpg" />
+    <meta name="twitter:image:alt" content="Aerial view of the Sombori karst islands and turquoise lagoon in the Banggai Islands, with a traditional wooden boat" />
 
     <!-- Google Fonts: Lora & Poppins from brand design -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org structured data (business-level only: describes what is visible on the page) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "TravelAgency",
-      "name": "Banggai Paradise Tour & Travel",
-      "description": "Penyedia layanan tour & travel resmi di Kepulauan Banggai, Danau Paisu Pok, Pulau Dua, Sombori, dan Danau Ubur-ubur.",
-      "telephone": "+628124567890",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Luwuk & Kepulauan Banggai",
-        "addressRegion": "Sulawesi Tengah",
-        "addressCountry": "ID"
-      },
-      "priceRange": "$$",
-      "currenciesAccepted": "IDR, USD",
-      "paymentAccepted": "Cash, Credit Card, Bank Transfer"
+      "@graph": [
+        {
+          "@type": "TravelAgency",
+          "@id": "https://barrack3030-wq.github.io/Banggai-Paradise-New/#organization",
+          "name": "Banggai Paradise Tour & Travel",
+          "alternateName": "Banggai Paradise",
+          "url": "https://barrack3030-wq.github.io/Banggai-Paradise-New/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://barrack3030-wq.github.io/Banggai-Paradise-New/assets/img/logo-512.png",
+            "width": 512,
+            "height": 512
+          },
+          "image": "https://barrack3030-wq.github.io/Banggai-Paradise-New/assets/img/og-banggai-paradise.jpg",
+          "description": "Tour & travel operator in the Banggai Islands, Central Sulawesi, offering private trips to Paisu Pok Lake, the Sombori archipelago, the stingless jellyfish lake and Pulo Dua, with licensed local guides and free drone documentation.",
+          "telephone": "+628124567890",
+          "email": "info@banggaiparadise.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Luwuk & Kepulauan Banggai",
+            "addressRegion": "Sulawesi Tengah",
+            "addressCountry": "ID"
+          },
+          "areaServed": {
+            "@type": "Place",
+            "name": "Banggai Islands, Central Sulawesi, Indonesia"
+          },
+          "knowsLanguage": ["id", "en"],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "telephone": "+628124567890",
+            "email": "info@banggaiparadise.com",
+            "availableLanguage": ["Indonesian", "English"]
+          },
+          "priceRange": "$$",
+          "currenciesAccepted": "IDR, USD",
+          "paymentAccepted": "Cash, Credit Card, Bank Transfer"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://barrack3030-wq.github.io/Banggai-Paradise-New/#website",
+          "url": "https://barrack3030-wq.github.io/Banggai-Paradise-New/",
+          "name": "Banggai Paradise Tour & Travel",
+          "inLanguage": ["en", "id"],
+          "publisher": { "@id": "https://barrack3030-wq.github.io/Banggai-Paradise-New/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://barrack3030-wq.github.io/Banggai-Paradise-New/#webpage",
+          "url": "https://barrack3030-wq.github.io/Banggai-Paradise-New/",
+          "name": "Banggai Islands Tour Packages | Banggai Paradise",
+          "inLanguage": "en",
+          "isPartOf": { "@id": "https://barrack3030-wq.github.io/Banggai-Paradise-New/#website" },
+          "about": { "@id": "https://barrack3030-wq.github.io/Banggai-Paradise-New/#organization" },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://barrack3030-wq.github.io/Banggai-Paradise-New/assets/img/og-banggai-paradise.jpg",
+            "width": 1200,
+            "height": 630
+          }
+        }
+      ]
     }
     </script>
   </head>
   <body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased selection:bg-[#0EA5E9]/20 selection:text-[#0369A1]">
     <div id="root"></div>
+
+    <!-- Fallback for crawlers / users without JavaScript. Mirrors the content of the page. -->
+    <noscript>
+      <main style="max-width:720px;margin:0 auto;padding:32px 20px;font-family:system-ui,sans-serif;line-height:1.6;color:#0F172A">
+        <h1>Banggai Paradise Tour &amp; Travel: Banggai Islands Tour Packages</h1>
+        <p>
+          Private island journeys in the Banggai Islands, Central Sulawesi, led by licensed local guides,
+          with free drone documentation. Paket wisata Kepulauan Banggai bersama pemandu lokal berlisensi.
+        </p>
+        <h2>Destinations / Destinasi</h2>
+        <ul>
+          <li>Danau Paisu Pok (Paisu Pok Lake), Peleng Island</li>
+          <li>Kepulauan Sombori (Sombori karst archipelago)</li>
+          <li>Danau Ubur-Ubur Mbuang-Mbuang (stingless jellyfish lake)</li>
+          <li>Pulo Dua &amp; Balantak</li>
+        </ul>
+        <h2>Contact / Kontak</h2>
+        <p>
+          WhatsApp: <a href="https://wa.me/628124567890">+62 812-4567-890</a><br />
+          Email: <a href="mailto:info@banggaiparadise.com">info@banggaiparadise.com</a>
+        </p>
+        <p>Please enable JavaScript to view the full website. / Aktifkan JavaScript untuk melihat situs lengkap.</p>
+      </main>
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

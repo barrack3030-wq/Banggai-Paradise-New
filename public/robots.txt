@@ -1,0 +1,11 @@
+# Banggai Paradise Tour & Travel
+# NOTE: crawlers only read robots.txt at the ROOT of a host
+# (https://example.com/robots.txt). On a GitHub Pages project URL
+# (…github.io/Banggai-Paradise-New/) this file is NOT honoured, so it only
+# starts working once the site runs on its own domain. See README.md > SEO.
+
+User-agent: *
+Allow: /
+Disallow: /assets/aistudio/
+
+Sitemap: https://barrack3030-wq.github.io/Banggai-Paradise-New/sitemap.xml

@@ -79,7 +79,13 @@ export const Hero: React.FC<HeroProps> = ({
             >
               <img
                 src={slide.image}
-                alt=""
+                alt={
+                  isEn
+                    ? `${slide.titleEn} – ${slide.subEn}`
+                    : `${slide.titleId} – ${slide.subId}`
+                }
+                decoding="async"
+                fetchPriority={idx === 0 ? 'high' : 'low'}
                 className="w-full h-full object-cover transition-transform duration-[6000ms] ease-out"
                 style={{
                   transform: idx === activeSlide ? 'scale(1.06)' : 'scale(1)',
@@ -130,6 +136,7 @@ export const Hero: React.FC<HeroProps> = ({
             <h1>
               {isEn ? 'Your best choice ' : 'Pilihan terbaik '}
               <em>{isEn ? 'travel partner' : 'partner perjalanan'}</em>
+              {isEn ? ' in the Banggai Islands' : ' di Kepulauan Banggai'}
             </h1>
 
             <p className="lead">

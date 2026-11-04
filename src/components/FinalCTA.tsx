@@ -54,7 +54,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onPlanTripClick, language })
 
             <a
               className="box cursor-pointer"
-              href="#"
+              href="#contact"
               onClick={(e) => {
                 e.preventDefault();
                 onPlanTripClick();
