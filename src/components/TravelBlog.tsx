@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
 
 interface TravelBlogProps {
@@ -13,7 +14,7 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language }) => {
     {
       id: 1,
       isBig: true,
-      img: '/assets/img/aerial.svg',
+      img: assetUrl('assets/img/aerial.svg'),
       category: isEn ? 'Guide' : 'Panduan',
       readTime: isEn ? '5 min read' : '5 mnt baca',
       titleEn: 'Island hopping for first-timers: how to plan the perfect trip',
@@ -27,7 +28,7 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language }) => {
     {
       id: 2,
       isBig: false,
-      img: '/assets/img/reef.svg',
+      img: assetUrl('assets/img/reef.svg'),
       category: isEn ? 'Tips' : 'Tips Wisata',
       readTime: isEn ? '4 min read' : '4 mnt baca',
       titleEn: 'Snorkeling basics for beginners in tropical waters',
@@ -41,7 +42,7 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language }) => {
     {
       id: 3,
       isBig: false,
-      img: '/assets/img/sunset.svg',
+      img: assetUrl('assets/img/sunset.svg'),
       category: isEn ? 'Inspiration' : 'Inspirasi',
       readTime: isEn ? '3 min read' : '3 mnt baca',
       titleEn: 'Chasing the perfect golden hour at sea',
