@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
 
 interface NavbarProps {
@@ -78,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="nav">
         {/* Brand Logo from extracted assets */}
         <a className="brand" href="#home" aria-label="Banggai Paradise Tour & Travel, home" onClick={(e) => handleNavClick(e, '#home')}>
-          <img src="/assets/img/logo-white.png" alt="Banggai Paradise Tour & Travel" width="530" height="250" />
+          <img src={assetUrl('assets/img/logo-white.png')} alt="Banggai Paradise Tour & Travel" width="530" height="250" />
         </a>
 
         {/* Navigation Menu */}
