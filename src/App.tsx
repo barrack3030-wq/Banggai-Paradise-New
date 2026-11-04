@@ -16,7 +16,6 @@ import { TourPackage } from './types';
 import { Language } from './i18n/translations';
 
 export default function App() {
-  const [currency, setCurrency] = useState<'IDR' | 'USD'>('IDR');
   const [language, setLanguage] = useState<Language>(() => {
     const saved = localStorage.getItem('banggai_lang');
     return saved === 'ID' || saved === 'EN' ? (saved as Language) : 'EN';
@@ -74,9 +73,6 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const handleToggleCurrency = () => {
-    setCurrency((prev) => (prev === 'IDR' ? 'USD' : 'IDR'));
-  };
 
   const handleExplorePackages = () => {
     const el = document.getElementById('packages');
@@ -127,8 +123,6 @@ export default function App() {
       {/* Top Header Navigation */}
       <Navbar
         onPlanTripClick={handleContactScroll}
-        currency={currency}
-        onToggleCurrency={handleToggleCurrency}
         language={language}
         onSelectLanguage={handleSelectLanguage}
       />
@@ -151,7 +145,6 @@ export default function App() {
         {/* Section 3: Tour Packages */}
         <TourPackages
           onSelectPackage={(pkg) => setSelectedPackage(pkg)}
-          currency={currency}
           searchFilter="all"
           language={language}
         />
@@ -183,7 +176,6 @@ export default function App() {
         <PackageModal
           pkg={selectedPackage}
           onClose={() => setSelectedPackage(null)}
-          currency={currency}
         />
       )}
 
