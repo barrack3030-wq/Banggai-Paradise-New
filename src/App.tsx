@@ -11,177 +11,93 @@ import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { PackageModal } from './components/PackageModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
-import { ErrorPage404 } from './components/ErrorPage404';
 import { TourPackage } from './types';
 import { Language } from './i18n/translations';
 
+type Page = 'home' | 'destinations' | 'about' | 'blog';
+
 export default function App() {
   const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem('banggai_lang');
-    return saved === 'ID' || saved === 'EN' ? (saved as Language) : 'EN';
+    try {
+      const saved = localStorage.getItem('banggai_lang');
+      return saved === 'ID' || saved === 'EN' ? saved as Language : 'EN';
+    } catch { return 'EN'; }
   });
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
-  const [is404Active, setIs404Active] = useState<boolean>(() => {
-    return window.location.hash === '#/404' || window.location.hash === '#404' || window.location.hash === '#error';
-  });
+  const basePath = import.meta.env.BASE_URL;
+  const routePath = window.location.pathname.startsWith(basePath)
+    ? window.location.pathname.slice(basePath.length)
+    : window.location.pathname.replace(/^\/+/, '');
+  const route = routePath.split('/').filter(Boolean)[0] || 'home';
+  const page: Page = route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
 
   const handleSelectLanguage = (lang: Language) => {
     setLanguage(lang);
-    localStorage.setItem('banggai_lang', lang);
+    try { localStorage.setItem('banggai_lang', lang); } catch { /* optional */ }
   };
 
-  const showToast = (msg: string) => {
-    setToastMessage(msg);
-    setTimeout(() => {
-      setToastMessage(null);
-    }, 4500);
-  };
-
-  // Scroll reveal observer
   useEffect(() => {
+    document.documentElement.lang = language.toLowerCase();
     document.documentElement.classList.add('js');
     const reveals = document.querySelectorAll('[data-reveal]');
-    if ('IntersectionObserver' in window && reveals.length > 0) {
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((en) => {
-            if (en.isIntersecting) {
-              en.target.classList.add('in');
-              io.unobserve(en.target);
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
-      );
-      reveals.forEach((el) => io.observe(el));
-      return () => io.disconnect();
+    if ('IntersectionObserver' in window && reveals.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+      reveals.forEach((el) => observer.observe(el));
+      return () => observer.disconnect();
     }
-  }, []);
+  }, [page, language]);
 
-  // Listen for hash changes
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#/404' || hash === '#404' || hash === '#error') {
-        setIs404Active(true);
-      } else {
-        setIs404Active(false);
-      }
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-
-  const handleExplorePackages = () => {
-    const el = document.getElementById('packages');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const handleViewDestinations = () => {
-    const el = document.getElementById('destinations');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+  const intro = {
+    destinations: language === 'ID'
+      ? ['Jelajahi Destinasi Kepulauan Banggai', 'Kenali dan rencanakan perjalanan ke danau sebening kristal, pantai pasir putih, gugusan pulau, dan lanskap pesisir Banggai.']
+      : ['Explore the Banggai Islands', 'Discover and plan a journey to crystal-clear lakes, white-sand beaches, island groups and the coastal landscapes of Banggai.'],
+    about: language === 'ID'
+      ? ['Tentang Banggai Paradise', 'Kenali tim lokal dan cara kami membantu merencanakan perjalanan yang nyaman, terarah, dan berkesan di Kepulauan Banggai.']
+      : ['About Banggai Paradise', 'Meet the local team and learn how we help plan thoughtful, comfortable and memorable journeys through the Banggai Islands.'],
+    blog: language === 'ID'
+      ? ['Travel Blog Banggai Paradise', 'Baca panduan perjalanan, inspirasi destinasi, dan tips praktis sebelum menjelajahi Kepulauan Banggai.']
+      : ['Banggai Paradise Travel Blog', 'Read travel guides, destination inspiration and practical tips before exploring the Banggai Islands.']
+  } as const;
 
-  const handleContactScroll = () => {
-    const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  // If 404 route is active, render dedicated Error 404 page
-  if (is404Active) {
-    return (
-      <ErrorPage404
-        language={language}
-        onBackToHome={() => {
-          window.location.hash = '#home';
-          setIs404Active(false);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        onExplorePackages={() => {
-          window.location.hash = '#packages';
-          setIs404Active(false);
-          setTimeout(() => {
-            const el = document.getElementById('packages');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
-        }}
-      />
-    );
-  }
-
-  return (
-    <>
-      {/* SVG Icon Sprite Definitions from extracted index.html */}
-      <SvgSprite />
-
-      <a className="skip" href="#main">
-        {language === 'ID' ? 'Lewati ke konten' : 'Skip to content'}
-      </a>
-
-      {/* Top Header Navigation */}
-      <Navbar
-        onPlanTripClick={handleContactScroll}
-        language={language}
-        onSelectLanguage={handleSelectLanguage}
-      />
-
-      {/* Main Content Sections */}
-      <main id="main">
-        {/* Section 1: Hero */}
-        <Hero
-          onExplorePackages={handleExplorePackages}
-          onViewDestinations={handleViewDestinations}
-          language={language}
-        />
-
-        {/* Section 2: Trust & How It Works */}
-        <WhyChooseUs
-          onPlanTripClick={handleContactScroll}
-          language={language}
-        />
-
-        {/* Section 3: Tour Packages */}
-        <TourPackages
-          onSelectPackage={(pkg) => setSelectedPackage(pkg)}
-          searchFilter="all"
-          language={language}
-        />
-
-        {/* Section 4: Explore Destinations (Bento Grid) */}
-        <ExploreDestinations
-          onPlanTripForDestination={handleContactScroll}
-          language={language}
-        />
-
-        {/* Section 5: About Us */}
-        <AboutUs
-          onMeetTeamClick={handleContactScroll}
-          language={language}
-        />
-
-        {/* Section 6: Travel Blog */}
+  return <>
+    <SvgSprite />
+    <a className="skip" href="#main">{language === 'ID' ? 'Lewati ke konten' : 'Skip to content'}</a>
+    <Navbar onPlanTripClick={() => scrollTo('contact')} language={language} onSelectLanguage={handleSelectLanguage} />
+    <main id="main">
+      {page === 'home' ? <>
+        <Hero onExplorePackages={() => scrollTo('packages')} onViewDestinations={() => { window.location.href = basePath + 'destinations/'; }} language={language} />
+        <WhyChooseUs onPlanTripClick={() => scrollTo('contact')} language={language} />
+        <TourPackages onSelectPackage={setSelectedPackage} searchFilter="all" language={language} />
+        <ExploreDestinations onPlanTripForDestination={() => scrollTo('contact')} language={language} />
+        <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />
         <TravelBlog language={language} />
-
-        {/* Section 7: Final CTA */}
-        <FinalCTA onPlanTripClick={handleContactScroll} language={language} />
-      </main>
-
-      {/* Footer */}
-      <Footer language={language} />
-
-      {/* Interactive Modals */}
-      {selectedPackage && (
-        <PackageModal
-          pkg={selectedPackage}
-          onClose={() => setSelectedPackage(null)}
-        />
-      )}
-
-      {/* Floating WhatsApp Quick Action Button */}
-      <FloatingWhatsApp />
-
-    </>
-  );
+      </> : <>
+        <section className="page-intro">
+          <div className="container">
+            <span className="eyebrow">{page === 'destinations' ? 'BANGGAI ISLANDS' : page === 'about' ? 'OUR STORY' : 'TRAVEL JOURNAL'}</span>
+            <h1>{intro[page][0]}</h1>
+            <p>{intro[page][1]}</p>
+          </div>
+        </section>
+        {page === 'destinations' && <ExploreDestinations onPlanTripForDestination={() => scrollTo('contact')} language={language} />}
+        {page === 'about' && <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />}
+        {page === 'blog' && <TravelBlog language={language} />}
+      </>}
+      <FinalCTA onPlanTripClick={() => scrollTo('contact')} language={language} />
+    </main>
+    <Footer language={language} />
+    {selectedPackage && page === 'home' && <PackageModal pkg={selectedPackage} onClose={() => setSelectedPackage(null)} />}
+    <FloatingWhatsApp />
+  </>;
 }
