@@ -2,6 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig(() => {
   return {
@@ -9,6 +10,16 @@ export default defineConfig(() => {
     // Keep local development and AI Studio previews at the domain root.
     base: process.env.GITHUB_ACTIONS === 'true' ? '/Banggai-Paradise-New/' : '/',
     plugins: [react(), tailwindcss()],
+    build: {
+      rollupOptions: {
+        input: {
+          main: fileURLToPath(new URL('./index.html', import.meta.url)),
+          destinations: fileURLToPath(new URL('./destinations/index.html', import.meta.url)),
+          about: fileURLToPath(new URL('./about/index.html', import.meta.url)),
+          blog: fileURLToPath(new URL('./blog/index.html', import.meta.url)),
+        },
+      },
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
