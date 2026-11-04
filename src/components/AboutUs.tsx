@@ -1,4 +1,5 @@
 import React from 'react';
+import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
 
 interface AboutUsProps {
@@ -22,9 +23,9 @@ export const AboutUs: React.FC<AboutUsProps> = ({
         {/* Vintage Orange Travel Van Asset */}
         <div className="about-media">
           <picture>
-            <source srcSet="/assets/img/van.webp" type="image/webp" />
+            <source srcSet={assetUrl('assets/img/van.webp')} type="image/webp" />
             <img
-              src="/assets/img/van.png"
+              src={assetUrl('assets/img/van.png')}
               alt="Vintage orange travel van"
               loading="lazy"
               width={406}
