@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, Check, Clock, Users, Star, Calendar, MessageCircle, Shield, Award } from 'lucide-react';
+import React from 'react';
+import { X, Check, Clock, Users, Star, Shield, Award } from 'lucide-react';
 import { TourPackage } from '../types';
 
 interface PackageModalProps {
@@ -11,36 +11,13 @@ interface PackageModalProps {
 export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, currency }) => {
   if (!pkg) return null;
 
-  const [guestsCount, setGuestsCount] = useState(2);
-  const [selectedDate, setSelectedDate] = useState('');
-  const [userName, setUserName] = useState('');
-  const [userPhone, setUserPhone] = useState('');
-
-  // Base price per person decreases slightly for groups >= 4
-  const discountMultiplier = guestsCount >= 6 ? 0.85 : guestsCount >= 4 ? 0.92 : 1;
   const unitPrice = currency === 'IDR' ? pkg.priceIdr : pkg.priceUsd;
-  const finalUnitPrice = Math.round(unitPrice * discountMultiplier);
-  const totalPrice = finalUnitPrice * guestsCount;
 
   const formattedPrice = (price: number) => {
     if (currency === 'IDR') {
       return `Rp ${price.toLocaleString('id-ID')}`;
     }
     return `$${price.toLocaleString('en-US')}`;
-  };
-
-  const handleWhatsAppBooking = (e: React.FormEvent) => {
-    e.preventDefault();
-    const text = encodeURIComponent(
-      `Halo Banggai Paradise Tour & Travel!\n\nSaya ingin memesan paket:\n*${pkg.name} (${pkg.duration})*\n\n` +
-      `Nama: ${userName || 'Calon Wisatawan'}\n` +
-      `No. WhatsApp: ${userPhone || '-'}\n` +
-      `Tanggal Keberangkatan: ${selectedDate || 'Fleksibel'}\n` +
-      `Jumlah Peserta: ${guestsCount} Orang\n` +
-      `Estimasi Total: ${formattedPrice(totalPrice)}\n\n` +
-      `Mohon info ketersediaan tanggal dan konfirmasi detail perjalanannya. Terima kasih!`
-    );
-    window.location.href = `https://wa.me/628124567890?text=${text}`;
   };
 
   return (
@@ -184,122 +161,24 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, curren
 
             </div>
 
-            {/* Right 5 cols: Instant Booking & WhatsApp Form */}
+            {/* Price & Contact Information */}
             <div className="lg:col-span-5 bg-slate-50/90 rounded-2xl p-6 border border-slate-200/80 flex flex-col justify-between">
               <div>
-                <div className="flex items-baseline justify-between pb-4 border-b border-slate-200">
-                  <span className="text-xs font-semibold text-slate-500 uppercase">Mulai Dari</span>
-                  <div className="text-right">
-                    <span className="text-2xl font-extrabold text-[#0A3A40]">
-                      {formattedPrice(finalUnitPrice)}
-                    </span>
-                    <span className="text-xs text-slate-500"> / orang</span>
-                  </div>
+                <span className="text-xs font-semibold text-slate-500 uppercase">Mulai Dari</span>
+                <div className="mt-2 text-2xl font-extrabold text-[#0A3A40]">
+                  {formattedPrice(unitPrice)}
+                  <span className="ml-1 text-xs font-medium text-slate-500">/ orang</span>
                 </div>
-
-                <form onSubmit={handleWhatsAppBooking} className="mt-5 space-y-4">
-                  {/* Name */}
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Nama Lengkap
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Contoh: Rian Pratama"
-                      value={userName}
-                      onChange={(e) => setUserName(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0284C7]/30"
-                    />
-                  </div>
-
-                  {/* Phone */}
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Nomor WhatsApp
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="0812xxxxxxx"
-                      value={userPhone}
-                      onChange={(e) => setUserPhone(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0284C7]/30"
-                    />
-                  </div>
-
-                  {/* Travel Date */}
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Rencana Tanggal Perjalanan
-                    </label>
-                    <input
-                      type="date"
-                      value={selectedDate}
-                      onChange={(e) => setSelectedDate(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0284C7]/30"
-                    />
-                  </div>
-
-                  {/* Guests selector */}
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Jumlah Peserta: <span className="font-bold text-[#0284C7]">{guestsCount} Orang</span>
-                    </label>
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="range"
-                        min="1"
-                        max="12"
-                        value={guestsCount}
-                        onChange={(e) => setGuestsCount(parseInt(e.target.value))}
-                        className="w-full accent-[#0284C7] cursor-pointer"
-                      />
-                    </div>
-                    {guestsCount >= 4 && (
-                      <p className="text-[11px] text-teal-600 font-medium mt-1">
-                        Diskon grup {guestsCount >= 6 ? '15%' : '8%'} otomatis diterapkan!
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Price Calculation Summary */}
-                  <div className="p-3.5 bg-white rounded-xl border border-slate-200 space-y-1.5">
-                    <div className="flex justify-between text-xs text-slate-500">
-                      <span>Harga per pax</span>
-                      <span>{formattedPrice(finalUnitPrice)}</span>
-                    </div>
-                    <div className="flex justify-between text-xs text-slate-500">
-                      <span>Peserta</span>
-                      <span>{guestsCount} Orang</span>
-                    </div>
-                    <div className="flex justify-between text-sm font-bold text-slate-800 pt-1 border-t border-slate-100">
-                      <span>Total Estimasi</span>
-                      <span className="text-[#0284C7]">{formattedPrice(totalPrice)}</span>
-                    </div>
-                  </div>
-
-                  {/* Booking Button */}
-                  <button
-                    type="submit"
-                    className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl font-bold text-white bg-gradient-to-r from-[#F26A4F] to-[#EA580C] hover:from-[#EA580C] hover:to-[#C2410C] shadow-lg shadow-orange-500/25 transition-all cursor-pointer text-sm"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    <span>Order Now via WhatsApp</span>
-                  </button>
-                </form>
+                <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                  Untuk informasi ketersediaan, penyesuaian itinerary, dan penawaran terbaru, silakan hubungi tim kami.
+                </p>
+                <a href="#contact" onClick={onClose} className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-[#0A3A40] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#07515D]">
+                  Hubungi Tim Kami
+                </a>
               </div>
-
-              {/* Security & Guarantee Note */}
-              <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 flex items-center justify-between">
-                <span className="flex items-center gap-1">
-                  <Shield className="w-3.5 h-3.5 text-teal-600" />
-                  Resmi &amp; Berizin
-                </span>
-                <span className="flex items-center gap-1">
-                  <Award className="w-3.5 h-3.5 text-teal-600" />
-                  Free 4K Drone
-                </span>
+              <div className="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500 flex items-center justify-between">
+                <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5 text-teal-600" />Resmi &amp; Berizin</span>
+                <span className="flex items-center gap-1"><Award className="w-3.5 h-3.5 text-teal-600" />Free 4K Drone</span>
               </div>
             </div>
 
