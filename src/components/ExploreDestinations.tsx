@@ -1,4 +1,5 @@
 import React from 'react';
+import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
 
 interface ExploreDestinationsProps {
@@ -15,7 +16,7 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
   const tiles = [
     {
       cls: 'tile t1',
-      img: '/assets/img/beach.svg',
+      img: assetUrl('assets/img/beach.svg'),
       chip: isEn ? 'Beach' : 'Pantai',
       titleEn: 'White-Sand Beaches & Paisu Pok',
       titleId: 'Pantai Pasir Putih & Paisu Pok',
@@ -25,7 +26,7 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
     },
     {
       cls: 'tile t2',
-      img: '/assets/img/reef.svg',
+      img: assetUrl('assets/img/reef.svg'),
       chip: null,
       titleEn: 'Coral Reefs Sanctuary',
       titleId: 'Taman Karang Hidup',
@@ -35,7 +36,7 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
     },
     {
       cls: 'tile t3',
-      img: '/assets/img/aerial.svg',
+      img: assetUrl('assets/img/aerial.svg'),
       chip: null,
       titleEn: 'Hidden Islands Lagoon',
       titleId: 'Laguna Karst Sombori',
@@ -45,7 +46,7 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
     },
     {
       cls: 'tile t4',
-      img: '/assets/img/sunset.svg',
+      img: assetUrl('assets/img/sunset.svg'),
       chip: null,
       titleEn: 'Golden Hour at Sea & Pulo Dua',
       titleId: 'Golden Hour di Laut & Pulo Dua',
