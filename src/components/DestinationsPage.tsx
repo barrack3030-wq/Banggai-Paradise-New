@@ -34,7 +34,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({ language, on
  const labels: Record<string,{id:string;en:string}> = {Lake:{id:'Danau',en:'Lake'},Spring:{id:'Mata Air',en:'Spring'},Bay:{id:'Teluk',en:'Bay'},Beach:{id:'Pantai',en:'Beach'},Island:{id:'Pulau',en:'Island'},Waterfall:{id:'Air Terjun',en:'Waterfall'}};
  return <section className="section packages destinations-listing">
   <div className="container">
-   <div className="pgrid destinations-grid">{DESTINATIONS.map((d,i)=><article className={`pcard destination-card ${i===0?'feat':''}`} key={d.id}>
+   <div className="pgrid destinations-grid">{DESTINATIONS.map((d,i)=><article id={d.id} className={`pcard destination-card ${i===0?'feat':''}`} key={d.id}>
     <div className="pa"><span className="chip chip-w">{labels[d.category][isEn?'en':'id']}</span><img src={d.image} alt={isEn?d.en:d.name} loading={i<3?'eager':'lazy'} width="800" height="620"/></div>
     <div className="pb"><div className="destination-location">{d.location}</div><h3>{isEn?d.en:d.name}</h3><p>{isEn?d.descEn:d.desc}</p><div className="prow"><span className="text-sm font-semibold text-[#0A3A40]">{isEn?'Plan a visit':'Rencanakan Kunjungan'}</span><button type="button" className="round" aria-label={(isEn?'Plan a visit to ':'Rencanakan kunjungan ke ')+(isEn?d.en:d.name)} onClick={()=>onPlanTrip(isEn?d.en:d.name)}><svg className="ic"><use href="#i-arrow"/></svg></button></div></div>
    </article>)}</div>
