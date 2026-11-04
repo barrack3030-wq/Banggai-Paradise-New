@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             <h4>{isEn ? 'Company' : 'Perusahaan'}</h4>
             <nav>
               <a href={`${import.meta.env.BASE_URL}about/`}>{isEn ? 'About Us' : 'Tentang Kami'}</a>
-              <a href={`${import.meta.env.BASE_URL}#packages`}>{isEn ? 'Tour Packages' : 'Paket Wisata'}</a>
+              <a href={`${import.meta.env.BASE_URL}packages/`}>{isEn ? 'Tour Packages' : 'Paket Wisata'}</a>
               <a href={`${import.meta.env.BASE_URL}destinations/`}>{isEn ? 'Destinations' : 'Destinasi'}</a>
               <a href={`${import.meta.env.BASE_URL}blog/`}>{isEn ? 'Travel Blog' : 'Blog Wisata'}</a>
             </nav>
