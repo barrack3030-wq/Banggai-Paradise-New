@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { assetUrl } from '../utils/assetUrl';
 import { TourPackage } from '../types';
 import { TOUR_PACKAGES } from '../data/travelData';
 import { Language } from '../i18n/translations';
@@ -26,7 +27,7 @@ export const TourPackages: React.FC<TourPackagesProps> = ({
       badge: isEn ? 'Relax' : 'Santai',
       badgeClass: 'chip-w',
       isFeatured: false,
-      image: '/assets/img/beach.svg',
+      image: assetUrl('assets/img/beach.svg'),
       titleEn: 'Beach & Relax Getaway',
       titleId: 'Paket Liburan Pantai Santai',
       descEn: 'Slow mornings, soft white sand and calm turquoise water, made for unwinding.',
@@ -44,7 +45,7 @@ export const TourPackages: React.FC<TourPackagesProps> = ({
       badge: isEn ? 'Adventure' : 'Petualangan',
       badgeClass: 'chip-w',
       isFeatured: true,
-      image: '/assets/img/reef.svg',
+      image: assetUrl('assets/img/reef.svg'),
       titleEn: 'Snorkeling & Diving Expedition',
       titleId: 'Ekspedisi Snorkeling & Diving',
       descEn: 'Float above colorful coral gardens with guides who keep you safe and comfortable.',
@@ -62,7 +63,7 @@ export const TourPackages: React.FC<TourPackagesProps> = ({
       badge: isEn ? 'Discover' : 'Jelajah',
       badgeClass: 'chip-w',
       isFeatured: false,
-      image: '/assets/img/sunset.svg',
+      image: assetUrl('assets/img/sunset.svg'),
       titleEn: 'Island Hopping by Boat',
       titleId: 'Island Hopping Spektakuler',
       descEn: 'Glide between islands and finish the day with a golden sunset on the water.',
