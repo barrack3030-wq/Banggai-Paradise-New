@@ -1,4 +1,4 @@
-@import "./styles/banggai.css" layer(banggai);
+@import "./styles/banggai.css";
 @import "tailwindcss";
 
 @layer base {
