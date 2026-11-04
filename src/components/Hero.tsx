@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
 
 interface HeroProps {
@@ -10,35 +11,35 @@ interface HeroProps {
 
 const HERO_SLIDES = [
   {
-    image: '/assets/images/banggai_hero_paisupok_1793766897829.jpg',
+    image: assetUrl('assets/images/banggai_hero_paisupok_1793766897829.jpg'),
     titleEn: 'Danau Paisu Pok',
     titleId: 'Danau Paisu Pok',
     subEn: 'Mirror Lake · Peleng',
     subId: 'Danau Kaca · P. Peleng',
   },
   {
-    image: '/assets/images/banggai_sombori_islands_1793766898898.jpg',
+    image: assetUrl('assets/images/banggai_sombori_islands_1793766898898.jpg'),
     titleEn: 'Sombori Archipelago',
     titleId: 'Kepulauan Sombori',
     subEn: 'Karst Cliffs & Lagoons',
     subId: 'Tebing Karst & Laguna Zamrud',
   },
   {
-    image: '/assets/images/banggai_white_sand_beach_1793766899675.jpg',
+    image: assetUrl('assets/images/banggai_white_sand_beach_1793766899675.jpg'),
     titleEn: 'White-Sand Mandel Beach',
     titleId: 'Pantai Pasir Putih Mandel',
     subEn: 'Soft Sand & Swaying Palms',
     subId: 'Pasir Selembut Sutra & Kelapa',
   },
   {
-    image: '/assets/images/banggai_snorkeling_coral_1793766898966.jpg',
+    image: assetUrl('assets/images/banggai_snorkeling_coral_1793766898966.jpg'),
     titleEn: 'Living Coral Sanctuary',
     titleId: 'Taman Terumbu Karang & Biota',
     subEn: 'Pristine Marine Life & Jellyfish',
     subId: 'Danau Ubur-Ubur & Ikan Kardinal',
   },
   {
-    image: '/assets/images/banggai_pulodua_coasthill_1793781298326.jpg',
+    image: assetUrl('assets/images/banggai_pulodua_coasthill_1793781298326.jpg'),
     titleEn: 'Pulo Dua & Balantak',
     titleId: 'Pulo Dua & Savana Balantak',
     subEn: 'Green Hills & Sea Boardwalk',
@@ -197,7 +198,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Arch Background Illustration */}
             <div className="arch">
               <img
-                src="/assets/img/hero.svg"
+                src={assetUrl('assets/img/hero.svg')}
                 alt="Tropical beach with palm trees and sailing boat"
                 width={600}
                 height={800}
@@ -220,7 +221,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Circular Photo Bubble 1 */}
             <div className="bubble bubble-photo">
               <img
-                src="/assets/img/beach-photo.jpg"
+                src={assetUrl('assets/img/beach-photo.jpg')}
                 alt="Turquoise water and palm trees on a white-sand beach"
                 width={310}
                 height={310}
@@ -230,7 +231,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Circular Illustration Bubble 2 */}
             <div className="bubble bubble-reef">
               <img
-                src="/assets/img/reef.svg"
+                src={assetUrl('assets/img/reef.svg')}
                 alt="Coral reef illustration"
                 width={600}
                 height={700}
@@ -239,9 +240,9 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Vintage Orange Travel Van */}
             <picture className="van-hero">
-              <source srcSet="/assets/img/van.webp" type="image/webp" />
+              <source srcSet={assetUrl('assets/img/van.webp')} type="image/webp" />
               <img
-                src="/assets/img/van.png"
+                src={assetUrl('assets/img/van.png')}
                 alt="Vintage orange travel van"
                 width={406}
                 height={320}
