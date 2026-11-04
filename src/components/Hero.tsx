@@ -5,7 +5,6 @@ import { Language } from '../i18n/translations';
 interface HeroProps {
   onExplorePackages: () => void;
   onViewDestinations: () => void;
-  onSearch: (filters: { destination: string; date: string; guests: string }) => void;
   language: Language;
 }
 
@@ -50,12 +49,8 @@ const HERO_SLIDES = [
 export const Hero: React.FC<HeroProps> = ({
   onExplorePackages,
   onViewDestinations,
-  onSearch,
   language,
 }) => {
-  const [destination, setDestination] = useState('');
-  const [date, setDate] = useState('');
-  const [guests, setGuests] = useState('');
   const [activeSlide, setActiveSlide] = useState(0);
 
   const isEn = language === 'EN';
@@ -67,11 +62,6 @@ export const Hero: React.FC<HeroProps> = ({
     }, 5500);
     return () => clearInterval(timer);
   }, []);
-
-  const handleBookingSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch({ destination, date, guests });
-  };
 
   return (
     <>
@@ -259,89 +249,6 @@ export const Hero: React.FC<HeroProps> = ({
         </svg>
       </section>
 
-      {/* ============ FLOATING BOOKING BAR ============ */}
-      <div className="container">
-        <form className="book" id="book-form" onSubmit={handleBookingSubmit}>
-          {/* Field 1: Destination */}
-          <label className="field">
-            <span className="fi">
-              <svg className="ic">
-                <use href="#i-pin" />
-              </svg>
-            </span>
-            <span className="ft">
-              <small>{isEn ? 'Destination' : 'Destinasi'}</small>
-              <select
-                name="destination"
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)}
-                aria-label="Destination"
-              >
-                <option value="">{isEn ? 'Where to?' : 'Pilih Destinasi'}</option>
-                <option value="Danau Paisu Pok">{isEn ? 'Danau Paisu Pok (Mirror Lake)' : 'Danau Paisu Pok'}</option>
-                <option value="Kepulauan Sombori">{isEn ? 'Sombori Archipelago' : 'Kepulauan Sombori'}</option>
-                <option value="Pulo Dua & Balantak">{isEn ? 'Pulo Dua & Balantak Hills' : 'Pulo Dua & Balantak'}</option>
-                <option value="White-sand beaches">{isEn ? 'White-sand beaches' : 'Pantai Pasir Putih'}</option>
-                <option value="Coral reefs">{isEn ? 'Coral reefs & Snorkeling' : 'Taman Karang & Biota Laut'}</option>
-                <option value="Hidden islands">{isEn ? 'Hidden islands lagoon' : 'Pulau Tersembunyi'}</option>
-                <option value="Sunset boat trip">{isEn ? 'Sunset boat trip' : 'Trip Perahu Sunset'}</option>
-              </select>
-            </span>
-          </label>
-
-          {/* Field 2: Travel Date */}
-          <label className="field">
-            <span className="fi">
-              <svg className="ic">
-                <use href="#i-calendar" />
-              </svg>
-            </span>
-            <span className="ft">
-              <small>{isEn ? 'Travel dates' : 'Tanggal Perjalanan'}</small>
-              <input
-                type="date"
-                name="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                aria-label="Travel date"
-              />
-            </span>
-          </label>
-
-          {/* Field 3: Guests */}
-          <label className="field">
-            <span className="fi">
-              <svg className="ic">
-                <use href="#i-users" />
-              </svg>
-            </span>
-            <span className="ft">
-              <small>{isEn ? 'Guests' : 'Peserta'}</small>
-              <select
-                name="guests"
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-                aria-label="Guests"
-              >
-                <option value="">{isEn ? 'Add guests' : 'Jumlah Peserta'}</option>
-                <option value="1 guest">{isEn ? '1 guest (Solo)' : '1 Peserta (Solo)'}</option>
-                <option value="2 guests">{isEn ? '2 guests (Couple)' : '2 Peserta (Pasangan)'}</option>
-                <option value="3-5 guests">{isEn ? '3–5 guests (Family)' : '3–5 Peserta (Keluarga)'}</option>
-                <option value="6-10 guests">{isEn ? '6–10 guests (Group)' : '6–10 Peserta (Grup)'}</option>
-                <option value="11+ guests">{isEn ? '11+ guests (Corporate)' : '11+ Peserta (Rombongan)'}</option>
-              </select>
-            </span>
-          </label>
-
-          {/* Submit Button */}
-          <button className="btn btn-coral btn-lg" type="submit">
-            <svg className="ic">
-              <use href="#i-search" />
-            </svg>
-            <span>{isEn ? 'Search Trips' : 'Cari Perjalanan'}</span>
-          </button>
-        </form>
-      </div>
     </>
   );
 };
