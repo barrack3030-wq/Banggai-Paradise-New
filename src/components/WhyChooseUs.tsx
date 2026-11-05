@@ -40,9 +40,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
               )}
             </h2>
             <p>
-              {isEn
-                ? (isEs ? 'Nuestro equipo conoce las islas y se ocupa de los detalles para que disfrutes del viaje con tranquilidad.' : 'Every detail is handled by a local team that knows the islands, so you can simply enjoy the journey.')
-                : 'Setiap detail perjalanan diatur langsung oleh tim lokal berpengalaman agar Anda dapat menikmati liburan dengan tenang dan berkesan.'}
+              {isEs ? 'Nuestro equipo conoce las islas y se ocupa de los detalles para que disfrutes del viaje con tranquilidad.' : isEn ? 'Every detail is handled by a local team that knows the islands, so you can simply enjoy the journey.' : 'Setiap detail perjalanan diatur langsung oleh tim lokal berpengalaman agar Anda dapat menikmati liburan dengan tenang dan berkesan.'}
             </p>
           </div>
 
@@ -119,9 +117,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
               <span className="sn">1</span>
               <h3>{isEs ? 'Cuéntanos qué viaje imaginas' : isEs ? 'Cuéntanos qué viaje imaginas' : isEn ? 'Share your dream trip' : 'Ceritakan Trip Impian Anda'}</h3>
               <p>
-                {isEn
-                  ? 'Tell us your dates, group and the kind of experience you want.'
-                  : 'Beri tahu kami tanggal keberangkatan, jumlah peserta, dan pengalaman yang Anda inginkan.'}
+                {isEs ? 'Cuéntanos las fechas, cuántas personas viajáis y qué tipo de experiencia buscas.' : isEn ? 'Tell us your dates, group and the kind of experience you want.' : 'Beri tahu kami tanggal keberangkatan, jumlah peserta, dan pengalaman yang Anda inginkan.'}
               </p>
             </li>
 
@@ -139,9 +135,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
               <span className="sn">2</span>
               <h3>{isEs ? 'Preparamos tu itinerario' : isEs ? 'Preparamos tu itinerario' : isEn ? 'We craft your plan' : 'Kami Susun Rencana Terbaik'}</h3>
               <p>
-                {isEn
-                  ? 'Our team designs a clear itinerary with honest pricing, then fine-tunes it with you.'
-                  : 'Tim kami merancang itinerary lengkap dengan harga transparan, lalu disempurnakan bersama Anda.'}
+                {isEs ? 'Preparamos una ruta clara con un presupuesto transparente y la ajustamos contigo.' : isEn ? 'Our team designs a clear itinerary with honest pricing, then fine-tunes it with you.' : 'Tim kami merancang itinerary lengkap dengan harga transparan, lalu disempurnakan bersama Anda.'}
               </p>
             </li>
 
@@ -159,9 +153,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
               <span className="sn">3</span>
               <h3>{isEs ? 'Prepara la maleta y disfruta' : isEs ? 'Haz la maleta y disfruta' : isEn ? 'Pack and enjoy' : 'Siapkan Koper & Nikmati Liburan'}</h3>
               <p>
-                {isEn
-                  ? (isEs ? 'Llega, relájate y deja que el equipo local se ocupe de los detalles.' : 'Show up, relax and let your local guides take care of everything else.')
-                  : 'Tiba di Banggai, rileks, dan biarkan pemandu lokal kami yang mengurus segala kenyamanan Anda.'}
+                {isEs ? 'Llega, relájate y deja que el equipo local se ocupe de los detalles.' : isEn ? 'Show up, relax and let your local guides take care of everything else.' : 'Tiba di Banggai, rileks, dan biarkan pemandu lokal kami yang mengurus segala kenyamanan Anda.'}
               </p>
             </li>
           </ol>
