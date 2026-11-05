@@ -7,6 +7,11 @@ interface AboutUsProps {
 }
 
 const visitorPhotos = [
+  'IMG-20260816-WA0024.jpg',
+  'IMG-20260817-WA0062(1).jpg',
+  'IMG-20260821-WA0025(1).jpg',
+  'IMG-20260829-WA0005.jpg',
+  'IMG-20261008-WA0008(2).jpg',
   'IMG-20261105-WA0001.jpg',
   'IMG-20261105-WA0002.jpg',
   'IMG-20261105-WA0003.jpg',
