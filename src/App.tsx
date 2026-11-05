@@ -89,7 +89,7 @@ export default function App() {
       {page === 'home' ? <>
         <Hero onExplorePackages={() => scrollTo('packages')} onViewDestinations={() => { window.location.href = basePath + 'destinations/'; }} language={language} />
         <WhyChooseUs onPlanTripClick={() => scrollTo('contact')} language={language} />
-        <TourPackages onSelectPackage={setSelectedPackage} searchFilter="all" language={language} />
+        <TourPackages onSelectPackage={setSelectedPackage} language={language} />
         <ExploreDestinations onPlanTripForDestination={() => scrollTo('contact')} language={language} />
         <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />
         <TravelBlog language={language} showAllArticles />
@@ -109,7 +109,7 @@ export default function App() {
       {!isArticleReadingPage && <FinalCTA onPlanTripClick={() => scrollTo('contact')} language={language} />}
     </main>
     <Footer language={language} />
-    {selectedPackage && (page === 'home' || page === 'packages') && <PackageModal pkg={selectedPackage} onClose={() => setSelectedPackage(null)} />}
+    {selectedPackage && (page === 'home' || page === 'packages') && <PackageModal pkg={selectedPackage} onClose={() => setSelectedPackage(null)} language={language} />}
     <FloatingWhatsApp />
   </>;
 }
