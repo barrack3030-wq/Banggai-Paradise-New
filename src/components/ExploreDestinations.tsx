@@ -21,6 +21,7 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
       chip: isEs ? 'Lago' : isEn ? 'Lake' : 'Danau',
       titleEn: 'Danau Paisu Pok',
       titleId: 'Danau Paisu Pok',
+      titleEs: 'Lago Paisu Pok',
       descEn: 'A glass-clear lake surrounded by lush tropical forest.',
       descEs: 'Un lago de aguas transparentes rodeado de vegetación tropical.',
       descId: 'Air sebening kaca di tengah rimbunnya hutan tropis Banggai.',
@@ -32,6 +33,7 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
       chip: null,
       titleEn: 'Mandel & Oyama Beach',
       titleId: 'Pantai Mandel & Oyama',
+      titleEs: 'Playas de Mandel y Oyama',
       descEn: 'White sand, clear turquoise water and a peaceful tropical shoreline.',
       descEs: 'Arena clara, aguas turquesas y un litoral tropical tranquilo.',
       descId: 'Hamparan pasir putih dan air laut jernih di pesisir tropis Banggai.',
@@ -43,6 +45,7 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
       chip: null,
       titleEn: 'Mbuang-Mbuang Island',
       titleId: 'Pulau Mbuang-Mbuang',
+      titleEs: 'Isla de Mbuang-Mbuang',
       descEn: 'Turquoise lagoons and green islets across the Banggai Sea.',
       descEs: 'Lagunas turquesas y pequeños islotes verdes en el mar de Banggai.',
       descId: 'Laguna biru kehijauan dan gugusan pulau hijau di perairan Banggai.',
@@ -54,6 +57,7 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
       chip: null,
       titleEn: 'Pulo Dua Balantak',
       titleId: 'Pulo Dua Balantak',
+      titleEs: 'Pulo Dua, Balantak',
       descEn: 'A striking island ridge, white-sand shores and clear blue waters in Balantak.',
       descEs: 'Colinas insulares, playas de arena clara y aguas azules en Balantak.',
       descId: 'Punggung bukit yang khas, pantai pasir putih, dan laut jernih di Balantak.',
@@ -94,7 +98,7 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
             >
               <img
                 src={tile.img}
-                alt={isEn ? tile.titleEn : tile.titleId}
+                alt={isEs ? tile.titleEs : isEn ? tile.titleEn : tile.titleId}
                 loading="lazy"
                 width={600}
                 height={700}
