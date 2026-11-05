@@ -76,18 +76,10 @@ export default function App() {
   };
 
   const intro = {
-    packages: language === 'ID'
-      ? ['Paket Tour Kepulauan Banggai', 'Pilih pengalaman perjalanan yang sesuai, mulai dari wisata pantai dan island hopping hingga petualangan laut bersama tim lokal Banggai Paradise.']
-      : ['Banggai Islands Tour Packages', 'Choose a trip that suits your travel style, from beach escapes and island hopping to ocean adventures with the local Banggai Paradise team.'],
-    destinations: language === 'ID'
-      ? ['Jelajahi Destinasi Kepulauan Banggai', 'Kenali dan rencanakan perjalanan ke danau sebening kristal, pantai pasir putih, gugusan pulau, dan lanskap pesisir Banggai.']
-      : ['Explore the Banggai Islands', 'Discover and plan a journey to crystal-clear lakes, white-sand beaches, island groups and the coastal landscapes of Banggai.'],
-    about: language === 'ID'
-      ? ['Tentang Banggai Paradise', 'Kenali tim lokal dan cara kami membantu merencanakan perjalanan yang nyaman, terarah, dan berkesan di Kepulauan Banggai.']
-      : ['About Banggai Paradise', 'Meet the local team and learn how we help plan thoughtful, comfortable and memorable journeys through the Banggai Islands.'],
-    blog: language === 'ID'
-      ? ['Travel Blog Banggai Paradise', 'Baca panduan perjalanan, inspirasi destinasi, dan tips praktis sebelum menjelajahi Kepulauan Banggai.']
-      : ['Banggai Paradise Travel Blog', 'Read travel guides, destination inspiration and practical tips before exploring the Banggai Islands.']
+    packages: language === 'ES' ? ['Viajes privados por las islas Banggai', 'Elige una experiencia a tu medida: playas, rutas entre islas y paisajes naturales con el apoyo de nuestro equipo local.'] : language === 'ID' ? ['Paket Tour Kepulauan Banggai', 'Pilih pengalaman perjalanan yang sesuai, mulai dari wisata pantai dan island hopping hingga petualangan laut bersama tim lokal Banggai Paradise.'] : ['Banggai Islands Tour Packages', 'Choose a trip that suits your travel style, from beach escapes and island hopping to ocean adventures with the local Banggai Paradise team.'],
+    destinations: language === 'ES' ? ['Descubre las islas Banggai', 'Conoce lagos de aguas transparentes, playas de arena clara, pequeñas islas y paisajes costeros de Sulawesi Central.'] : language === 'ID' ? ['Jelajahi Destinasi Kepulauan Banggai', 'Kenali dan rencanakan perjalanan ke danau sebening kristal, pantai pasir putih, gugusan pulau, dan lanskap pesisir Banggai.'] : ['Explore the Banggai Islands', 'Discover and plan a journey to crystal-clear lakes, white-sand beaches, island groups and the coastal landscapes of Banggai.'],
+    about: language === 'ES' ? ['Sobre Banggai Paradise', 'Conoce al equipo local y nuestra forma de ayudarte a organizar un viaje cómodo y auténtico por las islas Banggai.'] : language === 'ID' ? ['Tentang Banggai Paradise', 'Kenali tim lokal dan cara kami membantu merencanakan perjalanan yang nyaman, terarah, dan berkesan di Kepulauan Banggai.'] : ['About Banggai Paradise', 'Meet the local team and learn how we help plan thoughtful, comfortable and memorable journeys through the Banggai Islands.'],
+    blog: language === 'ES' ? ['Blog de viajes de Banggai Paradise', 'Guías prácticas, ideas para descubrir el destino y consejos para preparar tu viaje a las islas Banggai.'] : language === 'ID' ? ['Travel Blog Banggai Paradise', 'Baca panduan perjalanan, inspirasi destinasi, dan tips praktis sebelum menjelajahi Kepulauan Banggai.'] : ['Banggai Paradise Travel Blog', 'Read travel guides, destination inspiration and practical tips before exploring the Banggai Islands.']
   } as const;
 
   
