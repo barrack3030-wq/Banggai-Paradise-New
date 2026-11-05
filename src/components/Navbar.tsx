@@ -34,9 +34,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
   const basePath = import.meta.env.BASE_URL;
   const pathParts = window.location.pathname.replace(basePath, '').split('/').filter(Boolean);
-  const localePrefix = pathParts[0] === 'id' || pathParts[0] === 'eng' ? pathParts[0] : (language === 'ID' ? 'id' : 'eng');
+  const localePrefix = pathParts[0] === 'id' || pathParts[0] === 'eng' || pathParts[0] === 'es' ? pathParts[0] : (language === 'ID' ? 'id' : language === 'ES' ? 'es' : 'eng');
   const localizedBase = basePath + localePrefix + '/';
-  const currentPath = (pathParts[0] === 'id' || pathParts[0] === 'eng' ? pathParts[1] : pathParts[0]) || 'home';
+  const currentPath = (pathParts[0] === 'id' || pathParts[0] === 'eng' || pathParts[0] === 'es' ? pathParts[1] : pathParts[0]) || 'home';
   const [activeSection, setActiveSection] = useState(currentPath);
 
   useEffect(() => {
@@ -103,35 +103,35 @@ export const Navbar: React.FC<NavbarProps> = ({
             className={activeSection === 'home' ? 'is-active' : ''}
             onClick={closeMenu}
           >
-            {language === 'ID' ? 'Beranda' : 'Home'}
+            {language === 'ID' ? 'Beranda' : language === 'ES' ? 'Inicio' : 'Home'}
           </a>
           <a
             href={localizedBase + "packages/"}
             className={activeSection === 'packages' ? 'is-active' : ''}
             onClick={closeMenu}
           >
-            {language === 'ID' ? 'Paket Wisata' : 'Tour Package'}
+            {language === 'ID' ? 'Paket Wisata' : language === 'ES' ? 'Paquetes' : 'Tour Package'}
           </a>
           <a
             href={localizedBase + "destinations/"}
             className={activeSection === 'destinations' ? 'is-active' : ''}
             onClick={closeMenu}
           >
-            {language === 'ID' ? 'Destinasi' : 'Destination'}
+            {language === 'ID' ? 'Destinasi' : language === 'ES' ? 'Destinos' : 'Destination'}
           </a>
           <a
             href={localizedBase + "about/"}
             className={activeSection === 'about' ? 'is-active' : ''}
             onClick={closeMenu}
           >
-            {language === 'ID' ? 'Tentang Kami' : 'About Us'}
+            {language === 'ID' ? 'Tentang Kami' : language === 'ES' ? 'Quiénes somos' : 'About Us'}
           </a>
           <a
             href={localizedBase + "blog/"}
             className={activeSection === 'blog' ? 'is-active' : ''}
             onClick={closeMenu}
           >
-            {language === 'ID' ? 'Blog Wisata' : 'Travel Blog'}
+            {language === 'ID' ? 'Blog Wisata' : language === 'ES' ? 'Blog de viajes' : 'Travel Blog'}
           </a>
 
           {/* Mobile Language & CTA */}
@@ -177,7 +177,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onPlanTripClick();
             }}
           >
-            <span>{language === 'ID' ? 'Rencanakan Trip' : 'Plan My Trip'}</span>
+            <span>{language === 'ID' ? 'Rencanakan Trip' : language === 'ES' ? 'Planifica tu viaje' : 'Plan My Trip'}</span>
             <svg className="ic"><use href="#i-arrow" /></svg>
           </a>
         </nav>
