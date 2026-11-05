@@ -31,12 +31,6 @@ export const AboutUs: React.FC<AboutUsProps> = ({
 
         <div className="about-txt">
           <span className="eyebrow on-teal">{isEn ? 'About Us' : 'Tentang Kami'}</span>
-          <h2>{isEn ? 'A local perspective. A more personal journey.' : 'Berangkat dari lokal. Menjelajah lebih personal.'}</h2>
-          <div className="founder-identity">
-            <strong>Aji Zulfikar</strong>
-            <span>{isEn ? 'Founder & Local Guide' : 'Pendiri & Pemandu Lokal'}</span>
-          </div>
-
           <p>
             {isEn
               ? 'Banggai Paradise was founded by Aji Zulfikar, a local guide from the Banggai region with experience accompanying international travelers. His knowledge of the islands, natural landscapes, routes and local life helps shape journeys that feel personal, flexible and thoughtfully planned.'
