@@ -47,7 +47,11 @@ export const PackageDetailPage: React.FC<{slug:string;language:Language}> = ({sl
      </ul>
     </section>
     <div className="mt-9"><h2 className="text-2xl">{es?'Preguntas frecuentes':id?'Pertanyaan umum':'Frequently asked questions'}</h2><div className="mt-4 space-y-3">
-     {(id?[
+     {(es?[
+      ['¿Es un viaje privado?','Sí. El paquete se organiza como un viaje privado y los detalles del grupo se concretan durante la consulta.'],
+      ['¿El precio es fijo?','El presupuesto se prepara al confirmar las fechas, el número de viajeros, el alojamiento y los servicios necesarios.'],
+      ['¿Se puede adaptar la ruta?','Sí. La ruta definitiva se acuerda contigo y tiene en cuenta los horarios de transporte y las condiciones locales.']
+     ]:id?[
       ['Apakah ini private trip?','Ya, paket dirancang sebagai perjalanan privat. Detail kebutuhan grup dibahas saat konsultasi.'],
       ['Apakah harga sudah tetap?','Harga dikonfirmasi setelah tanggal, jumlah peserta, akomodasi, dan layanan yang dibutuhkan diketahui.'],
       ['Bisakah rute disesuaikan?','Bisa. Rute akhir dibicarakan bersama dan mempertimbangkan jadwal transportasi serta kondisi lokal.']
