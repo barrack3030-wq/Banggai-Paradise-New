@@ -34,7 +34,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onPlanTripClick, language })
           <div className="cta-stack">
             <a
               className="box cursor-pointer"
-              href={`https://wa.me/628124567890?text=${encodeURIComponent(
+              href={`https://wa.me/6285820830530?text=${encodeURIComponent(
                 isEn
                   ? (isEs ? 'Hola, Banggai Paradise. Me gustaría organizar un viaje a las islas Banggai.' : 'Hello Banggai Paradise, I would like to plan a trip to Banggai Islands.')
                   : 'Halo Banggai Paradise, saya ingin tanya info paket dan merencanakan liburan ke Kepulauan Banggai.'
