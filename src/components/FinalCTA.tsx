@@ -20,8 +20,8 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onPlanTripClick, language })
           <div className="cta-copy">
             <span className="eyebrow light">{isEs ? 'Vamos a viajar' : isEn ? "Let's go" : 'Mari Berangkat'}</span>
             <h2>
-              {isEs ? '¿Preparado para tu próxima ' : isEn ? 'Ready for your next ' : 'Siap untuk petualangan '}
-              <em>{isEs ? 'aventura?' : isEn ? 'adventure?' : 'berikutnya?'}</em>
+              {isEs ? '¿Preparado para tu próxima ' : isEs ? '¿Preparado para tu próxima ' : isEn ? 'Ready for your next ' : 'Siap untuk petualangan '}
+              <em>{isEs ? 'aventura?' : isEs ? 'aventura?' : isEn ? 'adventure?' : 'berikutnya?'}</em>
             </h2>
             <p>
               {isEn
@@ -48,8 +48,8 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onPlanTripClick, language })
                 </svg>
               </span>
               <span>
-                <b>{isEs ? 'Habla con nosotros' : isEn ? 'Chat with us' : 'Chat via WhatsApp'}</b>
-                <small>{isEs ? 'Atención directa de nuestro equipo' : isEn ? 'Quick answers from our team' : 'Respon cepat dari tim lokal kami'}</small>
+                <b>{isEs ? 'Habla con nosotros' : isEs ? 'Habla con nosotros' : isEn ? 'Chat with us' : 'Chat via WhatsApp'}</b>
+                <small>{isEs ? 'Atención directa de nuestro equipo' : isEs ? 'Atención directa de nuestro equipo' : isEn ? 'Quick answers from our team' : 'Respon cepat dari tim lokal kami'}</small>
               </span>
             </a>
 
@@ -67,8 +67,8 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onPlanTripClick, language })
                 </svg>
               </span>
               <span>
-                <b>{isEs ? 'Planifica mi viaje' : isEn ? 'Plan my trip' : 'Konsultasi Itinerary'}</b>
-                <small>{isEs ? 'Prepara una ruta a tu medida' : isEn ? 'Get a custom itinerary' : 'Rancang paket sesuai keinginan Anda'}</small>
+                <b>{isEs ? 'Planifica mi viaje' : isEs ? 'Planifica mi viaje' : isEn ? 'Plan my trip' : 'Konsultasi Itinerary'}</b>
+                <small>{isEs ? 'Prepara una ruta a tu medida' : isEs ? 'Prepara una ruta a tu medida' : isEn ? 'Get a custom itinerary' : 'Rancang paket sesuai keinginan Anda'}</small>
               </span>
             </a>
           </div>
