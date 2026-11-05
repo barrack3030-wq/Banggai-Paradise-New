@@ -46,7 +46,7 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
     },
     {
       cls: 'tile t4',
-      img: 'https://soalpalu.com/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-01-at-22.11.32.jpeg',
+      img: 'https://commons.wikimedia.org/wiki/Special:FilePath/%22Pulo-Dua-Balantak.jpg%22.jpg?width=1200',
       chip: null,
       titleEn: 'Pulo Dua Balantak',
       titleId: 'Pulo Dua Balantak',
