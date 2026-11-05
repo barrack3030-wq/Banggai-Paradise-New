@@ -4,8 +4,8 @@ import { Language } from '../i18n/translations';
 
 interface NavbarProps {
   onPlanTripClick: () => void;
-  currency: 'IDR' | 'USD';
-  onToggleCurrency: () => void;
+  currency?: 'IDR' | 'USD';
+  onToggleCurrency?: () => void;
   language: Language;
   onSelectLanguage: (lang: Language | 'ES') => void;
 }
@@ -97,7 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </a>
 
         {/* Navigation Menu */}
-        <nav className={`menu ${mobileMenuOpen ? 'open' : ''}`} id="menu" aria-label="Main navigation">
+        <nav className={`menu ${mobileMenuOpen ? 'open' : ''}`} id="menu" aria-label={language === 'ES' ? 'Navegación principal' : language === 'ID' ? 'Navigasi utama' : 'Main navigation'}>
           <a
             href={localizedBase}
             className={activeSection === 'home' ? 'is-active' : ''}
@@ -136,7 +136,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile Language & CTA */}
           <div className="mobile-language-row flex items-center justify-between gap-3 pt-4 border-t border-white/10 min-[981px]:hidden">
-            <span className="text-sm text-white/80 font-medium">Bahasa / Language:</span>
+            <span className="text-sm text-white/80 font-medium">{language === 'ES' ? 'Idioma:' : language === 'ID' ? 'Bahasa:' : 'Language:'}</span>
             <div className="mobile-language-switch flex items-center rounded-full bg-white/10 border border-white/25 p-1">
               <button
                 type="button"
