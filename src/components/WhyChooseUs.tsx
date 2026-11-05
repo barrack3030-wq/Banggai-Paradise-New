@@ -157,10 +157,10 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
                 />
               </div>
               <span className="sn">3</span>
-              <h3>{isEn ? 'Pack and enjoy' : 'Siapkan Koper & Nikmati Liburan'}</h3>
+              <h3>{isEs ? 'Prepara la maleta y disfruta' : isEn ? 'Pack and enjoy' : 'Siapkan Koper & Nikmati Liburan'}</h3>
               <p>
                 {isEn
-                  ? 'Show up, relax and let your local guides take care of everything else.'
+                  ? (isEs ? 'Llega, relájate y deja que el equipo local se ocupe de los detalles.' : 'Show up, relax and let your local guides take care of everything else.')
                   : 'Tiba di Banggai, rileks, dan biarkan pemandu lokal kami yang mengurus segala kenyamanan Anda.'}
               </p>
             </li>
@@ -172,7 +172,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
               className="btn btn-coral"
               onClick={onPlanTripClick}
             >
-              <span>{isEn ? 'Start Planning Your Trip' : 'Mulai Rencanakan Trip'}</span>
+              <span>{isEs ? 'Empieza a planificar tu viaje' : isEn ? 'Start Planning Your Trip' : 'Mulai Rencanakan Trip'}</span>
               <svg className="ic">
                 <use href="#i-arrow" />
               </svg>
