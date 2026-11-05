@@ -17,7 +17,6 @@ import { PackageModal } from './components/PackageModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { TourPackage } from './types';
 import { Language } from './i18n/translations';
-import { SpanishPage } from './components/SpanishPage';
 
 type Page = 'home' | 'packages' | 'destinations' | 'about' | 'blog' | 'luwuk-stopover' | 'package-detail';
 
@@ -27,7 +26,7 @@ export default function App() {
     ? window.location.pathname.slice(basePath.length)
     : window.location.pathname.split('/').filter(Boolean).join('/');
   const rawSegments = rawRoutePath.split('/').filter(Boolean);
-  const routeLocale = rawSegments[0] === 'id' || rawSegments[0] === 'eng' || rawSegments[0] === 'es' ? rawSegments[0] : '';
+  const routeLocale = rawSegments[0] === 'id' || rawSegments[0] === 'eng' ? rawSegments[0] : '';
   const routePath = routeLocale ? rawSegments.slice(1).join('/') : rawRoutePath;
   const [language, setLanguage] = useState<Language>(() => routeLocale === 'id' ? 'ID' : routeLocale === 'eng' ? 'EN' : 'EN');
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
@@ -41,10 +40,10 @@ export default function App() {
   const isBlogArticlePage = page === 'blog' && routePath.split('/').filter(Boolean).length > 1;
   const isArticleReadingPage = isBlogArticlePage || page === 'luwuk-stopover' || page === 'package-detail';
 
-  const handleSelectLanguage = (lang: Language | 'ES') => {
+  const handleSelectLanguage = (lang: Language) => {
     try { localStorage.setItem('banggai_lang', lang); } catch { /* optional */ }
-    const targetPrefix = lang === 'ID' ? 'id' : lang === 'ES' ? 'es' : 'eng';
-    const suffix = lang === 'ES' ? '' : routePath.split('/').filter(Boolean).join('/');
+    const targetPrefix = lang === 'ID' ? 'id' : 'eng';
+    const suffix = routePath.split('/').filter(Boolean).join('/');
     window.location.href = basePath + targetPrefix + '/' + (suffix ? suffix + '/' : '');
   };
 
@@ -54,7 +53,7 @@ export default function App() {
   }, [isBlogArticlePage]);
 
   useEffect(() => {
-    document.documentElement.lang = routeLocale === 'es' ? 'es' : language.toLowerCase();
+    document.documentElement.lang = language.toLowerCase();
     document.documentElement.classList.add('js');
     const reveals = document.querySelectorAll('[data-reveal]');
     if ('IntersectionObserver' in window && reveals.length) {
@@ -89,8 +88,6 @@ export default function App() {
       ? ['Travel Blog Banggai Paradise', 'Baca panduan perjalanan, inspirasi destinasi, dan tips praktis sebelum menjelajahi Kepulauan Banggai.']
       : ['Banggai Paradise Travel Blog', 'Read travel guides, destination inspiration and practical tips before exploring the Banggai Islands.']
   } as const;
-
-  if (routeLocale === 'es') return <SpanishPage />;
 
   return <>
     <SvgSprite />
