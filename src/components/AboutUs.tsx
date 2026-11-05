@@ -36,7 +36,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({
         </div>
 
         <div className="about-txt">
-          <span className="eyebrow on-teal">{isEs ? 'Quiénes somos' : isEn ? 'About Us' : 'Tentang Kami'}</span>
+          <span className="eyebrow on-teal">{isEs ? 'Quiénes somos' : isEs ? 'Quiénes somos' : isEn ? 'About Us' : 'Tentang Kami'}</span>
           <p>
             {isEn
               ? (isEs ? 'Banggai Paradise fue creado por Aji Zulfikar, guía local de la región de Banggai. Su conocimiento de las islas, los paisajes, las rutas y la vida local permite organizar experiencias cercanas, flexibles y bien planificadas.' : 'Banggai Paradise was founded by Aji Zulfikar, a local guide from the Banggai region with experience accompanying international travelers. His knowledge of the islands, natural landscapes, routes and local life helps shape journeys that feel personal, flexible and thoughtfully planned.')
@@ -44,9 +44,9 @@ export const AboutUs: React.FC<AboutUsProps> = ({
           </p>
 
           <ul>
-            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEs ? 'Conocimiento local de destinos y rutas' : isEn ? 'Local knowledge of destinations and routes' : 'Pengetahuan lokal tentang destinasi dan rute perjalanan'}</span></li>
-            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEs ? 'Viajes flexibles adaptados a tu forma de viajar' : isEn ? 'Flexible trips shaped around your travel style' : 'Perjalanan fleksibel sesuai gaya liburan Anda'}</span></li>
-            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEs ? 'Atención personal desde la planificación hasta el viaje' : isEn ? 'Personal assistance from planning to the journey' : 'Pendampingan personal sejak perencanaan hingga perjalanan'}</span></li>
+            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEs ? 'Conocimiento local de destinos y rutas' : isEs ? 'Conocimiento local de destinos y rutas' : isEn ? 'Local knowledge of destinations and routes' : 'Pengetahuan lokal tentang destinasi dan rute perjalanan'}</span></li>
+            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEs ? 'Viajes flexibles adaptados a tu forma de viajar' : isEs ? 'Viajes flexibles adaptados a tu forma de viajar' : isEn ? 'Flexible trips shaped around your travel style' : 'Perjalanan fleksibel sesuai gaya liburan Anda'}</span></li>
+            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEs ? 'Atención personal desde la planificación hasta el viaje' : isEs ? 'Atención personal desde la planificación hasta el viaje' : isEn ? 'Personal assistance from planning to the journey' : 'Pendampingan personal sejak perencanaan hingga perjalanan'}</span></li>
           </ul>
 
           <div className="visitor-gallery">
@@ -63,7 +63,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({
                     loading="lazy"
                     decoding="async"
                   />
-                  <figcaption>{isEs ? 'Momentos con viajeros' : isEn ? 'Guest moments' : 'Momen bersama tamu'}</figcaption>
+                  <figcaption>{isEs ? 'Momentos con viajeros' : isEs ? 'Momentos con viajeros' : isEn ? 'Guest moments' : 'Momen bersama tamu'}</figcaption>
                 </figure>
               ))}
             </div>
@@ -73,7 +73,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({
           </div>
 
           <button type="button" className="btn btn-white" onClick={onMeetTeamClick}>
-            <span>{isEs ? 'Planifica tu viaje' : isEn ? 'Plan Your Journey' : 'Rencanakan Perjalanan'}</span>
+            <span>{isEs ? 'Planifica tu viaje' : isEs ? 'Planifica tu viaje' : isEn ? 'Plan Your Journey' : 'Rencanakan Perjalanan'}</span>
             <svg className="ic"><use href="#i-arrow" /></svg>
           </button>
         </div>
