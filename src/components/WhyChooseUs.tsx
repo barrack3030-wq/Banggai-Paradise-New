@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
 
@@ -12,6 +12,13 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
   language,
 }) => {
   const isEn = language === 'EN';
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const slide = (direction: -1 | 1) => {
+    const track = sliderRef.current;
+    if (!track) return;
+    const card = track.querySelector<HTMLElement>('.tcard');
+    track.scrollBy({ left: direction * (card ? card.getBoundingClientRect().width + 22 : track.clientWidth * .8), behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -38,53 +45,41 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
             </p>
           </div>
 
-          <div className="trust-grid">
-            {/* Card 1 */}
+          <div className="trust-slider-controls">
+            <span className="trust-slider-hint">{isEn ? 'Discover what makes the journey special' : 'Geser untuk mengenal keunggulan perjalanan kami'}</span>
+            <div className="trust-slider-arrows">
+              <button type="button" aria-label={isEn ? 'Previous benefits' : 'Keunggulan sebelumnya'} onClick={() => slide(-1)}>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 9 12l6-6" /></svg>
+              </button>
+              <button type="button" aria-label={isEn ? 'Next benefits' : 'Keunggulan berikutnya'} onClick={() => slide(1)}>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+              </button>
+            </div>
+          </div>
+          <div className="trust-grid trust-slider" ref={sliderRef}>
             <article className="tcard">
+              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000561157.CuqSp_O_.jpg" alt={isEn ? 'Banggai Islands travel experience' : 'Pengalaman perjalanan di Kepulauan Banggai'} loading="lazy" /></div>
               <span className="num" aria-hidden="true">01</span>
-              <div className="ti">
-                <svg className="ic">
-                  <use href="#i-shield" />
-                </svg>
+              <div className="trust-copy">
+                <h3>{isEn ? 'Trusted & Professional' : 'Terpercaya & Profesional'}</h3>
+                <p>{isEn ? 'Clear communication, thoughtful trip planning and attentive local support from your first enquiry to the end of your journey.' : 'Komunikasi yang jelas, perencanaan perjalanan yang matang, dan dukungan tim lokal sejak konsultasi pertama hingga perjalanan selesai.'}</p>
               </div>
-              <h3>{isEn ? 'Trusted & Professional' : 'Terpercaya & Profesional'}</h3>
-              <p>
-                {isEn
-                  ? 'Clear communication, reliable service and careful planning from the first message to your return home.'
-                  : 'Komunikasi transparan, armada terawat, dan perencanaan matang dari kontak pertama hingga Anda tiba kembali di rumah.'}
-              </p>
             </article>
-
-            {/* Card 2 (Featured Coral) */}
             <article className="tcard coral">
+              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000567706%20(1).Bt5MDsVS.jpg" alt={isEn ? 'Local guide and island scenery in Banggai' : 'Pemandu lokal dan panorama Kepulauan Banggai'} loading="lazy" /></div>
               <span className="num" aria-hidden="true">02</span>
-              <div className="ti">
-                <svg className="ic">
-                  <use href="#i-heart" />
-                </svg>
+              <div className="trust-copy">
+                <h3>{isEn ? 'Friendly Local Guides' : 'Pemandu Lokal Ramah'}</h3>
+                <p>{isEn ? 'Discover Banggai with people who know the area, its routes, coastal communities and the stories behind each place.' : 'Jelajahi Banggai bersama orang lokal yang mengenal wilayah, rute, masyarakat pesisir, dan cerita di balik setiap tempat.'}</p>
               </div>
-              <h3>{isEn ? 'Friendly Local Guides' : 'Pemandu Lokal Ramah'}</h3>
-              <p>
-                {isEn
-                  ? 'Warm, knowledgeable guides who show you hidden beaches and the island stories behind them.'
-                  : 'Guide lokal ramah dan bersahabat yang siap menunjukkan pantai rahasia serta kisah kearifan lokal Banggai.'}
-              </p>
             </article>
-
-            {/* Card 3 */}
             <article className="tcard">
+              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000576872.jYD6zMGT.jpg" alt={isEn ? 'Banggai nature and island landscape' : 'Lanskap alam dan pulau-pulau Banggai'} loading="lazy" /></div>
               <span className="num" aria-hidden="true">03</span>
-              <div className="ti">
-                <svg className="ic">
-                  <use href="#i-compass" />
-                </svg>
+              <div className="trust-copy">
+                <h3>{isEn ? 'Tailor-Made Journeys' : 'Perjalanan Sesuai Keinginan'}</h3>
+                <p>{isEn ? 'Private trips shaped around your travel dates, interests and preferred pace, with room to discuss the details together.' : 'Private trip yang disusun mengikuti tanggal, minat, dan ritme perjalanan Anda, dengan ruang untuk membicarakan detailnya bersama.'}</p>
               </div>
-              <h3>{isEn ? 'Tailor-Made Journeys' : 'Perjalanan Sesuai Keinginan'}</h3>
-              <p>
-                {isEn
-                  ? 'Families, couples, friends or teams, we shape each trip to your pace, interests and budget.'
-                  : 'Keluarga, pasangan, sahabat, atau corporate trip — kami rancang sesuai tempo, minat, dan anggaran Anda.'}
-              </p>
             </article>
           </div>
         </div>
