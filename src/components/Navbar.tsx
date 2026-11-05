@@ -117,13 +117,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           </a>
 
           {/* Mobile Language & CTA */}
-          <div className="flex items-center justify-between gap-3 pt-4 border-t border-white/10 min-[981px]:hidden">
-            <span className="text-xs text-white/70 font-medium">Bahasa / Language:</span>
-            <div className="flex items-center rounded-full bg-white/10 border border-white/20 p-1 text-xs">
+          <div className="mobile-language-row flex items-center justify-between gap-3 pt-4 border-t border-white/10 min-[981px]:hidden">
+            <span className="text-sm text-white/80 font-medium">Bahasa / Language:</span>
+            <div className="mobile-language-switch flex items-center rounded-full bg-white/10 border border-white/25 p-1">
               <button
                 type="button"
                 onClick={() => onSelectLanguage('EN')}
-                className={`px-3 py-1 rounded-full font-bold transition-all cursor-pointer ${
+                className={`mobile-language-option px-4 py-2 rounded-full text-sm font-bold transition-all cursor-pointer ${
                   language === 'EN' ? 'bg-white text-[#07485A]' : 'text-white/80'
                 }`}
               >
