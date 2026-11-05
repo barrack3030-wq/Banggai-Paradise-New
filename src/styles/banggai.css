@@ -797,3 +797,25 @@ h2{font-size:var(--fs-h2);line-height:1.1;color:var(--deep);margin-top:14px}
 
 /* Hero slide indicators: visible dot stays small, hit area is 24px tall (WCAG 2.2 AA) */
 .hero-dot{display:flex;align-items:center;justify-content:center;height:24px;padding:0 9px;background:transparent;border:0;cursor:pointer}
+
+
+/* About Us visitor gallery: consistent editorial crop across desktop and mobile */
+.visitor-gallery{width:100%;margin-top:clamp(34px,5vw,58px)}
+.visitor-gallery-heading{margin-bottom:20px}
+.visitor-gallery-heading>p{max-width:620px;margin-top:10px;color:rgba(255,255,255,.78);font-size:.92rem;line-height:1.65}
+.visitor-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.visitor-gallery-card{min-width:0;overflow:hidden;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);box-shadow:0 14px 30px -22px rgba(0,0,0,.5)}
+.visitor-gallery-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center center;background:rgba(255,255,255,.08)}
+.visitor-gallery-card figcaption{padding:10px 13px 12px;color:#fff;font-size:.78rem;font-weight:500;line-height:1.4}
+.visitor-gallery-note{max-width:850px;margin-top:18px;color:rgba(255,255,255,.72);font-size:.8rem;line-height:1.7}
+@media(max-width:760px){
+ .visitor-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .visitor-gallery-card{border-radius:14px}
+ .visitor-gallery-card img{aspect-ratio:4/3}
+ .visitor-gallery-card figcaption{padding:8px 10px 10px;font-size:.74rem}
+ .visitor-gallery-note{font-size:.76rem;line-height:1.65}
+}
+@media(max-width:360px){
+ .visitor-gallery-grid{gap:8px}
+ .visitor-gallery-card figcaption{font-size:.7rem}
+}
