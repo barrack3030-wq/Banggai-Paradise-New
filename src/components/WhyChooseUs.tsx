@@ -29,7 +29,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
           <div className="head-c">
             <span className="eyebrow">{isEs ? 'Por qué Banggai Paradise' : isEs ? 'Por qué Banggai Paradise' : isEn ? 'Why Banggai Paradise' : 'Mengapa Banggai Paradise'}</span>
             <h2>
-              {isEn ? (
+              {isEs ? <>Confianza y cercanía,<br className="br-d" /> de principio a fin</> : isEn ? (
                 <>
                   Trusted and professional,<br className="br-d" /> from hello to goodbye
                 </>
@@ -92,7 +92,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
           <div className="head-c">
             <span className="eyebrow">{isEs ? 'Cómo organizamos tu viaje' : isEs ? 'Cómo organizamos tu viaje' : isEn ? 'How it works' : 'Cara Kerja'}</span>
             <h2>
-              {isEn ? (
+              {isEs ? <>Tres pasos sencillos<br className="br-d" /> para descubrir las islas</> : isEn ? (
                 <>
                   Three simple steps<br className="br-d" /> to your island escape
                 </>
