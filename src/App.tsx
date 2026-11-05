@@ -23,7 +23,7 @@ export default function App() {
   const [language, setLanguage] = useState<Language>(() => {
     try {
       const saved = localStorage.getItem('banggai_lang');
-      return saved === 'ID' || saved === 'EN' ? saved as Language : 'EN';
+      return saved === 'ID' || saved === 'EN' ? saved as Language : (window.location.pathname.includes('/packages/luwuk-stopover') ? 'ID' : 'EN');
     } catch { return 'EN'; }
   });
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
