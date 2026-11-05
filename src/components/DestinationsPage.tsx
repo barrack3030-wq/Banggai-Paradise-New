@@ -16,6 +16,20 @@ const DESTINATIONS = [
  { id:'long-beach', category:'Beach', image:'https://banggaiwonderland.my.id/images/long%20b.jpg', location:'Pulau Banggai, Banggai Laut', name:'Long Beach', en:'Long Beach', desc:'Pantai pasir putih yang hanya dapat diakses dengan perahu, dengan air jernih dan area snorkeling dari tepi pantai.', descEn:'A white-sand beach reached by boat, with clear water and snorkeling opportunities right off the shore.' }
 ];
 
+ const labels: Record<string,{id:string;en:string;es:string}> = {Lake:{id:'Danau',en:'Lake',es:'Lago'},Spring:{id:'Mata Air',en:'Spring',es:'Manantial'},Bay:{id:'Teluk',en:'Bay',es:'Bahía'},Beach:{id:'Pantai',en:'Beach',es:'Playa'},Island:{id:'Pulau',en:'Island',es:'Isla'},Waterfall:{id:'Air Terjun',en:'Waterfall',es:'Cascada'}};
+ const spanish: Record<string,{name:string;desc:string}> = {
+ 'paisu-pok':{name:'Lago Paisu Pok',desc:'Un lago de agua dulce excepcionalmente transparente, con tonos azul verdosos y árboles sumergidos que crean un paisaje singular.'},
+ 'paisu-batango':{name:'Paisu Batango',desc:'Un manantial costero y una laguna donde se encuentran aguas dulces, salobres y marinas.'},
+ 'kawalu-bay':{name:'Bahía de Kawalu',desc:'Una bahía de aguas turquesas, manglares y colinas verdes, ideal para disfrutar del paisaje litoral.'},
+ 'poganda':{name:'Playa de Poganda',desc:'Una playa de arena blanca y aguas turquesas, con arrecifes poco profundos y servicios comunitarios sencillos.'},
+ 'pulau-dua':{name:'Pulo Dua, Balantak',desc:'Colinas de sabana, playas de arena clara y oscura y aguas transparentes con arrecifes de coral.'},
+ 'salodik':{name:'Cascada de Salodik',desc:'Una cascada escalonada con pozas de tonos azul verdosos, rodeada de vegetación tropical.'},
+ 'piala':{name:'Cascada de Piala',desc:'Una sucesión de pequeñas cascadas que desembocan en pozas naturales entre el bosque tropical.'},
+ 'kilo-5':{name:'Playa de Kilo 5',desc:'Una de las playas conocidas de Luwuk, con arena clara, zonas para practicar snorkel y ambiente al atardecer.'},
+ 'mbuang-mbuang':{name:'Isla de Mbuang-Mbuang',desc:'Un paisaje insular de pequeñas islas y aguas turquesas en el mar de Banggai.'},
+ 'sombori':{name:'Islas Sombori',desc:'Formaciones kársticas, pequeñas lagunas y paisajes marinos de gran belleza.'}
+ };
+
 export const DestinationsPage: React.FC<DestinationsPageProps> = ({ language, onPlanTrip }) => {
  const isEn = language === 'EN';
  const isEs = language === 'ES';
@@ -32,19 +46,6 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({ language, on
    script.textContent=JSON.stringify(structured);
    return ()=>{document.getElementById('destinations-jsonld')?.remove();};
  },[language]);
- const labels: Record<string,{id:string;en:string;es:string}> = {Lake:{id:'Danau',en:'Lake',es:'Lago'},Spring:{id:'Mata Air',en:'Spring',es:'Manantial'},Bay:{id:'Teluk',en:'Bay',es:'Bahía'},Beach:{id:'Pantai',en:'Beach',es:'Playa'},Island:{id:'Pulau',en:'Island',es:'Isla'},Waterfall:{id:'Air Terjun',en:'Waterfall',es:'Cascada'}};
- const spanish: Record<string,{name:string;desc:string}> = {
- 'paisu-pok':{name:'Lago Paisu Pok',desc:'Un lago de agua dulce excepcionalmente transparente, con tonos azul verdosos y árboles sumergidos que crean un paisaje singular.'},
- 'paisu-batango':{name:'Paisu Batango',desc:'Un manantial costero y una laguna donde se encuentran aguas dulces, salobres y marinas.'},
- 'kawalu-bay':{name:'Bahía de Kawalu',desc:'Una bahía de aguas turquesas, manglares y colinas verdes, ideal para disfrutar del paisaje litoral.'},
- 'poganda':{name:'Playa de Poganda',desc:'Una playa de arena blanca y aguas turquesas, con arrecifes poco profundos y servicios comunitarios sencillos.'},
- 'pulau-dua':{name:'Pulo Dua, Balantak',desc:'Colinas de sabana, playas de arena clara y oscura y aguas transparentes con arrecifes de coral.'},
- 'salodik':{name:'Cascada de Salodik',desc:'Una cascada escalonada con pozas de tonos azul verdosos, rodeada de vegetación tropical.'},
- 'piala':{name:'Cascada de Piala',desc:'Una sucesión de pequeñas cascadas que desembocan en pozas naturales entre el bosque tropical.'},
- 'kilo-5':{name:'Playa de Kilo 5',desc:'Una de las playas conocidas de Luwuk, con arena clara, zonas para practicar snorkel y ambiente al atardecer.'},
- 'mbuang-mbuang':{name:'Isla de Mbuang-Mbuang',desc:'Un paisaje insular de pequeñas islas y aguas turquesas en el mar de Banggai.'},
- 'sombori':{name:'Islas Sombori',desc:'Formaciones kársticas, pequeñas lagunas y paisajes marinos de gran belleza.'}
- };
  return <section className="section packages destinations-listing">
   <div className="container">
    <div className="pgrid destinations-grid">{DESTINATIONS.map((d,i)=><article id={d.id} className={`pcard destination-card ${i===0?'feat':''}`} key={d.id}>
