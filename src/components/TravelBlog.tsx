@@ -57,6 +57,13 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language, showAllArticle
       {id:'mbuang-mbuang',name:'Pulau Mbuang-Mbuang',en:'Mbuang-Mbuang Island',image:'https://banggaiwonderland.my.id/images/mbuang%20mbuang.jpg',desc:'Pulau dengan danau, pantai, dan kehidupan bawah laut.',descEn:'An island with lakes, beaches and marine life.'},
       {id:'long-beach',name:'Long Beach',en:'Long Beach',image:'https://banggaiwonderland.my.id/images/long%20b.jpg',desc:'Pantai terpencil berpasir putih yang dicapai dengan perahu.',descEn:'A secluded white-sand beach reached by boat.'}
     ].filter(d => relatedDestinationIds.includes(d.id));
+    const destinationSpanish: Record<string,{name:string;desc:string}> = {
+      'paisu-pok': {name:'Lago Paisu Pok',desc:'Un lago de aguas transparentes rodeado de vegetación tropical.'},
+      'paisu-batango': {name:'Paisu Batango',desc:'Una laguna natural donde se encuentran aguas dulces y marinas.'},
+      'kawalu-bay': {name:'Bahía de Kawalu',desc:'Una bahía tranquila de aguas turquesas y manglares.'},
+      'poganda': {name:'Playa de Poganda',desc:'Una playa de arena blanca y aguas poco profundas.'},
+      'pulau-dua': {name:'Pulo Dua, Balantak',desc:'Colinas verdes y vistas abiertas al mar.'}
+    };
     return <article className="blog-reading-page"><div className="blog-reading-container">
       <nav className="article-breadcrumb" aria-label={isEs ? 'Ruta de navegación' : isEn ? 'Breadcrumb' : 'Navigasi halaman'}>
         <a href={basePath}>{isEs ? 'Inicio' : isEn ? 'Home' : 'Beranda'}</a><span>/</span><a href={localizedPath('blog/', language)}>Blog</a><span>/</span><span aria-current="page">{titleOf(selectedArticle)}</span>
@@ -75,7 +82,7 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language, showAllArticle
         <div className="article-related-grid">{relatedArticles.map(a => <a className="article-related-card" href={localizedPath('blog/', language) + a.slug + '/'} key={a.slug}><img src={a.img} alt={titleOf(a)} loading="lazy"/><div><span>{a.category} · {a.readTime}</span><h3>{titleOf(a)}</h3><p>{excerptOf(a)}</p><strong>{isEs ? 'Leer artículo' : isEs ? 'Leer artículo' : isEn ? 'Read article' : 'Baca artikel'} →</strong></div></a>)}</div>
       </section> }
       <section className="article-related-section article-destinations-section"><div className="article-section-heading"><span className="eyebrow">{isEs ? 'DESCUBRE LA REGIÓN' : isEn ? 'EXPLORE THE REGION' : 'JELAJAHI KAWASAN'}</span><h2>{isEs ? 'Lugares relacionados con este artículo' : isEn ? 'Destinations connected to this story' : 'Destinasi terkait artikel ini'}</h2><p>{isEs ? 'Sigue descubriendo lugares relacionados con este tema de viaje.' : isEn ? 'Continue your journey with places that match this travel topic.' : 'Lanjutkan inspirasi perjalanan dengan destinasi yang sesuai dengan topik ini.'}</p></div>
-        <div className="article-destination-grid">{destinationCards.map(d=><a className="article-destination-card" href={basePath + 'destinations/#' + d.id} key={d.id}><img src={d.image} alt={isEn?d.en:d.name} loading="lazy"/><div><h3>{isEn?d.en:d.name}</h3><p>{isEn?d.descEn:d.desc}</p><strong>{isEn?'Explore destination':'Lihat destinasi'} →</strong></div></a>)}</div>
+        <div className="article-destination-grid">{destinationCards.map(d=><a className="article-destination-card" href={localizedPath('destinations/', language) + '#' + d.id} key={d.id}><img src={d.image} alt={isEs?(destinationSpanish[d.id]?.name||d.en):isEn?d.en:d.name} loading="lazy"/><div><h3>{isEs?(destinationSpanish[d.id]?.name||d.en):isEn?d.en:d.name}</h3><p>{isEs?(destinationSpanish[d.id]?.desc||d.descEn):isEn?d.descEn:d.desc}</p><strong>{isEs?'Ver destino':isEn?'Explore destination':'Lihat destinasi'} →</strong></div></a>)}</div>
         <a className="article-all-destinations" href={localizedPath('destinations/', language)}>{isEs ? 'Ver todos los destinos' : isEn ? 'View all destinations' : 'Lihat semua destinasi'} →</a>
       </section>
       <aside className="article-end-cta">
