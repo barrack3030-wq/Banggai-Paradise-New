@@ -10,7 +10,8 @@ interface PackageModalProps {
 }
 
 export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, language }) => {
-  const isEn = language === 'EN';
+  const isEn = language !== 'ID';
+  const isEs = language === 'ES';
   if (!pkg) return null;
 
 
@@ -29,7 +30,7 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
           <button
             onClick={onClose}
             className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/50 hover:bg-black/75 text-white flex items-center justify-center transition-colors"
-            aria-label="Close modal"
+            aria-label={isEs ? 'Cerrar ventana' : 'Close modal'}
           >
             <X className="w-5 h-5" />
           </button>
@@ -64,7 +65,7 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
                 </span>
                 {pkg.rating > 0 && <span className="flex items-center gap-1">
                   <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                  {pkg.rating} ({pkg.reviewCount} {isEn ? 'traveller reviews' : 'ulasan wisatawan'})
+                  {pkg.rating} ({pkg.reviewCount} {isEs ? 'opiniones de viajeros' : isEn ? 'traveller reviews' : 'ulasan wisatawan'})
                 </span>}
               </div>
             </div>
@@ -76,7 +77,7 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
             {/* Left 7 cols: Itinerary & Inclusions */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <h3 className="text-lg font-bold text-[#0A3A40] mb-2">{isEn ? 'Trip overview' : 'Ringkasan Perjalanan'}</h3>
+                <h3 className="text-lg font-bold text-[#0A3A40] mb-2">{isEs ? 'Resumen del viaje' : isEn ? 'Trip overview' : 'Ringkasan Perjalanan'}</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   {pkg.shortDesc}
                 </p>
@@ -84,7 +85,7 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
 
               {/* Destinations */}
               {pkg.highlights.length > 0 && <div>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">{isEn ? 'Destinations' : 'Destinasi'}</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">{isEs ? 'Destinos' : isEn ? 'Destinations' : 'Destinasi'}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {pkg.highlights.map((h, i) => (
                     <div key={i} className="flex items-start gap-2 text-xs text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
@@ -158,17 +159,17 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
             {/* Contact Information */}
             <div className="lg:col-span-5 bg-slate-50/90 rounded-2xl p-6 border border-slate-200/80 flex flex-col justify-between">
               <div>
-                <h3 className="text-lg font-bold text-[#0A3A40]">{isEn ? 'Information & consultation' : 'Informasi & Konsultasi'}</h3>
+                <h3 className="text-lg font-bold text-[#0A3A40]">{isEs ? 'Información y consultas' : isEn ? 'Information & consultation' : 'Informasi & Konsultasi'}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-slate-600">
-                  {isEn ? 'Ask our team about availability, route adjustments and a trip proposal for your dates.' : 'Tanyakan ketersediaan, penyesuaian rute, dan penawaran perjalanan sesuai tanggal Anda kepada tim kami.'}
+                  {isEs ? 'Consulta con nuestro equipo la disponibilidad, los cambios de ruta y una propuesta para tus fechas.' : isEn ? 'Ask our team about availability, route adjustments and a trip proposal for your dates.' : 'Tanyakan ketersediaan, penyesuaian rute, dan penawaran perjalanan sesuai tanggal Anda kepada tim kami.'}
                 </p>
                 <a href="#contact" onClick={onClose} className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-[#0A3A40] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#07515D]">
-                  {isEn ? 'Contact our team' : 'Hubungi Tim Kami'}
+                  {isEs ? 'Contacta con nuestro equipo' : isEn ? 'Contact our team' : 'Hubungi Tim Kami'}
                 </a>
               </div>
               <div className="mt-6 pt-4 border-t border-slate-200 text-xs text-slate-500 flex items-center justify-between">
-                <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5 text-teal-600" />{isEn ? 'Local operator' : 'Operator lokal'}</span>
-                <span className="flex items-center gap-1"><Award className="w-3.5 h-3.5 text-teal-600" />{isEn ? 'Trip consultation' : 'Konsultasi trip'}</span>
+                <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5 text-teal-600" />{isEs ? 'Equipo local' : isEn ? 'Local operator' : 'Operator lokal'}</span>
+                <span className="flex items-center gap-1"><Award className="w-3.5 h-3.5 text-teal-600" />{isEs ? 'Consulta de viaje' : isEn ? 'Trip consultation' : 'Konsultasi trip'}</span>
               </div>
             </div>
 

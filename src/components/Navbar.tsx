@@ -4,10 +4,10 @@ import { Language } from '../i18n/translations';
 
 interface NavbarProps {
   onPlanTripClick: () => void;
-  currency: 'IDR' | 'USD';
-  onToggleCurrency: () => void;
+  currency?: 'IDR' | 'USD';
+  onToggleCurrency?: () => void;
   language: Language;
-  onSelectLanguage: (lang: Language) => void;
+  onSelectLanguage: (lang: Language | 'ES') => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -19,9 +19,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // Language switch reloads the page, so show the new choice immediately and let the
   // transition play before navigating (otherwise the page is replaced before anything animates).
-  const [pendingLang, setPendingLang] = useState<Language | null>(null);
+  const [pendingLang, setPendingLang] = useState<Language | 'ES' | null>(null);
   const shownLang = pendingLang ?? language;
-  const chooseLanguage = (lang: Language) => {
+  const chooseLanguage = (lang: Language | 'ES') => {
     if (pendingLang || lang === language) return;
     setPendingLang(lang);
     window.setTimeout(() => onSelectLanguage(lang), 220);
@@ -34,9 +34,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
   const basePath = import.meta.env.BASE_URL;
   const pathParts = window.location.pathname.replace(basePath, '').split('/').filter(Boolean);
-  const localePrefix = pathParts[0] === 'id' || pathParts[0] === 'eng' ? pathParts[0] : (language === 'ID' ? 'id' : 'eng');
+  const localePrefix = pathParts[0] === 'id' || pathParts[0] === 'eng' || pathParts[0] === 'es' ? pathParts[0] : (language === 'ID' ? 'id' : language === 'ES' ? 'es' : 'eng');
   const localizedBase = basePath + localePrefix + '/';
-  const currentPath = (pathParts[0] === 'id' || pathParts[0] === 'eng' ? pathParts[1] : pathParts[0]) || 'home';
+  const currentPath = (pathParts[0] === 'id' || pathParts[0] === 'eng' || pathParts[0] === 'es' ? pathParts[1] : pathParts[0]) || 'home';
   const [activeSection, setActiveSection] = useState(currentPath);
 
   useEffect(() => {
@@ -97,46 +97,46 @@ export const Navbar: React.FC<NavbarProps> = ({
         </a>
 
         {/* Navigation Menu */}
-        <nav className={`menu ${mobileMenuOpen ? 'open' : ''}`} id="menu" aria-label="Main navigation">
+        <nav className={`menu ${mobileMenuOpen ? 'open' : ''}`} id="menu" aria-label={language === 'ES' ? 'Navegación principal' : language === 'ID' ? 'Navigasi utama' : 'Main navigation'}>
           <a
             href={localizedBase}
             className={activeSection === 'home' ? 'is-active' : ''}
             onClick={closeMenu}
           >
-            {language === 'ID' ? 'Beranda' : 'Home'}
+            {language === 'ID' ? 'Beranda' : language === 'ES' ? 'Inicio' : 'Home'}
           </a>
           <a
             href={localizedBase + "packages/"}
             className={activeSection === 'packages' ? 'is-active' : ''}
             onClick={closeMenu}
           >
-            {language === 'ID' ? 'Paket Wisata' : 'Tour Package'}
+            {language === 'ID' ? 'Paket Wisata' : language === 'ES' ? 'Paquetes' : 'Tour Package'}
           </a>
           <a
             href={localizedBase + "destinations/"}
             className={activeSection === 'destinations' ? 'is-active' : ''}
             onClick={closeMenu}
           >
-            {language === 'ID' ? 'Destinasi' : 'Destination'}
+            {language === 'ID' ? 'Destinasi' : language === 'ES' ? 'Destinos' : 'Destination'}
           </a>
           <a
             href={localizedBase + "about/"}
             className={activeSection === 'about' ? 'is-active' : ''}
             onClick={closeMenu}
           >
-            {language === 'ID' ? 'Tentang Kami' : 'About Us'}
+            {language === 'ID' ? 'Tentang Kami' : language === 'ES' ? 'Quiénes somos' : 'About Us'}
           </a>
           <a
             href={localizedBase + "blog/"}
             className={activeSection === 'blog' ? 'is-active' : ''}
             onClick={closeMenu}
           >
-            {language === 'ID' ? 'Blog Wisata' : 'Travel Blog'}
+            {language === 'ID' ? 'Blog Wisata' : language === 'ES' ? 'Blog de viajes' : 'Travel Blog'}
           </a>
 
           {/* Mobile Language & CTA */}
           <div className="mobile-language-row flex items-center justify-between gap-3 pt-4 border-t border-white/10 min-[981px]:hidden">
-            <span className="text-sm text-white/80 font-medium">Bahasa / Language:</span>
+            <span className="text-sm text-white/80 font-medium">{language === 'ES' ? 'Idioma:' : language === 'ID' ? 'Bahasa:' : 'Language:'}</span>
             <div className="mobile-language-switch flex items-center rounded-full bg-white/10 border border-white/25 p-1">
               <button
                 type="button"
@@ -146,6 +146,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }`}
               >
                 EN
+              </button>
+              <button
+                type="button"
+                onClick={() => chooseLanguage('ES')}
+                className={`mobile-language-option px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+                  shownLang === 'ES' ? 'bg-white text-[#07485A]' : 'text-white/80'
+                }`}
+              >
+                ES
               </button>
               <button
                 type="button"
@@ -168,7 +177,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onPlanTripClick();
             }}
           >
-            <span>{language === 'ID' ? 'Rencanakan Trip' : 'Plan My Trip'}</span>
+            <span>{language === 'ID' ? 'Rencanakan Trip' : language === 'ES' ? 'Planifica tu viaje' : 'Plan My Trip'}</span>
             <svg className="ic"><use href="#i-arrow" /></svg>
           </a>
         </nav>
@@ -185,6 +194,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               title="Switch to English"
             >
               EN
+            </button>
+            <button
+              type="button"
+              onClick={() => chooseLanguage('ES')}
+              className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+                shownLang === 'ES' ? 'bg-white text-[#07485A] shadow-sm' : 'text-white/80 hover:text-white'
+              }`}
+              title="Cambiar a español"
+            >
+              ES
             </button>
             <button
               type="button"

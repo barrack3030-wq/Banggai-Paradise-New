@@ -1,4 +1,4 @@
-export type Language = 'ID' | 'EN';
+export type Language = 'ID' | 'EN' | 'ES';
 
 export interface Translations {
   nav: {
@@ -134,7 +134,7 @@ export interface Translations {
   };
 }
 
-export const TRANSLATIONS: Record<Language, Translations> = {
+export const TRANSLATIONS: Record<'ID' | 'EN', Translations> = {
   ID: {
     nav: {
       home: 'Beranda',

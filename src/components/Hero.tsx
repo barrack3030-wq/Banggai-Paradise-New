@@ -12,36 +12,46 @@ const HERO_SLIDES = [
   {
     image: assetUrl('assets/images/banggai_hero_paisupok_1793766897829.jpg'),
     titleEn: 'Danau Paisu Pok',
+    titleEs: 'Lago Paisu Pok',
     titleId: 'Danau Paisu Pok',
     subEn: 'Mirror Lake · Peleng',
+    subEs: 'Lago espejo · Peleng',
     subId: 'Danau Kaca · P. Peleng',
   },
   {
     image: assetUrl('assets/images/banggai_sombori_islands_1793766898898.jpg'),
     titleEn: 'Sombori Archipelago',
+    titleEs: 'Archipiélago de Sombori',
     titleId: 'Kepulauan Sombori',
     subEn: 'Karst Cliffs & Lagoons',
+    subEs: 'Acantilados kársticos y lagunas',
     subId: 'Tebing Karst & Laguna Zamrud',
   },
   {
     image: assetUrl('assets/images/banggai_white_sand_beach_1793766899675.jpg'),
     titleEn: 'White-Sand Mandel Beach',
+    titleEs: 'Playa de arena blanca de Mandel',
     titleId: 'Pantai Pasir Putih Mandel',
     subEn: 'Soft Sand & Swaying Palms',
+    subEs: 'Arena clara y palmeras',
     subId: 'Pasir Selembut Sutra & Kelapa',
   },
   {
     image: assetUrl('assets/images/banggai_snorkeling_coral_1793766898966.jpg'),
     titleEn: 'Living Coral Sanctuary',
+    titleEs: 'Santuario de coral y vida marina',
     titleId: 'Taman Terumbu Karang & Biota',
     subEn: 'Pristine Marine Life & Jellyfish',
+    subEs: 'Vida marina y medusas',
     subId: 'Danau Ubur-Ubur & Ikan Kardinal',
   },
   {
     image: assetUrl('assets/images/banggai_pulodua_coasthill_1793781298326.jpg'),
     titleEn: 'Pulo Dua & Balantak',
+    titleEs: 'Pulo Dua y Balantak',
     titleId: 'Pulo Dua & Savana Balantak',
     subEn: 'Green Hills & Sea Boardwalk',
+    subEs: 'Colinas verdes y pasarela junto al mar',
     subId: 'Perbukitan Teletubbies & Jembatan Laut',
   },
 ];
@@ -53,7 +63,8 @@ export const Hero: React.FC<HeroProps> = ({
 }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
-  const isEn = language === 'EN';
+  const isEn = language !== 'ID';
+  const isEs = language === 'ES';
 
   // 5 Background Slide Autoplay
   React.useEffect(() => {
@@ -100,7 +111,7 @@ export const Hero: React.FC<HeroProps> = ({
         {/* Image slide indicators */}
         <div className="absolute top-24 right-4 sm:right-10 z-20 flex items-center bg-black/30 backdrop-blur-md pl-3 pr-1.5 py-1 rounded-full border border-white/15">
           <span className="text-xs font-semibold text-white/90 mr-2 hidden sm:inline">
-            {isEn ? HERO_SLIDES[activeSlide].titleEn : HERO_SLIDES[activeSlide].titleId}
+            {isEs ? HERO_SLIDES[activeSlide].titleEs : isEn ? HERO_SLIDES[activeSlide].titleEn : HERO_SLIDES[activeSlide].titleId}
           </span>
           {HERO_SLIDES.map((_, idx) => (
             <button
@@ -124,13 +135,13 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Left Column: Copy & CTAs */}
           <div className="hero-copy">
             <h1>
-              {isEn ? 'Your best choice ' : 'Pilihan terbaik '}
-              <em>{isEn ? 'travel partner' : 'partner perjalanan'}</em>
+              {isEs ? 'Tu mejor compañero de ' : isEs ? 'Tu mejor compañero de ' : isEn ? 'Your best choice ' : 'Pilihan terbaik '}
+              <em>{isEs ? 'viaje' : isEs ? 'viaje' : isEn ? 'travel partner' : 'partner perjalanan'}</em>
             </h1>
 
             <p className="lead">
               {isEn
-                ? 'Handcrafted island journeys led by friendly local experts. Trusted, professional and made around the way you love to travel.'
+                ? (isEs ? 'Descubre las islas Banggai con un equipo local que conoce sus rutas, paisajes y comunidades. Diseñamos viajes privados a tu ritmo.' : 'Handcrafted island journeys led by friendly local experts. Trusted, professional and made around the way you love to travel.')
                 : 'Perjalanan kepulauan eksklusif didampingi pemandu lokal terpercaya. Aman, profesional, dan disesuaikan dengan gaya liburan impian Anda.'}
             </p>
 
@@ -140,7 +151,7 @@ export const Hero: React.FC<HeroProps> = ({
                 className="btn btn-coral"
                 onClick={onExplorePackages}
               >
-                <span>{isEn ? 'Explore Packages' : 'Jelajahi Paket'}</span>
+                <span>{isEs ? 'Ver paquetes' : isEs ? 'Ver paquetes' : isEn ? 'Explore Packages' : 'Jelajahi Paket'}</span>
                 <svg className="ic">
                   <use href="#i-arrow" />
                 </svg>
@@ -151,7 +162,7 @@ export const Hero: React.FC<HeroProps> = ({
                 className="btn btn-glass"
                 onClick={onViewAboutUs}
               >
-                <span>{isEn ? 'About Us' : 'Tentang Kami'}</span>
+                <span>{isEs ? 'Quiénes somos' : isEs ? 'Quiénes somos' : isEn ? 'About Us' : 'Tentang Kami'}</span>
               </button>
             </div>
 
@@ -180,8 +191,8 @@ export const Hero: React.FC<HeroProps> = ({
                 </svg>
               </span>
               <div>
-                <b>{isEn ? 'Island Hopping' : 'Jelajah Pulau'}</b>
-                <small>{isEn ? 'Custom itineraries' : 'Itinerary fleksibel'}</small>
+                <b>{isEs ? 'Ruta entre islas' : isEs ? 'Ruta entre islas' : isEn ? 'Island Hopping' : 'Jelajah Pulau'}</b>
+                <small>{isEs ? 'Itinerarios a medida' : isEs ? 'Itinerarios a medida' : isEn ? 'Custom itineraries' : 'Itinerary fleksibel'}</small>
               </div>
             </div>
 

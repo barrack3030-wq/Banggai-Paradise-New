@@ -1,13 +1,15 @@
 import React from 'react';
 import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
+import { localizedPath } from '../utils/localizedPath';
 
 interface FooterProps {
   language: Language;
 }
 
 export const Footer: React.FC<FooterProps> = ({ language }) => {
-  const isEn = language === 'EN';
+  const isEn = language !== 'ID';
+  const isEs = language === 'ES';
   const currentYear = new Date().getFullYear();
 
   return (
@@ -25,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             />
             <p>
               {isEn
-                ? 'Your best choice travel partner for unforgettable island journeys. Trusted, professional, and locally rooted.'
+                ? (isEs ? 'Tu equipo local para descubrir las islas Banggai con viajes privados, atención cercana y conocimiento del destino.' : 'Your best choice travel partner for unforgettable island journeys. Trusted, professional, and locally rooted.')
                 : 'Pilihan terbaik partner perjalanan Anda menjelajahi surga tersembunyi Kepulauan Banggai. Terpercaya, profesional, dan berakar lokal.'}
             </p>
             <div className="soc">
@@ -45,18 +47,18 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
 
           {/* Nav Column 1 */}
           <div>
-            <h4>{isEn ? 'Company' : 'Perusahaan'}</h4>
+            <h4>{isEs ? 'La empresa' : isEn ? 'Company' : 'Perusahaan'}</h4>
             <nav>
-              <a href={`${import.meta.env.BASE_URL}about/`}>{isEn ? 'About Us' : 'Tentang Kami'}</a>
-              <a href={`${import.meta.env.BASE_URL}packages/`}>{isEn ? 'Tour Packages' : 'Paket Wisata'}</a>
-              <a href={`${import.meta.env.BASE_URL}destinations/`}>{isEn ? 'Destinations' : 'Destinasi'}</a>
-              <a href={`${import.meta.env.BASE_URL}blog/`}>{isEn ? 'Travel Blog' : 'Blog Wisata'}</a>
+              <a href={localizedPath('about/', language)}>{isEs ? 'Quiénes somos' : isEn ? 'About Us' : 'Tentang Kami'}</a>
+              <a href={localizedPath('packages/', language)}>{isEs ? 'Paquetes' : isEn ? 'Tour Packages' : 'Paket Wisata'}</a>
+              <a href={localizedPath('destinations/', language)}>{isEs ? 'Destinos' : isEn ? 'Destinations' : 'Destinasi'}</a>
+              <a href={localizedPath('blog/', language)}>{isEs ? 'Blog de viajes' : isEn ? 'Travel Blog' : 'Blog Wisata'}</a>
             </nav>
           </div>
 
           {/* Nav Column 2 */}
           <div>
-            <h4>{isEn ? 'Destinations' : 'Destinasi Unggulan'}</h4>
+            <h4>{isEs ? 'Lugares destacados' : isEn ? 'Destinations' : 'Destinasi Unggulan'}</h4>
             <nav>
               <a href="#destinations">Danau Paisu Pok</a>
               <a href="#destinations">Kepulauan Sombori</a>
@@ -67,7 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
 
           {/* Contact Column */}
           <div>
-            <h4>{isEn ? 'Contact & Office' : 'Kontak & Kantor'}</h4>
+            <h4>{isEs ? 'Contacto' : isEn ? 'Contact & Office' : 'Kontak & Kantor'}</h4>
             <nav>
               <a
                 href="https://wa.me/6285820830530"
@@ -80,7 +82,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                 info@banggaiparadise.com
               </a>
               <span className="text-sm block text-cyan-200/70 mt-1">
-                Luwuk &amp; Banggai Islands, Sulawesi Tengah, Indonesia
+                Luwuk y las islas Banggai, Sulawesi Central, Indonesia
               </span>
             </nav>
           </div>
@@ -89,10 +91,10 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         {/* Bottom Bar */}
         <div className="fbar">
           <div>
-            &copy; {currentYear} Banggai Paradise Tour &amp; Travel. All rights reserved.
+            &copy; {currentYear} Banggai Paradise Tour &amp; Travel. {isEs ? 'Todos los derechos reservados.' : 'All rights reserved.'}
           </div>
           <div>
-            {isEn ? 'Your best choice travel partner.' : 'Pilihan terbaik partner perjalanan Anda.'}
+            {isEs ? 'Tu compañero local para viajar por Banggai.' : isEn ? 'Your best choice travel partner.' : 'Pilihan terbaik partner perjalanan Anda.'}
           </div>
         </div>
       </div>

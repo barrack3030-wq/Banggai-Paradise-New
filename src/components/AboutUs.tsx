@@ -25,7 +25,8 @@ export const AboutUs: React.FC<AboutUsProps> = ({
   onMeetTeamClick,
   language,
 }) => {
-  const isEn = language === 'EN';
+  const isEn = language !== 'ID';
+  const isEs = language === 'ES';
 
   return (
     <div className="section" style={{ paddingBottom: 0 }}>
@@ -35,46 +36,44 @@ export const AboutUs: React.FC<AboutUsProps> = ({
         </div>
 
         <div className="about-txt">
-          <span className="eyebrow on-teal">{isEn ? 'About Us' : 'Tentang Kami'}</span>
+          <span className="eyebrow on-teal">{isEs ? 'Quiénes somos' : isEs ? 'Quiénes somos' : isEn ? 'About Us' : 'Tentang Kami'}</span>
           <p>
             {isEn
-              ? 'Banggai Paradise was founded by Aji Zulfikar, a local guide from the Banggai region with experience accompanying international travelers. His knowledge of the islands, natural landscapes, routes and local life helps shape journeys that feel personal, flexible and thoughtfully planned.'
+              ? (isEs ? 'Banggai Paradise fue creado por Aji Zulfikar, guía local de la región de Banggai. Su conocimiento de las islas, los paisajes, las rutas y la vida local permite organizar experiencias cercanas, flexibles y bien planificadas.' : 'Banggai Paradise was founded by Aji Zulfikar, a local guide from the Banggai region with experience accompanying international travelers. His knowledge of the islands, natural landscapes, routes and local life helps shape journeys that feel personal, flexible and thoughtfully planned.')
               : 'Banggai Paradise didirikan oleh Aji Zulfikar, pemandu lokal dari wilayah Banggai yang berpengalaman mendampingi wisatawan internasional. Pengetahuannya tentang kepulauan, alam, rute perjalanan, dan kehidupan masyarakat setempat membantu menciptakan perjalanan yang personal, fleksibel, dan direncanakan dengan baik.'}
           </p>
 
           <ul>
-            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEn ? 'Local knowledge of destinations and routes' : 'Pengetahuan lokal tentang destinasi dan rute perjalanan'}</span></li>
-            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEn ? 'Flexible trips shaped around your travel style' : 'Perjalanan fleksibel sesuai gaya liburan Anda'}</span></li>
-            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEn ? 'Personal assistance from planning to the journey' : 'Pendampingan personal sejak perencanaan hingga perjalanan'}</span></li>
+            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEs ? 'Conocimiento local de destinos y rutas' : isEs ? 'Conocimiento local de destinos y rutas' : isEn ? 'Local knowledge of destinations and routes' : 'Pengetahuan lokal tentang destinasi dan rute perjalanan'}</span></li>
+            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEs ? 'Viajes flexibles adaptados a tu forma de viajar' : isEs ? 'Viajes flexibles adaptados a tu forma de viajar' : isEn ? 'Flexible trips shaped around your travel style' : 'Perjalanan fleksibel sesuai gaya liburan Anda'}</span></li>
+            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEs ? 'Atención personal desde la planificación hasta el viaje' : isEs ? 'Atención personal desde la planificación hasta el viaje' : isEn ? 'Personal assistance from planning to the journey' : 'Pendampingan personal sejak perencanaan hingga perjalanan'}</span></li>
           </ul>
 
           <div className="visitor-gallery">
             <div className="visitor-gallery-heading">
-              <span className="eyebrow on-teal">{isEn ? 'Visitor Gallery' : 'Galeri Pengunjung'}</span>
-              <p>{isEn ? 'Moments with guests I have personally guided or assisted in Banggai.' : 'Momen bersama tamu yang pernah saya pandu atau dampingi secara langsung di Banggai.'}</p>
+              <span className="eyebrow on-teal">{isEs ? 'Galería de viajeros' : isEn ? 'Visitor Gallery' : 'Galeri Pengunjung'}</span>
+              <p>{isEn ? (isEs ? 'Momentos con viajeros a quienes he acompañado o prestado asistencia en Banggai.' : 'Moments with guests I have personally guided or assisted in Banggai.') : 'Momen bersama tamu yang pernah saya pandu atau dampingi secara langsung di Banggai.'}</p>
             </div>
             <div className="visitor-gallery-grid">
               {visitorPhotos.map((photo, index) => (
                 <figure className="visitor-gallery-card" key={photo}>
                   <img
                     src={`/assets/images/visitor-gallery/${photo}`}
-                    alt={isEn ? `Guest travel moment ${index + 1} in Banggai` : `Momen perjalanan tamu ${index + 1} di Banggai`}
+                    alt={isEs ? `Momento de viaje ${index + 1} en Banggai` : isEn ? `Guest travel moment ${index + 1} in Banggai` : `Momen perjalanan tamu ${index + 1} di Banggai`}
                     loading="lazy"
                     decoding="async"
                   />
-                  <figcaption>{isEn ? 'Guest moments' : 'Momen bersama tamu'}</figcaption>
+                  <figcaption>{isEs ? 'Momentos con viajeros' : isEs ? 'Momentos con viajeros' : isEn ? 'Guest moments' : 'Momen bersama tamu'}</figcaption>
                 </figure>
               ))}
             </div>
             <p className="visitor-gallery-note">
-              {isEn
-                ? 'Note: These photos feature guests I personally brought, guided or assisted while working with other travel agencies. They are shared to show my guiding experience and do not imply that those guests booked through or are affiliated with Banggai Paradise.'
-                : 'Catatan: Foto-foto ini menampilkan tamu yang pernah saya bawa, pandu, atau dampingi saat bekerja bersama agensi perjalanan lain. Foto dibagikan sebagai dokumentasi pengalaman saya sebagai pemandu, dan bukan berarti para tamu tersebut memesan melalui atau berafiliasi dengan Banggai Paradise.'}
+              {isEs ? 'Nota: Estas fotografías muestran a viajeros a quienes acompañé, guié o presté asistencia mientras colaboraba con otras agencias. Se comparten como muestra de mi experiencia como guía y no implican que esas personas reservaran a través de Banggai Paradise.' : isEn ? 'Note: These photos feature guests I personally brought, guided or assisted while working with other travel agencies. They are shared to show my guiding experience and do not imply that those guests booked through or are affiliated with Banggai Paradise.' : 'Catatan: Foto-foto ini menampilkan tamu yang pernah saya bawa, pandu, atau dampingi saat bekerja bersama agensi perjalanan lain. Foto dibagikan sebagai dokumentasi pengalaman saya sebagai pemandu, dan bukan berarti para tamu tersebut memesan melalui atau berafiliasi dengan Banggai Paradise.'}
             </p>
           </div>
 
           <button type="button" className="btn btn-white" onClick={onMeetTeamClick}>
-            <span>{isEn ? 'Plan Your Journey' : 'Rencanakan Perjalanan'}</span>
+            <span>{isEs ? 'Planifica tu viaje' : isEs ? 'Planifica tu viaje' : isEn ? 'Plan Your Journey' : 'Rencanakan Perjalanan'}</span>
             <svg className="ic"><use href="#i-arrow" /></svg>
           </button>
         </div>

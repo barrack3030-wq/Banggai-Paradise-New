@@ -7,7 +7,8 @@ interface FinalCTAProps {
 }
 
 export const FinalCTA: React.FC<FinalCTAProps> = ({ onPlanTripClick, language }) => {
-  const isEn = language === 'EN';
+  const isEn = language !== 'ID';
+  const isEs = language === 'ES';
 
   return (
     <div className="section" style={{ paddingBottom: 0 }}>
@@ -17,14 +18,14 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onPlanTripClick, language })
 
         <div className="cta-in">
           <div className="cta-copy">
-            <span className="eyebrow light">{isEn ? "Let's go" : 'Mari Berangkat'}</span>
+            <span className="eyebrow light">{isEs ? 'Vamos a viajar' : isEn ? "Let's go" : 'Mari Berangkat'}</span>
             <h2>
-              {isEn ? 'Ready for your next ' : 'Siap untuk petualangan '}
-              <em>{isEn ? 'adventure?' : 'berikutnya?'}</em>
+              {isEs ? '¿Preparado para tu próxima ' : isEs ? '¿Preparado para tu próxima ' : isEn ? 'Ready for your next ' : 'Siap untuk petualangan '}
+              <em>{isEs ? 'aventura?' : isEs ? 'aventura?' : isEn ? 'adventure?' : 'berikutnya?'}</em>
             </h2>
             <p>
               {isEn
-                ? 'Tell us about your travel plans. Our local team is ready to help.'
+                ? (isEs ? 'Cuéntanos qué viaje tienes en mente. Nuestro equipo local te ayudará a organizarlo.' : 'Tell us about your travel plans. Our local team is ready to help.')
                 : 'Ceritakan rencana perjalanan Anda. Tim lokal kami siap membantu melalui WhatsApp.'}
             </p>
           </div>
@@ -35,7 +36,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onPlanTripClick, language })
               className="box cursor-pointer"
               href={`https://wa.me/628124567890?text=${encodeURIComponent(
                 isEn
-                  ? 'Hello Banggai Paradise, I would like to plan a trip to Banggai Islands.'
+                  ? (isEs ? 'Hola, Banggai Paradise. Me gustaría organizar un viaje a las islas Banggai.' : 'Hello Banggai Paradise, I would like to plan a trip to Banggai Islands.')
                   : 'Halo Banggai Paradise, saya ingin tanya info paket dan merencanakan liburan ke Kepulauan Banggai.'
               )}`}
               target="_blank"
@@ -47,8 +48,8 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onPlanTripClick, language })
                 </svg>
               </span>
               <span>
-                <b>{isEn ? 'Chat with us' : 'Chat via WhatsApp'}</b>
-                <small>{isEn ? 'Quick answers from our team' : 'Respon cepat dari tim lokal kami'}</small>
+                <b>{isEs ? 'Habla con nosotros' : isEs ? 'Habla con nosotros' : isEn ? 'Chat with us' : 'Chat via WhatsApp'}</b>
+                <small>{isEs ? 'Atención directa de nuestro equipo' : isEs ? 'Atención directa de nuestro equipo' : isEn ? 'Quick answers from our team' : 'Respon cepat dari tim lokal kami'}</small>
               </span>
             </a>
 
@@ -66,8 +67,8 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onPlanTripClick, language })
                 </svg>
               </span>
               <span>
-                <b>{isEn ? 'Plan my trip' : 'Konsultasi Itinerary'}</b>
-                <small>{isEn ? 'Get a custom itinerary' : 'Rancang paket sesuai keinginan Anda'}</small>
+                <b>{isEs ? 'Planifica mi viaje' : isEs ? 'Planifica mi viaje' : isEn ? 'Plan my trip' : 'Konsultasi Itinerary'}</b>
+                <small>{isEs ? 'Prepara una ruta a tu medida' : isEs ? 'Prepara una ruta a tu medida' : isEn ? 'Get a custom itinerary' : 'Rancang paket sesuai keinginan Anda'}</small>
               </span>
             </a>
           </div>

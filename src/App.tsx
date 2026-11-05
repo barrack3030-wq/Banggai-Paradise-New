@@ -18,6 +18,7 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { TourPackage } from './types';
 import { Language } from './i18n/translations';
 
+
 type Page = 'home' | 'packages' | 'destinations' | 'about' | 'blog' | 'luwuk-stopover' | 'package-detail';
 
 export default function App() {
@@ -26,23 +27,23 @@ export default function App() {
     ? window.location.pathname.slice(basePath.length)
     : window.location.pathname.split('/').filter(Boolean).join('/');
   const rawSegments = rawRoutePath.split('/').filter(Boolean);
-  const routeLocale = rawSegments[0] === 'id' || rawSegments[0] === 'eng' ? rawSegments[0] : '';
+  const routeLocale = rawSegments[0] === 'id' || rawSegments[0] === 'eng' || rawSegments[0] === 'es' ? rawSegments[0] : '';
   const routePath = routeLocale ? rawSegments.slice(1).join('/') : rawRoutePath;
-  const [language, setLanguage] = useState<Language>(() => routeLocale === 'id' ? 'ID' : routeLocale === 'eng' ? 'EN' : 'EN');
+  const [language, setLanguage] = useState<Language>(() => routeLocale === 'id' ? 'ID' : routeLocale === 'es' ? 'ES' : 'EN');
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
-  const localePrefix = routeLocale || (language === 'ID' ? 'id' : 'eng');
+  const localePrefix = routeLocale || (language === 'ID' ? 'id' : language === 'ES' ? 'es' : 'eng');
   const localeBase = basePath + localePrefix + '/';
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
   const packageSlug = routePath.split('/').filter(Boolean)[1] || '';
-  const isLuwukStopoverPage = route === 'packages' && packageSlug === 'luwuk-stopover';
+  const isLuwukStopoverPage = route === 'packages' && packageSlug === 'luwuk-stopover' && routeLocale !== 'es';
   const isPackageDetailPage = route === 'packages' && Boolean(packageSlug);
   const page: Page = isLuwukStopoverPage ? 'luwuk-stopover' : isPackageDetailPage ? 'package-detail' : route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
   const isBlogArticlePage = page === 'blog' && routePath.split('/').filter(Boolean).length > 1;
   const isArticleReadingPage = isBlogArticlePage || page === 'luwuk-stopover' || page === 'package-detail';
 
-  const handleSelectLanguage = (lang: Language) => {
+  const handleSelectLanguage = (lang: Language | 'ES') => {
     try { localStorage.setItem('banggai_lang', lang); } catch { /* optional */ }
-    const targetPrefix = lang === 'ID' ? 'id' : 'eng';
+    const targetPrefix = lang === 'ID' ? 'id' : lang === 'ES' ? 'es' : 'eng';
     const suffix = routePath.split('/').filter(Boolean).join('/');
     window.location.href = basePath + targetPrefix + '/' + (suffix ? suffix + '/' : '');
   };
@@ -53,7 +54,7 @@ export default function App() {
   }, [isBlogArticlePage]);
 
   useEffect(() => {
-    document.documentElement.lang = language.toLowerCase();
+    document.documentElement.lang = routeLocale === 'es' ? 'es-ES' : language === 'ID' ? 'id-ID' : 'en';
     document.documentElement.classList.add('js');
     const reveals = document.querySelectorAll('[data-reveal]');
     if ('IntersectionObserver' in window && reveals.length) {
@@ -75,23 +76,17 @@ export default function App() {
   };
 
   const intro = {
-    packages: language === 'ID'
-      ? ['Paket Tour Kepulauan Banggai', 'Pilih pengalaman perjalanan yang sesuai, mulai dari wisata pantai dan island hopping hingga petualangan laut bersama tim lokal Banggai Paradise.']
-      : ['Banggai Islands Tour Packages', 'Choose a trip that suits your travel style, from beach escapes and island hopping to ocean adventures with the local Banggai Paradise team.'],
-    destinations: language === 'ID'
-      ? ['Jelajahi Destinasi Kepulauan Banggai', 'Kenali dan rencanakan perjalanan ke danau sebening kristal, pantai pasir putih, gugusan pulau, dan lanskap pesisir Banggai.']
-      : ['Explore the Banggai Islands', 'Discover and plan a journey to crystal-clear lakes, white-sand beaches, island groups and the coastal landscapes of Banggai.'],
-    about: language === 'ID'
-      ? ['Tentang Banggai Paradise', 'Kenali tim lokal dan cara kami membantu merencanakan perjalanan yang nyaman, terarah, dan berkesan di Kepulauan Banggai.']
-      : ['About Banggai Paradise', 'Meet the local team and learn how we help plan thoughtful, comfortable and memorable journeys through the Banggai Islands.'],
-    blog: language === 'ID'
-      ? ['Travel Blog Banggai Paradise', 'Baca panduan perjalanan, inspirasi destinasi, dan tips praktis sebelum menjelajahi Kepulauan Banggai.']
-      : ['Banggai Paradise Travel Blog', 'Read travel guides, destination inspiration and practical tips before exploring the Banggai Islands.']
+    packages: language === 'ES' ? ['Viajes privados por las islas Banggai', 'Elige una experiencia a tu medida: playas, rutas entre islas y paisajes naturales con el apoyo de nuestro equipo local.'] : language === 'ID' ? ['Paket Tour Kepulauan Banggai', 'Pilih pengalaman perjalanan yang sesuai, mulai dari wisata pantai dan island hopping hingga petualangan laut bersama tim lokal Banggai Paradise.'] : ['Banggai Islands Tour Packages', 'Choose a trip that suits your travel style, from beach escapes and island hopping to ocean adventures with the local Banggai Paradise team.'],
+    destinations: language === 'ES' ? ['Descubre las islas Banggai', 'Conoce lagos de aguas transparentes, playas de arena clara, pequeñas islas y paisajes costeros de Sulawesi Central.'] : language === 'ID' ? ['Jelajahi Destinasi Kepulauan Banggai', 'Kenali dan rencanakan perjalanan ke danau sebening kristal, pantai pasir putih, gugusan pulau, dan lanskap pesisir Banggai.'] : ['Explore the Banggai Islands', 'Discover and plan a journey to crystal-clear lakes, white-sand beaches, island groups and the coastal landscapes of Banggai.'],
+    about: language === 'ES' ? ['Sobre Banggai Paradise', 'Conoce al equipo local y nuestra forma de ayudarte a organizar un viaje cómodo y auténtico por las islas Banggai.'] : language === 'ID' ? ['Tentang Banggai Paradise', 'Kenali tim lokal dan cara kami membantu merencanakan perjalanan yang nyaman, terarah, dan berkesan di Kepulauan Banggai.'] : ['About Banggai Paradise', 'Meet the local team and learn how we help plan thoughtful, comfortable and memorable journeys through the Banggai Islands.'],
+    blog: language === 'ES' ? ['Blog de viajes de Banggai Paradise', 'Guías prácticas, ideas para descubrir el destino y consejos para preparar tu viaje a las islas Banggai.'] : language === 'ID' ? ['Travel Blog Banggai Paradise', 'Baca panduan perjalanan, inspirasi destinasi, dan tips praktis sebelum menjelajahi Kepulauan Banggai.'] : ['Banggai Paradise Travel Blog', 'Read travel guides, destination inspiration and practical tips before exploring the Banggai Islands.']
   } as const;
+
+  
 
   return <>
     <SvgSprite />
-    <a className="skip" href="#main">{language === 'ID' ? 'Lewati ke konten' : 'Skip to content'}</a>
+    <a className="skip" href="#main">{language === 'ID' ? 'Lewati ke konten' : language === 'ES' ? 'Saltar al contenido' : 'Skip to content'}</a>
     <Navbar onPlanTripClick={() => scrollTo('contact')} language={language} onSelectLanguage={handleSelectLanguage} />
     <main id="main">
       {page === 'home' ? <>
@@ -102,7 +97,7 @@ export default function App() {
       </> : <>
         {!isArticleReadingPage && page !== 'blog' && <section className="page-intro">
           <div className="container">
-            <span className="eyebrow">{page === 'packages' ? 'TOUR EXPERIENCES' : page === 'destinations' ? 'BANGGAI ISLANDS' : page === 'about' ? 'OUR STORY' : 'TRAVEL JOURNAL'}</span>
+            <span className="eyebrow">{language === 'ES' ? (page === 'packages' ? 'EXPERIENCIAS DE VIAJE' : page === 'destinations' ? 'ISLAS BANGGAI' : page === 'about' ? 'NUESTRA HISTORIA' : 'BLOG DE VIAJES') : page === 'packages' ? 'TOUR EXPERIENCES' : page === 'destinations' ? 'BANGGAI ISLANDS' : page === 'about' ? 'OUR STORY' : 'TRAVEL JOURNAL'}</span>
             <h1>{intro[page][0]}</h1>
             <p>{intro[page][1]}</p>
           </div>
