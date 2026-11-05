@@ -135,8 +135,8 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Left Column: Copy & CTAs */}
           <div className="hero-copy">
             <h1>
-              {isEs ? 'Tu mejor compañero de ' : isEn ? 'Your best choice ' : 'Pilihan terbaik '}
-              <em>{isEs ? 'viaje' : isEn ? 'travel partner' : 'partner perjalanan'}</em>
+              {isEs ? 'Tu mejor compañero de ' : isEs ? 'Tu mejor compañero de ' : isEn ? 'Your best choice ' : 'Pilihan terbaik '}
+              <em>{isEs ? 'viaje' : isEs ? 'viaje' : isEn ? 'travel partner' : 'partner perjalanan'}</em>
             </h1>
 
             <p className="lead">
@@ -151,7 +151,7 @@ export const Hero: React.FC<HeroProps> = ({
                 className="btn btn-coral"
                 onClick={onExplorePackages}
               >
-                <span>{isEs ? 'Ver paquetes' : isEn ? 'Explore Packages' : 'Jelajahi Paket'}</span>
+                <span>{isEs ? 'Ver paquetes' : isEs ? 'Ver paquetes' : isEn ? 'Explore Packages' : 'Jelajahi Paket'}</span>
                 <svg className="ic">
                   <use href="#i-arrow" />
                 </svg>
@@ -162,7 +162,7 @@ export const Hero: React.FC<HeroProps> = ({
                 className="btn btn-glass"
                 onClick={onViewAboutUs}
               >
-                <span>{isEs ? 'Quiénes somos' : isEn ? 'About Us' : 'Tentang Kami'}</span>
+                <span>{isEs ? 'Quiénes somos' : isEs ? 'Quiénes somos' : isEn ? 'About Us' : 'Tentang Kami'}</span>
               </button>
             </div>
 
@@ -191,8 +191,8 @@ export const Hero: React.FC<HeroProps> = ({
                 </svg>
               </span>
               <div>
-                <b>{isEs ? 'Ruta entre islas' : isEn ? 'Island Hopping' : 'Jelajah Pulau'}</b>
-                <small>{isEs ? 'Itinerarios a medida' : isEn ? 'Custom itineraries' : 'Itinerary fleksibel'}</small>
+                <b>{isEs ? 'Ruta entre islas' : isEs ? 'Ruta entre islas' : isEn ? 'Island Hopping' : 'Jelajah Pulau'}</b>
+                <small>{isEs ? 'Itinerarios a medida' : isEs ? 'Itinerarios a medida' : isEn ? 'Custom itineraries' : 'Itinerary fleksibel'}</small>
               </div>
             </div>
 
