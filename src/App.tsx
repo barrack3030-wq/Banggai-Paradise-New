@@ -54,7 +54,7 @@ export default function App() {
   }, [isBlogArticlePage]);
 
   useEffect(() => {
-    document.documentElement.lang = routeLocale === 'es' ? 'es' : language.toLowerCase();
+    document.documentElement.lang = routeLocale === 'es' ? 'es-ES' : language === 'ID' ? 'id-ID' : 'en';
     document.documentElement.classList.add('js');
     const reveals = document.querySelectorAll('[data-reveal]');
     if ('IntersectionObserver' in window && reveals.length) {
