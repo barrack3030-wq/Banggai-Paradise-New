@@ -101,7 +101,7 @@ export default function App() {
             <p>{intro[page][1]}</p>
           </div>
         </section>}
-        {page === 'packages' && <TourPackages onSelectPackage={setSelectedPackage} searchFilter="all" language={language} />}
+        {page === 'packages' && <TourPackages onSelectPackage={setSelectedPackage} language={language} />}
         {page === 'destinations' && <DestinationsPage onPlanTrip={(name) => { sessionStorage.setItem('destination_interest', name); scrollTo('contact'); }} language={language} />}
         {page === 'about' && <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />}
         {page === 'blog' && <TravelBlog language={language} />}
