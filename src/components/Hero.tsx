@@ -97,36 +97,9 @@ export const Hero: React.FC<HeroProps> = ({
           <i></i>
         </div>
 
-        {/* Slide Indicators on Desktop/Tablet/Mobile */}
-        <div className="absolute top-28 right-6 sm:right-10 z-20 flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
-          <span className="text-[11px] font-semibold text-white/90 mr-1 hidden sm:inline">
-            {isEn ? HERO_SLIDES[activeSlide].titleEn : HERO_SLIDES[activeSlide].titleId}
-          </span>
-          {HERO_SLIDES.map((_, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={() => setActiveSlide(idx)}
-              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer pointer-events-auto ${
-                idx === activeSlide ? 'w-5 bg-[#5CE1E6]' : 'w-1.5 bg-white/40 hover:bg-white/70'
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
-
         <div className="container hero-grid">
           {/* Left Column: Copy & CTAs */}
           <div className="hero-copy">
-            <span className="pill">
-              <b>
-                <svg className="ic">
-                  <use href="#i-sparkle" />
-                </svg>
-              </b>
-              <span>Tour &amp; Travel · Banggai Paradise</span>
-            </span>
-
             <h1>
               {isEn ? 'Your best choice ' : 'Pilihan terbaik '}
               <em>{isEn ? 'travel partner' : 'partner perjalanan'}</em>
@@ -159,26 +132,7 @@ export const Hero: React.FC<HeroProps> = ({
               </button>
             </div>
 
-            <ul className="chips">
-              <li>
-                <svg className="ic">
-                  <use href="#i-shield" />
-                </svg>
-                <span>{isEn ? 'Trusted & professional' : 'Terpercaya & profesional'}</span>
-              </li>
-              <li>
-                <svg className="ic">
-                  <use href="#i-heart" />
-                </svg>
-                <span>{isEn ? 'Friendly local guides' : 'Pemandu lokal ramah'}</span>
-              </li>
-              <li>
-                <svg className="ic">
-                  <use href="#i-compass" />
-                </svg>
-                <span>{isEn ? 'Tailor-made trips' : 'Private trip fleksibel'}</span>
-              </li>
-            </ul>
+
           </div>
 
           {/* Right Column: Hero Art Composition with Van, Arch & Bubbles */}
