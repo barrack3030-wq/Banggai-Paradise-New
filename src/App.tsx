@@ -93,7 +93,7 @@ export default function App() {
     <Navbar onPlanTripClick={() => scrollTo('contact')} language={language} onSelectLanguage={handleSelectLanguage} />
     <main id="main">
       {page === 'home' ? <>
-        <Hero onExplorePackages={() => scrollTo('packages')} onViewDestinations={() => { window.location.href = basePath + 'destinations/'; }} language={language} />
+        <Hero onExplorePackages={() => scrollTo('packages')} onViewAboutUs={() => { window.location.href = basePath + 'about/'; }} language={language} />
         <WhyChooseUs onPlanTripClick={() => scrollTo('contact')} language={language} />
         <TourPackages onSelectPackage={setSelectedPackage} language={language} />
         <ExploreDestinations onPlanTripForDestination={() => scrollTo('contact')} language={language} />
