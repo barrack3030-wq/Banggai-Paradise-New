@@ -44,7 +44,7 @@ export default function App() {
   const handleSelectLanguage = (lang: Language | 'ES') => {
     try { localStorage.setItem('banggai_lang', lang); } catch { /* optional */ }
     const targetPrefix = lang === 'ID' ? 'id' : lang === 'ES' ? 'es' : 'eng';
-    const suffix = routePath.split('/').filter(Boolean).join('/');
+    const suffix = lang === 'ES' ? '' : routePath.split('/').filter(Boolean).join('/');
     window.location.href = basePath + targetPrefix + '/' + (suffix ? suffix + '/' : '');
   };
 
@@ -54,7 +54,7 @@ export default function App() {
   }, [isBlogArticlePage]);
 
   useEffect(() => {
-    document.documentElement.lang = language.toLowerCase();
+    document.documentElement.lang = routeLocale === 'es' ? 'es' : language.toLowerCase();
     document.documentElement.classList.add('js');
     const reveals = document.querySelectorAll('[data-reveal]');
     if ('IntersectionObserver' in window && reveals.length) {
