@@ -46,13 +46,13 @@ export const ExploreDestinations: React.FC<ExploreDestinationsProps> = ({
     },
     {
       cls: 'tile t4',
-      img: assetUrl('assets/img/sunset.svg'),
+      img: 'https://soalpalu.com/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-01-at-22.11.32.jpeg',
       chip: null,
-      titleEn: 'Golden Hour at Sea & Pulo Dua',
-      titleId: 'Golden Hour di Laut & Pulo Dua',
-      descEn: 'Sail into a sky of gold, pink and violet as the day slows down over Balantak hills.',
-      descId: 'Berlayar saat mentari senja keemasan berpadu dengan keelokan sabana perbukitan Balantak.',
-      destQuery: 'Pulo Dua & Balantak',
+      titleEn: 'Pulo Dua Balantak',
+      titleId: 'Pulo Dua Balantak',
+      descEn: 'A striking island ridge, white-sand shores and clear blue waters in Balantak.',
+      descId: 'Punggung bukit yang khas, pantai pasir putih, dan laut jernih di Balantak.',
+      destQuery: 'Pulo Dua Balantak',
     },
   ];
 
