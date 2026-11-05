@@ -7,7 +7,7 @@ interface TravelBlogProps { language: Language; showAllArticles?: boolean; }
 export const TravelBlog: React.FC<TravelBlogProps> = ({ language, showAllArticles = false }) => {
   const isEn = language === 'EN';
   const isEs = language === 'ES';
-  const author = 'Banggai Paradise Editorial Team';
+  const author = isEs ? 'Equipo editorial de Banggai Paradise' : 'Banggai Paradise Editorial Team';
   const publishedAt = '2026-11-05';
   const basePath = import.meta.env.BASE_URL;
   const [searchTerm, setSearchTerm] = useState('');
