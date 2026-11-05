@@ -778,8 +778,8 @@ h2{font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.1;color:var(--deep);margin-t
 .luwuk-stopover article section.rounded-3xl h4 { font-size: .94rem; line-height: 1.5; }
 .luwuk-stopover article section.rounded-3xl ul { gap: 5px; }
 .luwuk-stopover article section.rounded-3xl li { font-size: .9rem; line-height: 1.65; }
-.luwuk-stopover article .grid.sm\\:grid-cols-2 { gap: 9px; }
-.luwuk-stopover article .grid.sm\\:grid-cols-2 > div {
+.luwuk-stopover article .grid[class~="sm:grid-cols-2"] { gap: 9px; }
+.luwuk-stopover article .grid[class~="sm:grid-cols-2"] > div {
   min-height: 0;
   padding: 12px 14px;
   border-radius: 13px;
@@ -831,8 +831,8 @@ h2{font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.1;color:var(--deep);margin-t
   .luwuk-stopover article section.rounded-3xl h3 { font-size: 1.12rem; }
   .luwuk-stopover article section.rounded-3xl > div > div { min-width: 0; }
   .luwuk-stopover article section.rounded-3xl li { font-size: .84rem; line-height: 1.6; }
-  .luwuk-stopover article .grid.sm\\:grid-cols-2 { grid-template-columns: 1fr; gap: 7px; margin-top: 16px; }
-  .luwuk-stopover article .grid.sm\\:grid-cols-2 > div { padding: 10px 12px; font-size: .84rem; }
+  .luwuk-stopover article .grid[class~="sm:grid-cols-2"] { grid-template-columns: 1fr; gap: 7px; margin-top: 16px; }
+  .luwuk-stopover article .grid[class~="sm:grid-cols-2"] > div { padding: 10px 12px; font-size: .84rem; }
   .luwuk-stopover article h3.text-xl { font-size: 1.15rem; margin-top: 26px; }
   .luwuk-stopover article aside { margin-top: 28px; padding: 16px; }
   .luwuk-stopover article details { padding: 14px 15px; }
