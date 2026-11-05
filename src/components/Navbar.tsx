@@ -160,11 +160,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Right CTA & Language switcher (Desktop) */}
         <div className="hidden min-[981px]:flex items-center gap-3">
-          <div className="flex items-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 p-0.5 text-xs">
+          <div className="flex items-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 p-0.5">
             <button
               type="button"
               onClick={() => onSelectLanguage('EN')}
-              className={`px-2.5 py-1 rounded-full font-semibold transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all cursor-pointer ${
                 language === 'EN' ? 'bg-white text-[#07485A] shadow-sm' : 'text-white/80 hover:text-white'
               }`}
               title="Switch to English"
@@ -174,7 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={() => onSelectLanguage('ID')}
-              className={`px-2.5 py-1 rounded-full font-semibold transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all cursor-pointer ${
                 language === 'ID' ? 'bg-white text-[#07485A] shadow-sm' : 'text-white/80 hover:text-white'
               }`}
               title="Ganti ke Bahasa Indonesia"
@@ -200,7 +200,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <button
           className="burger"
           id="burger"
-          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={mobileMenuOpen ? (language === 'ID' ? 'Tutup menu' : 'Close menu') : (language === 'ID' ? 'Buka menu' : 'Open menu')}
           aria-expanded={mobileMenuOpen}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >

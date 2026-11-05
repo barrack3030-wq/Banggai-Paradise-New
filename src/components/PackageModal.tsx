@@ -109,7 +109,7 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
                         <p className="text-xs text-slate-500 mt-1 leading-relaxed">{day.description}</p>
                         <div className="flex flex-wrap gap-1 mt-2">
                           {day.spots.map((spot, sIdx) => (
-                            <span key={sIdx} className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">
+                            <span key={sIdx} className="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">
                               {spot}
                             </span>
                           ))}
@@ -166,7 +166,7 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
                   {isEn ? 'Contact our team' : 'Hubungi Tim Kami'}
                 </a>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-slate-200 text-xs text-slate-500 flex items-center justify-between">
                 <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5 text-teal-600" />{isEn ? 'Local operator' : 'Operator lokal'}</span>
                 <span className="flex items-center gap-1"><Award className="w-3.5 h-3.5 text-teal-600" />{isEn ? 'Trip consultation' : 'Konsultasi trip'}</span>
               </div>

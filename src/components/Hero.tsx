@@ -98,8 +98,8 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* Image slide indicators */}
-        <div className="absolute top-28 right-6 sm:right-10 z-20 flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
-          <span className="text-[11px] font-semibold text-white/90 mr-1 hidden sm:inline">
+        <div className="absolute top-24 right-4 sm:right-10 z-20 flex items-center bg-black/30 backdrop-blur-md pl-3 pr-1.5 py-1 rounded-full border border-white/15">
+          <span className="text-xs font-semibold text-white/90 mr-2 hidden sm:inline">
             {isEn ? HERO_SLIDES[activeSlide].titleEn : HERO_SLIDES[activeSlide].titleId}
           </span>
           {HERO_SLIDES.map((_, idx) => (
@@ -107,11 +107,16 @@ export const Hero: React.FC<HeroProps> = ({
               key={idx}
               type="button"
               onClick={() => setActiveSlide(idx)}
-              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer pointer-events-auto ${
-                idx === activeSlide ? 'w-5 bg-[#5CE1E6]' : 'w-1.5 bg-white/40 hover:bg-white/70'
-              }`}
+              className="hero-dot group pointer-events-auto"
               aria-label={`Go to slide ${idx + 1}`}
-            />
+              aria-current={idx === activeSlide ? 'true' : undefined}
+            >
+              <span
+                className={`block h-1.5 rounded-full transition-all duration-300 ${
+                  idx === activeSlide ? 'w-5 bg-[#5CE1E6]' : 'w-1.5 bg-white/40 group-hover:bg-white/70'
+                }`}
+              />
+            </button>
           ))}
         </div>
 
