@@ -11,7 +11,8 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
   onPlanTripClick,
   language,
 }) => {
-  const isEn = language !== 'ID';
+  const isEn = language === 'EN';
+  const isEs = language === 'ES';
   const isEs = language === 'ES';
   const sliderRef = useRef<HTMLDivElement>(null);
   const slide = (direction: -1 | 1) => {
@@ -59,27 +60,27 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
           </div>
           <div className="trust-grid trust-slider" ref={sliderRef}>
             <article className="tcard">
-              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000561157.CuqSp_O_.jpg" alt={isEn ? 'Banggai Islands travel experience' : 'Pengalaman perjalanan di Kepulauan Banggai'} loading="lazy" /></div>
+              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000561157.CuqSp_O_.jpg" alt={isEs ? 'Experiencia de viaje en las islas Banggai' : isEn ? 'Banggai Islands travel experience' : 'Pengalaman perjalanan di Kepulauan Banggai'} loading="lazy" /></div>
               <span className="num" aria-hidden="true">01</span>
               <div className="trust-copy">
                 <h3>{isEs ? 'Confianza y profesionalidad' : isEn ? 'Trusted & Professional' : 'Terpercaya & Profesional'}</h3>
-                <p>{isEn ? 'Clear communication, thoughtful trip planning and attentive local support from your first enquiry to the end of your journey.' : 'Komunikasi yang jelas, perencanaan perjalanan yang matang, dan dukungan tim lokal sejak konsultasi pertama hingga perjalanan selesai.'}</p>
+                <p>{isEs ? 'Comunicación clara, planificación cuidada y atención local desde la primera consulta hasta el final del viaje.' : isEn ? 'Clear communication, thoughtful trip planning and attentive local support from your first enquiry to the end of your journey.' : 'Komunikasi yang jelas, perencanaan perjalanan yang matang, dan dukungan tim lokal sejak konsultasi pertama hingga perjalanan selesai.'}</p>
               </div>
             </article>
             <article className="tcard coral">
-              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000567706%20(1).Bt5MDsVS.jpg" alt={isEn ? 'Local guide and island scenery in Banggai' : 'Pemandu lokal dan panorama Kepulauan Banggai'} loading="lazy" /></div>
+              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000567706%20(1).Bt5MDsVS.jpg" alt={isEs ? 'Guía local y paisajes de las islas Banggai' : isEn ? 'Local guide and island scenery in Banggai' : 'Pemandu lokal dan panorama Kepulauan Banggai'} loading="lazy" /></div>
               <span className="num" aria-hidden="true">02</span>
               <div className="trust-copy">
-                <h3>{isEn ? 'Friendly Local Guides' : 'Pemandu Lokal Ramah'}</h3>
-                <p>{isEn ? 'Discover Banggai with people who know the area, its routes, coastal communities and the stories behind each place.' : 'Jelajahi Banggai bersama orang lokal yang mengenal wilayah, rute, masyarakat pesisir, dan cerita di balik setiap tempat.'}</p>
+                <h3>{isEs ? 'Guías locales cercanos' : isEn ? 'Friendly Local Guides' : 'Pemandu Lokal Ramah'}</h3>
+                <p>{isEs ? 'Descubre Banggai con personas que conocen la zona, sus rutas, las comunidades costeras y las historias de cada lugar.' : isEn ? 'Discover Banggai with people who know the area, its routes, coastal communities and the stories behind each place.' : 'Jelajahi Banggai bersama orang lokal yang mengenal wilayah, rute, masyarakat pesisir, dan cerita di balik setiap tempat.'}</p>
               </div>
             </article>
             <article className="tcard">
-              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000576872.jYD6zMGT.jpg" alt={isEn ? 'Banggai nature and island landscape' : 'Lanskap alam dan pulau-pulau Banggai'} loading="lazy" /></div>
+              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000576872.jYD6zMGT.jpg" alt={isEs ? 'Naturaleza y paisajes insulares de Banggai' : isEn ? 'Banggai nature and island landscape' : 'Lanskap alam dan pulau-pulau Banggai'} loading="lazy" /></div>
               <span className="num" aria-hidden="true">03</span>
               <div className="trust-copy">
-                <h3>{isEn ? 'Tailor-Made Journeys' : 'Perjalanan Sesuai Keinginan'}</h3>
-                <p>{isEn ? 'Private trips shaped around your travel dates, interests and preferred pace, with room to discuss the details together.' : 'Private trip yang disusun mengikuti tanggal, minat, dan ritme perjalanan Anda, dengan ruang untuk membicarakan detailnya bersama.'}</p>
+                <h3>{isEs ? 'Viajes a medida' : isEn ? 'Tailor-Made Journeys' : 'Perjalanan Sesuai Keinginan'}</h3>
+                <p>{isEs ? 'Viajes privados adaptados a tus fechas, intereses y ritmo, con todos los detalles acordados contigo.' : isEn ? 'Private trips shaped around your travel dates, interests and preferred pace, with room to discuss the details together.' : 'Private trip yang disusun mengikuti tanggal, minat, dan ritme perjalanan Anda, dengan ruang untuk membicarakan detailnya bersama.'}</p>
               </div>
             </article>
           </div>
@@ -90,7 +91,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
       <section className="section how" id="how">
         <div className="container">
           <div className="head-c">
-            <span className="eyebrow">{isEn ? 'How it works' : 'Cara Kerja'}</span>
+            <span className="eyebrow">{isEs ? 'Cómo organizamos tu viaje' : isEn ? 'How it works' : 'Cara Kerja'}</span>
             <h2>
               {isEn ? (
                 <>
@@ -117,7 +118,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
                 />
               </div>
               <span className="sn">1</span>
-              <h3>{isEn ? 'Share your dream trip' : 'Ceritakan Trip Impian Anda'}</h3>
+              <h3>{isEs ? 'Cuéntanos qué viaje imaginas' : isEn ? 'Share your dream trip' : 'Ceritakan Trip Impian Anda'}</h3>
               <p>
                 {isEn
                   ? 'Tell us your dates, group and the kind of experience you want.'
@@ -137,7 +138,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
                 />
               </div>
               <span className="sn">2</span>
-              <h3>{isEn ? 'We craft your plan' : 'Kami Susun Rencana Terbaik'}</h3>
+              <h3>{isEs ? 'Preparamos tu itinerario' : isEn ? 'We craft your plan' : 'Kami Susun Rencana Terbaik'}</h3>
               <p>
                 {isEn
                   ? 'Our team designs a clear itinerary with honest pricing, then fine-tunes it with you.'
