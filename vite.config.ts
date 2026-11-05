@@ -15,7 +15,7 @@ export default defineConfig(() => {
         input: {
           main: fileURLToPath(new URL('./index.html', import.meta.url)),
           idHome: fileURLToPath(new URL('./id/index.html', import.meta.url)),
-          enHome: fileURLToPath(new URL('./eng/index.html', import.meta.url))
+          enHome: fileURLToPath(new URL('./eng/index.html', import.meta.url)),
           id_packages: fileURLToPath(new URL('./id/packages/index.html', import.meta.url)),
           en_packages: fileURLToPath(new URL('./eng/packages/index.html', import.meta.url)),
           id_destinations: fileURLToPath(new URL('./id/destinations/index.html', import.meta.url)),
