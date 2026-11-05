@@ -24,7 +24,7 @@ export default function App() {
   const basePath = import.meta.env.BASE_URL;
   const rawRoutePath = window.location.pathname.startsWith(basePath)
     ? window.location.pathname.slice(basePath.length)
-    : window.location.pathname.replace(/^\\/+/, '');
+    : window.location.pathname.split('/').filter(Boolean).join('/');
   const rawSegments = rawRoutePath.split('/').filter(Boolean);
   const routeLocale = rawSegments[0] === 'id' || rawSegments[0] === 'eng' ? rawSegments[0] : '';
   const routePath = routeLocale ? rawSegments.slice(1).join('/') : rawRoutePath;
@@ -33,7 +33,7 @@ export default function App() {
   const localePrefix = routeLocale || (language === 'ID' ? 'id' : 'eng');
   const localeBase = basePath + localePrefix + '/';
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
-  const packageSlug = routePath.replace(/\\/+$/, '').split('/')[1] || '';
+  const packageSlug = routePath.split('/').filter(Boolean)[1] || '';
   const isLuwukStopoverPage = route === 'packages' && packageSlug === 'luwuk-stopover';
   const isPackageDetailPage = route === 'packages' && Boolean(packageSlug);
   const page: Page = isLuwukStopoverPage ? 'luwuk-stopover' : isPackageDetailPage ? 'package-detail' : route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
@@ -43,7 +43,7 @@ export default function App() {
   const handleSelectLanguage = (lang: Language) => {
     try { localStorage.setItem('banggai_lang', lang); } catch { /* optional */ }
     const targetPrefix = lang === 'ID' ? 'id' : 'eng';
-    window.location.href = basePath + targetPrefix + '/' + routePath.replace(/^\\/+|\\/+$/g, '');
+    window.location.href = basePath + targetPrefix + '/' + (routePath ? routePath.replace(/^\\/+|\\/+$/g, '') + '/' : '');
   };
 
   useEffect(() => {
