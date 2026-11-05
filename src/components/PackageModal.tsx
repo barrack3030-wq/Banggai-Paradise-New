@@ -62,10 +62,10 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
                   <Users className="w-4 h-4 text-cyan-300" />
                   {pkg.groupType}
                 </span>
-                <span className="flex items-center gap-1">
+                {pkg.rating > 0 && <span className="flex items-center gap-1">
                   <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                  {pkg.rating > 0 ? `${pkg.rating} (${pkg.reviewCount} ${isEn ? 'traveller reviews' : 'ulasan wisatawan'})` : ''}
-                </span>
+                  {pkg.rating} ({pkg.reviewCount} {isEn ? 'traveller reviews' : 'ulasan wisatawan'})
+                </span>}
               </div>
             </div>
           </div>
@@ -82,8 +82,8 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
                 </p>
               </div>
 
-              {/* Highlights */}
-              <div>
+              {/* Destinations */}
+              {pkg.highlights.length > 0 && <div>
                 <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">{isEn ? 'Destinations' : 'Destinasi'}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {pkg.highlights.map((h, i) => (
@@ -93,7 +93,7 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
                     </div>
                   ))}
                 </div>
-              </div>
+              </div>}
 
               {/* Day-by-Day Itinerary */}
               {pkg.itinerary.length > 0 && <div>
