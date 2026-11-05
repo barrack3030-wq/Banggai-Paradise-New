@@ -21,6 +21,7 @@ export default defineConfig(() => {
           blogIslandGuide: fileURLToPath(new URL('./blog/island-hopping-guide/index.html', import.meta.url)),
           blogSnorkeling: fileURLToPath(new URL('./blog/snorkeling-basics/index.html', import.meta.url)),
           blogGoldenHour: fileURLToPath(new URL('./blog/golden-hour-banggai/index.html', import.meta.url)),
+          blogPelengGuide: fileURLToPath(new URL('./blog/beyond-paisu-pok-peleng-island-guide/index.html', import.meta.url)),
         },
       },
     },
