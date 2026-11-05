@@ -27,6 +27,7 @@ const DESTINATIONS = [
  'piala':{name:'Cascada de Piala',desc:'Una sucesión de pequeñas cascadas que desembocan en pozas naturales entre el bosque tropical.'},
  'kilo-5':{name:'Playa de Kilo 5',desc:'Una de las playas conocidas de Luwuk, con arena clara, zonas para practicar snorkel y ambiente al atardecer.'},
  'mbuang-mbuang':{name:'Isla de Mbuang-Mbuang',desc:'Un paisaje insular de pequeñas islas y aguas turquesas en el mar de Banggai.'},
+ 'long-beach':{name:'Long Beach',desc:'Una playa de arena blanca, accesible en barco, con aguas transparentes y zonas para practicar snorkel.'},
  'sombori':{name:'Islas Sombori',desc:'Formaciones kársticas, pequeñas lagunas y paisajes marinos de gran belleza.'}
  };
 
