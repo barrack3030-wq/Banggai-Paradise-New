@@ -11,7 +11,8 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
   onPlanTripClick,
   language,
 }) => {
-  const isEn = language === 'EN';
+  const isEn = language !== 'ID';
+  const isEs = language === 'ES';
   const sliderRef = useRef<HTMLDivElement>(null);
   const slide = (direction: -1 | 1) => {
     const track = sliderRef.current;
@@ -26,7 +27,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
       <section className="section trust" id="why">
         <div className="container">
           <div className="head-c">
-            <span className="eyebrow">{isEn ? 'Why Banggai Paradise' : 'Mengapa Banggai Paradise'}</span>
+            <span className="eyebrow">{isEs ? 'Por qué Banggai Paradise' : isEn ? 'Why Banggai Paradise' : 'Mengapa Banggai Paradise'}</span>
             <h2>
               {isEn ? (
                 <>
@@ -40,18 +41,18 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
             </h2>
             <p>
               {isEn
-                ? 'Every detail is handled by a local team that knows the islands, so you can simply enjoy the journey.'
+                ? (isEs ? 'Nuestro equipo conoce las islas y se ocupa de los detalles para que disfrutes del viaje con tranquilidad.' : 'Every detail is handled by a local team that knows the islands, so you can simply enjoy the journey.')
                 : 'Setiap detail perjalanan diatur langsung oleh tim lokal berpengalaman agar Anda dapat menikmati liburan dengan tenang dan berkesan.'}
             </p>
           </div>
 
           <div className="trust-slider-controls">
-            <span className="trust-slider-hint">{isEn ? 'Discover what makes the journey special' : 'Geser untuk mengenal keunggulan perjalanan kami'}</span>
+            <span className="trust-slider-hint">{isEs ? 'Descubre lo que hace especial el viaje' : isEn ? 'Discover what makes the journey special' : 'Geser untuk mengenal keunggulan perjalanan kami'}</span>
             <div className="trust-slider-arrows">
-              <button type="button" aria-label={isEn ? 'Previous benefits' : 'Keunggulan sebelumnya'} onClick={() => slide(-1)}>
+              <button type="button" aria-label={isEs ? 'Ventajas anteriores' : isEn ? 'Previous benefits' : 'Keunggulan sebelumnya'} onClick={() => slide(-1)}>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 9 12l6-6" /></svg>
               </button>
-              <button type="button" aria-label={isEn ? 'Next benefits' : 'Keunggulan berikutnya'} onClick={() => slide(1)}>
+              <button type="button" aria-label={isEs ? 'Ventajas siguientes' : isEn ? 'Next benefits' : 'Keunggulan berikutnya'} onClick={() => slide(1)}>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
               </button>
             </div>
@@ -61,7 +62,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
               <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000561157.CuqSp_O_.jpg" alt={isEn ? 'Banggai Islands travel experience' : 'Pengalaman perjalanan di Kepulauan Banggai'} loading="lazy" /></div>
               <span className="num" aria-hidden="true">01</span>
               <div className="trust-copy">
-                <h3>{isEn ? 'Trusted & Professional' : 'Terpercaya & Profesional'}</h3>
+                <h3>{isEs ? 'Confianza y profesionalidad' : isEn ? 'Trusted & Professional' : 'Terpercaya & Profesional'}</h3>
                 <p>{isEn ? 'Clear communication, thoughtful trip planning and attentive local support from your first enquiry to the end of your journey.' : 'Komunikasi yang jelas, perencanaan perjalanan yang matang, dan dukungan tim lokal sejak konsultasi pertama hingga perjalanan selesai.'}</p>
               </div>
             </article>
