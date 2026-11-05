@@ -97,6 +97,24 @@ export const Hero: React.FC<HeroProps> = ({
           <i></i>
         </div>
 
+        {/* Image slide indicators */}
+        <div className="absolute top-28 right-6 sm:right-10 z-20 flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
+          <span className="text-[11px] font-semibold text-white/90 mr-1 hidden sm:inline">
+            {isEn ? HERO_SLIDES[activeSlide].titleEn : HERO_SLIDES[activeSlide].titleId}
+          </span>
+          {HERO_SLIDES.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => setActiveSlide(idx)}
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer pointer-events-auto ${
+                idx === activeSlide ? 'w-5 bg-[#5CE1E6]' : 'w-1.5 bg-white/40 hover:bg-white/70'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+
         <div className="container hero-grid">
           {/* Left Column: Copy & CTAs */}
           <div className="hero-copy">
