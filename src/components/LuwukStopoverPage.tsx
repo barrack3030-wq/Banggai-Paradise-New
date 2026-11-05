@@ -8,7 +8,9 @@ const wa = 'https://wa.me/6285820830530?text=';
 
 export const LuwukStopoverPage: React.FC<Props> = ({ language }) => {
   const id = language === 'ID';
-  const days = id ? [
+  type ItinerarySlot = [string, string[]];
+  type ItineraryDay = { day: string; title: string; time: ItinerarySlot[] };
+  const days: ItineraryDay[] = id ? [
     { day: 'Hari 1', title: 'Tiba dan eksplorasi alam Luwuk', time: [
       ['11.30 — Tiba di Bandara Luwuk', ['Penjemputan di bandara dan meet and greet', 'Persiapan perjalanan bersama tim lokal']],
       ['12.00 — Memulai eksplorasi Luwuk', ['Berangkat dari bandara', 'Makan siang atau mencoba kuliner lokal', 'Menikmati perjalanan dengan lanskap tropis']],
