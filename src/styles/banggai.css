@@ -581,7 +581,7 @@ h2{font-size:var(--fs-h2);line-height:1.1;color:var(--deep);margin-top:14px}
     font-weight: 700;
     line-height: 1;
     letter-spacing: .04em;
-    transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+    transition: background .2s ease, color .2s ease, box-shadow .2s ease, scale .15s ease;
   }
   .menu .mobile-language-switch .mobile-language-option.bg-white {
     background: #fff;

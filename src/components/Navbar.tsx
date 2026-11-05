@@ -17,6 +17,21 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // Language switch reloads the page, so show the new choice immediately and let the
+  // transition play before navigating (otherwise the page is replaced before anything animates).
+  const [pendingLang, setPendingLang] = useState<Language | null>(null);
+  const shownLang = pendingLang ?? language;
+  const chooseLanguage = (lang: Language) => {
+    if (pendingLang || lang === language) return;
+    setPendingLang(lang);
+    window.setTimeout(() => onSelectLanguage(lang), 220);
+  };
+  // Back/forward cache can restore this page with a stale pending state
+  useEffect(() => {
+    const reset = () => setPendingLang(null);
+    window.addEventListener('pageshow', reset);
+    return () => window.removeEventListener('pageshow', reset);
+  }, []);
   const basePath = import.meta.env.BASE_URL;
   const pathParts = window.location.pathname.replace(basePath, '').split('/').filter(Boolean);
   const localePrefix = pathParts[0] === 'id' || pathParts[0] === 'eng' ? pathParts[0] : (language === 'ID' ? 'id' : 'eng');
@@ -125,18 +140,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="mobile-language-switch flex items-center rounded-full bg-white/10 border border-white/25 p-1">
               <button
                 type="button"
-                onClick={() => onSelectLanguage('EN')}
-                className={`mobile-language-option px-4 py-2 rounded-full text-sm font-bold transition-all cursor-pointer ${
-                  language === 'EN' ? 'bg-white text-[#07485A]' : 'text-white/80'
+                onClick={() => chooseLanguage('EN')}
+                className={`mobile-language-option px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+                  shownLang === 'EN' ? 'bg-white text-[#07485A]' : 'text-white/80'
                 }`}
               >
                 EN
               </button>
               <button
                 type="button"
-                onClick={() => onSelectLanguage('ID')}
-                className={`mobile-language-option px-4 py-2 rounded-full text-sm font-bold transition-all cursor-pointer ${
-                  language === 'ID' ? 'bg-white text-[#07485A]' : 'text-white/80'
+                onClick={() => chooseLanguage('ID')}
+                className={`mobile-language-option px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+                  shownLang === 'ID' ? 'bg-white text-[#07485A]' : 'text-white/80'
                 }`}
               >
                 ID
@@ -163,9 +178,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 p-0.5">
             <button
               type="button"
-              onClick={() => onSelectLanguage('EN')}
-              className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all cursor-pointer ${
-                language === 'EN' ? 'bg-white text-[#07485A] shadow-sm' : 'text-white/80 hover:text-white'
+              onClick={() => chooseLanguage('EN')}
+              className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+                shownLang === 'EN' ? 'bg-white text-[#07485A] shadow-sm' : 'text-white/80 hover:text-white'
               }`}
               title="Switch to English"
             >
@@ -173,9 +188,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               type="button"
-              onClick={() => onSelectLanguage('ID')}
-              className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all cursor-pointer ${
-                language === 'ID' ? 'bg-white text-[#07485A] shadow-sm' : 'text-white/80 hover:text-white'
+              onClick={() => chooseLanguage('ID')}
+              className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+                shownLang === 'ID' ? 'bg-white text-[#07485A] shadow-sm' : 'text-white/80 hover:text-white'
               }`}
               title="Ganti ke Bahasa Indonesia"
             >
