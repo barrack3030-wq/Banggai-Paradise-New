@@ -9,6 +9,7 @@ import { DestinationsPage } from './components/DestinationsPage';
 import { AboutUs } from './components/AboutUs';
 import { TravelBlog } from './components/TravelBlog';
 import { LuwukStopoverPage } from './components/LuwukStopoverPage';
+import { PackageDetailPage } from './components/PackageDetailPage';
 
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
@@ -17,13 +18,13 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { TourPackage } from './types';
 import { Language } from './i18n/translations';
 
-type Page = 'home' | 'packages' | 'destinations' | 'about' | 'blog' | 'luwuk-stopover';
+type Page = 'home' | 'packages' | 'destinations' | 'about' | 'blog' | 'luwuk-stopover' | 'package-detail';
 
 export default function App() {
   const [language, setLanguage] = useState<Language>(() => {
     try {
       const saved = localStorage.getItem('banggai_lang');
-      return saved === 'ID' || saved === 'EN' ? saved as Language : (window.location.pathname.includes('/packages/luwuk-stopover') ? 'ID' : 'EN');
+      return saved === 'ID' || saved === 'EN' ? saved as Language : (window.location.pathname.includes('/packages/') ? 'ID' : 'EN');
     } catch { return 'EN'; }
   });
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
@@ -35,7 +36,7 @@ export default function App() {
   const isLuwukStopoverPage = routePath.replace(/\/+$/, '') === 'packages/luwuk-stopover';
   const page: Page = isLuwukStopoverPage ? 'luwuk-stopover' : route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
   const isBlogArticlePage = page === 'blog' && routePath.split('/').filter(Boolean).length > 1;
-  const isArticleReadingPage = isBlogArticlePage || page === 'luwuk-stopover';
+  const isArticleReadingPage = isBlogArticlePage || page === 'luwuk-stopover' || page === 'package-detail';
 
   const handleSelectLanguage = (lang: Language) => {
     setLanguage(lang);
@@ -109,6 +110,7 @@ export default function App() {
         {page === 'about' && <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />}
         {page === 'blog' && <TravelBlog language={language} />}
         {page === 'luwuk-stopover' && <LuwukStopoverPage language={language} />}
+        {page === 'package-detail' && <PackageDetailPage slug={packageSlug} language={language} />}
       </>}
       {!isArticleReadingPage && <FinalCTA onPlanTripClick={() => scrollTo('contact')} language={language} />}
     </main>
