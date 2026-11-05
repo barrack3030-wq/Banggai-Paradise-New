@@ -3,6 +3,8 @@ name: Validate Banggai Paradise
 on:
   pull_request:
     branches: [main]
+  push:
+    branches: [main]
 
 permissions:
   contents: read
