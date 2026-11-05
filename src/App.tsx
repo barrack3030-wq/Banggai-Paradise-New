@@ -94,7 +94,7 @@ export default function App() {
         <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />
         <TravelBlog language={language} showAllArticles />
       </> : <>
-        {!isArticleReadingPage && <section className="page-intro">
+        {!isArticleReadingPage && page !== 'blog' && <section className="page-intro">
           <div className="container">
             <span className="eyebrow">{page === 'packages' ? 'TOUR EXPERIENCES' : page === 'destinations' ? 'BANGGAI ISLANDS' : page === 'about' ? 'OUR STORY' : 'TRAVEL JOURNAL'}</span>
             <h1>{intro[page][0]}</h1>
