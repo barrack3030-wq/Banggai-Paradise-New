@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { assetUrl } from '../utils/assetUrl';
 import { TourPackage } from '../types';
-import { TOUR_PACKAGES } from '../data/travelData';
 import { Language } from '../i18n/translations';
 
 interface TourPackagesProps {
@@ -10,105 +9,165 @@ interface TourPackagesProps {
   language: Language;
 }
 
+type PackageChoice = {
+  id: string;
+  titleEn: string;
+  titleId: string;
+  durationEn: string;
+  durationId: string;
+  descriptionEn: string;
+  descriptionId: string;
+  placesEn: string[];
+  placesId: string[];
+  image: string;
+  featured?: boolean;
+  badgeEn?: string;
+  badgeId?: string;
+};
+
+const PACKAGE_CHOICES: PackageChoice[] = [
+  {
+    id: 'luwuk-one-day',
+    titleEn: 'Luwuk One Day Private Trip',
+    titleId: 'Luwuk One Day Private Trip',
+    durationEn: '1 Day',
+    durationId: '1 Hari',
+    descriptionEn: 'A private day trip from Luwuk to Piala Waterfall, the Luwuk coastline and nearby city highlights.',
+    descriptionId: 'Private trip satu hari dari Luwuk untuk mengunjungi Air Terjun Piala, pesisir Luwuk, dan destinasi sekitar kota.',
+    placesEn: ['Luwuk City', 'Piala Waterfall', 'Kilo 5 Coast'],
+    placesId: ['Kota Luwuk', 'Air Terjun Piala', 'Pesisir Kilo 5'],
+    image: assetUrl('assets/img/beach.svg'),
+  },
+  {
+    id: 'luwuk-stopover',
+    titleEn: 'Luwuk Stopover',
+    titleId: 'Paket Wisata Luwuk 2 Hari 1 Malam',
+    durationEn: '2 Days 1 Night',
+    durationId: '2 Hari 1 Malam',
+    descriptionEn: 'Explore Piala Waterfall, Luwuk coastline, Salodik and nearby highlights at a relaxed pace.',
+    descriptionId: 'Jelajahi Air Terjun Piala, pesisir Luwuk, Salodik, serta destinasi sekitar dengan perjalanan yang santai.',
+    placesEn: ['Luwuk City', 'Piala Waterfall', 'Salodik'],
+    placesId: ['Kota Luwuk', 'Air Terjun Piala', 'Salodik'],
+    image: assetUrl('assets/images/banggai_white_sand_beach_1793766899675.jpg'),
+  },
+  {
+    id: 'luwuk-salakan',
+    titleEn: 'Luwuk Salakan Private Trip',
+    titleId: 'Private Trip Luwuk Salakan 3 Hari 2 Malam',
+    durationEn: '3 Days 2 Nights',
+    durationId: '3 Hari 2 Malam',
+    descriptionEn: 'A flexible cross-island journey connecting Luwuk and Salakan with coastal scenery and time to explore the Banggai Islands.',
+    descriptionId: 'Perjalanan antarpulau yang fleksibel menghubungkan Luwuk dan Salakan, dengan pemandangan pesisir serta waktu menjelajahi Kepulauan Banggai.',
+    placesEn: ['Luwuk', 'Salakan', 'Banggai Islands'],
+    placesId: ['Luwuk', 'Salakan', 'Kepulauan Banggai'],
+    image: assetUrl('assets/images/banggai_pulodua_coasthill_1793781298326.jpg'),
+  },
+  {
+    id: 'banggai-four-days',
+    titleEn: 'Banggai 4 Days 3 Nights',
+    titleId: 'Paket Wisata Banggai 4 Hari 3 Malam',
+    durationEn: '4 Days 3 Nights',
+    durationId: '4 Hari 3 Malam',
+    descriptionEn: 'Discover Paisu Pok, Peleng Island and selected highlights across the Banggai Islands.',
+    descriptionId: 'Jelajahi Paisu Pok, Pulau Peleng, dan destinasi pilihan di Kepulauan Banggai.',
+    placesEn: ['Paisu Pok', 'Peleng Island', 'Luwuk'],
+    placesId: ['Paisu Pok', 'Pulau Peleng', 'Luwuk'],
+    image: assetUrl('assets/images/banggai_hero_paisupok_1793766897829.jpg'),
+    featured: true,
+    badgeEn: 'Best Seller',
+    badgeId: 'Terlaris',
+  },
+  {
+    id: 'banggai-five-days',
+    titleEn: 'Banggai 5 Days 4 Nights',
+    titleId: 'Paket Wisata Banggai 5 Hari 4 Malam',
+    durationEn: '5 Days 4 Nights',
+    durationId: '5 Hari 4 Malam',
+    descriptionEn: 'A private journey connecting Luwuk, Salakan and Peleng, including Paisu Pok and selected coastal destinations.',
+    descriptionId: 'Private trip yang menghubungkan Luwuk, Salakan, dan Peleng, termasuk Paisu Pok serta destinasi pesisir pilihan.',
+    placesEn: ['Luwuk', 'Salakan', 'Peleng Island'],
+    placesId: ['Luwuk', 'Salakan', 'Pulau Peleng'],
+    image: assetUrl('assets/images/banggai_snorkeling_coral_1793766898966.jpg'),
+  },
+  {
+    id: 'ultimate-banggai',
+    titleEn: 'Ultimate Banggai 6 Days 5 Nights',
+    titleId: 'Paket Wisata Banggai 6 Hari 5 Malam',
+    durationEn: '6 Days 5 Nights',
+    durationId: '6 Hari 5 Malam',
+    descriptionEn: 'A longer private journey through Luwuk, Salakan, Peleng, Banggai Laut, Kamumu, Salodik and Pulo Dua.',
+    descriptionId: 'Perjalanan private lebih panjang menjelajahi Luwuk, Salakan, Peleng, Banggai Laut, Kamumu, Salodik, dan Pulo Dua.',
+    placesEn: ['Luwuk', 'Salakan', 'Peleng', 'Banggai Laut', 'Pulo Dua'],
+    placesId: ['Luwuk', 'Salakan', 'Peleng', 'Banggai Laut', 'Pulo Dua'],
+    image: assetUrl('assets/images/banggai_sombori_islands_1793766898898.jpg'),
+  },
+];
+
+const makePackage = (choice: PackageChoice, isEn: boolean): TourPackage => ({
+  id: choice.id,
+  name: isEn ? choice.titleEn : choice.titleId,
+  subtitle: isEn ? choice.durationEn : choice.durationId,
+  badge: choice.featured ? 'Best Seller' : undefined,
+  category: 'relax',
+  duration: isEn ? choice.durationEn : choice.durationId,
+  groupType: isEn ? 'Private trip' : 'Private trip',
+  image: choice.image,
+  rating: 0,
+  reviewCount: 0,
+  shortDesc: isEn ? choice.descriptionEn : choice.descriptionId,
+  highlights: isEn ? choice.placesEn : choice.placesId,
+  itinerary: [],
+  included: [],
+  excluded: [],
+});
+
 export const TourPackages: React.FC<TourPackagesProps> = ({
   onSelectPackage,
-  searchFilter,
   language,
 }) => {
-  const [filter, setFilter] = useState<'all' | 'beach' | 'adventure' | 'discover'>('all');
   const isEn = language === 'EN';
-
-  // Standard packages with extracted styling and illustrations
-  const displayPackages = [
-    {
-      id: 'beach-relax',
-      badge: isEn ? 'Relax' : 'Santai',
-      badgeClass: 'chip-w',
-      isFeatured: false,
-      image: assetUrl('assets/img/beach.svg'),
-      titleEn: 'Beach & Relax Getaway',
-      titleId: 'Paket Liburan Pantai Santai',
-      descEn: 'Slow mornings, soft white sand and calm turquoise water, made for unwinding.',
-      descId: 'Pagi yang tenang, pasir putih selembut sutra, dan laut toska yang meneduhkan jiwa.',
-      daysEn: 'Flexible days (3D2N / 4D3N)',
-      daysId: 'Hari fleksibel (3H2M / 4H3M)',
-      typeEn: 'Private or group',
-      typeId: 'Private atau open trip',
-      originalPkg: TOUR_PACKAGES[0],
-    },
-    {
-      id: 'snorkeling-diving',
-      badge: isEn ? 'Adventure' : 'Petualangan',
-      badgeClass: 'chip-w',
-      isFeatured: true,
-      image: assetUrl('assets/img/reef.svg'),
-      titleEn: 'Snorkeling & Diving Expedition',
-      titleId: 'Ekspedisi Snorkeling & Diving',
-      descEn: 'Float above colorful coral gardens with guides who keep you safe and comfortable.',
-      descId: 'Menyelami taman terumbu karang hidup dan biota laut langka bersama instruktur lokal berpengalaman.',
-      daysEn: 'Flexible days (4D3N)',
-      daysId: 'Hari fleksibel (4H3M)',
-      typeEn: 'Private or group · Free Drone',
-      typeId: 'Private trip · Gratis Drone',
-      originalPkg: TOUR_PACKAGES[1],
-    },
-    {
-      id: 'island-hopping',
-      badge: isEn ? 'Discover' : 'Jelajah',
-      badgeClass: 'chip-w',
-      isFeatured: false,
-      image: assetUrl('assets/img/sunset.svg'),
-      titleEn: 'Island Hopping by Boat',
-      titleId: 'Island Hopping Spektakuler',
-      descEn: 'Glide between islands and finish the day with a golden sunset on the water.',
-      descId: 'Berlayar melintasi gugusan pulau karang Sombori dan ditutup matahari terbenam keemasan.',
-      daysEn: 'Flexible days (5D4N)',
-      daysId: 'Hari fleksibel (5H4M)',
-      typeEn: 'Private speedboat',
-      typeId: 'Speedboat private',
-      originalPkg: TOUR_PACKAGES[2],
-    },
-  ];
 
   return (
     <section className="section packages" id="packages">
       <div className="container">
-        {/* Head Row */}
         <div className="head-row">
           <div>
-            <span className="eyebrow">{isEn ? 'Tour Package' : 'Paket Wisata'}</span>
-            <h2>{isEn ? 'Pick your island escape' : 'Pilih Petualangan Pulau Anda'}</h2>
+            <span className="eyebrow">{isEn ? 'Tour Packages' : 'Paket Wisata'}</span>
+            <h2>{isEn ? 'Choose Your Banggai Trip' : 'Pilih Paket Perjalanan Banggai'}</h2>
+            <p>{isEn
+              ? 'Choose a trip duration. Routes and prices are confirmed based on your travel date, group size and preferences.'
+              : 'Pilih durasi perjalanan. Rute dan harga dikonfirmasi berdasarkan tanggal, jumlah peserta, dan kebutuhan trip Anda.'}</p>
           </div>
           <a
             className="btn btn-outline btn-sm"
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
-              const el = document.getElementById('contact');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            <span>{isEn ? 'View all packages' : 'Lihat Semua Paket'}</span>
-            <svg className="ic">
-              <use href="#i-arrow" />
-            </svg>
+            <span>{isEn ? 'Plan a Custom Trip' : 'Konsultasi Custom Trip'}</span>
+            <svg className="ic"><use href="#i-arrow" /></svg>
           </a>
         </div>
 
-        {/* Packages Grid */}
         <div className="pgrid">
-          {displayPackages.map((pkg) => (
+          {PACKAGE_CHOICES.map((pkg) => (
             <article
               key={pkg.id}
-              className={`pcard ${pkg.isFeatured ? 'feat' : ''} cursor-pointer`}
-              onClick={() => onSelectPackage(pkg.originalPkg)}
+              className={`pcard ${pkg.featured ? 'feat' : ''} cursor-pointer`}
+              onClick={() => onSelectPackage(makePackage(pkg, isEn))}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onSelectPackage(makePackage(pkg, isEn));
+                }
+              }}
             >
-              {/* Media Container */}
               <div className="pa">
-                <span className={`chip ${pkg.badgeClass}`}>{pkg.badge}</span>
-                {pkg.isFeatured && (
-                  <span className="chip chip-c">{isEn ? 'Featured' : 'Unggulan'}</span>
-                )}
+                {pkg.featured && <span className="chip chip-c">{isEn ? pkg.badgeEn : pkg.badgeId}</span>}
                 <img
                   src={pkg.image}
                   alt={isEn ? pkg.titleEn : pkg.titleId}
@@ -117,39 +176,24 @@ export const TourPackages: React.FC<TourPackagesProps> = ({
                   height={700}
                 />
               </div>
-
-              {/* Body */}
               <div className="pb">
                 <h3>{isEn ? pkg.titleEn : pkg.titleId}</h3>
-                <p>{isEn ? pkg.descEn : pkg.descId}</p>
-
+                <p>{isEn ? pkg.descriptionEn : pkg.descriptionId}</p>
                 <ul className="meta">
                   <li>
-                    <svg className="ic">
-                      <use href="#i-calendar" />
-                    </svg>
-                    <span>{isEn ? pkg.daysEn : pkg.daysId}</span>
+                    <svg className="ic"><use href="#i-calendar" /></svg>
+                    <span>{isEn ? pkg.durationEn : pkg.durationId}</span>
                   </li>
                   <li>
-                    <svg className="ic">
-                      <use href="#i-users" />
-                    </svg>
-                    <span>{isEn ? pkg.typeEn : pkg.typeId}</span>
+                    <svg className="ic"><use href="#i-users" /></svg>
+                    <span>{isEn ? 'Private trip' : 'Private trip'}</span>
                   </li>
                 </ul>
                 <div className="prow">
-                  <span className="text-sm font-semibold text-[#0A3A40]">{isEn ? 'View itinerary' : 'Lihat Itinerary'}</span>
-                  <button
-                    type="button"
-                    className="round cursor-pointer"
-                    aria-label={`View details for ${isEn ? pkg.titleEn : pkg.titleId}`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onSelectPackage(pkg.originalPkg);
-                    }}
-                  >
+                  <span className="text-sm font-semibold text-[#0A3A40]">{isEn ? 'View trip details' : 'Lihat detail paket'}</span>
+                  <span className="round" aria-hidden="true">
                     <svg className="ic"><use href="#i-arrow" /></svg>
-                  </button>
+                  </span>
                 </div>
               </div>
             </article>
