@@ -68,14 +68,12 @@ export const AboutUs: React.FC<AboutUsProps> = ({
               ))}
             </div>
             <p className="visitor-gallery-note">
-              {isEn
-                ? 'Note: These photos feature guests I personally brought, guided or assisted while working with other travel agencies. They are shared to show my guiding experience and do not imply that those guests booked through or are affiliated with Banggai Paradise.'
-                : 'Catatan: Foto-foto ini menampilkan tamu yang pernah saya bawa, pandu, atau dampingi saat bekerja bersama agensi perjalanan lain. Foto dibagikan sebagai dokumentasi pengalaman saya sebagai pemandu, dan bukan berarti para tamu tersebut memesan melalui atau berafiliasi dengan Banggai Paradise.'}
+              {isEs ? 'Nota: Estas fotografías muestran a viajeros a quienes acompañé, guié o presté asistencia mientras colaboraba con otras agencias. Se comparten como muestra de mi experiencia como guía y no implican que esas personas reservaran a través de Banggai Paradise.' : isEn ? 'Note: These photos feature guests I personally brought, guided or assisted while working with other travel agencies. They are shared to show my guiding experience and do not imply that those guests booked through or are affiliated with Banggai Paradise.' : 'Catatan: Foto-foto ini menampilkan tamu yang pernah saya bawa, pandu, atau dampingi saat bekerja bersama agensi perjalanan lain. Foto dibagikan sebagai dokumentasi pengalaman saya sebagai pemandu, dan bukan berarti para tamu tersebut memesan melalui atau berafiliasi dengan Banggai Paradise.'}
             </p>
           </div>
 
           <button type="button" className="btn btn-white" onClick={onMeetTeamClick}>
-            <span>{isEn ? 'Plan Your Journey' : 'Rencanakan Perjalanan'}</span>
+            <span>{isEs ? 'Planifica tu viaje' : isEn ? 'Plan Your Journey' : 'Rencanakan Perjalanan'}</span>
             <svg className="ic"><use href="#i-arrow" /></svg>
           </button>
         </div>
