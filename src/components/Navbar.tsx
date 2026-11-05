@@ -7,7 +7,7 @@ interface NavbarProps {
   currency: 'IDR' | 'USD';
   onToggleCurrency: () => void;
   language: Language;
-  onSelectLanguage: (lang: Language | 'ES') => void;
+  onSelectLanguage: (lang: Language) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -19,9 +19,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // Language switch reloads the page, so show the new choice immediately and let the
   // transition play before navigating (otherwise the page is replaced before anything animates).
-  const [pendingLang, setPendingLang] = useState<Language | 'ES' | null>(null);
+  const [pendingLang, setPendingLang] = useState<Language | null>(null);
   const shownLang = pendingLang ?? language;
-  const chooseLanguage = (lang: Language | 'ES') => {
+  const chooseLanguage = (lang: Language) => {
     if (pendingLang || lang === language) return;
     setPendingLang(lang);
     window.setTimeout(() => onSelectLanguage(lang), 220);
@@ -149,15 +149,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
               <button
                 type="button"
-                onClick={() => chooseLanguage('ES')}
-                className={`mobile-language-option px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
-                  shownLang === 'ES' ? 'bg-white text-[#07485A]' : 'text-white/80'
-                }`}
-              >
-                ES
-              </button>
-              <button
-                type="button"
                 onClick={() => chooseLanguage('ID')}
                 className={`mobile-language-option px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                   shownLang === 'ID' ? 'bg-white text-[#07485A]' : 'text-white/80'
@@ -194,16 +185,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               title="Switch to English"
             >
               EN
-            </button>
-            <button
-              type="button"
-              onClick={() => chooseLanguage('ES')}
-              className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
-                shownLang === 'ES' ? 'bg-white text-[#07485A] shadow-sm' : 'text-white/80 hover:text-white'
-              }`}
-              title="Cambiar a español"
-            >
-              ES
             </button>
             <button
               type="button"
