@@ -43,7 +43,7 @@ export const LuwukStopoverPage: React.FC<Props> = ({ language }) => {
   const excluded = id
     ? ['Tiket pesawat', 'Alat snorkeling', 'Pengeluaran pribadi', 'Makanan di luar itinerary', 'Asuransi perjalanan', 'Layanan video drone jika tidak disepakati dalam penawaran']
     : ['Flight tickets', 'Snorkeling equipment', 'Personal expenses', 'Meals outside the itinerary', 'Travel insurance', 'Drone video service unless agreed in the trip proposal'];
-  return <div className="bg-[#FFF8EC] min-h-screen">
+  return <div className="luwuk-stopover bg-[#FFF8EC] min-h-screen">
     <section className="relative min-h-[440px] sm:min-h-[540px] flex items-end overflow-hidden">
       <img src={assetUrl('assets/images/banggai_white_sand_beach_1793766899675.jpg')} alt={id ? 'Pemandangan pesisir tropis di sekitar Luwuk, Banggai' : 'Tropical coastline scenery around Luwuk, Banggai'} className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#052C37] via-[#052C37]/45 to-black/10" />
