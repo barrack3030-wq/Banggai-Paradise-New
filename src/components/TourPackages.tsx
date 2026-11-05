@@ -143,13 +143,13 @@ export const TourPackages: React.FC<TourPackagesProps> = ({ onSelectPackage, lan
             <article
               key={pkg.id}
               className={`pcard ${pkg.featured ? 'feat' : ''} cursor-pointer`}
-              onClick={() => onSelectPackage(makePackage(pkg, isEn))}
+              onClick={() => pkg.id === 'luwuk-stopover' ? (window.location.href = import.meta.env.BASE_URL + 'packages/luwuk-stopover/') : onSelectPackage(makePackage(pkg, isEn))}
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
-                  onSelectPackage(makePackage(pkg, isEn));
+                  pkg.id === 'luwuk-stopover' ? (window.location.href = import.meta.env.BASE_URL + 'packages/luwuk-stopover/') : onSelectPackage(makePackage(pkg, isEn));
                 }
               }}
             >
