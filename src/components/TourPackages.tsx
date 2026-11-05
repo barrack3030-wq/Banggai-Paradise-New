@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { assetUrl } from '../utils/assetUrl';
 import { TourPackage } from '../types';
 import { Language } from '../i18n/translations';
@@ -134,11 +134,30 @@ const makePackage = (choice: PackageChoice, isEn: boolean): TourPackage => ({
 
 export const TourPackages: React.FC<TourPackagesProps> = ({ onSelectPackage, language }) => {
   const isEn = language === 'EN';
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const slide = (direction: -1 | 1) => {
+    const track = sliderRef.current;
+    if (!track) return;
+    const card = track.querySelector<HTMLElement>('.pcard');
+    const distance = card ? card.getBoundingClientRect().width + 22 : track.clientWidth * 0.8;
+    track.scrollBy({ left: direction * distance, behavior: 'smooth' });
+  };
 
   return (
     <section className="section packages" id="packages">
       <div className="container">
-        <div className="pgrid">
+        <div className="package-slider-controls" aria-label={isEn ? 'Package slider controls' : 'Kontrol geser paket'}>
+          <span className="package-slider-hint">{isEn ? 'Explore our trips' : 'Geser untuk melihat semua paket'}</span>
+          <div className="package-slider-arrows">
+            <button type="button" aria-label={isEn ? 'Previous packages' : 'Paket sebelumnya'} onClick={() => slide(-1)}>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 9 12l6-6" /></svg>
+            </button>
+            <button type="button" aria-label={isEn ? 'Next packages' : 'Paket berikutnya'} onClick={() => slide(1)}>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+            </button>
+          </div>
+        </div>
+        <div className="pgrid package-slider" ref={sliderRef}>
           {PACKAGE_CHOICES.map((pkg) => (
             <article
               key={pkg.id}
