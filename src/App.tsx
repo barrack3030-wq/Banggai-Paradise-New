@@ -97,7 +97,7 @@ export default function App() {
       </> : <>
         {!isArticleReadingPage && page !== 'blog' && <section className="page-intro">
           <div className="container">
-            <span className="eyebrow">{page === 'packages' ? 'TOUR EXPERIENCES' : page === 'destinations' ? 'BANGGAI ISLANDS' : page === 'about' ? 'OUR STORY' : 'TRAVEL JOURNAL'}</span>
+            <span className="eyebrow">{language === 'ES' ? (page === 'packages' ? 'EXPERIENCIAS DE VIAJE' : page === 'destinations' ? 'ISLAS BANGGAI' : page === 'about' ? 'NUESTRA HISTORIA' : 'BLOG DE VIAJES') : page === 'packages' ? 'TOUR EXPERIENCES' : page === 'destinations' ? 'BANGGAI ISLANDS' : page === 'about' ? 'OUR STORY' : 'TRAVEL JOURNAL'}</span>
             <h1>{intro[page][0]}</h1>
             <p>{intro[page][1]}</p>
           </div>
