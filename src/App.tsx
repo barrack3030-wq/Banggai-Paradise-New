@@ -97,8 +97,6 @@ export default function App() {
         <WhyChooseUs onPlanTripClick={() => scrollTo('contact')} language={language} />
         <TourPackages onSelectPackage={setSelectedPackage} language={language} />
         <ExploreDestinations onPlanTripForDestination={() => scrollTo('contact')} language={language} />
-        <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />
-        <TravelBlog language={language} showAllArticles />
       </> : <>
         {!isArticleReadingPage && page !== 'blog' && <section className="page-intro">
           <div className="container">
