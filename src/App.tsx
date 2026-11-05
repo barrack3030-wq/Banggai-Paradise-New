@@ -43,7 +43,8 @@ export default function App() {
   const handleSelectLanguage = (lang: Language) => {
     try { localStorage.setItem('banggai_lang', lang); } catch { /* optional */ }
     const targetPrefix = lang === 'ID' ? 'id' : 'eng';
-    window.location.href = basePath + targetPrefix + '/' + (routePath ? routePath.replace(/^\\/+|\\/+$/g, '') + '/' : '');
+    const suffix = routePath.split('/').filter(Boolean).join('/');
+    window.location.href = basePath + targetPrefix + '/' + (suffix ? suffix + '/' : '');
   };
 
   useEffect(() => {
