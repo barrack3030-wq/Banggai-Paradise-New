@@ -19,6 +19,7 @@ export default defineConfig(() => {
           about: fileURLToPath(new URL('./about/index.html', import.meta.url)),
           blog: fileURLToPath(new URL('./blog/index.html', import.meta.url)),
           blogPelengGuide: fileURLToPath(new URL('./blog/beyond-paisu-pok-peleng-island-guide/index.html', import.meta.url)),
+          luwukStopover: fileURLToPath(new URL('./packages/luwuk-stopover/index.html', import.meta.url)),
         },
       },
     },
