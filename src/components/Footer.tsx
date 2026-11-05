@@ -1,6 +1,7 @@
 import React from 'react';
 import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
+import { localizedPath } from '../utils/localizedPath';
 
 interface FooterProps {
   language: Language;
@@ -48,10 +49,10 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           <div>
             <h4>{isEs ? 'La empresa' : isEn ? 'Company' : 'Perusahaan'}</h4>
             <nav>
-              <a href={`${import.meta.env.BASE_URL}about/`}>{isEs ? 'Quiénes somos' : isEn ? 'About Us' : 'Tentang Kami'}</a>
-              <a href={`${import.meta.env.BASE_URL}packages/`}>{isEs ? 'Paquetes' : isEn ? 'Tour Packages' : 'Paket Wisata'}</a>
-              <a href={`${import.meta.env.BASE_URL}destinations/`}>{isEs ? 'Destinos' : isEn ? 'Destinations' : 'Destinasi'}</a>
-              <a href={`${import.meta.env.BASE_URL}blog/`}>{isEs ? 'Blog de viajes' : isEn ? 'Travel Blog' : 'Blog Wisata'}</a>
+              <a href={localizedPath('about/', language)}>{isEs ? 'Quiénes somos' : isEn ? 'About Us' : 'Tentang Kami'}</a>
+              <a href={localizedPath('packages/', language)}>{isEs ? 'Paquetes' : isEn ? 'Tour Packages' : 'Paket Wisata'}</a>
+              <a href={localizedPath('destinations/', language)}>{isEs ? 'Destinos' : isEn ? 'Destinations' : 'Destinasi'}</a>
+              <a href={localizedPath('blog/', language)}>{isEs ? 'Blog de viajes' : isEn ? 'Travel Blog' : 'Blog Wisata'}</a>
             </nav>
           </div>
 
@@ -81,7 +82,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                 info@banggaiparadise.com
               </a>
               <span className="text-sm block text-cyan-200/70 mt-1">
-                Luwuk &amp; Banggai Islands, Sulawesi Tengah, Indonesia
+                Luwuk y las islas Banggai, Sulawesi Central, Indonesia
               </span>
             </nav>
           </div>
@@ -90,7 +91,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         {/* Bottom Bar */}
         <div className="fbar">
           <div>
-            &copy; {currentYear} Banggai Paradise Tour &amp; Travel. All rights reserved.
+            &copy; {currentYear} Banggai Paradise Tour &amp; Travel. {isEs ? 'Todos los derechos reservados.' : 'All rights reserved.'}
           </div>
           <div>
             {isEs ? 'Tu compañero local para viajar por Banggai.' : isEn ? 'Your best choice travel partner.' : 'Pilihan terbaik partner perjalanan Anda.'}
