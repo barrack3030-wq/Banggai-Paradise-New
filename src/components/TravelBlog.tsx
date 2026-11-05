@@ -68,7 +68,7 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language, showAllArticle
       </header>
       <figure className="article-hero-media"><img className="blog-reading-cover" src={selectedArticle.img} alt={titleOf(selectedArticle)} /><figcaption>{isEn ? 'Explore the Banggai Islands with thoughtful local travel planning.' : 'Jelajahi Kepulauan Banggai dengan perencanaan perjalanan bersama tim lokal.'}</figcaption></figure>
       <div className="article-topic-tags" aria-label={isEn ? 'Article topics' : 'Topik artikel'}><span>{selectedArticle.category}</span><span>{isEn ? 'Banggai Islands' : 'Kepulauan Banggai'}</span><span>{isEn ? 'Travel Guide' : 'Panduan Perjalanan'}</span></div>
-      <div className="blog-reading-content">{contentOf(selectedArticle).split(/\\n\\n/).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
+      <div className="blog-reading-content">{contentOf(selectedArticle).split(/\n\n/).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
       <section className="article-related-section"><div className="article-section-heading"><span className="eyebrow">{isEn ? 'KEEP READING' : 'LANJUTKAN MEMBACA'}</span><h2>{isEn ? 'Related travel stories' : 'Artikel yang mungkin Anda sukai'}</h2></div>
         <div className="article-related-grid">{relatedArticles.map(a => <a className="article-related-card" href={basePath + 'blog/' + a.slug + '/'} key={a.slug}><img src={a.img} alt={titleOf(a)} loading="lazy"/><div><span>{a.category} · {a.readTime}</span><h3>{titleOf(a)}</h3><p>{excerptOf(a)}</p><strong>{isEn ? 'Read article' : 'Baca artikel'} →</strong></div></a>)}</div>
       </section>
