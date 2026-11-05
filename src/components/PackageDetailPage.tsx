@@ -1,5 +1,6 @@
 import React from 'react';
 import { Language } from '../i18n/translations';
+import { localizedPath } from '../utils/localizedPath';
 import { assetUrl } from '../utils/assetUrl';
 
 type Detail = { slug:string; titleId:string; titleEn:string; durationId:string; durationEn:string; introId:string; introEn:string; placesId:string[]; placesEn:string[]; image:string; routeId:string; routeEn:string; };
@@ -22,7 +23,7 @@ export const PackageDetailPage: React.FC<{slug:string;language:Language}> = ({sl
    <img src={assetUrl(d.image)} alt={title+' - Banggai Islands'} className="absolute inset-0 w-full h-full object-cover"/>
    <div className="absolute inset-0 bg-gradient-to-t from-[#052C37] via-[#052C37]/55 to-black/10"/>
    <div className="container relative z-10 pb-10 sm:pb-14 text-white">
-    <nav aria-label="Breadcrumb" className="text-xs sm:text-sm text-white/80 mb-4"><a href={import.meta.env.BASE_URL}>{id?'Beranda':'Home'}</a> / <a href={import.meta.env.BASE_URL+'packages/'}>{id?'Paket Wisata':'Tour Packages'}</a> / <span>{title}</span></nav>
+    <nav aria-label="Breadcrumb" className="text-xs sm:text-sm text-white/80 mb-4"><a href={localizedPath('', language)}>{id?'Beranda':'Home'}</a> / <a href={localizedPath('packages/', language)}>{id?'Paket Wisata':'Tour Packages'}</a> / <span>{title}</span></nav>
     <span className="eyebrow light">{id?'PRIVATE TRIP · KEPULAUAN BANGGAI':'PRIVATE TRIP · BANGGAI ISLANDS'}</span>
     <h1 className="mt-3 max-w-4xl text-4xl sm:text-5xl lg:text-6xl leading-tight text-white">{title}</h1>
     <p className="mt-4 max-w-2xl text-base sm:text-lg text-white/90">{id?d.introId:d.introEn}</p>
@@ -59,7 +60,7 @@ export const PackageDetailPage: React.FC<{slug:string;language:Language}> = ({sl
     <span className="eyebrow">{id?'RINGKASAN PAKET':'TRIP SUMMARY'}</span><h2 className="mt-3 text-2xl">{title}</h2>
     <p className="mt-3 text-sm text-slate-600">{id?'Durasi':'Duration'}: {duration}</p><p className="mt-2 text-sm text-slate-600">{id?'Jenis perjalanan':'Trip type'}: Private Trip</p>
     <a href={wa} target="_blank" rel="noreferrer" className="mt-6 w-full inline-flex justify-center rounded-full bg-[#EE7F6D] px-4 py-3 text-sm font-semibold text-white">{id?'Konsultasi via WhatsApp':'Enquire via WhatsApp'}</a>
-    <a href={import.meta.env.BASE_URL+'packages/'} className="mt-4 block text-center text-sm font-semibold text-[#0A3A40]">{id?'Lihat paket lainnya':'Explore other packages'}</a>
+    <a href={localizedPath('packages/', language)} className="mt-4 block text-center text-sm font-semibold text-[#0A3A40]">{id?'Lihat paket lainnya':'Explore other packages'}</a>
    </aside>
   </div></section>
  </div>;

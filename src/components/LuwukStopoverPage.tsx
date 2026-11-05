@@ -1,6 +1,7 @@
 import React from 'react';
 import { Language } from '../i18n/translations';
 import { assetUrl } from '../utils/assetUrl';
+import { localizedPath } from '../utils/localizedPath';
 
 interface Props { language: Language }
 
@@ -48,7 +49,7 @@ export const LuwukStopoverPage: React.FC<Props> = ({ language }) => {
       <img src={assetUrl('assets/images/banggai_white_sand_beach_1793766899675.jpg')} alt={id ? 'Pemandangan pesisir tropis di sekitar Luwuk, Banggai' : 'Tropical coastline scenery around Luwuk, Banggai'} className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#052C37] via-[#052C37]/45 to-black/10" />
       <div className="container relative z-10 pb-12 sm:pb-16 text-white">
-        <nav aria-label="Breadcrumb" className="text-xs sm:text-sm text-white/75 mb-5"><a href={import.meta.env.BASE_URL}>{id ? 'Beranda' : 'Home'}</a> / <a href={import.meta.env.BASE_URL+'packages/'}>{id ? 'Paket Wisata' : 'Tour Packages'}</a> / <span className="text-white">Luwuk Stopover</span></nav>
+        <nav aria-label="Breadcrumb" className="text-xs sm:text-sm text-white/75 mb-5"><a href={localizedPath('', language)}>{id ? 'Beranda' : 'Home'}</a> / <a href={localizedPath('packages/', language)}>{id ? 'Paket Wisata' : 'Tour Packages'}</a> / <span className="text-white">Luwuk Stopover</span></nav>
         <span className="eyebrow light">{id ? 'PRIVATE TRIP · LUWUK · SULAWESI TENGAH' : 'PRIVATE TRIP · LUWUK · CENTRAL SULAWESI'}</span>
         <h1 className="mt-4 max-w-4xl text-4xl sm:text-5xl lg:text-6xl leading-tight text-white">{id ? 'Paket Wisata Luwuk 2 Hari 1 Malam' : 'Luwuk Stopover: 2 Days 1 Night Tour'}</h1>
         <p className="mt-4 max-w-2xl text-base sm:text-lg text-white/85">{id ? 'Jelajahi Air Terjun Piala, pesisir Luwuk, dan Salodik dalam perjalanan singkat yang nyaman bersama tim lokal.' : 'Discover Piala Waterfall, the Luwuk coastline and Salodik on a relaxed short escape with a local team.'}</p>
@@ -73,7 +74,7 @@ export const LuwukStopoverPage: React.FC<Props> = ({ language }) => {
         <span className="eyebrow">{id ? 'RINGKASAN PAKET' : 'TRIP OVERVIEW'}</span><h2 className="mt-3 text-2xl">{id ? 'Luwuk Stopover' : 'Luwuk Stopover'}</h2><p className="mt-3 text-sm leading-6 text-slate-600">{id ? 'Perjalanan privat 2 hari 1 malam dengan titik awal dan akhir di Luwuk.' : 'A private 2 days 1 night journey starting and ending in Luwuk.'}</p>
         <ul className="mt-5 space-y-3 text-sm text-slate-700"><li>◷　2 {id ? 'Hari 1 Malam' : 'Days 1 Night'}</li><li>⌖　Luwuk City & Salodik</li><li>♧　{ id ? 'Sightseeing · Berenang · Fotografi' : 'Sightseeing · Swimming · Photography'}</li><li>◇　{ id ? 'Pemandu lokal' : 'Local guide'}</li></ul>
         <a href={wa+encodeURIComponent(id?'Halo Banggai Paradise, saya ingin konsultasi Paket Wisata Luwuk 2 Hari 1 Malam. Mohon informasi ketersediaan dan penawaran untuk tanggal perjalanan saya.':'Hello Banggai Paradise, I would like to enquire about the Luwuk 2 Days 1 Night tour. Please share availability and a quote for my travel dates.')} target="_blank" rel="noreferrer" className="mt-7 w-full inline-flex items-center justify-center rounded-full bg-[#EE7F6D] px-5 py-4 text-sm font-bold text-white hover:bg-[#D9604D]">{id ? 'Konsultasi & Pesan via WhatsApp' : 'Enquire & Book via WhatsApp'}</a>
-        <a href={import.meta.env.BASE_URL+'packages/'} className="mt-4 block text-center text-sm font-semibold text-[#0A3A40]">{id ? 'Lihat paket perjalanan lainnya' : 'Explore other tour packages'}</a>
+        <a href={localizedPath('packages/', language)} className="mt-4 block text-center text-sm font-semibold text-[#0A3A40]">{id ? 'Lihat paket perjalanan lainnya' : 'Explore other tour packages'}</a>
       </aside>
     </div></section>
   </div>;
