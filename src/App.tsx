@@ -32,7 +32,7 @@ export default function App() {
     ? window.location.pathname.slice(basePath.length)
     : window.location.pathname.replace(/^\/+/, '');
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
-  const isLuwukStopoverPage = routePath.replace(/\\/+$/, '') === 'packages/luwuk-stopover';
+  const isLuwukStopoverPage = routePath.replace(/\/+$/, '') === 'packages/luwuk-stopover';
   const page: Page = isLuwukStopoverPage ? 'luwuk-stopover' : route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
   const isArticleReadingPage = (page === 'blog' && routePath.split('/').filter(Boolean).length > 1) || page === 'luwuk-stopover';
 
