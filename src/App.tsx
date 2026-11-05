@@ -17,7 +17,7 @@ import { PackageModal } from './components/PackageModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { TourPackage } from './types';
 import { Language } from './i18n/translations';
-import { SpanishPage } from './components/SpanishPage';
+
 
 type Page = 'home' | 'packages' | 'destinations' | 'about' | 'blog' | 'luwuk-stopover' | 'package-detail';
 
@@ -29,9 +29,9 @@ export default function App() {
   const rawSegments = rawRoutePath.split('/').filter(Boolean);
   const routeLocale = rawSegments[0] === 'id' || rawSegments[0] === 'eng' || rawSegments[0] === 'es' ? rawSegments[0] : '';
   const routePath = routeLocale ? rawSegments.slice(1).join('/') : rawRoutePath;
-  const [language, setLanguage] = useState<Language>(() => routeLocale === 'id' ? 'ID' : routeLocale === 'eng' ? 'EN' : 'EN');
+  const [language, setLanguage] = useState<Language>(() => routeLocale === 'id' ? 'ID' : routeLocale === 'es' ? 'ES' : 'EN');
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
-  const localePrefix = routeLocale || (language === 'ID' ? 'id' : 'eng');
+  const localePrefix = routeLocale || (language === 'ID' ? 'id' : language === 'ES' ? 'es' : 'eng');
   const localeBase = basePath + localePrefix + '/';
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
   const packageSlug = routePath.split('/').filter(Boolean)[1] || '';
@@ -44,7 +44,7 @@ export default function App() {
   const handleSelectLanguage = (lang: Language | 'ES') => {
     try { localStorage.setItem('banggai_lang', lang); } catch { /* optional */ }
     const targetPrefix = lang === 'ID' ? 'id' : lang === 'ES' ? 'es' : 'eng';
-    const suffix = lang === 'ES' ? '' : routePath.split('/').filter(Boolean).join('/');
+    const suffix = routePath.split('/').filter(Boolean).join('/');
     window.location.href = basePath + targetPrefix + '/' + (suffix ? suffix + '/' : '');
   };
 
@@ -90,11 +90,11 @@ export default function App() {
       : ['Banggai Paradise Travel Blog', 'Read travel guides, destination inspiration and practical tips before exploring the Banggai Islands.']
   } as const;
 
-  if (routeLocale === 'es') return <SpanishPage />;
+  
 
   return <>
     <SvgSprite />
-    <a className="skip" href="#main">{language === 'ID' ? 'Lewati ke konten' : 'Skip to content'}</a>
+    <a className="skip" href="#main">{language === 'ID' ? 'Lewati ke konten' : language === 'ES' ? 'Saltar al contenido' : 'Skip to content'}</a>
     <Navbar onPlanTripClick={() => scrollTo('contact')} language={language} onSelectLanguage={handleSelectLanguage} />
     <main id="main">
       {page === 'home' ? <>
