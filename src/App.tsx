@@ -8,6 +8,7 @@ import { ExploreDestinations } from './components/ExploreDestinations';
 import { DestinationsPage } from './components/DestinationsPage';
 import { AboutUs } from './components/AboutUs';
 import { TravelBlog } from './components/TravelBlog';
+import { LuwukStopoverPage } from './components/LuwukStopoverPage';
 
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
@@ -16,7 +17,7 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { TourPackage } from './types';
 import { Language } from './i18n/translations';
 
-type Page = 'home' | 'packages' | 'destinations' | 'about' | 'blog';
+type Page = 'home' | 'packages' | 'destinations' | 'about' | 'blog' | 'luwuk-stopover';
 
 export default function App() {
   const [language, setLanguage] = useState<Language>(() => {
@@ -31,8 +32,9 @@ export default function App() {
     ? window.location.pathname.slice(basePath.length)
     : window.location.pathname.replace(/^\/+/, '');
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
-  const page: Page = route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
-  const isArticleReadingPage = page === 'blog' && routePath.split('/').filter(Boolean).length > 1;
+  const isLuwukStopoverPage = routePath.replace(/\\/+$/, '') === 'packages/luwuk-stopover';
+  const page: Page = isLuwukStopoverPage ? 'luwuk-stopover' : route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
+  const isArticleReadingPage = (page === 'blog' && routePath.split('/').filter(Boolean).length > 1) || page === 'luwuk-stopover';
 
   const handleSelectLanguage = (lang: Language) => {
     setLanguage(lang);
@@ -105,6 +107,7 @@ export default function App() {
         {page === 'destinations' && <DestinationsPage onPlanTrip={(name) => { sessionStorage.setItem('destination_interest', name); scrollTo('contact'); }} language={language} />}
         {page === 'about' && <AboutUs onMeetTeamClick={() => scrollTo('contact')} language={language} />}
         {page === 'blog' && <TravelBlog language={language} />}
+        {page === 'luwuk-stopover' && <LuwukStopoverPage language={language} />}
       </>}
       {!isArticleReadingPage && <FinalCTA onPlanTripClick={() => scrollTo('contact')} language={language} />}
     </main>
