@@ -21,8 +21,8 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({ language, on
  const isEs = language === 'ES';
  const names = DESTINATIONS.map(d => isEs ? (spanish[d.id]?.name||d.en) : isEn ? d.en : d.name);
  useEffect(() => {
-   const description = isEn ? 'Explore ten remarkable places across the Banggai Islands, from Paisu Pok Lake and Kawalu Bay to Pulau Dua and hidden waterfalls.' : 'Jelajahi 10 destinasi pilihan di Kepulauan Banggai, mulai dari Danau Paisu Pok dan Kawalu Bay hingga Pulau Dua dan air terjun alami.';
-   document.title = isEn ? '10 Banggai Islands Destinations to Explore | Banggai Paradise' : '10 Destinasi Wisata Banggai yang Wajib Dijelajahi | Banggai Paradise';
+   const description = isEs ? 'Descubre diez lugares de las islas Banggai, desde el lago Paisu Pok y la bahía de Kawalu hasta Pulo Dua y cascadas tropicales.' : isEn ? 'Explore ten remarkable places across the Banggai Islands, from Paisu Pok Lake and Kawalu Bay to Pulau Dua and hidden waterfalls.' : 'Jelajahi 10 destinasi pilihan di Kepulauan Banggai, mulai dari Danau Paisu Pok dan Kawalu Bay hingga Pulau Dua dan air terjun alami.';
+   document.title = isEs ? '10 lugares que descubrir en las islas Banggai | Banggai Paradise' : isEn ? '10 Banggai Islands Destinations to Explore | Banggai Paradise' : '10 Destinasi Wisata Banggai yang Wajib Dijelajahi | Banggai Paradise';
    let meta = document.querySelector('meta[name="description"]');
    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta); }
    meta.setAttribute('content', description);
@@ -48,8 +48,8 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({ language, on
  return <section className="section packages destinations-listing">
   <div className="container">
    <div className="pgrid destinations-grid">{DESTINATIONS.map((d,i)=><article id={d.id} className={`pcard destination-card ${i===0?'feat':''}`} key={d.id}>
-    <div className="pa"><span className="chip chip-w">{labels[d.category][isEs?'es':isEn?'en':'id']}</span><img src={d.image} alt={isEn?d.en:d.name} loading={i<3?'eager':'lazy'} width="800" height="620"/></div>
-    <div className="pb"><div className="destination-location">{d.location}</div><h3>{isEn?d.en:d.name}</h3><p>{isEn?d.descEn:d.desc}</p><div className="prow"><span className="text-sm font-semibold text-[#0A3A40]">{isEs?'Planifica la visita':isEn?'Plan a visit':'Rencanakan Kunjungan'}</span><button type="button" className="round" aria-label={(isEs?'Planificar una visita a ':isEn?'Plan a visit to ':'Rencanakan kunjungan ke ')+(isEs?(spanish[d.id]?.name||d.en):isEn?d.en:d.name)} onClick={()=>onPlanTrip(isEs?(spanish[d.id]?.name||d.en):isEn?d.en:d.name)}><svg className="ic"><use href="#i-arrow"/></svg></button></div></div>
+    <div className="pa"><span className="chip chip-w">{labels[d.category][isEs?'es':isEn?'en':'id']}</span><img src={d.image} alt={isEs?(spanish[d.id]?.name||d.en):isEn?d.en:d.name} loading={i<3?'eager':'lazy'} width="800" height="620"/></div>
+    <div className="pb"><div className="destination-location">{d.location}</div><h3>{isEs?(spanish[d.id]?.name||d.en):isEn?d.en:d.name}</h3><p>{isEs?(spanish[d.id]?.desc||d.descEn):isEn?d.descEn:d.desc}</p><div className="prow"><span className="text-sm font-semibold text-[#0A3A40]">{isEs?'Planifica la visita':isEn?'Plan a visit':'Rencanakan Kunjungan'}</span><button type="button" className="round" aria-label={(isEs?'Planificar una visita a ':isEn?'Plan a visit to ':'Rencanakan kunjungan ke ')+(isEs?(spanish[d.id]?.name||d.en):isEn?d.en:d.name)} onClick={()=>onPlanTrip(isEs?(spanish[d.id]?.name||d.en):isEn?d.en:d.name)}><svg className="ic"><use href="#i-arrow"/></svg></button></div></div>
    </article>)}</div>
    <p className="destinations-source">{isEs?'Información e imágenes de destinos: Banggai Wonderland.':isEn?'Destination information and photography referenced from Banggai Wonderland.':'Referensi informasi dan foto destinasi: Banggai Wonderland.'} <a href="https://banggaiwonderland.my.id/id/destinations/" target="_blank" rel="noreferrer">{isEs?'Consultar la guía de destinos':isEn?'Read destination guide':'Baca panduan destinasi'}</a>.</p>
   </div>
