@@ -12,7 +12,6 @@ interface PackageModalProps {
 export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, language }) => {
   const isEn = language !== 'ID';
   const isEs = language === 'ES';
-  const isEs = language === 'ES';
   if (!pkg) return null;
 
 
