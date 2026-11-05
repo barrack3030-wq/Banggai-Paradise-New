@@ -17,6 +17,7 @@ import { PackageModal } from './components/PackageModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { TourPackage } from './types';
 import { Language } from './i18n/translations';
+import { SpanishPage } from './components/SpanishPage';
 
 type Page = 'home' | 'packages' | 'destinations' | 'about' | 'blog' | 'luwuk-stopover' | 'package-detail';
 
@@ -26,7 +27,7 @@ export default function App() {
     ? window.location.pathname.slice(basePath.length)
     : window.location.pathname.split('/').filter(Boolean).join('/');
   const rawSegments = rawRoutePath.split('/').filter(Boolean);
-  const routeLocale = rawSegments[0] === 'id' || rawSegments[0] === 'eng' ? rawSegments[0] : '';
+  const routeLocale = rawSegments[0] === 'id' || rawSegments[0] === 'eng' || rawSegments[0] === 'es' ? rawSegments[0] : '';
   const routePath = routeLocale ? rawSegments.slice(1).join('/') : rawRoutePath;
   const [language, setLanguage] = useState<Language>(() => routeLocale === 'id' ? 'ID' : routeLocale === 'eng' ? 'EN' : 'EN');
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
