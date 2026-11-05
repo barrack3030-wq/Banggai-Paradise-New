@@ -4,7 +4,7 @@ import { Language } from '../i18n/translations';
 
 interface HeroProps {
   onExplorePackages: () => void;
-  onViewDestinations: () => void;
+  onViewAboutUs: () => void;
   language: Language;
 }
 
@@ -48,7 +48,7 @@ const HERO_SLIDES = [
 
 export const Hero: React.FC<HeroProps> = ({
   onExplorePackages,
-  onViewDestinations,
+  onViewAboutUs,
   language,
 }) => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -144,9 +144,9 @@ export const Hero: React.FC<HeroProps> = ({
               <button
                 type="button"
                 className="btn btn-glass"
-                onClick={onViewDestinations}
+                onClick={onViewAboutUs}
               >
-                <span>{isEn ? 'View Destinations' : 'Lihat Destinasi'}</span>
+                <span>{isEn ? 'About Us' : 'Tentang Kami'}</span>
               </button>
             </div>
 
