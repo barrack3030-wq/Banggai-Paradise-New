@@ -1,5 +1,4 @@
 import React from 'react';
-import { assetUrl } from '../utils/assetUrl';
 import { Language } from '../i18n/translations';
 
 interface AboutUsProps {
@@ -15,76 +14,34 @@ export const AboutUs: React.FC<AboutUsProps> = ({
 
   return (
     <div className="section" style={{ paddingBottom: 0 }}>
-      <section className="about" id="about">
+      <section className="about about-founder" id="about">
         <div className="about-bg" aria-hidden="true">
           <div className="about-ring"></div>
         </div>
 
-        {/* Vintage Orange Travel Van Asset */}
-        <div className="about-media">
-          <picture>
-            <source srcSet={assetUrl('assets/img/van.webp')} type="image/webp" />
-            <img
-              src={assetUrl('assets/img/van.png')}
-              alt="Vintage orange travel van"
-              loading="lazy"
-              width={406}
-              height={320}
-            />
-          </picture>
-        </div>
-
-        {/* Text Content */}
         <div className="about-txt">
           <span className="eyebrow on-teal">{isEn ? 'About Us' : 'Tentang Kami'}</span>
-          <h2>
-            {isEn ? (
-              <>
-                Local hearts,<br /> island stories
-              </>
-            ) : (
-              <>
-                Hati lokal,<br /> cerita kepulauan
-              </>
-            )}
-          </h2>
+          <h2>{isEn ? 'A local perspective. A more personal journey.' : 'Berangkat dari lokal. Menjelajah lebih personal.'}</h2>
+          <div className="founder-identity">
+            <strong>Aji Zulfikar</strong>
+            <span>{isEn ? 'Founder & Local Guide' : 'Pendiri & Pemandu Lokal'}</span>
+          </div>
 
           <p>
             {isEn
-              ? 'Banggai Paradise Tour & Travel is built by people who call these islands home. We share the places we love, the right way.'
-              : 'Banggai Paradise Tour & Travel dirintis oleh putra-putri daerah yang mencintai tanah kelahirannya. Kami membawa Anda menikmati keindahan pulau dengan cara terbaik, aman, dan penuh keramahan.'}
+              ? 'Banggai Paradise was founded by Aji Zulfikar, a local guide from the Banggai region with experience accompanying international travelers. His knowledge of the islands, natural landscapes, routes and local life helps shape journeys that feel personal, flexible and thoughtfully planned.'
+              : 'Banggai Paradise didirikan oleh Aji Zulfikar, pemandu lokal dari wilayah Banggai yang berpengalaman mendampingi wisatawan internasional. Pengetahuannya tentang kepulauan, alam, rute perjalanan, dan kehidupan masyarakat setempat membantu menciptakan perjalanan yang personal, fleksibel, dan direncanakan dengan baik.'}
           </p>
 
           <ul>
-            <li>
-              <svg className="ic">
-                <use href="#i-check" />
-              </svg>
-              <span>{isEn ? 'Clear itineraries and honest prices' : 'Itinerary jelas dan harga jujur tanpa biaya tersembunyi'}</span>
-            </li>
-            <li>
-              <svg className="ic">
-                <use href="#i-check" />
-              </svg>
-              <span>{isEn ? 'Small, personal and well-organized trips' : 'Trip personal, privat, dan tertata rapi'}</span>
-            </li>
-            <li>
-              <svg className="ic">
-                <use href="#i-check" />
-              </svg>
-              <span>{isEn ? 'Support from planning until you are home' : 'Pendampingan penuh dari konsultasi awal hingga tiba di rumah'}</span>
-            </li>
+            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEn ? 'Local knowledge of destinations and routes' : 'Pengetahuan lokal tentang destinasi dan rute perjalanan'}</span></li>
+            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEn ? 'Flexible trips shaped around your travel style' : 'Perjalanan fleksibel sesuai gaya liburan Anda'}</span></li>
+            <li><svg className="ic"><use href="#i-check" /></svg><span>{isEn ? 'Personal assistance from planning to the journey' : 'Pendampingan personal sejak perencanaan hingga perjalanan'}</span></li>
           </ul>
 
-          <button
-            type="button"
-            className="btn btn-white"
-            onClick={onMeetTeamClick}
-          >
-            <span>{isEn ? 'Meet Our Team' : 'Konsultasi Dengan Tim Kami'}</span>
-            <svg className="ic">
-              <use href="#i-arrow" />
-            </svg>
+          <button type="button" className="btn btn-white" onClick={onMeetTeamClick}>
+            <span>{isEn ? 'Plan Your Journey' : 'Rencanakan Perjalanan'}</span>
+            <svg className="ic"><use href="#i-arrow" /></svg>
           </button>
         </div>
       </section>

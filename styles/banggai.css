@@ -1124,3 +1124,13 @@ img,video,svg{max-width:100%}
  .blog-reading-page .article-destination-card p{font-size:.72rem!important}
 }
 @media(max-width:390px){.blog-reading-page{padding-inline:14px!important}.blog-reading-page .article-destination-grid{grid-template-columns:1fr!important}}
+
+
+/* Founder-led About Us layout without a photo */
+.about.about-founder{grid-template-columns:minmax(0,1fr);min-height:0;padding:clamp(38px,6vw,76px) clamp(24px,8vw,110px)}
+.about-founder .about-txt{position:relative;z-index:1;width:min(100%,820px);margin-inline:auto}
+.about-founder .about-txt h2{max-width:720px}
+.founder-identity{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 18px;margin-top:22px}
+.founder-identity strong{font-family:var(--font-display);font-size:clamp(1.35rem,2.5vw,1.8rem);color:#fff}
+.founder-identity span{font-size:.9rem;font-weight:600;letter-spacing:.04em;color:#D4F5F7}
+.about-founder .about-txt p{max-width:760px}
