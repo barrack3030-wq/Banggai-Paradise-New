@@ -18,7 +18,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const basePath = import.meta.env.BASE_URL;
-  const currentPath = window.location.pathname.replace(basePath, '').split('/').filter(Boolean)[0] || 'home';
+  const pathParts = window.location.pathname.replace(basePath, '').split('/').filter(Boolean);
+  const localePrefix = pathParts[0] === 'id' || pathParts[0] === 'eng' ? pathParts[0] : (language === 'ID' ? 'id' : 'eng');
+  const localizedBase = basePath + localePrefix + '/';
+  const currentPath = (pathParts[0] === 'id' || pathParts[0] === 'eng' ? pathParts[1] : pathParts[0]) || 'home';
   const [activeSection, setActiveSection] = useState(currentPath);
 
   useEffect(() => {
@@ -74,42 +77,42 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className={`site-header ${isScrolled ? 'scrolled' : ''}`} id="top">
       <div className="nav">
         {/* Brand Logo from extracted assets */}
-        <a className="brand" href={basePath} aria-label="Banggai Paradise Tour & Travel, home" onClick={closeMenu}>
+        <a className="brand" href={localizedBase} aria-label="Banggai Paradise Tour & Travel, home" onClick={closeMenu}>
           <img src={assetUrl('assets/img/logo-white.png')} alt="Banggai Paradise Tour & Travel" width="530" height="250" />
         </a>
 
         {/* Navigation Menu */}
         <nav className={`menu ${mobileMenuOpen ? 'open' : ''}`} id="menu" aria-label="Main navigation">
           <a
-            href={basePath}
+            href={localizedBase}
             className={activeSection === 'home' ? 'is-active' : ''}
             onClick={closeMenu}
           >
             {language === 'ID' ? 'Beranda' : 'Home'}
           </a>
           <a
-            href={basePath + "packages/"}
+            href={localizedBase + "packages/"}
             className={activeSection === 'packages' ? 'is-active' : ''}
             onClick={closeMenu}
           >
             {language === 'ID' ? 'Paket Wisata' : 'Tour Package'}
           </a>
           <a
-            href={basePath + "destinations/"}
+            href={localizedBase + "destinations/"}
             className={activeSection === 'destinations' ? 'is-active' : ''}
             onClick={closeMenu}
           >
             {language === 'ID' ? 'Destinasi' : 'Destination'}
           </a>
           <a
-            href={basePath + "about/"}
+            href={localizedBase + "about/"}
             className={activeSection === 'about' ? 'is-active' : ''}
             onClick={closeMenu}
           >
             {language === 'ID' ? 'Tentang Kami' : 'About Us'}
           </a>
           <a
-            href={basePath + "blog/"}
+            href={localizedBase + "blog/"}
             className={activeSection === 'blog' ? 'is-active' : ''}
             onClick={closeMenu}
           >

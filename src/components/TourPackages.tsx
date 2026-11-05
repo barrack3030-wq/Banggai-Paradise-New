@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { assetUrl } from '../utils/assetUrl';
 import { TourPackage } from '../types';
 import { Language } from '../i18n/translations';
+import { localizedPath } from '../utils/localizedPath';
 
 interface TourPackagesProps {
   onSelectPackage: (pkg: TourPackage) => void;
@@ -162,13 +163,13 @@ export const TourPackages: React.FC<TourPackagesProps> = ({ onSelectPackage, lan
             <article
               key={pkg.id}
               className={`pcard ${pkg.featured ? 'feat' : ''} cursor-pointer`}
-              onClick={() => { window.location.href = import.meta.env.BASE_URL + 'packages/' + pkg.id + '/'; }}
+              onClick={() => { window.location.href = localizedPath('packages/' + pkg.id + '/', language); }}
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
-                  window.location.href = import.meta.env.BASE_URL + 'packages/' + pkg.id + '/';
+                  window.location.href = localizedPath('packages/' + pkg.id + '/', language);
                 }
               }}
             >

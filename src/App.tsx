@@ -21,19 +21,19 @@ import { Language } from './i18n/translations';
 type Page = 'home' | 'packages' | 'destinations' | 'about' | 'blog' | 'luwuk-stopover' | 'package-detail';
 
 export default function App() {
-  const [language, setLanguage] = useState<Language>(() => {
-    try {
-      const saved = localStorage.getItem('banggai_lang');
-      return saved === 'ID' || saved === 'EN' ? saved as Language : (window.location.pathname.includes('/packages/') ? 'ID' : 'EN');
-    } catch { return 'EN'; }
-  });
-  const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
   const basePath = import.meta.env.BASE_URL;
-  const routePath = window.location.pathname.startsWith(basePath)
+  const rawRoutePath = window.location.pathname.startsWith(basePath)
     ? window.location.pathname.slice(basePath.length)
-    : window.location.pathname.replace(/^\/+/, '');
+    : window.location.pathname.replace(/^\\/+/, '');
+  const rawSegments = rawRoutePath.split('/').filter(Boolean);
+  const routeLocale = rawSegments[0] === 'id' || rawSegments[0] === 'eng' ? rawSegments[0] : '';
+  const routePath = routeLocale ? rawSegments.slice(1).join('/') : rawRoutePath;
+  const [language, setLanguage] = useState<Language>(() => routeLocale === 'id' ? 'ID' : routeLocale === 'eng' ? 'EN' : 'EN');
+  const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
+  const localePrefix = routeLocale || (language === 'ID' ? 'id' : 'eng');
+  const localeBase = basePath + localePrefix + '/';
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
-  const packageSlug = routePath.replace(/\/+$/, '').split('/')[1] || '';
+  const packageSlug = routePath.replace(/\\/+$/, '').split('/')[1] || '';
   const isLuwukStopoverPage = route === 'packages' && packageSlug === 'luwuk-stopover';
   const isPackageDetailPage = route === 'packages' && Boolean(packageSlug);
   const page: Page = isLuwukStopoverPage ? 'luwuk-stopover' : isPackageDetailPage ? 'package-detail' : route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
@@ -41,8 +41,9 @@ export default function App() {
   const isArticleReadingPage = isBlogArticlePage || page === 'luwuk-stopover' || page === 'package-detail';
 
   const handleSelectLanguage = (lang: Language) => {
-    setLanguage(lang);
     try { localStorage.setItem('banggai_lang', lang); } catch { /* optional */ }
+    const targetPrefix = lang === 'ID' ? 'id' : 'eng';
+    window.location.href = basePath + targetPrefix + '/' + routePath.replace(/^\\/+|\\/+$/g, '');
   };
 
   useEffect(() => {
@@ -93,7 +94,7 @@ export default function App() {
     <Navbar onPlanTripClick={() => scrollTo('contact')} language={language} onSelectLanguage={handleSelectLanguage} />
     <main id="main">
       {page === 'home' ? <>
-        <Hero onExplorePackages={() => scrollTo('packages')} onViewAboutUs={() => { window.location.href = basePath + 'about/'; }} language={language} />
+        <Hero onExplorePackages={() => scrollTo('packages')} onViewAboutUs={() => { window.location.href = localeBase + 'about/'; }} language={language} />
         <WhyChooseUs onPlanTripClick={() => scrollTo('contact')} language={language} />
         <TourPackages onSelectPackage={setSelectedPackage} language={language} />
         <ExploreDestinations onPlanTripForDestination={() => scrollTo('contact')} language={language} />
