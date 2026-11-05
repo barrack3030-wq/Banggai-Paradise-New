@@ -113,6 +113,6 @@ export default function App() {
     </main>
     <Footer language={language} />
     {selectedPackage && (page === 'home' || page === 'packages') && <PackageModal pkg={selectedPackage} onClose={() => setSelectedPackage(null)} language={language} />}
-    <FloatingWhatsApp />
+    <FloatingWhatsApp language={language} />
   </>;
 }
