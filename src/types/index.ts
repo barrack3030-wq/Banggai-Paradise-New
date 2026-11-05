@@ -5,6 +5,7 @@ export interface TourPackage {
   badge?: 'Best Seller' | 'Featured' | 'Most Popular' | 'Eco Adventure';
   category: 'relax' | 'adventure' | 'island-hopping' | 'overland';
   duration: string;
+  priceIdr?: number;
   groupType: string;
   image: string;
   rating: number;
