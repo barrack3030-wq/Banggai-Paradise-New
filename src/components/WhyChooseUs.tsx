@@ -13,7 +13,6 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
 }) => {
   const isEn = language === 'EN';
   const isEs = language === 'ES';
-  const isEs = language === 'ES';
   const sliderRef = useRef<HTMLDivElement>(null);
   const slide = (direction: -1 | 1) => {
     const track = sliderRef.current;
