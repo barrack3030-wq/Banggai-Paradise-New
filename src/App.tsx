@@ -41,9 +41,9 @@ export default function App() {
   const isBlogArticlePage = page === 'blog' && routePath.split('/').filter(Boolean).length > 1;
   const isArticleReadingPage = isBlogArticlePage || page === 'luwuk-stopover' || page === 'package-detail';
 
-  const handleSelectLanguage = (lang: Language) => {
+  const handleSelectLanguage = (lang: Language | 'ES') => {
     try { localStorage.setItem('banggai_lang', lang); } catch { /* optional */ }
-    const targetPrefix = lang === 'ID' ? 'id' : 'eng';
+    const targetPrefix = lang === 'ID' ? 'id' : lang === 'ES' ? 'es' : 'eng';
     const suffix = routePath.split('/').filter(Boolean).join('/');
     window.location.href = basePath + targetPrefix + '/' + (suffix ? suffix + '/' : '');
   };
