@@ -34,7 +34,8 @@ export default function App() {
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
   const isLuwukStopoverPage = routePath.replace(/\/+$/, '') === 'packages/luwuk-stopover';
   const page: Page = isLuwukStopoverPage ? 'luwuk-stopover' : route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
-  const isArticleReadingPage = (page === 'blog' && routePath.split('/').filter(Boolean).length > 1) || page === 'luwuk-stopover';
+  const isBlogArticlePage = page === 'blog' && routePath.split('/').filter(Boolean).length > 1;
+  const isArticleReadingPage = isBlogArticlePage || page === 'luwuk-stopover';
 
   const handleSelectLanguage = (lang: Language) => {
     setLanguage(lang);
@@ -42,9 +43,9 @@ export default function App() {
   };
 
   useEffect(() => {
-    document.body.classList.toggle('blog-reading-mode', isArticleReadingPage);
+    document.body.classList.toggle('blog-reading-mode', isBlogArticlePage);
     return () => document.body.classList.remove('blog-reading-mode');
-  }, [isArticleReadingPage]);
+  }, [isBlogArticlePage]);
 
   useEffect(() => {
     document.documentElement.lang = language.toLowerCase();
