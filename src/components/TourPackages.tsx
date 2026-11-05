@@ -90,18 +90,6 @@ const PACKAGE_CHOICES: PackageChoice[] = [
     image: assetUrl('assets/images/banggai_snorkeling_coral_1793766898966.jpg'),
   },
   {
-    id: 'custom-banggai-trip',
-    titleEn: 'Custom Trip / Not Sure Yet',
-    titleId: 'Custom Trip / Belum Tahu',
-    durationEn: 'Flexible duration',
-    durationId: 'Durasi fleksibel',
-    descriptionEn: 'Not sure which route to choose? Tell us your dates, group size and interests. Our local team will help plan a suitable trip.',
-    descriptionId: 'Belum yakin memilih rute? Sampaikan tanggal, jumlah peserta, dan minat perjalanan Anda. Tim lokal kami akan membantu menyusun trip yang sesuai.',
-    placesEn: [],
-    placesId: [],
-    image: assetUrl('assets/images/banggai_white_sand_beach_1793766899675.jpg'),
-  },
-  {
     id: 'ultimate-banggai',
     titleEn: 'Ultimate Banggai 6 Days 5 Nights',
     titleId: 'Paket Wisata Banggai 6 Hari 5 Malam',
@@ -112,6 +100,18 @@ const PACKAGE_CHOICES: PackageChoice[] = [
     placesEn: ['Luwuk', 'Salakan', 'Peleng', 'Banggai Laut', 'Pulo Dua'],
     placesId: ['Luwuk', 'Salakan', 'Peleng', 'Banggai Laut', 'Pulo Dua'],
     image: assetUrl('assets/images/banggai_sombori_islands_1793766898898.jpg'),
+  },
+  {
+    id: 'custom-banggai-trip',
+    titleEn: 'Custom Trip / Not Sure Yet',
+    titleId: 'Custom Trip / Belum Tahu',
+    durationEn: 'Flexible duration',
+    durationId: 'Durasi fleksibel',
+    descriptionEn: 'Not sure which route to choose? Tell us your dates, group size and interests. Our local team will help plan a suitable trip.',
+    descriptionId: 'Belum yakin memilih rute? Sampaikan tanggal, jumlah peserta, dan minat perjalanan Anda. Tim lokal kami akan membantu menyusun trip yang sesuai.',
+    placesEn: [],
+    placesId: [],
+    image: assetUrl('assets/images/banggai_white_sand_beach_1793766899675.jpg'),
   },
 ];
 
