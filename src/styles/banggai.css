@@ -684,3 +684,52 @@ h2{font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.1;color:var(--deep);margin-t
     font-size: 14px !important;
   }
 }
+
+
+/* Compact final sizing for mobile language control */
+@media (max-width: 980px) {
+  .menu .mobile-language-row {
+    gap: 10px !important;
+    padding-top: 14px !important;
+    margin-top: 8px !important;
+  }
+  .menu .mobile-language-row > span {
+    font-size: 12px !important;
+    letter-spacing: 0 !important;
+  }
+  .menu .mobile-language-switch {
+    width: 126px !important;
+    min-width: 126px !important;
+    max-width: 126px !important;
+    flex: 0 0 126px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 3px !important;
+    gap: 2px !important;
+    border-radius: 999px !important;
+  }
+  .menu .mobile-language-switch .mobile-language-option {
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 8px !important;
+    font-size: 12px !important;
+    letter-spacing: .02em !important;
+    border-radius: 999px !important;
+  }
+}
+@media (max-width: 600px) {
+  .menu .mobile-language-row > span { font-size: 11px !important; }
+  .menu .mobile-language-switch {
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+    flex-basis: 120px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+  }
+  .menu .mobile-language-switch .mobile-language-option {
+    height: 34px !important;
+    min-height: 34px !important;
+    font-size: 11px !important;
+  }
+}
