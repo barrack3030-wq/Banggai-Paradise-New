@@ -1134,3 +1134,23 @@ img,video,svg{max-width:100%}
 .founder-identity strong{font-family:var(--font-display);font-size:clamp(1.35rem,2.5vw,1.8rem);color:#fff}
 .founder-identity span{font-size:.9rem;font-weight:600;letter-spacing:.04em;color:#D4F5F7}
 .about-founder .about-txt p{max-width:760px}
+
+
+/* Visitor gallery — guest photos from the founder's guiding experience */
+.about-founder .visitor-gallery{position:relative;z-index:1;margin:42px 0 34px}
+.visitor-gallery-heading{margin-bottom:18px}
+.visitor-gallery-heading>p{margin-top:10px!important;max-width:700px;color:#E6FBFC;font-size:.94rem!important;line-height:1.65}
+.visitor-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.visitor-gallery-card{min-width:0;overflow:hidden;border:1px solid rgba(255,255,255,.38);border-radius:18px;background:rgba(255,255,255,.14);box-shadow:0 14px 28px -18px rgba(0,35,50,.5)}
+.visitor-gallery-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:rgba(255,255,255,.12);transition:transform .45s}
+.visitor-gallery-card:hover img{transform:scale(1.045)}
+.visitor-gallery-card figcaption{padding:9px 12px 11px;color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.02em;text-align:center}
+.about-founder .visitor-gallery-note{margin-top:16px!important;padding:13px 16px;border-left:3px solid rgba(255,255,255,.72);border-radius:0 10px 10px 0;background:rgba(4,66,82,.2);color:#E3F8FA;font-size:.82rem!important;line-height:1.65}
+@media(max-width:980px){.about-founder .visitor-gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){
+ .about-founder .visitor-gallery{margin:32px 0}
+ .about-founder .visitor-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .visitor-gallery-card{border-radius:13px}
+ .visitor-gallery-card figcaption{padding:8px 6px;font-size:.7rem}
+ .about-founder .visitor-gallery-note{font-size:.75rem!important;padding:11px 12px}
+}
