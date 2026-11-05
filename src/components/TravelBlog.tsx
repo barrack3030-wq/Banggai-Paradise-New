@@ -21,7 +21,7 @@ export const TravelBlog: React.FC<TravelBlogProps> = ({ language, showAllArticle
   const excerptOf = (a: typeof articles[number]) => isEn ? a.excerptEn : a.excerptId;
   const contentOf = (a: typeof articles[number]) => isEn ? a.contentEn : a.contentId;
   const categoryOptions = [{ key: 'all', label: isEn ? 'All stories' : 'Semua artikel' }, ...Array.from(new Map(articles.map(a => [a.category, a.category])).entries()).map(([key, label]) => ({ key, label }))];
-  const visibleArticles = articles.filter(a => (activeCategory === 'all' || a.category === activeCategory) && (titleOf(a) + ' ' + excerptOf(a) + ' ' + a.category).toLowerCase().includes(searchTerm.trim().toLowerCase()));
+  const visibleArticles = articles.slice().sort((a, b) => b.id - a.id).filter(a => (activeCategory === 'all' || a.category === activeCategory) && (titleOf(a) + ' ' + excerptOf(a) + ' ' + a.category).toLowerCase().includes(searchTerm.trim().toLowerCase()));
   const formatDate = (value: string) => new Intl.DateTimeFormat(isEn ? 'en' : 'id', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(value + 'T00:00:00Z'));
   const slug = window.location.pathname.replace(/\/$/, '').split('/').pop() || '';
   const selectedArticle = useMemo(() => articles.find(a => a.slug === slug) || null, [slug, language]);
