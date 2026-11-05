@@ -6,9 +6,9 @@ import { fileURLToPath } from 'node:url';
 
 export default defineConfig(() => {
   return {
-    // GitHub Pages serves this repository under /Banggai-Paradise-New/.
-    // Keep local development and AI Studio previews at the domain root.
-    base: process.env.GITHUB_ACTIONS === 'true' ? '/Banggai-Paradise-New/' : '/',
+    // The site is published at the domain root through its GitHub Pages custom domain.
+    // Use the same root base in CI, local development, and previews so built asset URLs resolve.
+    base: '/',
     plugins: [react(), tailwindcss()],
     build: {
       rollupOptions: {
