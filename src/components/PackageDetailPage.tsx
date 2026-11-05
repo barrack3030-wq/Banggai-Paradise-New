@@ -14,37 +14,39 @@ const details: Record<string,Detail> = {
 };
 
 export const PackageDetailPage: React.FC<{slug:string;language:Language}> = ({slug,language}) => {
- const d=details[slug] || details['custom-banggai-trip']; const id=language==='ID';
- const title=id?d.titleId:d.titleEn, duration=id?d.durationId:d.durationEn;
- const wa='https://wa.me/6285820830530?text='+encodeURIComponent((id?'Halo Banggai Paradise, saya ingin konsultasi paket ':'Hello Banggai Paradise, I would like to enquire about the ')+title+'. Mohon informasi itinerary, ketersediaan, dan penawaran.');
- const label=id?'GAMBARAN PERJALANAN':'TRIP OVERVIEW';
+ const d=details[slug] || details['custom-banggai-trip']; const id=language==='ID'; const es=language==='ES';
+ const esData: Record<string,{title:string;duration:string;intro:string;route:string;places:string[]}> = {"luwuk-one-day":{"title":"Excursión privada de un día por Luwuk","duration":"1 día","intro":"Descubre Luwuk en una excursión privada con posibles paradas en la cascada de Piala, la costa de Kilo 5 y otros lugares cercanos.","route":"Recogida en Luwuk → cascada de Piala → zona costera de Kilo 5 → regreso a Luwuk.","places":["Ciudad de Luwuk","Cascada de Piala","Costa de Kilo 5"]},"luwuk-stopover":{"title":"Escapada a Luwuk","duration":"2 días y 1 noche","intro":"Una propuesta tranquila para conocer la cascada de Piala, la costa de Luwuk, Salodik y otros lugares de los alrededores.","route":"La ruta combina los principales lugares de Luwuk y Salodik. El orden de las visitas se confirma según los horarios y las condiciones locales.","places":["Luwuk","Cascada de Piala","Salodik"]},"luwuk-salakan":{"title":"Viaje privado de Luwuk a Salakan","duration":"3 días y 2 noches","intro":"Un recorrido privado entre Luwuk y Salakan que combina desplazamientos por tierra y mar, paisajes costeros y tiempo para descubrir las islas Banggai.","route":"Inicio en Luwuk, continuación hacia Salakan y visitas seleccionadas en las islas Banggai. Los barcos y traslados se confirman para las fechas del viaje.","places":["Luwuk","Salakan","Islas Banggai"]},"banggai-four-days":{"title":"Islas Banggai en 4 días","duration":"4 días y 3 noches","intro":"Descubre las islas Banggai en cuatro días, con una ruta centrada en Paisu Pok, la isla de Peleng y otros lugares cercanos.","route":"La ruta conecta Luwuk, la isla de Peleng y la zona de Paisu Pok. El orden depende de los barcos, el tiempo y la duración de cada visita.","places":["Lago Paisu Pok","Isla de Peleng","Luwuk"]},"banggai-five-days":{"title":"Islas Banggai en 5 días","duration":"5 días y 4 noches","intro":"Un viaje privado entre Luwuk, Salakan y Peleng, con tiempo para conocer el lago Paisu Pok y otros paisajes costeros.","route":"El recorrido propuesto conecta Luwuk, Salakan y la isla de Peleng. Las paradas se concretan según las fechas, el transporte disponible y los intereses del grupo.","places":["Luwuk","Salakan","Isla de Peleng","Lago Paisu Pok"]},"ultimate-banggai":{"title":"Ruta completa por Banggai","duration":"6 días y 5 noches","intro":"Una ruta privada más amplia por Luwuk, Salakan, Peleng, Banggai Laut, Kamumu, Salodik y Pulo Dua.","route":"El itinerario se organiza para conectar las distintas zonas de Banggai. El recorrido definitivo se adapta a las conexiones y a las prioridades del grupo.","places":["Luwuk","Salakan","Peleng","Banggai Laut","Pulo Dua"]},"custom-banggai-trip":{"title":"Viaje a medida por Banggai","duration":"Duración flexible","intro":"Cuéntanos tus fechas, el tamaño del grupo y los lugares que te gustaría conocer. Nuestro equipo local te ayudará a preparar una ruta adecuada.","route":"La ruta se diseña contigo y se confirma teniendo en cuenta las conexiones marítimas, los desplazamientos por carretera y el tiempo disponible.","places":["Luwuk","Islas Banggai","Peleng"]}};
+ const sd=esData[slug] || esData['custom-banggai-trip'];
+ const title=es?sd.title:id?d.titleId:d.titleEn, duration=es?sd.duration:id?d.durationId:d.durationEn;
+ const wa='https://wa.me/6285820830530?text='+encodeURIComponent((es?'Hola, Banggai Paradise. Me gustaría recibir información sobre ':'')+(id?'Halo Banggai Paradise, saya ingin konsultasi paket ':'Hello Banggai Paradise, I would like to enquire about the ')+title+(es?'. ¿Podéis enviarme información sobre la ruta, la disponibilidad y el presupuesto?':'. Mohon informasi itinerary, ketersediaan, dan penawaran.'));
+ const label=es?'RESUMEN DEL VIAJE':id?'GAMBARAN PERJALANAN':'TRIP OVERVIEW';
  return <div className="luwuk-stopover package-detail-page bg-[#FFF8EC] min-h-screen">
   <section className="relative min-h-[430px] sm:min-h-[520px] flex items-end overflow-hidden">
    <img src={assetUrl(d.image)} alt={title+' - Banggai Islands'} className="absolute inset-0 w-full h-full object-cover"/>
    <div className="absolute inset-0 bg-gradient-to-t from-[#052C37] via-[#052C37]/55 to-black/10"/>
    <div className="container relative z-10 pb-10 sm:pb-14 text-white">
-    <nav aria-label="Breadcrumb" className="text-xs sm:text-sm text-white/80 mb-4"><a href={localizedPath('', language)}>{id?'Beranda':'Home'}</a> / <a href={localizedPath('packages/', language)}>{id?'Paket Wisata':'Tour Packages'}</a> / <span>{title}</span></nav>
-    <span className="eyebrow light">{id?'PRIVATE TRIP · KEPULAUAN BANGGAI':'PRIVATE TRIP · BANGGAI ISLANDS'}</span>
+    <nav aria-label="Breadcrumb" className="text-xs sm:text-sm text-white/80 mb-4"><a href={localizedPath('', language)}>{es?'Inicio':id?'Beranda':'Home'}</a> / <a href={localizedPath('packages/', language)}>{es?'Paquetes':id?'Paket Wisata':'Tour Packages'}</a> / <span>{title}</span></nav>
+    <span className="eyebrow light">{es?'VIAJE PRIVADO · ISLAS BANGGAI':id?'PRIVATE TRIP · KEPULAUAN BANGGAI':'PRIVATE TRIP · BANGGAI ISLANDS'}</span>
     <h1 className="mt-3 max-w-4xl text-4xl sm:text-5xl lg:text-6xl leading-tight text-white">{title}</h1>
-    <p className="mt-4 max-w-2xl text-base sm:text-lg text-white/90">{id?d.introId:d.introEn}</p>
-    <div className="flex flex-wrap gap-2 mt-5"><span className="rounded-full bg-white/15 border border-white/25 px-4 py-2 text-sm">{duration}</span><span className="rounded-full bg-white/15 border border-white/25 px-4 py-2 text-sm">Private Trip</span></div>
+    <p className="mt-4 max-w-2xl text-base sm:text-lg text-white/90">{es?sd.intro:id?d.introId:d.introEn}</p>
+    <div className="flex flex-wrap gap-2 mt-5"><span className="rounded-full bg-white/15 border border-white/25 px-4 py-2 text-sm">{duration}</span><span className="rounded-full bg-white/15 border border-white/25 px-4 py-2 text-sm"{es?'Viaje privado':'Private Trip'}</span></div>
    </div>
   </section>
   <section className="py-10 sm:py-14"><div className="container grid lg:grid-cols-[1fr_310px] gap-9">
    <article className="min-w-0">
-    <span className="eyebrow">{label}</span><h2 className="mt-3 text-3xl">{id?'Rute dan destinasi':'Route and destinations'}</h2>
-    <p className="mt-4 text-sm sm:text-base leading-8 text-slate-700">{id?d.routeId:d.routeEn}</p>
-    <h2 className="mt-9 text-2xl">{id?'Destinasi dalam rencana perjalanan':'Destinations in the trip plan'}</h2>
-    <div className="mt-4 flex flex-wrap gap-2">{(id?d.placesId:d.placesEn).map(p=><span key={p} className="rounded-full bg-white border border-slate-200 px-3 py-2 text-sm text-slate-700">{p}</span>)}</div>
+    <span className="eyebrow">{label}</span><h2 className="mt-3 text-3xl">{es?'Ruta y destinos':id?'Rute dan destinasi':'Route and destinations'}</h2>
+    <p className="mt-4 text-sm sm:text-base leading-8 text-slate-700">{es?sd.route:id?d.routeId:d.routeEn}</p>
+    <h2 className="mt-9 text-2xl">{es?'Lugares incluidos en la ruta':id?'Destinasi dalam rencana perjalanan':'Destinations in the trip plan'}</h2>
+    <div className="mt-4 flex flex-wrap gap-2">{(es?sd.places:id?d.placesId:d.placesEn).map(p=><span key={p} className="rounded-full bg-white border border-slate-200 px-3 py-2 text-sm text-slate-700">{p}</span>)}</div>
     <section className="mt-9 rounded-2xl bg-white border border-slate-100 p-5 sm:p-6">
-     <h2 className="text-xl">{id?'Informasi sebelum memesan':'Before you book'}</h2>
+     <h2 className="text-xl">{es?'Antes de reservar':id?'Informasi sebelum memesan':'Before you book'}</h2>
      <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600 list-disc pl-5">
-      <li>{id?'Rute final dan urutan kunjungan dikonfirmasi berdasarkan tanggal perjalanan, cuaca, jadwal transportasi, dan kondisi lokal.':'The final route and visit order are confirmed based on travel dates, weather, transport schedules and local conditions.'}</li>
-      <li>{id?'Harga disiapkan berdasarkan jumlah peserta, tanggal, kebutuhan akomodasi, dan layanan yang dipilih.':'Quotes are prepared based on group size, dates, accommodation needs and selected services.'}</li>
-      <li>{id?'Rincian fasilitas, tiket, makan, dan transportasi akan dicantumkan dalam penawaran sebelum pembayaran.':'Exact inclusions for accommodation, tickets, meals and transport will be listed in your proposal before payment.'}</li>
+      <li>{es?'La ruta definitiva y el orden de las visitas se confirman según las fechas, el tiempo, los horarios de transporte y las condiciones locales.':id?'Rute final dan urutan kunjungan dikonfirmasi berdasarkan tanggal perjalanan, cuaca, jadwal transportasi, dan kondisi lokal.':'The final route and visit order are confirmed based on travel dates, weather, transport schedules and local conditions.'}</li>
+      <li>{es?'El presupuesto se prepara según el número de viajeros, las fechas, el alojamiento y los servicios elegidos.':id?'Harga disiapkan berdasarkan jumlah peserta, tanggal, kebutuhan akomodasi, dan layanan yang dipilih.':'Quotes are prepared based on group size, dates, accommodation needs and selected services.'}</li>
+      <li>{es?'La propuesta detallará qué incluye el viaje —alojamiento, entradas, comidas y transporte— antes de realizar el pago.':id?'Rincian fasilitas, tiket, makan, dan transportasi akan dicantumkan dalam penawaran sebelum pembayaran.':'Exact inclusions for accommodation, tickets, meals and transport will be listed in your proposal before payment.'}</li>
      </ul>
     </section>
-    <div className="mt-9"><h2 className="text-2xl">{id?'Pertanyaan umum':'Frequently asked questions'}</h2><div className="mt-4 space-y-3">
+    <div className="mt-9"><h2 className="text-2xl">{es?'Preguntas frecuentes':id?'Pertanyaan umum':'Frequently asked questions'}</h2><div className="mt-4 space-y-3">
      {(id?[
       ['Apakah ini private trip?','Ya, paket dirancang sebagai perjalanan privat. Detail kebutuhan grup dibahas saat konsultasi.'],
       ['Apakah harga sudah tetap?','Harga dikonfirmasi setelah tanggal, jumlah peserta, akomodasi, dan layanan yang dibutuhkan diketahui.'],
@@ -57,10 +59,10 @@ export const PackageDetailPage: React.FC<{slug:string;language:Language}> = ({sl
     </div></div>
    </article>
    <aside id="contact" className="h-fit rounded-2xl bg-white border border-slate-100 shadow-sm p-5 lg:sticky lg:top-24">
-    <span className="eyebrow">{id?'RINGKASAN PAKET':'TRIP SUMMARY'}</span><h2 className="mt-3 text-2xl">{title}</h2>
-    <p className="mt-3 text-sm text-slate-600">{id?'Durasi':'Duration'}: {duration}</p><p className="mt-2 text-sm text-slate-600">{id?'Jenis perjalanan':'Trip type'}: Private Trip</p>
-    <a href={wa} target="_blank" rel="noreferrer" className="mt-6 w-full inline-flex justify-center rounded-full bg-[#EE7F6D] px-4 py-3 text-sm font-semibold text-white">{id?'Konsultasi via WhatsApp':'Enquire via WhatsApp'}</a>
-    <a href={localizedPath('packages/', language)} className="mt-4 block text-center text-sm font-semibold text-[#0A3A40]">{id?'Lihat paket lainnya':'Explore other packages'}</a>
+    <span className="eyebrow">{es?'RESUMEN DEL VIAJE':id?'RINGKASAN PAKET':'TRIP SUMMARY'}</span><h2 className="mt-3 text-2xl">{title}</h2>
+    <p className="mt-3 text-sm text-slate-600">{es?'Duración':id?'Durasi':'Duration'}: {duration}</p><p className="mt-2 text-sm text-slate-600">{es?'Tipo de viaje':id?'Jenis perjalanan':'Trip type'}: Private Trip</p>
+    <a href={wa} target="_blank" rel="noreferrer" className="mt-6 w-full inline-flex justify-center rounded-full bg-[#EE7F6D] px-4 py-3 text-sm font-semibold text-white">{es?'Consultar por WhatsApp':id?'Konsultasi via WhatsApp':'Enquire via WhatsApp'}</a>
+    <a href={localizedPath('packages/', language)} className="mt-4 block text-center text-sm font-semibold text-[#0A3A40]">{es?'Ver otros paquetes':id?'Lihat paket lainnya':'Explore other packages'}</a>
    </aside>
   </div></section>
  </div>;
