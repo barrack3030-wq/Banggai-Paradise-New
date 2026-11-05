@@ -90,6 +90,8 @@ export default function App() {
       : ['Banggai Paradise Travel Blog', 'Read travel guides, destination inspiration and practical tips before exploring the Banggai Islands.']
   } as const;
 
+  if (routeLocale === 'es') return <SpanishPage />;
+
   return <>
     <SvgSprite />
     <a className="skip" href="#main">{language === 'ID' ? 'Lewati ke konten' : 'Skip to content'}</a>
