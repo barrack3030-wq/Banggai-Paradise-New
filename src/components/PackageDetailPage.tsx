@@ -29,7 +29,7 @@ export const PackageDetailPage: React.FC<{slug:string;language:Language}> = ({sl
     <span className="eyebrow light">{es?'VIAJE PRIVADO · ISLAS BANGGAI':id?'PRIVATE TRIP · KEPULAUAN BANGGAI':'PRIVATE TRIP · BANGGAI ISLANDS'}</span>
     <h1 className="mt-3 max-w-4xl text-4xl sm:text-5xl lg:text-6xl leading-tight text-white">{title}</h1>
     <p className="mt-4 max-w-2xl text-base sm:text-lg text-white/90">{es?sd.intro:id?d.introId:d.introEn}</p>
-    <div className="flex flex-wrap gap-2 mt-5"><span className="rounded-full bg-white/15 border border-white/25 px-4 py-2 text-sm">{duration}</span><span className="rounded-full bg-white/15 border border-white/25 px-4 py-2 text-sm"{es?'Viaje privado':'Private Trip'}</span></div>
+    <div className="flex flex-wrap gap-2 mt-5"><span className="rounded-full bg-white/15 border border-white/25 px-4 py-2 text-sm">{duration}</span><span className="rounded-full bg-white/15 border border-white/25 px-4 py-2 text-sm">{es?'Viaje privado':'Private Trip'}</span></div>
    </div>
   </section>
   <section className="py-10 sm:py-14"><div className="container grid lg:grid-cols-[1fr_310px] gap-9">
