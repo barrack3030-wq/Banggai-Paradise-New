@@ -132,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => onSelectLanguage('ID')}
-                className={`px-3 py-1 rounded-full font-bold transition-all cursor-pointer ${
+                className={`mobile-language-option px-4 py-2 rounded-full text-sm font-bold transition-all cursor-pointer ${
                   language === 'ID' ? 'bg-white text-[#07485A]' : 'text-white/80'
                 }`}
               >
