@@ -5,7 +5,6 @@ import { Language } from '../i18n/translations';
 
 interface TourPackagesProps {
   onSelectPackage: (pkg: TourPackage) => void;
-  searchFilter: string;
   language: Language;
 }
 
@@ -122,7 +121,7 @@ const makePackage = (choice: PackageChoice, isEn: boolean): TourPackage => ({
   badge: choice.featured ? 'Best Seller' : undefined,
   category: 'relax',
   duration: isEn ? choice.durationEn : choice.durationId,
-  groupType: isEn ? 'Private trip' : 'Private trip',
+  groupType: 'Private trip',
   image: choice.image,
   rating: 0,
   reviewCount: 0,
@@ -133,36 +132,12 @@ const makePackage = (choice: PackageChoice, isEn: boolean): TourPackage => ({
   excluded: [],
 });
 
-export const TourPackages: React.FC<TourPackagesProps> = ({
-  onSelectPackage,
-  language,
-}) => {
+export const TourPackages: React.FC<TourPackagesProps> = ({ onSelectPackage, language }) => {
   const isEn = language === 'EN';
 
   return (
     <section className="section packages" id="packages">
       <div className="container">
-        <div className="head-row">
-          <div>
-            <span className="eyebrow">{isEn ? 'Tour Packages' : 'Paket Wisata'}</span>
-            <h2>{isEn ? 'Choose Your Banggai Trip' : 'Pilih Paket Perjalanan Banggai'}</h2>
-            <p>{isEn
-              ? 'Choose a trip duration. Routes and prices are confirmed based on your travel date, group size and preferences.'
-              : 'Pilih durasi perjalanan. Rute dan harga dikonfirmasi berdasarkan tanggal, jumlah peserta, dan kebutuhan trip Anda.'}</p>
-          </div>
-          <a
-            className="btn btn-outline btn-sm"
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            <span>{isEn ? 'Plan a Custom Trip' : 'Konsultasi Custom Trip'}</span>
-            <svg className="ic"><use href="#i-arrow" /></svg>
-          </a>
-        </div>
-
         <div className="pgrid">
           {PACKAGE_CHOICES.map((pkg) => (
             <article
@@ -180,13 +155,7 @@ export const TourPackages: React.FC<TourPackagesProps> = ({
             >
               <div className="pa">
                 {pkg.featured && <span className="chip chip-c">{isEn ? pkg.badgeEn : pkg.badgeId}</span>}
-                <img
-                  src={pkg.image}
-                  alt={isEn ? pkg.titleEn : pkg.titleId}
-                  loading="lazy"
-                  width={600}
-                  height={700}
-                />
+                <img src={pkg.image} alt={isEn ? pkg.titleEn : pkg.titleId} loading="lazy" width={600} height={700} />
               </div>
               <div className="pb">
                 <h3>{isEn ? pkg.titleEn : pkg.titleId}</h3>
@@ -198,7 +167,7 @@ export const TourPackages: React.FC<TourPackagesProps> = ({
                   </li>
                   <li>
                     <svg className="ic"><use href="#i-users" /></svg>
-                    <span>{isEn ? 'Private trip' : 'Private trip'}</span>
+                    <span>Private trip</span>
                   </li>
                 </ul>
                 <div className="prow">
