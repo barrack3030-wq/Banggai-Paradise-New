@@ -12,6 +12,7 @@ interface PackageModalProps {
 export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, language }) => {
   const isEn = language !== 'ID';
   const isEs = language === 'ES';
+  const isEs = language === 'ES';
   if (!pkg) return null;
 
 
@@ -159,17 +160,17 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, langua
             {/* Contact Information */}
             <div className="lg:col-span-5 bg-slate-50/90 rounded-2xl p-6 border border-slate-200/80 flex flex-col justify-between">
               <div>
-                <h3 className="text-lg font-bold text-[#0A3A40]">{isEn ? 'Information & consultation' : 'Informasi & Konsultasi'}</h3>
+                <h3 className="text-lg font-bold text-[#0A3A40]">{isEs ? 'Información y consultas' : isEn ? 'Information & consultation' : 'Informasi & Konsultasi'}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-slate-600">
-                  {isEn ? 'Ask our team about availability, route adjustments and a trip proposal for your dates.' : 'Tanyakan ketersediaan, penyesuaian rute, dan penawaran perjalanan sesuai tanggal Anda kepada tim kami.'}
+                  {isEs ? 'Consulta con nuestro equipo la disponibilidad, los cambios de ruta y una propuesta para tus fechas.' : isEn ? 'Ask our team about availability, route adjustments and a trip proposal for your dates.' : 'Tanyakan ketersediaan, penyesuaian rute, dan penawaran perjalanan sesuai tanggal Anda kepada tim kami.'}
                 </p>
                 <a href="#contact" onClick={onClose} className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-[#0A3A40] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#07515D]">
-                  {isEn ? 'Contact our team' : 'Hubungi Tim Kami'}
+                  {isEs ? 'Contacta con nuestro equipo' : isEn ? 'Contact our team' : 'Hubungi Tim Kami'}
                 </a>
               </div>
               <div className="mt-6 pt-4 border-t border-slate-200 text-xs text-slate-500 flex items-center justify-between">
-                <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5 text-teal-600" />{isEn ? 'Local operator' : 'Operator lokal'}</span>
-                <span className="flex items-center gap-1"><Award className="w-3.5 h-3.5 text-teal-600" />{isEn ? 'Trip consultation' : 'Konsultasi trip'}</span>
+                <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5 text-teal-600" />{isEs ? 'Equipo local' : isEn ? 'Local operator' : 'Operator lokal'}</span>
+                <span className="flex items-center gap-1"><Award className="w-3.5 h-3.5 text-teal-600" />{isEs ? 'Consulta de viaje' : isEn ? 'Trip consultation' : 'Konsultasi trip'}</span>
               </div>
             </div>
 
