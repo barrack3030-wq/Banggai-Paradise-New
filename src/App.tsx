@@ -35,7 +35,7 @@ export default function App() {
   const localeBase = basePath + localePrefix + '/';
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
   const packageSlug = routePath.split('/').filter(Boolean)[1] || '';
-  const isLuwukStopoverPage = route === 'packages' && packageSlug === 'luwuk-stopover';
+  const isLuwukStopoverPage = route === 'packages' && packageSlug === 'luwuk-stopover' && routeLocale !== 'es';
   const isPackageDetailPage = route === 'packages' && Boolean(packageSlug);
   const page: Page = isLuwukStopoverPage ? 'luwuk-stopover' : isPackageDetailPage ? 'package-detail' : route === 'packages' || route === 'destinations' || route === 'about' || route === 'blog' ? route : 'home';
   const isBlogArticlePage = page === 'blog' && routePath.split('/').filter(Boolean).length > 1;
