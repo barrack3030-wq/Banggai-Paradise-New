@@ -819,3 +819,5 @@ h2{font-size:var(--fs-h2);line-height:1.1;color:var(--deep);margin-top:14px}
  .visitor-gallery-grid{gap:8px}
  .visitor-gallery-card figcaption{font-size:.7rem}
 }
+.blog-reading-page .blog-reading-content p a{color:#16717a;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.blog-reading-page .blog-reading-content p a:hover{color:#0f5159}
