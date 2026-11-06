@@ -1,60 +1,459 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://banggaiparadise.com/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/packages/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/destinations/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/about/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/blog/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/blog/beyond-paisu-pok-peleng-island-guide/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/packages/luwuk-stopover/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/packages/luwuk-one-day/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/packages/luwuk-salakan/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/packages/banggai-four-days/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/packages/banggai-five-days/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/packages/ultimate-banggai/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/packages/custom-banggai-trip/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/packages/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/destinations/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/about/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/blog/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/blog/beyond-paisu-pok-peleng-island-guide/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/packages/luwuk-stopover/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/packages/luwuk-one-day/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/packages/luwuk-salakan/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/packages/banggai-four-days/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/packages/banggai-five-days/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/packages/ultimate-banggai/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/packages/custom-banggai-trip/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/blog/how-to-get-to-banggai-islands-via-luwuk/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/blog/how-to-get-to-banggai-islands-via-luwuk/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/blog/pulau-dua-balantak-trip-planning-guide/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/blog/pulau-dua-balantak-trip-planning-guide/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/blog/how-to-plan-banggai-tour-itinerary-by-days/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/blog/how-to-plan-banggai-tour-itinerary-by-days/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/packages/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/destinations/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/about/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/blog/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/packages/luwuk-stopover/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/packages/luwuk-one-day/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/packages/luwuk-salakan/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/packages/banggai-four-days/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/packages/banggai-five-days/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/packages/ultimate-banggai/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/packages/custom-banggai-trip/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/blog/beyond-paisu-pok-peleng-island-guide/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/blog/how-to-get-to-banggai-islands-via-luwuk/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/blog/pulau-dua-balantak-trip-planning-guide/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/blog/how-to-plan-banggai-tour-itinerary-by-days/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/blog/banggai-cardinalfish-responsible-marine-tourism/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/blog/banggai-cardinalfish-responsible-marine-tourism/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/</loc></url>
-  <url><loc>https://banggaiparadise.com/id/blog/paket-wisata-banggai-4-hari-3-malam/</loc></url>
-  <url><loc>https://banggaiparadise.com/eng/blog/paket-wisata-banggai-4-hari-3-malam/</loc></url>
-  <url><loc>https://banggaiparadise.com/es/blog/paket-wisata-banggai-4-hari-3-malam/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://banggaiparadise.com/id/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/about/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/about/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/about/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/about/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/about/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/about/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/about/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/about/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/about/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/blog/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/blog/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/blog/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/blog/banggai-cardinalfish-responsible-marine-tourism/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/blog/banggai-cardinalfish-responsible-marine-tourism/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/blog/banggai-cardinalfish-responsible-marine-tourism/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/banggai-cardinalfish-responsible-marine-tourism/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/blog/beyond-paisu-pok-peleng-island-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/beyond-paisu-pok-peleng-island-guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/beyond-paisu-pok-peleng-island-guide/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/beyond-paisu-pok-peleng-island-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/beyond-paisu-pok-peleng-island-guide/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/blog/beyond-paisu-pok-peleng-island-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/beyond-paisu-pok-peleng-island-guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/beyond-paisu-pok-peleng-island-guide/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/beyond-paisu-pok-peleng-island-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/beyond-paisu-pok-peleng-island-guide/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/blog/beyond-paisu-pok-peleng-island-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/beyond-paisu-pok-peleng-island-guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/beyond-paisu-pok-peleng-island-guide/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/beyond-paisu-pok-peleng-island-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/beyond-paisu-pok-peleng-island-guide/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/blog/how-to-get-to-banggai-islands-via-luwuk/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/blog/how-to-get-to-banggai-islands-via-luwuk/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/blog/how-to-get-to-banggai-islands-via-luwuk/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/how-to-get-to-banggai-islands-via-luwuk/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/blog/how-to-plan-banggai-tour-itinerary-by-days/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/blog/how-to-plan-banggai-tour-itinerary-by-days/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/blog/how-to-plan-banggai-tour-itinerary-by-days/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/how-to-plan-banggai-tour-itinerary-by-days/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/open-trip-banggai-2026-jadwal-harga-fasilitas/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/blog/paket-wisata-banggai-4-hari-3-malam/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/paket-wisata-banggai-4-hari-3-malam/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/paket-wisata-banggai-4-hari-3-malam/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/paket-wisata-banggai-4-hari-3-malam/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/paket-wisata-banggai-4-hari-3-malam/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/blog/paket-wisata-banggai-4-hari-3-malam/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/paket-wisata-banggai-4-hari-3-malam/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/paket-wisata-banggai-4-hari-3-malam/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/paket-wisata-banggai-4-hari-3-malam/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/paket-wisata-banggai-4-hari-3-malam/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/blog/paket-wisata-banggai-4-hari-3-malam/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/paket-wisata-banggai-4-hari-3-malam/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/paket-wisata-banggai-4-hari-3-malam/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/paket-wisata-banggai-4-hari-3-malam/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/paket-wisata-banggai-4-hari-3-malam/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/blog/pulau-dua-balantak-trip-planning-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/pulau-dua-balantak-trip-planning-guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/pulau-dua-balantak-trip-planning-guide/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/pulau-dua-balantak-trip-planning-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/pulau-dua-balantak-trip-planning-guide/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/blog/pulau-dua-balantak-trip-planning-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/pulau-dua-balantak-trip-planning-guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/pulau-dua-balantak-trip-planning-guide/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/pulau-dua-balantak-trip-planning-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/pulau-dua-balantak-trip-planning-guide/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/blog/pulau-dua-balantak-trip-planning-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/pulau-dua-balantak-trip-planning-guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/pulau-dua-balantak-trip-planning-guide/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/pulau-dua-balantak-trip-planning-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/pulau-dua-balantak-trip-planning-guide/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/destinations/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/destinations/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/destinations/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/destinations/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/destinations/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/destinations/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/destinations/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/destinations/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/destinations/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/destinations/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/destinations/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/destinations/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/destinations/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/destinations/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/destinations/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/packages/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/packages/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/packages/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/packages/banggai-five-days/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/banggai-five-days/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/banggai-five-days/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/banggai-five-days/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/banggai-five-days/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/packages/banggai-five-days/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/banggai-five-days/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/banggai-five-days/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/banggai-five-days/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/banggai-five-days/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/packages/banggai-five-days/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/banggai-five-days/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/banggai-five-days/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/banggai-five-days/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/banggai-five-days/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/packages/banggai-four-days/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/banggai-four-days/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/banggai-four-days/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/banggai-four-days/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/banggai-four-days/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/packages/banggai-four-days/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/banggai-four-days/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/banggai-four-days/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/banggai-four-days/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/banggai-four-days/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/packages/banggai-four-days/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/banggai-four-days/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/banggai-four-days/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/banggai-four-days/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/banggai-four-days/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/packages/custom-banggai-trip/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/custom-banggai-trip/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/custom-banggai-trip/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/custom-banggai-trip/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/custom-banggai-trip/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/packages/custom-banggai-trip/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/custom-banggai-trip/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/custom-banggai-trip/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/custom-banggai-trip/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/custom-banggai-trip/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/packages/custom-banggai-trip/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/custom-banggai-trip/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/custom-banggai-trip/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/custom-banggai-trip/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/custom-banggai-trip/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/packages/luwuk-one-day/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/luwuk-one-day/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/luwuk-one-day/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/luwuk-one-day/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/luwuk-one-day/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/packages/luwuk-one-day/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/luwuk-one-day/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/luwuk-one-day/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/luwuk-one-day/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/luwuk-one-day/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/packages/luwuk-one-day/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/luwuk-one-day/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/luwuk-one-day/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/luwuk-one-day/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/luwuk-one-day/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/packages/luwuk-salakan/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/luwuk-salakan/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/luwuk-salakan/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/luwuk-salakan/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/luwuk-salakan/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/packages/luwuk-salakan/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/luwuk-salakan/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/luwuk-salakan/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/luwuk-salakan/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/luwuk-salakan/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/packages/luwuk-salakan/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/luwuk-salakan/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/luwuk-salakan/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/luwuk-salakan/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/luwuk-salakan/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/packages/luwuk-stopover/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/luwuk-stopover/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/luwuk-stopover/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/luwuk-stopover/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/luwuk-stopover/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/packages/luwuk-stopover/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/luwuk-stopover/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/luwuk-stopover/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/luwuk-stopover/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/luwuk-stopover/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/packages/luwuk-stopover/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/luwuk-stopover/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/luwuk-stopover/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/luwuk-stopover/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/luwuk-stopover/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/packages/ultimate-banggai/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/ultimate-banggai/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/ultimate-banggai/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/ultimate-banggai/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/ultimate-banggai/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/packages/ultimate-banggai/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/ultimate-banggai/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/ultimate-banggai/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/ultimate-banggai/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/ultimate-banggai/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/packages/ultimate-banggai/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/packages/ultimate-banggai/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/packages/ultimate-banggai/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/packages/ultimate-banggai/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/packages/ultimate-banggai/" />
+  </url>
 </urlset>

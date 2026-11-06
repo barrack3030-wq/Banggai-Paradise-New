@@ -135,8 +135,8 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Left Column: Copy & CTAs */}
           <div className="hero-copy">
             <h1>
-              {isEs ? 'Tu mejor compañero de ' : isEs ? 'Tu mejor compañero de ' : isEn ? 'Your best choice ' : 'Pilihan terbaik '}
-              <em>{isEs ? 'viaje' : isEs ? 'viaje' : isEn ? 'travel partner' : 'partner perjalanan'}</em>
+              {isEs ? 'Viajes a las islas Banggai: ' : isEn ? 'Banggai Islands tour & travel: ' : 'Tour & travel Banggai: '}
+              <em>{isEs ? 'tu compañero local' : isEn ? 'your local travel partner' : 'partner perjalanan lokal Anda'}</em>
             </h1>
 
             <p className="lead">
