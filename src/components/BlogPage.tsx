@@ -53,16 +53,16 @@ export const BlogPage: React.FC<BlogPageProps> = ({ language }) => {
           <a href="#popular-articles" className="editorial-image"><img src={lead.image} alt={lead.title} /><span>{lead.date}</span></a>
           <div className="editorial-copy"><div className="editorial-meta">{lead.date}<span>·</span>{lead.read}</div><h3>{lead.title}</h3><p>{lead.excerpt}</p><a href="#popular-articles" className="editorial-read">{isEn ? 'Explore story' : 'Baca cerita'} <span>↗</span></a></div>
         </article>
-        <aside className="editorial-side"><h3>{isEn ? 'More to explore' : 'Artikel lainnya'}</h3>{side.map(a => <article className="editorial-side-item" key={a.id}><img src={a.image} alt="" /><div><span>{a.date}</span><h4>{a.title}</h4><small>{a.read}</small></div></article>)}</aside>
+        <aside className="editorial-side"><h3>{isEn ? 'More to explore' : 'Artikel lainnya'}</h3>{side.map(a => <article className="editorial-side-item" key={a.id}><img src={a.image} alt={a.title} /><div><span>{a.date}</span><h4>{a.title}</h4><small>{a.read}</small></div></article>)}</aside>
       </div>
       <section className="editorial-category">
         <div className="editorial-section-head"><div><span className="eyebrow">{isEn ? 'TRAVEL NOTES' : 'CATATAN WISATA'}</span><h2>{isEn ? 'Travel better, discover more' : 'Jelajahi dengan Lebih Baik'}</h2></div></div>
         <div className="editorial-secondary-grid">
           <article className="editorial-secondary-main"><img src={articles[1].image} alt={articles[1].title}/><div><span>{articles[1].date} · {articles[1].read}</span><h3>{articles[1].title}</h3><p>{articles[1].excerpt}</p></div></article>
-          <div className="editorial-mini-list">{articles.filter(a => a.id !== 2).map(a => <article key={a.id}><img src={a.image} alt=""/><div><span>{a.date}</span><h4>{a.title}</h4><small>{a.read}</small></div></article>)}</div>
+          <div className="editorial-mini-list">{articles.filter(a => a.id !== 2).map(a => <article key={a.id}><img src={a.image} alt={a.title}/><div><span>{a.date}</span><h4>{a.title}</h4><small>{a.read}</small></div></article>)}</div>
         </div>
       </section>
     </div>
-    <section className="editorial-popular" id="popular-articles"><div className="container"><span className="eyebrow">{isEn ? 'READER FAVOURITES' : 'PILIHAN PEMBACA'}</span><h2>{isEn ? 'Popular articles' : 'Artikel Populer'}</h2><div className="editorial-popular-grid">{popular.map(a => <article key={a.id}><img src={a.image} alt=""/><div><span>{a.date}</span><h3>{a.title}</h3><small>{a.read}</small></div></article>)}</div></div></section>
+    <section className="editorial-popular" id="popular-articles"><div className="container"><span className="eyebrow">{isEn ? 'READER FAVOURITES' : 'PILIHAN PEMBACA'}</span><h2>{isEn ? 'Popular articles' : 'Artikel Populer'}</h2><div className="editorial-popular-grid">{popular.map(a => <article key={a.id}><img src={a.image} alt={a.title}/><div><span>{a.date}</span><h3>{a.title}</h3><small>{a.read}</small></div></article>)}</div></div></section>
   </section>;
 };
