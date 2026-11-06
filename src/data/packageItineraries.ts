@@ -10,7 +10,7 @@ export type ItineraryDay = { day: string; title: string; slots: ItinerarySlot[] 
  * These are route suggestions built only from the destinations listed for each package.
  * They intentionally contain no prices, hotel names or fixed departure times: the final order,
  * timings and inclusions are confirmed in the written proposal (boats, weather and local conditions apply).
- * The luwuk-stopover outline mirrors LuwukStopoverPage so the Spanish page matches the ID/EN pages.
+ * The luwuk-stopover outline mirrors LuwukStopoverPage (1-day version) so the Spanish page matches the ID/EN pages.
  * The custom-banggai-trip entry describes how a custom route is prepared rather than a fixed route.
  */
 export const packageItineraries: Record<string, Record<Language, ItineraryDay[]>> = {
@@ -43,45 +43,30 @@ export const packageItineraries: Record<string, Record<Language, ItineraryDay[]>
 
   'luwuk-stopover': {
     ID: [
-      { day: 'Hari 1', title: 'Tiba dan eksplorasi alam Luwuk', slots: [
-        ['11.30 — Tiba di Bandara Luwuk', ['Penjemputan di bandara dan meet and greet', 'Persiapan perjalanan bersama tim lokal']],
-        ['12.00 — Memulai eksplorasi Luwuk', ['Berangkat dari bandara', 'Makan siang atau mencoba kuliner lokal', 'Menikmati perjalanan dengan lanskap tropis']],
-        ['Siang — Air Terjun Piala', ['Mengunjungi kawasan Air Terjun Piala', 'Menjelajahi alam tropis, berenang, dan bersantai', 'Waktu untuk fotografi']],
-        ['Sore — Pesisir Luwuk', ['Menuju kawasan pesisir', 'Mengunjungi Kilo 5 atau spot pesisir pilihan', 'Menikmati suasana sore dan fotografi']],
-        ['Malam — Check-in dan istirahat', ['Check-in hotel di Luwuk', 'Makan malam dan waktu bebas', 'Bermalam di Luwuk']]
-      ] },
-      { day: 'Hari 2', title: 'Salodik dan perjalanan pulang', slots: [
-        ['Pagi — Sarapan dan check-out', ['Sarapan di hotel', 'Check-out dan berangkat menuju Salodik']],
-        ['Pagi–siang — Eksplorasi Salodik', ['Menjelajahi kawasan alam Salodik', 'Mengunjungi air terjun atau spot alam yang sesuai kondisi', 'Berenang, bersantai, dan fotografi', 'Makan siang lokal']],
-        ['Sore — Kembali ke Luwuk', ['Perjalanan kembali ke Luwuk', 'City sightseeing jika waktu memungkinkan', 'Transfer menuju Bandara Luwuk dan trip selesai']]
+      { day: 'Hari 1', title: 'Luwuk Stopover — 1 Day Escape', slots: [
+        ['11.30 — Tiba di Luwuk', ['Penjemputan oleh tim lokal di bandara atau titik awal yang disepakati', 'Meet and greet dan persiapan perjalanan']],
+        ['12.00 — Pickup & makan siang', ['Berangkat dengan private transport', 'Makan siang atau mencoba kuliner lokal']],
+        ['13.30 — Explore Piala Waterfall', ['Mengunjungi kawasan Air Terjun Piala', 'Menikmati alam tropis, berenang, dan bersantai', 'Dokumentasi perjalanan']],
+        ['15.30 — Kilo 5 & pesisir Luwuk', ['Menuju kawasan pesisir Luwuk', 'Mengunjungi Kilo 5 dan menikmati suasana sore', 'Waktu untuk foto dan bersantai']],
+        ['18.30 — Drop-off hotel / bandara', ['Diantar ke hotel atau bandara', 'Perjalanan selesai']]
       ] }
     ],
     EN: [
-      { day: 'Day 1', title: 'Arrival and nature exploration in Luwuk', slots: [
-        ['11:30 — Arrival at Luwuk Airport', ['Airport pick-up and meet and greet', 'Prepare for the journey with the local team']],
-        ['12:00 — Start exploring Luwuk', ['Depart from the airport', 'Lunch or local food experience', 'Enjoy the tropical scenery along the way']],
-        ['Afternoon — Piala Waterfall', ['Visit the Piala Waterfall area', 'Explore the tropical surroundings, swim and relax', 'Photography time']],
-        ['Late afternoon — Luwuk coastline', ['Head towards the coast', 'Visit Kilo 5 or a suitable coastal viewpoint', 'Enjoy the afternoon atmosphere and take photos']],
-        ['Evening — Hotel check-in', ['Check in to your hotel in Luwuk', 'Dinner and free time', 'Overnight in Luwuk']]
-      ] },
-      { day: 'Day 2', title: 'Salodik and departure', slots: [
-        ['Morning — Breakfast and check-out', ['Breakfast at the hotel', 'Check out and depart for Salodik']],
-        ['Morning to afternoon — Explore Salodik', ['Explore the natural area around Salodik', 'Visit a waterfall or nature spot depending on local conditions', 'Swim, relax and take photos', 'Local lunch']],
-        ['Afternoon — Return to Luwuk', ['Travel back to Luwuk', 'City sightseeing if time allows', 'Transfer to Luwuk Airport and trip ends']]
+      { day: 'Day 1', title: 'Luwuk Stopover — 1 Day Escape', slots: [
+        ['11:30 — Arrival in Luwuk', ['Pick-up by the local team at the airport or an agreed starting point', 'Meet and greet and trip briefing']],
+        ['12:00 — Pickup & lunch', ['Depart by private transport', 'Lunch or a local food experience']],
+        ['13:30 — Explore Piala Waterfall', ['Visit the Piala Waterfall area', 'Enjoy the tropical surroundings, swim and relax', 'Trip documentation']],
+        ['15:30 — Kilo 5 & Luwuk coastline', ['Head to the Luwuk coastline', 'Visit Kilo 5 and enjoy the afternoon atmosphere', 'Time for photos and relaxing']],
+        ['18:30 — Drop-off at hotel / airport', ['Transfer to your hotel or the airport', 'Trip ends']]
       ] }
     ],
     ES: [
-      { day: 'Día 1', title: 'Llegada y naturaleza en Luwuk', slots: [
-        ['11:30 — Llegada al aeropuerto de Luwuk', ['Recogida en el aeropuerto y bienvenida', 'Preparación del viaje con el equipo local']],
-        ['12:00 — Primeros pasos por Luwuk', ['Salida desde el aeropuerto', 'Comida o primer contacto con la gastronomía local', 'Trayecto entre paisajes tropicales']],
-        ['Tarde — Cascada de Piala', ['Visita a la zona de la cascada de Piala', 'Entorno tropical, baño y tiempo de descanso', 'Tiempo para fotografía']],
-        ['Última hora de la tarde — Costa de Luwuk', ['Traslado hacia la costa', 'Visita a Kilo 5 o a un mirador costero adecuado', 'Ambiente de atardecer y fotografía']],
-        ['Noche — Alojamiento', ['Registro en el hotel de Luwuk', 'Cena y tiempo libre', 'Noche en Luwuk']]
-      ] },
-      { day: 'Día 2', title: 'Salodik y regreso', slots: [
-        ['Mañana — Desayuno y salida del hotel', ['Desayuno en el hotel', 'Salida del hotel rumbo a Salodik']],
-        ['De la mañana a la tarde — Salodik', ['Recorrido por el entorno natural de Salodik', 'Visita a una cascada o a un rincón natural según las condiciones locales', 'Baño, descanso y fotografía', 'Comida local']],
-        ['Tarde — Vuelta a Luwuk', ['Regreso a Luwuk', 'Paseo por la ciudad si el tiempo lo permite', 'Traslado al aeropuerto de Luwuk y fin del viaje']]
+      { day: 'Día 1', title: 'Escapada a Luwuk — 1 día', slots: [
+        ['11:30 — Llegada a Luwuk', ['Recogida por el equipo local en el aeropuerto o en un punto acordado', 'Bienvenida y explicación del plan']],
+        ['12:00 — Recogida y comida', ['Salida en transporte privado', 'Comida o primer contacto con la gastronomía local']],
+        ['13:30 — Cascada de Piala', ['Visita a la zona de la cascada de Piala', 'Entorno tropical, baño y descanso', 'Registro fotográfico del viaje']],
+        ['15:30 — Kilo 5 y costa de Luwuk', ['Traslado a la costa de Luwuk', 'Visita a Kilo 5 y ambiente de atardecer', 'Tiempo para fotos y descanso']],
+        ['18:30 — Traslado al hotel o al aeropuerto', ['Te llevamos al hotel o al aeropuerto', 'Fin del viaje']]
       ] }
     ]
   },
