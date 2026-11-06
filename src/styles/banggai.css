@@ -837,3 +837,42 @@ h2{font-size:var(--fs-h2);line-height:1.1;color:var(--deep);margin-top:14px}
  .blog-reading-page .blog-reading-content p{margin-bottom:1.05em}
  .blog-reading-page .blog-reading-content h2{margin:1.9em 0 .6em;font-size:1.4rem;line-height:1.28}
 }
+
+/* Package detail page: the global reset (*{margin:0;padding:0}) overrides Tailwind spacing
+   utilities, so spacing, FAQ cards and the summary card are defined explicitly here. */
+.package-detail-page article > h2:first-of-type{margin-top:10px}
+.package-detail-page article h2{margin-top:2.25rem;margin-bottom:.9rem}
+.package-detail-page article > .eyebrow + h2{margin-top:10px}
+.package-detail-page article > p{margin-top:1rem;font-size:1rem;line-height:1.8;color:#334e56}
+.package-detail-page article .flex-wrap{gap:10px;margin-top:1rem}
+.package-detail-page article .flex-wrap > span{padding:.5rem .95rem;font-size:.9rem;line-height:1.4}
+.package-detail-page article .space-y-5{display:grid;gap:18px}
+.package-detail-page article .space-y-4{display:grid;gap:16px}
+.package-detail-page article .space-y-2{display:grid;gap:8px}
+.package-detail-page article .space-y-3{display:grid;gap:12px}
+.package-detail-page article section.rounded-3xl{padding:22px}
+.package-detail-page article section.rounded-3xl h4{margin-bottom:6px}
+.package-detail-page article section.rounded-3xl li{align-items:flex-start}
+.package-detail-page article section.rounded-2xl,.package-detail-page article section.mt-9.rounded-2xl{margin-top:2.25rem;padding:22px}
+.package-detail-page article section.rounded-2xl ul{display:block;margin-top:14px;padding-left:1.25rem;list-style:disc}
+.package-detail-page article section.rounded-2xl li{margin-bottom:.7rem;padding-left:.2rem;font-size:.95rem;line-height:1.7}
+.package-detail-page article section.rounded-2xl li:last-child{margin-bottom:0}
+.package-detail-page article details{padding:16px 18px;border-radius:14px}
+.package-detail-page article details summary{display:list-item;padding-block:2px;font-size:.98rem;line-height:1.5;cursor:pointer}
+.package-detail-page article details[open] summary{margin-bottom:10px}
+.package-detail-page article details p{margin-top:0;font-size:.92rem;line-height:1.75;color:#4b6269}
+.package-detail-page article > p.rounded-2xl,.package-detail-page article p.rounded-2xl{margin-top:20px;padding:16px 18px}
+.package-detail-page aside#contact{padding:24px}
+.package-detail-page aside#contact h2{margin-top:10px;margin-bottom:14px;font-size:1.6rem;line-height:1.2}
+.package-detail-page aside#contact p{margin-top:0;margin-bottom:6px;font-size:.95rem;line-height:1.6;color:#4b6269}
+.package-detail-page aside#contact a:first-of-type{display:flex;align-items:center;justify-content:center;margin-top:22px;padding:14px 20px;min-height:52px;border-radius:999px;background:#EE7F6D;color:#fff;font-size:.95rem;font-weight:600;line-height:1.3;text-align:center}
+.package-detail-page aside#contact a:first-of-type:hover{background:#E36B58}
+.package-detail-page aside#contact a:last-of-type{display:block;margin-top:6px;padding:14px 8px 4px;color:#0A3A40;font-size:.92rem;font-weight:600;text-align:center}
+.package-detail-page > section:first-child nav{margin-bottom:16px}
+.package-detail-page > section:first-child h1{margin-top:12px}
+.package-detail-page > section:first-child .container > div:last-child{gap:10px;margin-top:20px}
+.package-detail-page > section:first-child .container > div:last-child span{padding:.5rem 1rem}
+@media(max-width:600px){
+ .package-detail-page article section.rounded-3xl,.package-detail-page article section.rounded-2xl{padding:18px}
+ .package-detail-page aside#contact{padding:22px}
+}
