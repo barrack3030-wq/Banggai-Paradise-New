@@ -60,7 +60,7 @@ const PACKAGE_CHOICES: PackageChoice[] = [
     descriptionId: 'Jelajahi Air Terjun Piala, pesisir Luwuk, Salodik, serta destinasi sekitar dengan perjalanan yang santai.',
     placesEn: ['Luwuk City', 'Piala Waterfall', 'Salodik'],
     placesId: ['Kota Luwuk', 'Air Terjun Piala', 'Salodik'],
-    image: assetUrl('assets/images/banggai_white_sand_beach_1793766899675.jpg'),
+    image: 'https://banggaiwonderland.my.id/images/piala.jpg',
   },
   {
     id: 'luwuk-salakan',
