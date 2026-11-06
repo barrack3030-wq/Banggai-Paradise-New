@@ -74,110 +74,98 @@ export const packageItineraries: Record<string, Record<Language, ItineraryDay[]>
   'luwuk-salakan': {
     ID: [
       { day: 'Hari 1', title: 'Dari Luwuk menuju Salakan', slots: [
-        ['Pagi — Memulai di Luwuk', ['Pertemuan dengan pemandu dan persiapan perjalanan', 'Menuju titik penyeberangan sesuai jadwal kapal']],
-        ['Siang–sore — Penyeberangan ke Salakan', ['Perjalanan laut menuju Salakan', 'Jadwal kapal dan lama penyeberangan dikonfirmasi untuk tanggal perjalananmu dan bergantung pada kondisi laut']],
-        ['Malam — Check-in dan istirahat', ['Check-in akomodasi dan waktu bebas', 'Lokasi akomodasi dikonfirmasi dalam penawaran']]
+        ['Tiba di Luwuk & Air Terjun Piala', ['Kedatangan di Luwuk', 'Mengunjungi Air Terjun Piala']],
+        ['Pelabuhan & kapal ke Salakan', ['Transfer ke pelabuhan', 'Kapal menuju Salakan; jadwal dan lama penyeberangan dikonfirmasi untuk tanggal perjalananmu dan bergantung pada kondisi laut']],
+        ['Check-in hotel', ['Check-in hotel di Salakan']]
       ] },
-      { day: 'Hari 2', title: 'Menjelajahi Kepulauan Banggai', slots: [
-        ['Pagi–sore — Destinasi pilihan', ['Mengunjungi destinasi pilihan di Kepulauan Banggai sesuai minat grup, waktu, dan kondisi lokal', 'Waktu untuk fotografi, bersantai, dan makan di sela perjalanan']],
-        ['Malam — Istirahat', ['Waktu bebas dan bermalam']]
+      { day: 'Hari 2', title: 'Menjelajahi Banggai / Peleng', slots: [
+        ['Destinasi hari ini', ['Paisu Pok', 'Paisu Batango', 'Kawalu Bay', 'Pantai Poganda']]
       ] },
-      { day: 'Hari 3', title: 'Kembali ke Luwuk', slots: [
-        ['Pagi — Check-out', ['Sarapan, check-out, dan persiapan kembali']],
-        ['Siang–sore — Perjalanan pulang', ['Menyeberang kembali ke Luwuk sesuai jadwal kapal', 'Pengantaran ke titik yang disepakati dan trip selesai']]
+      { day: 'Hari 3', title: 'Eksplorasi pantai & kembali ke Luwuk', slots: [
+        ['Destinasi hari ini', ['Pantai Pompon', 'Pantai Mandel']],
+        ['Kembali ke Luwuk', ['Perjalanan kembali ke Luwuk sesuai jadwal kapal']]
       ] }
     ],
     EN: [
       { day: 'Day 1', title: 'From Luwuk to Salakan', slots: [
-        ['Morning — Start in Luwuk', ['Meet your guide and prepare for the journey', 'Head to the crossing point according to the boat schedule']],
-        ['Midday to afternoon — Crossing to Salakan', ['Sea journey to Salakan', 'Boat schedule and crossing time are confirmed for your dates and depend on sea conditions']],
-        ['Evening — Check-in and rest', ['Check in to your accommodation and enjoy free time', 'Accommodation location is confirmed in your proposal']]
+        ['Arrival in Luwuk & Piala Waterfall', ['Arrival in Luwuk', 'Visit Piala Waterfall']],
+        ['Harbor & ferry to Salakan', ['Transfer to the harbor', 'Ferry to Salakan; the boat schedule and crossing time are confirmed for your dates and depend on sea conditions']],
+        ['Hotel check-in', ['Hotel check-in in Salakan']]
       ] },
-      { day: 'Day 2', title: 'Exploring the Banggai Islands', slots: [
-        ['Morning to afternoon — Selected destinations', ['Visit selected destinations in the Banggai Islands, depending on group interests, time and local conditions', 'Time for photography, relaxing and meals along the way']],
-        ['Evening — Rest', ['Free time and overnight stay']]
+      { day: 'Day 2', title: 'Exploring Banggai / Peleng', slots: [
+        ['Today\'s destinations', ['Paisu Pok', 'Paisu Batango', 'Kawalu Bay', 'Poganda Beach']]
       ] },
-      { day: 'Day 3', title: 'Return to Luwuk', slots: [
-        ['Morning — Check-out', ['Breakfast, check-out and preparation for the return']],
-        ['Midday to afternoon — Journey back', ['Cross back to Luwuk according to the boat schedule', 'Drop-off at the agreed point and the trip ends']]
+      { day: 'Day 3', title: 'Beach exploration & return to Luwuk', slots: [
+        ['Today\'s destinations', ['Pompon Beach', 'Mandel Beach']],
+        ['Return to Luwuk', ['Journey back to Luwuk according to the boat schedule']]
       ] }
     ],
     ES: [
       { day: 'Día 1', title: 'De Luwuk a Salakan', slots: [
-        ['Mañana — Inicio en Luwuk', ['Encuentro con el guía y preparación del viaje', 'Traslado al punto de embarque según el horario del barco']],
-        ['De mediodía a tarde — Travesía a Salakan', ['Travesía marítima hasta Salakan', 'El horario del barco y la duración de la travesía se confirman para vuestras fechas y dependen del estado del mar']],
-        ['Noche — Alojamiento y descanso', ['Registro en el alojamiento y tiempo libre', 'La ubicación del alojamiento se confirma en la propuesta']]
+        ['Llegada a Luwuk y cascada de Piala', ['Llegada a Luwuk', 'Visita a la cascada de Piala']],
+        ['Puerto y barco a Salakan', ['Traslado al puerto', 'Barco a Salakan; el horario y la duración de la travesía se confirman para vuestras fechas y dependen del estado del mar']],
+        ['Registro en el hotel', ['Registro en el hotel de Salakan']]
       ] },
-      { day: 'Día 2', title: 'Descubrir las islas Banggai', slots: [
-        ['De mañana a tarde — Lugares seleccionados', ['Visita a lugares seleccionados de las islas Banggai según los intereses del grupo, el tiempo y las condiciones locales', 'Tiempo para fotografía, descanso y comidas durante el recorrido']],
-        ['Noche — Descanso', ['Tiempo libre y noche en el alojamiento']]
+      { day: 'Día 2', title: 'Explorando Banggai / Peleng', slots: [
+        ['Lugares del día', ['Paisu Pok', 'Paisu Batango', 'Kawalu Bay', 'Playa de Poganda']]
       ] },
-      { day: 'Día 3', title: 'Regreso a Luwuk', slots: [
-        ['Mañana — Salida del alojamiento', ['Desayuno, salida del alojamiento y preparación del regreso']],
-        ['De mediodía a tarde — Viaje de vuelta', ['Travesía de regreso a Luwuk según el horario del barco', 'Despedida en el punto acordado y fin del viaje']]
+      { day: 'Día 3', title: 'Exploración de playas y regreso a Luwuk', slots: [
+        ['Lugares del día', ['Playa de Pompon', 'Playa de Mandel']],
+        ['Regreso a Luwuk', ['Viaje de vuelta a Luwuk según el horario del barco']]
       ] }
     ]
   },
 
   'banggai-four-days': {
     ID: [
-      { day: 'Hari 1', title: 'Dari Luwuk menyeberang ke Pulau Peleng', slots: [
-        ['Pagi — Memulai di Luwuk', ['Pertemuan dengan pemandu dan persiapan perjalanan', 'Menuju titik penyeberangan sesuai jadwal kapal']],
-        ['Siang–sore — Penyeberangan ke Peleng', ['Perjalanan laut menuju Pulau Peleng', 'Lama penyeberangan bergantung pada jadwal kapal dan kondisi laut, jadi hari pertama sengaja dibuat ringan']],
-        ['Malam — Check-in dan istirahat', ['Check-in akomodasi dan waktu bebas', 'Lokasi akomodasi dikonfirmasi dalam penawaran']]
+      { day: 'Hari 1', title: 'Dari Luwuk menuju Salakan', slots: [
+        ['Tiba di Luwuk & Air Terjun Piala', ['Kedatangan di Luwuk', 'Mengunjungi Air Terjun Piala']],
+        ['Perjalanan ke Salakan', ['Transfer menuju Salakan; jadwal kapal dan kondisi laut dikonfirmasi untuk tanggal perjalananmu']],
+        ['Check-in hotel', ['Check-in hotel di Salakan']]
       ] },
-      { day: 'Hari 2', title: 'Kawasan Danau Paisu Pok', slots: [
-        ['Pagi — Menuju Luk Panenteng', ['Berangkat lebih pagi menuju Desa Luk Panenteng lewat jalur darat', 'Perjalanan darat cukup panjang, jadi berangkat pagi memberi waktu lebih lega di danau']],
-        ['Siang — Danau Paisu Pok', ['Berjalan kaki dari desa menuju danau', 'Menikmati air yang jernih dan suasana sekitar danau', 'Waktu untuk fotografi dan bersantai']],
-        ['Sore–malam — Kembali dan istirahat', ['Kembali ke akomodasi', 'Makan malam dan waktu bebas']]
+      { day: 'Hari 2', title: 'Menjelajahi Banggai / Peleng', slots: [
+        ['Destinasi hari ini', ['Paisu Pok', 'Paisu Batango', 'Kawalu Bay', 'Pantai Poganda']]
       ] },
-      { day: 'Hari 3', title: 'Destinasi pesisir pilihan di Peleng', slots: [
-        ['Pagi–sore — Destinasi pilihan', ['Satu atau dua destinasi di Pulau Peleng sesuai minat, misalnya kawasan pesisir seperti Pantai Poganda atau Paisu Batango, selama masuk dalam itinerary yang disepakati', 'Lebih sedikit lokasi dengan waktu yang lebih lama, bukan banyak perpindahan']],
-        ['Malam — Istirahat', ['Makan malam dan waktu bebas']]
+      { day: 'Hari 3', title: 'Eksplorasi pantai', slots: [
+        ['Destinasi hari ini', ['Bontolan', 'Pantai Oyama', 'Long Beach']]
       ] },
       { day: 'Hari 4', title: 'Kembali ke Luwuk', slots: [
-        ['Pagi — Check-out', ['Sarapan, check-out, dan persiapan kembali']],
-        ['Siang–sore — Perjalanan pulang', ['Menyeberang kembali ke Luwuk sesuai jadwal kapal', 'Pengantaran ke titik yang disepakati dan trip selesai', 'Sebaiknya jangan memesan penerbangan lanjutan di hari yang sama']]
+        ['Destinasi hari ini', ['Pantai Pompon', 'Pantai Mandel']],
+        ['Kembali ke Luwuk', ['Perjalanan kembali ke Luwuk sesuai jadwal kapal']]
       ] }
     ],
     EN: [
-      { day: 'Day 1', title: 'Crossing from Luwuk to Peleng Island', slots: [
-        ['Morning — Start in Luwuk', ['Meet your guide and prepare for the journey', 'Head to the crossing point according to the boat schedule']],
-        ['Midday to afternoon — Crossing to Peleng', ['Sea journey to Peleng Island', 'Crossing time depends on the boat schedule and sea conditions, so the first day is kept light on purpose']],
-        ['Evening — Check-in and rest', ['Check in to your accommodation and enjoy free time', 'Accommodation location is confirmed in your proposal']]
+      { day: 'Day 1', title: 'From Luwuk to Salakan', slots: [
+        ['Arrival in Luwuk & Piala Waterfall', ['Arrival in Luwuk', 'Visit Piala Waterfall']],
+        ['Journey to Salakan', ['Transfer to Salakan; the boat schedule and sea conditions are confirmed for your dates']],
+        ['Hotel check-in', ['Hotel check-in in Salakan']]
       ] },
-      { day: 'Day 2', title: 'The Lake Paisu Pok area', slots: [
-        ['Morning — Towards Luk Panenteng', ['Early departure by road to Luk Panenteng village', 'The road journey is long, so an early start leaves more relaxed time at the lake']],
-        ['Midday — Lake Paisu Pok', ['Walk from the village to the lake', 'Enjoy the clear water and the setting around the lake', 'Time for photography and relaxing']],
-        ['Afternoon to evening — Return and rest', ['Return to your accommodation', 'Dinner and free time']]
+      { day: 'Day 2', title: 'Exploring Banggai / Peleng', slots: [
+        ['Today\'s destinations', ['Paisu Pok', 'Paisu Batango', 'Kawalu Bay', 'Poganda Beach']]
       ] },
-      { day: 'Day 3', title: 'Selected coastal stops on Peleng', slots: [
-        ['Morning to afternoon — Selected destinations', ['One or two more places on Peleng Island depending on interest, such as a coastal stop like Poganda Beach or Paisu Batango, as long as they are part of the agreed itinerary', 'Fewer places with more time at each, rather than many transfers']],
-        ['Evening — Rest', ['Dinner and free time']]
+      { day: 'Day 3', title: 'Beach exploration', slots: [
+        ['Today\'s destinations', ['Bontolan', 'Oyama Beach', 'Long Beach']]
       ] },
       { day: 'Day 4', title: 'Return to Luwuk', slots: [
-        ['Morning — Check-out', ['Breakfast, check-out and preparation for the return']],
-        ['Midday to afternoon — Journey back', ['Cross back to Luwuk according to the boat schedule', 'Drop-off at the agreed point and the trip ends', 'Avoid booking an onward flight on the same day']]
+        ['Today\'s destinations', ['Pompon Beach', 'Mandel Beach']],
+        ['Return to Luwuk', ['Journey back to Luwuk according to the boat schedule']]
       ] }
     ],
     ES: [
-      { day: 'Día 1', title: 'Travesía de Luwuk a la isla de Peleng', slots: [
-        ['Mañana — Inicio en Luwuk', ['Encuentro con el guía y preparación del viaje', 'Traslado al punto de embarque según el horario del barco']],
-        ['De mediodía a tarde — Travesía a Peleng', ['Travesía marítima hasta la isla de Peleng', 'La duración depende del horario del barco y del estado del mar, por eso el primer día se mantiene tranquilo']],
-        ['Noche — Alojamiento y descanso', ['Registro en el alojamiento y tiempo libre', 'La ubicación del alojamiento se confirma en la propuesta']]
+      { day: 'Día 1', title: 'De Luwuk a Salakan', slots: [
+        ['Llegada a Luwuk y cascada de Piala', ['Llegada a Luwuk', 'Visita a la cascada de Piala']],
+        ['Viaje a Salakan', ['Traslado a Salakan; el horario del barco y el estado del mar se confirman para vuestras fechas']],
+        ['Registro en el hotel', ['Registro en el hotel de Salakan']]
       ] },
-      { day: 'Día 2', title: 'La zona del lago Paisu Pok', slots: [
-        ['Mañana — Rumbo a Luk Panenteng', ['Salida temprano por carretera hacia el pueblo de Luk Panenteng', 'El trayecto por tierra es largo, así que salir pronto deja más tiempo para el lago']],
-        ['Mediodía — Lago Paisu Pok', ['Paseo a pie desde el pueblo hasta el lago', 'Aguas transparentes y entorno del lago', 'Tiempo para fotografía y descanso']],
-        ['De tarde a noche — Regreso y descanso', ['Vuelta al alojamiento', 'Cena y tiempo libre']]
+      { day: 'Día 2', title: 'Explorando Banggai / Peleng', slots: [
+        ['Lugares del día', ['Paisu Pok', 'Paisu Batango', 'Kawalu Bay', 'Playa de Poganda']]
       ] },
-      { day: 'Día 3', title: 'Paradas costeras seleccionadas en Peleng', slots: [
-        ['De mañana a tarde — Lugares seleccionados', ['Uno o dos lugares más de la isla de Peleng según los intereses, como una parada costera en la playa de Poganda o en Paisu Batango, siempre que formen parte del itinerario acordado', 'Menos sitios y más tiempo en cada uno, en lugar de muchos traslados']],
-        ['Noche — Descanso', ['Cena y tiempo libre']]
+      { day: 'Día 3', title: 'Exploración de playas', slots: [
+        ['Lugares del día', ['Bontolan', 'Playa de Oyama', 'Long Beach']]
       ] },
       { day: 'Día 4', title: 'Regreso a Luwuk', slots: [
-        ['Mañana — Salida del alojamiento', ['Desayuno, salida del alojamiento y preparación del regreso']],
-        ['De mediodía a tarde — Viaje de vuelta', ['Travesía de regreso a Luwuk según el horario del barco', 'Despedida en el punto acordado y fin del viaje', 'Conviene no reservar un vuelo de conexión el mismo día']]
+        ['Lugares del día', ['Playa de Pompon', 'Playa de Mandel']],
+        ['Regreso a Luwuk', ['Viaje de vuelta a Luwuk según el horario del barco']]
       ] }
     ]
   },
@@ -259,90 +247,72 @@ export const packageItineraries: Record<string, Record<Language, ItineraryDay[]>
 
   'ultimate-banggai': {
     ID: [
-      { day: 'Hari 1', title: 'Luwuk dan Salodik', slots: [
-        ['Pagi — Memulai di Luwuk', ['Pertemuan dengan pemandu dan persiapan perjalanan']],
-        ['Siang–sore — Kawasan Salodik', ['Menjelajahi kawasan alam Salodik', 'Waktu untuk fotografi dan bersantai']],
-        ['Malam — Check-in dan istirahat', ['Check-in akomodasi di Luwuk dan waktu bebas']]
+      { day: 'Hari 1', title: 'Dari Luwuk menuju Salakan', slots: [
+        ['Tiba di Luwuk & Air Terjun Piala', ['Kedatangan di Luwuk', 'Mengunjungi Air Terjun Piala']],
+        ['Pelabuhan & kapal ke Salakan', ['Transfer ke pelabuhan', 'Kapal menuju Salakan; jadwal dan lama penyeberangan dikonfirmasi untuk tanggal perjalananmu dan bergantung pada kondisi laut']],
+        ['Check-in hotel', ['Check-in hotel di Salakan']]
       ] },
-      { day: 'Hari 2', title: 'Pulo Dua, Balantak', slots: [
-        ['Pagi — Perjalanan darat', ['Berangkat pagi menuju kawasan Balantak lewat jalur darat, kemudian menyeberang singkat dengan perahu ke Pulo Dua', 'Waktu tempuh dikonfirmasi sesuai titik awal dan kondisi jalan']],
-        ['Siang–sore — Pulo Dua', ['Menikmati pantai, perbukitan, dan panorama laut', 'Berenang atau snorkeling bila kondisi memungkinkan']],
-        ['Malam — Istirahat', ['Makan malam dan waktu bebas']]
+      { day: 'Hari 2', title: 'Menjelajahi Banggai / Peleng', slots: [
+        ['Destinasi hari ini', ['Pantai Poganda', 'Paisu Pok', 'Paisu Batango', 'Kawalu Bay']]
       ] },
-      { day: 'Hari 3', title: 'Menyeberang ke Salakan', slots: [
-        ['Pagi–siang — Perjalanan menuju Salakan', ['Menuju titik penyeberangan sesuai jadwal kapal', 'Perjalanan laut menuju Salakan di Pulau Peleng']],
-        ['Sore–malam — Check-in dan istirahat', ['Check-in akomodasi dan waktu bebas']]
+      { day: 'Hari 3', title: 'Eksplorasi pantai', slots: [
+        ['Destinasi hari ini', ['Bontolan', 'Pantai Oyama', 'Long Beach']]
       ] },
-      { day: 'Hari 4', title: 'Pulau Peleng dan Paisu Pok', slots: [
-        ['Pagi — Menuju Luk Panenteng', ['Berangkat lebih pagi lewat jalur darat menuju Desa Luk Panenteng']],
-        ['Siang — Danau Paisu Pok', ['Berjalan kaki dari desa menuju danau', 'Menikmati air yang jernih, fotografi, dan bersantai']],
-        ['Sore–malam — Kembali dan istirahat', ['Kembali ke akomodasi dan waktu bebas']]
+      { day: 'Hari 4', title: 'Eksplorasi pantai', slots: [
+        ['Destinasi hari ini', ['Pantai Mandel', 'Pantai Pompon']],
+        ['16.00 — Kembali ke Luwuk', ['Perjalanan kembali ke Luwuk sesuai jadwal kapal']]
       ] },
-      { day: 'Hari 5', title: 'Banggai Laut dan Kamumu', slots: [
-        ['Pagi–sore — Perjalanan antarpulau', ['Perjalanan menuju kawasan Banggai Laut sesuai transportasi yang tersedia', 'Mengunjungi Banggai Laut dan Kamumu; urutan dan lokasi singgah dikonfirmasi untuk tanggal perjalananmu']],
-        ['Malam — Istirahat', ['Makan malam dan waktu bebas']]
+      { day: 'Hari 5', title: 'Perjalanan sehari ke Kampangar', slots: [
+        ['Destinasi hari ini', ['Menjelajahi Desa Kampangar', 'Mengunjungi Pulo Dua', 'Kembali langsung ke Luwuk']]
       ] },
-      { day: 'Hari 6', title: 'Kembali ke Luwuk', slots: [
-        ['Pagi — Check-out', ['Sarapan, check-out, dan persiapan kembali']],
-        ['Siang–sore — Perjalanan pulang', ['Perjalanan kembali ke Luwuk sesuai jadwal transportasi', 'Pengantaran ke titik yang disepakati dan trip selesai', 'Sebaiknya jangan memesan penerbangan lanjutan di hari yang sama']]
+      { day: 'Hari 6', title: 'Luwuk', slots: [
+        ['Destinasi hari ini', ['Air Terjun Kamumu', 'Kembali / drop-off di Luwuk']]
       ] }
     ],
     EN: [
-      { day: 'Day 1', title: 'Luwuk and Salodik', slots: [
-        ['Morning — Start in Luwuk', ['Meet your guide and prepare for the journey']],
-        ['Midday to afternoon — The Salodik area', ['Explore the natural area around Salodik', 'Time for photography and relaxing']],
-        ['Evening — Check-in and rest', ['Check in to your accommodation in Luwuk and enjoy free time']]
+      { day: 'Day 1', title: 'From Luwuk to Salakan', slots: [
+        ['Arrival in Luwuk & Piala Waterfall', ['Arrival in Luwuk', 'Visit Piala Waterfall']],
+        ['Harbor & ferry to Salakan', ['Transfer to the harbor', 'Ferry to Salakan; the boat schedule and crossing time are confirmed for your dates and depend on sea conditions']],
+        ['Hotel check-in', ['Hotel check-in in Salakan']]
       ] },
-      { day: 'Day 2', title: 'Pulo Dua, Balantak', slots: [
-        ['Morning — Road journey', ['Early departure by road towards the Balantak area, followed by a short boat ride to Pulo Dua', 'Travel time is confirmed depending on your starting point and road conditions']],
-        ['Midday to afternoon — Pulo Dua', ['Enjoy the beach, hills and open sea views', 'Swim or snorkel when conditions allow']],
-        ['Evening — Rest', ['Dinner and free time']]
+      { day: 'Day 2', title: 'Exploring Banggai / Peleng', slots: [
+        ['Today\'s destinations', ['Poganda Beach', 'Paisu Pok', 'Paisu Batango', 'Kawalu Bay']]
       ] },
-      { day: 'Day 3', title: 'Crossing to Salakan', slots: [
-        ['Morning to midday — Journey to Salakan', ['Head to the crossing point according to the boat schedule', 'Sea journey to Salakan on Peleng Island']],
-        ['Afternoon to evening — Check-in and rest', ['Check in to your accommodation and enjoy free time']]
+      { day: 'Day 3', title: 'Beach exploration', slots: [
+        ['Today\'s destinations', ['Bontolan', 'Oyama Beach', 'Long Beach']]
       ] },
-      { day: 'Day 4', title: 'Peleng Island and Paisu Pok', slots: [
-        ['Morning — Towards Luk Panenteng', ['Early departure by road to Luk Panenteng village']],
-        ['Midday — Lake Paisu Pok', ['Walk from the village to the lake', 'Enjoy the clear water, photography and relaxing']],
-        ['Afternoon to evening — Return and rest', ['Return to your accommodation and enjoy free time']]
+      { day: 'Day 4', title: 'Beach exploration', slots: [
+        ['Today\'s destinations', ['Mandel Beach', 'Pompon Beach']],
+        ['16:00 — Return to Luwuk', ['Journey back to Luwuk according to the boat schedule']]
       ] },
-      { day: 'Day 5', title: 'Banggai Laut and Kamumu', slots: [
-        ['Morning to afternoon — Inter-island journey', ['Travel towards the Banggai Laut area using the transport available', 'Visit Banggai Laut and Kamumu; the order and stops are confirmed for your travel dates']],
-        ['Evening — Rest', ['Dinner and free time']]
+      { day: 'Day 5', title: 'Kampangar one-day trip', slots: [
+        ['Today\'s destinations', ['Explore Desa Kampangar', 'Visit Pulo Dua', 'Return directly to Luwuk']]
       ] },
-      { day: 'Day 6', title: 'Return to Luwuk', slots: [
-        ['Morning — Check-out', ['Breakfast, check-out and preparation for the return']],
-        ['Midday to afternoon — Journey back', ['Travel back to Luwuk according to the transport schedule', 'Drop-off at the agreed point and the trip ends', 'Avoid booking an onward flight on the same day']]
+      { day: 'Day 6', title: 'Luwuk', slots: [
+        ['Today\'s destinations', ['Kamumu Waterfall', 'Return / drop-off in Luwuk']]
       ] }
     ],
     ES: [
-      { day: 'Día 1', title: 'Luwuk y Salodik', slots: [
-        ['Mañana — Inicio en Luwuk', ['Encuentro con el guía y preparación del viaje']],
-        ['De mediodía a tarde — La zona de Salodik', ['Recorrido por el entorno natural de Salodik', 'Tiempo para fotografía y descanso']],
-        ['Noche — Alojamiento y descanso', ['Registro en el alojamiento de Luwuk y tiempo libre']]
+      { day: 'Día 1', title: 'De Luwuk a Salakan', slots: [
+        ['Llegada a Luwuk y cascada de Piala', ['Llegada a Luwuk', 'Visita a la cascada de Piala']],
+        ['Puerto y barco a Salakan', ['Traslado al puerto', 'Barco a Salakan; el horario y la duración de la travesía se confirman para vuestras fechas y dependen del estado del mar']],
+        ['Registro en el hotel', ['Registro en el hotel de Salakan']]
       ] },
-      { day: 'Día 2', title: 'Pulo Dua, Balantak', slots: [
-        ['Mañana — Trayecto por carretera', ['Salida temprano por carretera hacia la zona de Balantak y breve trayecto en barca hasta Pulo Dua', 'El tiempo de viaje se confirma según el punto de partida y el estado de la carretera']],
-        ['De mediodía a tarde — Pulo Dua', ['Playa, colinas y vistas abiertas al mar', 'Baño o snorkel si las condiciones lo permiten']],
-        ['Noche — Descanso', ['Cena y tiempo libre']]
+      { day: 'Día 2', title: 'Explorando Banggai / Peleng', slots: [
+        ['Lugares del día', ['Playa de Poganda', 'Paisu Pok', 'Paisu Batango', 'Kawalu Bay']]
       ] },
-      { day: 'Día 3', title: 'Travesía a Salakan', slots: [
-        ['De mañana a mediodía — Viaje a Salakan', ['Traslado al punto de embarque según el horario del barco', 'Travesía marítima hasta Salakan, en la isla de Peleng']],
-        ['De tarde a noche — Alojamiento y descanso', ['Registro en el alojamiento y tiempo libre']]
+      { day: 'Día 3', title: 'Exploración de playas', slots: [
+        ['Lugares del día', ['Bontolan', 'Playa de Oyama', 'Long Beach']]
       ] },
-      { day: 'Día 4', title: 'Isla de Peleng y Paisu Pok', slots: [
-        ['Mañana — Rumbo a Luk Panenteng', ['Salida temprano por carretera hacia el pueblo de Luk Panenteng']],
-        ['Mediodía — Lago Paisu Pok', ['Paseo a pie desde el pueblo hasta el lago', 'Aguas transparentes, fotografía y descanso']],
-        ['De tarde a noche — Regreso y descanso', ['Vuelta al alojamiento y tiempo libre']]
+      { day: 'Día 4', title: 'Exploración de playas', slots: [
+        ['Lugares del día', ['Playa de Mandel', 'Playa de Pompon']],
+        ['16:00 — Regreso a Luwuk', ['Viaje de vuelta a Luwuk según el horario del barco']]
       ] },
-      { day: 'Día 5', title: 'Banggai Laut y Kamumu', slots: [
-        ['De mañana a tarde — Viaje entre islas', ['Traslado hacia la zona de Banggai Laut con el transporte disponible', 'Visita a Banggai Laut y Kamumu; el orden y las paradas se confirman para vuestras fechas']],
-        ['Noche — Descanso', ['Cena y tiempo libre']]
+      { day: 'Día 5', title: 'Excursión de un día a Kampangar', slots: [
+        ['Lugares del día', ['Explorar el pueblo de Kampangar', 'Visita a Pulo Dua', 'Regreso directo a Luwuk']]
       ] },
-      { day: 'Día 6', title: 'Regreso a Luwuk', slots: [
-        ['Mañana — Salida del alojamiento', ['Desayuno, salida del alojamiento y preparación del regreso']],
-        ['De mediodía a tarde — Viaje de vuelta', ['Regreso a Luwuk según el horario del transporte', 'Despedida en el punto acordado y fin del viaje', 'Conviene no reservar un vuelo de conexión el mismo día']]
+      { day: 'Día 6', title: 'Luwuk', slots: [
+        ['Lugares del día', ['Cascada de Kamumu', 'Regreso / despedida en Luwuk']]
       ] }
     ]
   },
