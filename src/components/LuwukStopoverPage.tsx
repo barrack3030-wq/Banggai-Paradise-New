@@ -1,6 +1,5 @@
 import React from 'react';
 import { Language } from '../i18n/translations';
-import { assetUrl } from '../utils/assetUrl';
 import { localizedPath } from '../utils/localizedPath';
 
 interface Props { language: Language }
@@ -46,7 +45,7 @@ export const LuwukStopoverPage: React.FC<Props> = ({ language }) => {
     : ['Flight tickets', 'Snorkeling equipment', 'Personal expenses', 'Meals outside the itinerary', 'Travel insurance', 'Drone video service unless agreed in the trip proposal'];
   return <div className="luwuk-stopover bg-[#FFF8EC] min-h-screen">
     <section className="relative min-h-[440px] sm:min-h-[540px] flex items-end overflow-hidden">
-      <img src={assetUrl('assets/images/banggai_white_sand_beach_1793766899675.jpg')} alt={id ? 'Pemandangan pesisir tropis di sekitar Luwuk, Banggai' : 'Tropical coastline scenery around Luwuk, Banggai'} className="absolute inset-0 w-full h-full object-cover" />
+      <img src={'https://banggaiwonderland.my.id/images/piala.jpg'} alt={id ? 'Air Terjun Piala di Luwuk, Banggai' : 'Piala Waterfall in Luwuk, Banggai'} className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#052C37] via-[#052C37]/45 to-black/10" />
       <div className="container relative z-10 pb-12 sm:pb-16 text-white">
         <nav aria-label="Breadcrumb" className="text-xs sm:text-sm text-white/75 mb-5"><a href={localizedPath('', language)}>{id ? 'Beranda' : 'Home'}</a> / <a href={localizedPath('packages/', language)}>{id ? 'Paket Wisata' : 'Tour Packages'}</a> / <span className="text-white">Luwuk Stopover</span></nav>
