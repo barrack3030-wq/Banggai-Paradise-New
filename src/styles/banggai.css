@@ -821,3 +821,19 @@ h2{font-size:var(--fs-h2);line-height:1.1;color:var(--deep);margin-top:14px}
 }
 .blog-reading-page .blog-reading-content p a{color:#16717a;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .blog-reading-page .blog-reading-content p a:hover{color:#0f5159}
+
+/* Article reading typography: consistent rhythm for paragraphs and headings */
+.blog-reading-page .blog-reading-content{max-width:700px;margin:32px auto 64px;font-size:1.0625rem;line-height:1.78;letter-spacing:0;word-spacing:0;color:#2F4A51;overflow-wrap:break-word;hyphens:manual}
+.blog-reading-page .blog-reading-content p{margin:0 0 1.15em;text-wrap:pretty}
+.blog-reading-page .blog-reading-content h2{margin:2.1em 0 .65em;color:#073B49;font-family:var(--font-display);font-size:clamp(1.45rem,4.6vw,1.9rem);line-height:1.25;letter-spacing:-.01em;font-weight:700;text-wrap:balance}
+.blog-reading-page .blog-reading-content h2:first-child{margin-top:0}
+.blog-reading-page .blog-reading-content h3{margin:1.7em 0 .5em;color:#0B4552;font-size:1.2rem;line-height:1.3;font-weight:600}
+.blog-reading-page .blog-reading-content ul,.blog-reading-page .blog-reading-content ol{margin:0 0 1.15em;padding-left:1.35em}
+.blog-reading-page .blog-reading-content li{margin:0 0 .45em;padding-left:.2em}
+.blog-reading-page .blog-reading-content p a{text-decoration-thickness:1px;text-underline-offset:.2em;font-weight:600}
+.blog-reading-page .article-sources h2{margin:2em 0 .6em;font-size:1.3rem;line-height:1.3}
+@media(max-width:600px){
+ .blog-reading-page .blog-reading-content{margin:24px auto 48px;font-size:1rem;line-height:1.72}
+ .blog-reading-page .blog-reading-content p{margin-bottom:1.05em}
+ .blog-reading-page .blog-reading-content h2{margin:1.9em 0 .6em;font-size:1.4rem;line-height:1.28}
+}
