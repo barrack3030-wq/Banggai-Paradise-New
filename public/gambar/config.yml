@@ -12,6 +12,20 @@ media_folder: public/assets/images/uploads
 # Alamat gambar di situs, dipakai di artikel, misalnya /assets/images/uploads/nama-file.jpg
 public_folder: /assets/images/uploads
 
+# Kompres otomatis saat unggah: diubah ke WebP, kualitas 80, lebar maksimal 1920 px.
+# Nama file dibuat ramah URL (huruf kecil, tanpa spasi). SVG dioptimalkan.
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 80
+          width: 1920
+        svg:
+          optimize: true
+
 # CMS mewajibkan minimal satu koleksi; koleksi ini disembunyikan.
 # Yang dipakai hanya menu "Media" untuk unggah gambar.
 collections:
