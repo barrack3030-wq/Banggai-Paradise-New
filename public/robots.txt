@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /gambar/
 
 Sitemap: https://banggaiparadise.com/sitemap.xml

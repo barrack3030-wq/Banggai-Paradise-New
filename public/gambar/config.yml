@@ -1,0 +1,28 @@
+# Sveltia CMS: khusus untuk mengunggah gambar. Diakses di https://banggaiparadise.com/gambar/
+backend:
+  name: github
+  repo: barrack3030-wq/Banggai-Paradise-New
+  branch: main
+
+site_url: https://banggaiparadise.com
+display_url: https://banggaiparadise.com
+
+# Semua gambar yang diunggah disimpan di folder ini (di dalam repo)
+media_folder: public/assets/images/uploads
+# Alamat gambar di situs, dipakai di artikel, misalnya /assets/images/uploads/nama-file.jpg
+public_folder: /assets/images/uploads
+
+# CMS mewajibkan minimal satu koleksi; koleksi ini disembunyikan.
+# Yang dipakai hanya menu "Media" untuk unggah gambar.
+collections:
+  - name: unused
+    label: Tidak dipakai
+    hide: true
+    create: false
+    delete: false
+    files:
+      - name: placeholder
+        label: Placeholder
+        file: public/gambar/placeholder.yml
+        fields:
+          - { name: note, label: Catatan, widget: string, required: false }
