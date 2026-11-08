@@ -57,7 +57,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
           </div>
           <div className="trust-grid trust-slider" ref={sliderRef}>
             <article className="tcard">
-              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000561157.CuqSp_O_.jpg" alt={isEs ? 'Experiencia de viaje en las islas Banggai' : isEs ? 'Experiencia de viaje en las islas Banggai' : isEn ? 'Banggai Islands travel experience' : 'Pengalaman perjalanan di Kepulauan Banggai'} loading="lazy" /></div>
+              <div className="trust-photo"><img src={assetUrl('assets/images/trust/trust-01-trusted-professional.jpg')} alt={isEs ? 'Guía local con viajeros en el puerto de las islas Banggai' : isEn ? 'Local guide with travelers at the Banggai Islands harbor' : 'Pemandu lokal bersama wisatawan di pelabuhan Kepulauan Banggai'} width={1200} height={750} loading="lazy" decoding="async" /></div>
               <span className="num" aria-hidden="true">01</span>
               <div className="trust-copy">
                 <h3>{isEs ? 'Confianza y profesionalidad' : isEs ? 'Confianza y profesionalidad' : isEn ? 'Trusted & Professional' : 'Terpercaya & Profesional'}</h3>
@@ -65,7 +65,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
               </div>
             </article>
             <article className="tcard coral">
-              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000567706%20(1).Bt5MDsVS.jpg" alt={isEs ? 'Guía local y paisajes de las islas Banggai' : isEn ? 'Local guide and island scenery in Banggai' : 'Pemandu lokal dan panorama Kepulauan Banggai'} loading="lazy" /></div>
+              <div className="trust-photo"><img src={assetUrl('assets/images/trust/trust-02-local-guides.jpg')} alt={isEs ? 'Viajeros y guía local en barca sobre el lago de aguas turquesa de Banggai' : isEn ? 'Travelers and local guide in a boat on Banggai’s turquoise lake' : 'Wisatawan dan pemandu lokal di atas perahu di danau toska Banggai'} width={1200} height={750} loading="lazy" decoding="async" /></div>
               <span className="num" aria-hidden="true">02</span>
               <div className="trust-copy">
                 <h3>{isEs ? 'Guías locales cercanos' : isEs ? 'Guías locales cercanos' : isEn ? 'Friendly Local Guides' : 'Pemandu Lokal Ramah'}</h3>
@@ -73,7 +73,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
               </div>
             </article>
             <article className="tcard">
-              <div className="trust-photo"><img src="https://banggaiwonderland.my.id/_astro/1000576872.jYD6zMGT.jpg" alt={isEs ? 'Naturaleza y paisajes insulares de Banggai' : isEn ? 'Banggai nature and island landscape' : 'Lanskap alam dan pulau-pulau Banggai'} loading="lazy" /></div>
+              <div className="trust-photo"><img src={assetUrl('assets/images/trust/trust-03-tailor-made.jpg')} alt={isEs ? 'Barca privada en aguas cristalinas de color turquesa en Banggai' : isEn ? 'Private boat on crystal-clear turquoise water in Banggai' : 'Perahu privat di perairan toska yang jernih di Banggai'} width={1200} height={750} loading="lazy" decoding="async" /></div>
               <span className="num" aria-hidden="true">03</span>
               <div className="trust-copy">
                 <h3>{isEs ? 'Viajes a medida' : isEs ? 'Viajes a medida' : isEn ? 'Tailor-Made Journeys' : 'Perjalanan Sesuai Keinginan'}</h3>
