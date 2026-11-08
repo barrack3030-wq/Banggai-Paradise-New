@@ -6,19 +6,21 @@ interface AboutUsProps {
   language: Language;
 }
 
-const visitorPhotos = [
-  'IMG-20260816-WA0024.jpg',
-  'IMG-20260817-WA0062(1).jpg',
-  'IMG-20260821-WA0025(1).jpg',
-  'IMG-20260829-WA0005.jpg',
-  'IMG-20261008-WA0008(2).jpg',
-  'IMG-20261105-WA0001.jpg',
-  'IMG-20261105-WA0002.jpg',
-  'IMG-20261105-WA0003.jpg',
-  'IMG-20261105-WA0004.jpg',
-  'IMG-20261105-WA0005.jpg',
-  'IMG-20261105-WA0006.jpg',
-  'IMG-20261105-WA0007.jpg',
+// `focus` is the CSS object-position used when the photo is cropped to 4:3,
+// so heads and faces stay inside the frame (portrait photos need this most).
+const visitorPhotos: { file: string; focus?: string }[] = [
+  { file: 'IMG-20260816-WA0024.jpg', focus: '50% 60%' },
+  { file: 'IMG-20260817-WA0062(1).jpg' },
+  { file: 'IMG-20260821-WA0025(1).jpg' },
+  { file: 'IMG-20260829-WA0005.jpg', focus: '50% 100%' },
+  { file: 'IMG-20261008-WA0008(2).jpg', focus: '50% 22%' },
+  { file: 'IMG-20261105-WA0001.jpg', focus: '50% 20%' },
+  { file: 'IMG-20261105-WA0002.jpg', focus: '42% 50%' },
+  { file: 'IMG-20261105-WA0003.jpg' },
+  { file: 'IMG-20261105-WA0004.jpg' },
+  { file: 'IMG-20261105-WA0005.jpg' },
+  { file: 'IMG-20261105-WA0006.jpg', focus: '50% 55%' },
+  { file: 'IMG-20261105-WA0007.jpg', focus: '50% 65%' },
 ];
 
 export const AboutUs: React.FC<AboutUsProps> = ({
@@ -55,10 +57,11 @@ export const AboutUs: React.FC<AboutUsProps> = ({
               <p>{isEn ? (isEs ? 'Momentos con viajeros a quienes he acompañado o prestado asistencia en Banggai.' : 'Moments with guests I have personally guided or assisted in Banggai.') : 'Momen bersama tamu yang pernah saya pandu atau dampingi secara langsung di Banggai.'}</p>
             </div>
             <div className="visitor-gallery-grid">
-              {visitorPhotos.map((photo, index) => (
-                <figure className="visitor-gallery-card" key={photo}>
+              {visitorPhotos.map(({ file, focus }, index) => (
+                <figure className="visitor-gallery-card" key={file}>
                   <img
-                    src={`/assets/images/visitor-gallery/${photo}`}
+                    src={`/assets/images/visitor-gallery/${file}`}
+                    style={focus ? { objectPosition: focus } : undefined}
                     alt={isEs ? `Momento de viaje ${index + 1} en Banggai` : isEn ? `Guest travel moment ${index + 1} in Banggai` : `Momen perjalanan tamu ${index + 1} di Banggai`}
                     loading="lazy"
                     decoding="async"
