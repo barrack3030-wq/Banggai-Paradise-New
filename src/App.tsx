@@ -56,6 +56,7 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = routeLocale === 'es' ? 'es-ES' : language === 'ID' ? 'id-ID' : 'en';
     document.documentElement.classList.add('js');
+    document.documentElement.classList.add('app-ready');
     const reveals = document.querySelectorAll('[data-reveal]');
     if ('IntersectionObserver' in window && reveals.length) {
       const observer = new IntersectionObserver((entries) => {
