@@ -115,9 +115,13 @@
       ]
     }
     </script>
+      <!-- Avoid a light flash between full-page menu navigations: dark backdrop until the app renders,
+         and mark JS early so [data-reveal] blocks never show once and then hide. -->
+    <style>html{background:#052C37}[data-seo-fallback]{color:#fff}[data-seo-fallback] a{color:#BFE9EF}</style>
+    <script>document.documentElement.classList.add('js')</script>
   </head>
   <body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased">
-    <div id="root"><div data-seo-fallback style="max-width:960px;margin:0 auto;padding:32px 20px;font-family:system-ui,sans-serif;color:#0F172A"><h1>Rute Manado ke Banggai via Luwuk: Pesawat & Darat</h1><p>Cara menuju Banggai dari Manado: penerbangan langsung ke Luwuk, rute darat lewat Gorontalo, dan sambungan kapal ke Pulau Peleng.</p><nav aria-label="Navigasi utama"><ul><li><a href="/id/">Beranda</a></li><li><a href="/id/packages/">Paket Wisata</a></li><li><a href="/id/destinations/">Destinasi</a></li><li><a href="/id/blog/">Blog</a></li><li><a href="/id/about/">Tentang Kami</a></li></ul></nav></div></div>
+    <div id="root"><div data-seo-fallback style="max-width:960px;margin:0 auto;padding:32px 20px;font-family:system-ui,sans-serif;"><h1>Rute Manado ke Banggai via Luwuk: Pesawat & Darat</h1><p>Cara menuju Banggai dari Manado: penerbangan langsung ke Luwuk, rute darat lewat Gorontalo, dan sambungan kapal ke Pulau Peleng.</p><nav aria-label="Navigasi utama"><ul><li><a href="/id/">Beranda</a></li><li><a href="/id/packages/">Paket Wisata</a></li><li><a href="/id/destinations/">Destinasi</a></li><li><a href="/id/blog/">Blog</a></li><li><a href="/id/about/">Tentang Kami</a></li></ul></nav></div></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
