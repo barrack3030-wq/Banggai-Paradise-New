@@ -122,9 +122,13 @@
       }
     }
     </script>
+      <!-- Avoid a light flash between full-page menu navigations: dark backdrop until the app renders,
+         and mark JS early so [data-reveal] blocks never show once and then hide. -->
+    <style>html{background:#052C37}[data-seo-fallback]{color:#fff}[data-seo-fallback] a{color:#BFE9EF}</style>
+    <script>document.documentElement.classList.add('js')</script>
   </head>
   <body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased selection:bg-[#0EA5E9]/20 selection:text-[#0369A1]">
-    <div id="root"><div data-seo-fallback style="max-width:960px;margin:0 auto;padding:32px 20px;font-family:system-ui,sans-serif;color:#0F172A"><h1>Ultimate Banggai Tour: 6-Day Complete Route</h1><p>The most complete Banggai Islands route in 6 days with local guides: marine lakes, beaches, small islands and local culture.</p><nav aria-label="Main navigation"><ul><li><a href="/eng/">Home</a></li><li><a href="/eng/packages/">Tour Packages</a></li><li><a href="/eng/destinations/">Destinations</a></li><li><a href="/eng/blog/">Blog</a></li><li><a href="/eng/about/">About Us</a></li></ul></nav></div></div>
+    <div id="root"><div data-seo-fallback style="max-width:960px;margin:0 auto;padding:32px 20px;font-family:system-ui,sans-serif;"><h1>Ultimate Banggai Tour: 6-Day Complete Route</h1><p>The most complete Banggai Islands route in 6 days with local guides: marine lakes, beaches, small islands and local culture.</p><nav aria-label="Main navigation"><ul><li><a href="/eng/">Home</a></li><li><a href="/eng/packages/">Tour Packages</a></li><li><a href="/eng/destinations/">Destinations</a></li><li><a href="/eng/blog/">Blog</a></li><li><a href="/eng/about/">About Us</a></li></ul></nav></div></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
