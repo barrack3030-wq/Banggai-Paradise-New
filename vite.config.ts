@@ -9,7 +9,19 @@ export default defineConfig(() => {
     // The site is published at the domain root through its GitHub Pages custom domain.
     // Use the same root base in CI, local development, and previews so built asset URLs resolve.
     base: '/',
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      react(),
+      tailwindcss(),
+      {
+        name: 'initial-dark-render-backdrop',
+        transformIndexHtml(html) {
+          return html.replace(
+            'html{background:#052C37}#root:has([data-seo-fallback]){background:#052C37;min-height:100vh}',
+            'html{background:#052C37}#root{background:#052C37;min-height:100vh}html.app-ready #root{background:transparent}'
+          );
+        },
+      },
+    ],
     build: {
       rollupOptions: {
         input: {
