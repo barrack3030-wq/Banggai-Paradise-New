@@ -26,12 +26,11 @@ media_libraries:
         svg:
           optimize: true
 
-# CMS mewajibkan minimal satu koleksi; koleksi ini disembunyikan.
-# Yang dipakai hanya menu "Media" untuk unggah gambar.
+# CMS mewajibkan minimal satu koleksi yang terlihat (tidak boleh hide: true).
+# Koleksi ini hanya pengisi; yang dipakai adalah menu "Media" untuk unggah gambar.
 collections:
   - name: unused
     label: Tidak dipakai
-    hide: true
     create: false
     delete: false
     files:
