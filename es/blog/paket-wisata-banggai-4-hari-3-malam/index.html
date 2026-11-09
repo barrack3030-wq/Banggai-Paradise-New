@@ -117,11 +117,11 @@
     </script>
       <!-- Avoid a light flash between full-page menu navigations: dark backdrop until the app renders,
          and mark JS early so [data-reveal] blocks never show once and then hide. -->
-    <style>html{background:#052C37}#root:has([data-seo-fallback]){background:#052C37;min-height:100vh}[data-seo-fallback]{color:#fff}[data-seo-fallback] a{color:#BFE9EF}</style>
+    <style>html{background:#052C37}#root:has([data-seo-fallback]){background:#052C37;min-height:100vh}[data-seo-fallback]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
     <script>document.documentElement.classList.add('js')</script>
   </head>
   <body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased">
-    <div id="root"><div data-seo-fallback style="max-width:960px;margin:0 auto;padding:32px 20px;font-family:system-ui,sans-serif;"><h1>Paquete Banggai 4 días 3 noches: ruta e itinerario</h1><p>Ruta, reparto de los cuatro días, servicios y qué confirmar antes de reservar el viaje de 4 días y 3 noches por Luwuk, Peleng y Paisu Pok.</p><nav aria-label="Navegación principal"><ul><li><a href="/es/">Inicio</a></li><li><a href="/es/packages/">Paquetes</a></li><li><a href="/es/destinations/">Destinos</a></li><li><a href="/es/blog/">Blog</a></li><li><a href="/es/about/">Sobre nosotros</a></li></ul></nav></div></div>
+    <div id="root"><div data-seo-fallback><h1>Paquete Banggai 4 días 3 noches: ruta e itinerario</h1><p>Ruta, reparto de los cuatro días, servicios y qué confirmar antes de reservar el viaje de 4 días y 3 noches por Luwuk, Peleng y Paisu Pok.</p><nav aria-label="Navegación principal"><ul><li><a href="/es/">Inicio</a></li><li><a href="/es/packages/">Paquetes</a></li><li><a href="/es/destinations/">Destinos</a></li><li><a href="/es/blog/">Blog</a></li><li><a href="/es/about/">Sobre nosotros</a></li></ul></nav></div></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
