@@ -884,3 +884,6 @@ h2{font-size:var(--fs-h2);line-height:1.1;color:var(--deep);margin-top:14px}
 .luwuk-stopover .suited-list li{margin-bottom:.45rem;padding-left:.2rem}
 .luwuk-stopover .stopover-tagline{margin-top:22px;padding:18px 20px;border-radius:16px;background:#E6F9FA;border:1px solid #BCE8EB;color:#0A3A40;font-family:var(--font-display);font-size:1.1rem;line-height:1.5}
 @media(max-width:520px){.luwuk-stopover .highlight-list{grid-template-columns:1fr}}
+
+.blog-reading-page .blog-reading-content .article-inline-figure{margin:0 0 1.3em}
+.blog-reading-page .blog-reading-content .article-inline-figure img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:50% 45%;border-radius:14px}
