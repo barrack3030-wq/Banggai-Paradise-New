@@ -4,6 +4,18 @@ import path from 'path';
 import {defineConfig} from 'vite';
 import { fileURLToPath } from 'node:url';
 
+// Hold the first paint of each page until its app bundle has run, so full-page menu navigations
+// swap straight from the old page to the finished new one (no blank or fallback frame).
+// If Vite's output format ever changes and nothing matches, the HTML is left untouched.
+const renderBlockingModules = () => ({
+  name: 'render-blocking-modules',
+  transformIndexHtml: {
+    order: 'post' as const,
+    handler: (html: string) =>
+      html.replace(/<script type="module"(?![^>]*blocking=)/g, '<script type="module" blocking="render"'),
+  },
+});
+
 export default defineConfig(() => {
   return {
     // The site is published at the domain root through its GitHub Pages custom domain.
@@ -21,6 +33,7 @@ export default defineConfig(() => {
           );
         },
       },
+      renderBlockingModules(),
     ],
     build: {
       rollupOptions: {

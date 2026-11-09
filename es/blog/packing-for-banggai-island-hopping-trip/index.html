@@ -55,11 +55,11 @@
     </script>
       <!-- Avoid a light flash between full-page menu navigations: dark backdrop until the app renders,
          and mark JS early so [data-reveal] blocks never show once and then hide. -->
-    <style>html{background:#052C37}#root:has([data-seo-fallback]){background:#052C37;min-height:100vh}[data-seo-fallback]{color:#fff}[data-seo-fallback] a{color:#BFE9EF}</style>
+    <style>html{background:#052C37}#root:has([data-seo-fallback]){background:#052C37;min-height:100vh}[data-seo-fallback]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
     <script>document.documentElement.classList.add('js')</script>
   </head>
   <body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased">
-    <div id="root"><div data-seo-fallback style="max-width:960px;margin:0 auto;padding:32px 20px;font-family:system-ui,sans-serif;"><h1>Qué llevar a las islas Banggai: lista práctica para un viaje entre islas</h1><p>Una lista práctica para preparar traslados por carretera, cruces en barco, playas, el lago Paisu Pok, natación y snorkel en las islas Banggai.</p><nav aria-label="Navegación principal"><ul><li><a href="/es/">Inicio</a></li><li><a href="/es/packages/">Paquetes</a></li><li><a href="/es/destinations/">Destinos</a></li><li><a href="/es/blog/">Blog</a></li><li><a href="/es/about/">Sobre nosotros</a></li></ul></nav></div></div>
+    <div id="root"><div data-seo-fallback><h1>Qué llevar a las islas Banggai: lista práctica para un viaje entre islas</h1><p>Una lista práctica para preparar traslados por carretera, cruces en barco, playas, el lago Paisu Pok, natación y snorkel en las islas Banggai.</p><nav aria-label="Navegación principal"><ul><li><a href="/es/">Inicio</a></li><li><a href="/es/packages/">Paquetes</a></li><li><a href="/es/destinations/">Destinos</a></li><li><a href="/es/blog/">Blog</a></li><li><a href="/es/about/">Sobre nosotros</a></li></ul></nav></div></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
