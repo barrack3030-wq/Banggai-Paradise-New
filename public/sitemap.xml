@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://banggaiparadise.com/id/blog/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/" />
     <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/" />
@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://banggaiparadise.com/eng/blog/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/" />
     <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/" />
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://banggaiparadise.com/es/blog/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/" />
     <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/" />
@@ -671,5 +671,29 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/banggai-vs-labengki-vs-togean-sulawesi-2026/" />
     <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/banggai-vs-labengki-vs-togean-sulawesi-2026/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/banggai-vs-labengki-vs-togean-sulawesi-2026/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/id/blog/private-trip-vs-open-trip-banggai/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/private-trip-vs-open-trip-banggai/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/private-trip-vs-open-trip-banggai/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/private-trip-vs-open-trip-banggai/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/private-trip-vs-open-trip-banggai/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/eng/blog/private-trip-vs-open-trip-banggai/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/private-trip-vs-open-trip-banggai/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/private-trip-vs-open-trip-banggai/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/private-trip-vs-open-trip-banggai/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/private-trip-vs-open-trip-banggai/" />
+  </url>
+  <url>
+    <loc>https://banggaiparadise.com/es/blog/private-trip-vs-open-trip-banggai/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://banggaiparadise.com/id/blog/private-trip-vs-open-trip-banggai/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://banggaiparadise.com/eng/blog/private-trip-vs-open-trip-banggai/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://banggaiparadise.com/es/blog/private-trip-vs-open-trip-banggai/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banggaiparadise.com/eng/blog/private-trip-vs-open-trip-banggai/" />
   </url>
 </urlset>
