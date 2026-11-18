@@ -183,8 +183,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Right CTA & Language switcher (Desktop) */}
-        <div className="hidden min-[981px]:flex items-center gap-3">
-          <div className="flex items-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 p-0.5">
+        <div className="nav-actions hidden min-[981px]:flex items-center gap-3">
+          <div className="desktop-language-switch flex items-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 p-0.5">
             <button
               type="button"
               onClick={() => chooseLanguage('EN')}

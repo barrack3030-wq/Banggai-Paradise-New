@@ -932,3 +932,27 @@ h2{font-size:var(--fs-h2);line-height:1.1;color:var(--deep);margin-top:14px}
   .about.about-founder{padding-inline:16px}
   .about-founder .visitor-gallery-grid{gap:8px}
 }
+
+
+/* ---------- Header: keep the desktop language switch and CTA from being squeezed ----------
+   Between ~981px and ~1280px the logo, menu pill and right-hand actions compete for
+   space. The actions group and the EN/ES/ID pill must never shrink (that made the
+   three buttons overlap); the menu pill is the part that gives way. */
+.nav-actions{flex:none;white-space:nowrap}
+.nav-actions .desktop-language-switch{flex:none}
+.nav-actions .desktop-language-switch button{flex:none;white-space:nowrap}
+.nav-actions .btn{flex:none;white-space:nowrap}
+.brand{flex:none}
+@media(min-width:981px){
+  .menu{min-width:0;flex:0 1 auto}
+  .menu a{white-space:nowrap}
+}
+@media(min-width:981px) and (max-width:1279px){
+  .nav{gap:10px;padding-inline:20px}
+  .brand img{height:42px}
+  .site-header.scrolled .brand img{height:38px}
+  .menu{gap:0;padding:3px}
+  .menu a{padding:8px 10px;font-size:.8125rem}
+  .nav-actions{gap:8px}
+  .nav-actions .btn{padding-inline:16px}
+}
