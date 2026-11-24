@@ -29,7 +29,7 @@ type PackageChoice = {
   badgeId?: string;
 };
 
-const PACKAGE_CHOICES: PackageChoice[] = [
+export const PACKAGE_CHOICES: PackageChoice[] = [
   {
     id: 'luwuk-one-day',
     titleEs: 'Excursión privada de un día por Luwuk',

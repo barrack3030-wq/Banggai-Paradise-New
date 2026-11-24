@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { SvgSprite } from './components/SvgSprite';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -15,6 +15,7 @@ import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { PackageModal } from './components/PackageModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { BookingForm } from './components/BookingForm';
 import { TourPackage } from './types';
 import { Language } from './i18n/translations';
 
@@ -31,6 +32,9 @@ export default function App() {
   const routePath = routeLocale ? rawSegments.slice(1).join('/') : rawRoutePath;
   const [language, setLanguage] = useState<Language>(() => routeLocale === 'id' ? 'ID' : routeLocale === 'es' ? 'ES' : 'EN');
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const openBooking = () => setBookingOpen(true);
+  const closeBooking = useCallback(() => setBookingOpen(false), []);
   const localePrefix = routeLocale || (language === 'ID' ? 'id' : language === 'ES' ? 'es' : 'eng');
   const localeBase = basePath + localePrefix + '/';
   const route = routePath.split('/').filter(Boolean)[0] || 'home';
@@ -88,11 +92,11 @@ export default function App() {
   return <>
     <SvgSprite />
     <a className="skip" href="#main">{language === 'ID' ? 'Lewati ke konten' : language === 'ES' ? 'Saltar al contenido' : 'Skip to content'}</a>
-    <Navbar onPlanTripClick={() => scrollTo('contact')} language={language} onSelectLanguage={handleSelectLanguage} />
+    <Navbar onPlanTripClick={openBooking} language={language} onSelectLanguage={handleSelectLanguage} />
     <main id="main">
       {page === 'home' ? <>
         <Hero onExplorePackages={() => scrollTo('packages')} onViewAboutUs={() => { window.location.href = localeBase + 'about/'; }} language={language} />
-        <WhyChooseUs onPlanTripClick={() => scrollTo('contact')} language={language} />
+        <WhyChooseUs onPlanTripClick={openBooking} language={language} />
         <TourPackages onSelectPackage={setSelectedPackage} language={language} />
         <ExploreDestinations onPlanTripForDestination={() => scrollTo('contact')} language={language} />
       </> : <>
@@ -110,10 +114,11 @@ export default function App() {
         {page === 'luwuk-stopover' && <LuwukStopoverPage language={language} />}
         {page === 'package-detail' && <PackageDetailPage slug={packageSlug} language={language} />}
       </>}
-      {!isArticleReadingPage && <FinalCTA onPlanTripClick={() => scrollTo('contact')} language={language} />}
+      {!isArticleReadingPage && <FinalCTA onPlanTripClick={openBooking} language={language} />}
     </main>
     <Footer language={language} />
     {selectedPackage && (page === 'home' || page === 'packages') && <PackageModal pkg={selectedPackage} onClose={() => setSelectedPackage(null)} language={language} />}
     <FloatingWhatsApp language={language} />
+    {bookingOpen && <BookingForm onClose={closeBooking} language={language} />}
   </>;
 }
