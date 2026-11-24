@@ -1,5 +1,8 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { X, Minus, Plus, Send, Banknote, Landmark, Check } from 'lucide-react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  X, Minus, Plus, Send, Banknote, Landmark, Check, User, MapPin, CalendarDays,
+  Users, Package, ChevronDown, Info, Compass,
+} from 'lucide-react';
 import { Language } from '../i18n/translations';
 import { PACKAGE_CHOICES } from './TourPackages';
 
@@ -17,8 +20,12 @@ interface BookingFormProps {
 
 const TEXT = {
   ID: {
+    eyebrow: 'Pemesanan',
     title: 'Form Pemesanan Trip',
     intro: 'Isi data berikut. Setelah dikirim, pesanmu disiapkan di WhatsApp Banggai Paradise dan tim akan membalas dengan penawaran tertulis.',
+    s1: 'Data tamu',
+    s2: 'Rencana perjalanan',
+    s3: 'Pembayaran',
     name: 'Nama tamu',
     namePh: 'Nama lengkap sesuai identitas',
     date: 'Tanggal trip',
@@ -26,11 +33,12 @@ const TEXT = {
     originPh: 'Kota atau negara asal',
     guests: 'Jumlah tamu',
     guestsUnit: 'orang',
+    less: 'Kurangi tamu',
+    more: 'Tambah tamu',
     pkg: 'Pilihan paket',
     pkgPh: 'Pilih paket atau custom trip',
     custom: 'Rencana paket kostum',
     customPh: 'Ceritakan durasi, destinasi yang ingin dikunjungi, dan kebutuhan khusus (anak, mobilitas, dll.)',
-    payment: 'Jenis pembayaran',
     cash: 'Cash',
     cashHint: 'Dibayar tunai',
     transfer: 'Transfer',
@@ -50,8 +58,12 @@ const TEXT = {
     edit: 'Ubah data',
   },
   EN: {
+    eyebrow: 'Booking',
     title: 'Trip Booking Form',
     intro: 'Fill in the details below. After you send it, your message is prepared in Banggai Paradise WhatsApp and the team replies with a written proposal.',
+    s1: 'Guest details',
+    s2: 'Trip plan',
+    s3: 'Payment',
     name: 'Guest name',
     namePh: 'Full name as on your ID',
     date: 'Trip date',
@@ -59,11 +71,12 @@ const TEXT = {
     originPh: 'City or country you travel from',
     guests: 'Number of guests',
     guestsUnit: 'guests',
+    less: 'Fewer guests',
+    more: 'More guests',
     pkg: 'Package',
     pkgPh: 'Choose a package or a custom trip',
     custom: 'Custom package plan',
     customPh: 'Tell us the duration, places you want to visit and any special needs (children, mobility, etc.)',
-    payment: 'Payment type',
     cash: 'Cash',
     cashHint: 'Pay in cash',
     transfer: 'Transfer',
@@ -83,8 +96,12 @@ const TEXT = {
     edit: 'Edit details',
   },
   ES: {
+    eyebrow: 'Reserva',
     title: 'Formulario de reserva',
     intro: 'Completa los datos. Al enviarlos, tu mensaje se prepara en el WhatsApp de Banggai Paradise y el equipo responde con una propuesta por escrito.',
+    s1: 'Datos del huésped',
+    s2: 'Plan del viaje',
+    s3: 'Pago',
     name: 'Nombre del huésped',
     namePh: 'Nombre completo como en tu documento',
     date: 'Fecha del viaje',
@@ -92,11 +109,12 @@ const TEXT = {
     originPh: 'Ciudad o país de origen',
     guests: 'Número de huéspedes',
     guestsUnit: 'personas',
+    less: 'Menos personas',
+    more: 'Más personas',
     pkg: 'Paquete',
     pkgPh: 'Elige un paquete o un viaje a medida',
     custom: 'Plan del paquete a medida',
     customPh: 'Cuéntanos la duración, los lugares que quieres visitar y necesidades especiales (niños, movilidad, etc.)',
-    payment: 'Tipo de pago',
     cash: 'Efectivo',
     cashHint: 'Pago en efectivo',
     transfer: 'Transferencia',
@@ -130,13 +148,6 @@ const prettyDate = (iso: string, language: Language) => {
   return new Date(y, m - 1, d).toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
 };
 
-const inputClass = (invalid: boolean) =>
-  `w-full rounded-xl border bg-white px-4 py-3 text-base text-[#0A3A40] placeholder:text-slate-400 focus:outline-none focus:ring-2 transition-colors ${
-    invalid
-      ? 'border-red-400 focus:ring-red-200 focus:border-red-500'
-      : 'border-slate-300 focus:ring-[#F26A4F]/30 focus:border-[#F26A4F]'
-  }`;
-
 export const BookingForm: React.FC<BookingFormProps> = ({ onClose, language }) => {
   const t = TEXT[language === 'ID' ? 'ID' : language === 'ES' ? 'ES' : 'EN'];
   const today = useMemo(() => localDateString(new Date()), []);
@@ -166,11 +177,15 @@ export const BookingForm: React.FC<BookingFormProps> = ({ onClose, language }) =
     };
   }, [onClose]);
 
-  const choiceTitle = (c: typeof PACKAGE_CHOICES[number]) =>
-    language === 'ID' ? c.titleId : language === 'ES' ? c.titleEs : c.titleEn;
-  const choiceDuration = (c: typeof PACKAGE_CHOICES[number]) =>
-    language === 'ID' ? c.durationId : language === 'ES' ? c.durationEs : c.durationEn;
+  type Choice = typeof PACKAGE_CHOICES[number];
+  const choiceTitle = useCallback((c: Choice) =>
+    language === 'ID' ? c.titleId : language === 'ES' ? c.titleEs : c.titleEn, [language]);
+  const choiceDuration = useCallback((c: Choice) =>
+    language === 'ID' ? c.durationId : language === 'ES' ? c.durationEs : c.durationEn, [language]);
+  const choiceDesc = (c: Choice) =>
+    language === 'ID' ? c.descriptionId : language === 'ES' ? c.descriptionEs : c.descriptionEn;
 
+  const chosen = PACKAGE_CHOICES.find((c) => c.id === pkgId);
   const isCustom = pkgId === CUSTOM_PACKAGE_ID;
 
   const validate = () => {
@@ -187,7 +202,6 @@ export const BookingForm: React.FC<BookingFormProps> = ({ onClose, language }) =
   };
 
   const buildMessage = () => {
-    const chosen = PACKAGE_CHOICES.find((c) => c.id === pkgId);
     const pkgLine = chosen ? `${choiceTitle(chosen)} (${choiceDuration(chosen)})` : '';
     const payLabel = payment === 'cash' ? t.cash : t.transfer;
     const lines =
@@ -239,7 +253,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ onClose, language }) =
     e.preventDefault();
     const found = validate();
     if (Object.keys(found).length) {
-      const order: Field[] = ['name', 'date', 'origin', 'guests', 'pkg', 'custom', 'payment'];
+      const order: Field[] = ['name', 'origin', 'date', 'guests', 'pkg', 'custom', 'payment'];
       const firstBad = order.find((f) => found[f]);
       if (firstBad) dialogRef.current?.querySelector<HTMLElement>(`[data-field="${firstBad}"]`)?.focus();
       return;
@@ -249,241 +263,228 @@ export const BookingForm: React.FC<BookingFormProps> = ({ onClose, language }) =
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const errorText = (f: Field) =>
-    errors[f] ? <p id={`bf-${f}-err`} className="mt-1 text-sm text-red-600" role="alert">{errors[f]}</p> : null;
-
-  const labelClass = 'block text-sm font-semibold text-[#0A3A40] mb-1.5';
+  const err = (f: Field) =>
+    errors[f] ? <p id={`bf-${f}-err`} className="bf-err" role="alert">{errors[f]}</p> : null;
+  const invalid = (f: Field) => (errors[f] ? ' is-invalid' : '');
+  const describedBy = (f: Field) => (errors[f] ? `bf-${f}-err` : undefined);
 
   return (
-    <div className="fixed inset-0 z-[100] overflow-y-auto" role="presentation">
-      <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
-      <div className="min-h-full flex items-center justify-center p-4 sm:p-6">
-        <div
-          ref={dialogRef}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="bf-title"
-          className="relative bg-white rounded-3xl max-w-xl w-full text-left shadow-2xl my-6"
-        >
-          <button
-            type="button"
-            onClick={onClose}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors"
-            aria-label={t.close}
-          >
-            <X className="w-5 h-5" />
-          </button>
+    <div className="bf-root" role="presentation">
+      <div className="bf-backdrop" onClick={onClose} />
+      <div className="bf-wrap">
+        <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="bf-title" className="bf-card">
+          <header className="bf-head">
+            <span className="bf-eyebrow"><Compass aria-hidden="true" />{t.eyebrow}</span>
+            <h2 id="bf-title" className="bf-title">{t.title}</h2>
+            <p className="bf-intro">{t.intro}</p>
+            <button type="button" onClick={onClose} className="bf-close" aria-label={t.close}>
+              <X aria-hidden="true" />
+            </button>
+          </header>
 
-          <div className="p-6 sm:p-8">
-            <h2 id="bf-title" className="text-2xl font-extrabold text-[#0A3A40] pr-10">{t.title}</h2>
-
+          <div className="bf-body">
             {waUrl ? (
-              <div className="mt-6" aria-live="polite">
-                <div className="flex items-start gap-3 rounded-2xl bg-emerald-50 border border-emerald-200 p-4">
-                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white">
-                    <Check className="w-5 h-5" />
-                  </span>
-                  <div>
-                    <p className="font-bold text-emerald-900">{t.doneTitle}</p>
-                    <p className="mt-1 text-sm text-emerald-900/80">{t.doneBody}</p>
-                  </div>
-                </div>
-                <div className="mt-5 flex flex-col sm:flex-row gap-3">
-                  <a
-                    href={waUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#F26A4F] hover:bg-[#EA5C40] px-6 py-3 font-bold text-white transition-colors"
-                  >
-                    <Send className="w-4 h-4" />
-                    {t.openAgain}
+              <div className="bf-done" aria-live="polite">
+                <span className="bf-done-ico"><Check aria-hidden="true" /></span>
+                <h3>{t.doneTitle}</h3>
+                <p>{t.doneBody}</p>
+                <div className="bf-actions">
+                  <a href={waUrl} target="_blank" rel="noopener noreferrer" className="bf-btn bf-btn-primary">
+                    <Send aria-hidden="true" />{t.openAgain}
                   </a>
-                  <button
-                    type="button"
-                    onClick={() => setWaUrl('')}
-                    className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 font-semibold text-[#0A3A40] hover:bg-slate-50 transition-colors"
-                  >
+                  <button type="button" onClick={() => setWaUrl('')} className="bf-btn bf-btn-ghost">
                     {t.edit}
                   </button>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} noValidate className="mt-2">
-                <p className="text-sm text-slate-600">{t.intro}</p>
-
-                <div className="mt-6 space-y-5">
-                  <div>
-                    <label htmlFor="bf-name" className={labelClass}>{t.name}</label>
-                    <input
-                      ref={firstRef}
-                      id="bf-name"
-                      data-field="name"
-                      type="text"
-                      autoComplete="name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder={t.namePh}
-                      aria-invalid={Boolean(errors.name)}
-                      aria-describedby={errors.name ? 'bf-name-err' : undefined}
-                      className={inputClass(Boolean(errors.name))}
-                    />
-                    {errorText('name')}
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="bf-date" className={labelClass}>{t.date}</label>
-                      <input
-                        id="bf-date"
-                        data-field="date"
-                        type="date"
-                        min={today}
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}
-                        aria-invalid={Boolean(errors.date)}
-                        aria-describedby={errors.date ? 'bf-date-err' : undefined}
-                        className={inputClass(Boolean(errors.date))}
-                      />
-                      {errorText('date')}
+              <form onSubmit={handleSubmit} noValidate>
+                <section className="bf-section">
+                  <h3 className="bf-section-title"><span className="bf-num">1</span>{t.s1}</h3>
+                  <div className="bf-grid">
+                    <div className="bf-field bf-full" style={{ gridColumn: '1 / -1' }}>
+                      <label htmlFor="bf-name" className="bf-label">{t.name}</label>
+                      <div className="bf-ctrl">
+                        <User className="bf-ico" aria-hidden="true" />
+                        <input
+                          ref={firstRef}
+                          id="bf-name"
+                          data-field="name"
+                          type="text"
+                          autoComplete="name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder={t.namePh}
+                          aria-invalid={Boolean(errors.name)}
+                          aria-describedby={describedBy('name')}
+                          className={`bf-input${invalid('name')}`}
+                        />
+                      </div>
+                      {err('name')}
                     </div>
-                    <div>
-                      <label htmlFor="bf-origin" className={labelClass}>{t.origin}</label>
-                      <input
-                        id="bf-origin"
-                        data-field="origin"
-                        type="text"
-                        autoComplete="address-level2"
-                        value={origin}
-                        onChange={(e) => setOrigin(e.target.value)}
-                        placeholder={t.originPh}
-                        aria-invalid={Boolean(errors.origin)}
-                        aria-describedby={errors.origin ? 'bf-origin-err' : undefined}
-                        className={inputClass(Boolean(errors.origin))}
-                      />
-                      {errorText('origin')}
+
+                    <div className="bf-field" style={{ gridColumn: '1 / -1' }}>
+                      <label htmlFor="bf-origin" className="bf-label">{t.origin}</label>
+                      <div className="bf-ctrl">
+                        <MapPin className="bf-ico" aria-hidden="true" />
+                        <input
+                          id="bf-origin"
+                          data-field="origin"
+                          type="text"
+                          autoComplete="address-level2"
+                          value={origin}
+                          onChange={(e) => setOrigin(e.target.value)}
+                          placeholder={t.originPh}
+                          aria-invalid={Boolean(errors.origin)}
+                          aria-describedby={describedBy('origin')}
+                          className={`bf-input${invalid('origin')}`}
+                        />
+                      </div>
+                      {err('origin')}
                     </div>
                   </div>
+                </section>
 
-                  <div>
-                    <label htmlFor="bf-guests" className={labelClass}>{t.guests}</label>
-                    <div className="flex items-center gap-3">
-                      <button
-                        type="button"
-                        onClick={() => setGuests((g) => Math.max(1, (Number.isFinite(g) ? g : 1) - 1))}
-                        className="h-12 w-12 shrink-0 rounded-xl border border-slate-300 flex items-center justify-center text-[#0A3A40] hover:bg-slate-50 transition-colors"
-                        aria-label="-1"
-                      >
-                        <Minus className="w-4 h-4" />
-                      </button>
-                      <input
-                        id="bf-guests"
-                        data-field="guests"
-                        type="number"
-                        inputMode="numeric"
-                        min={1}
-                        max={MAX_GUESTS}
-                        value={Number.isFinite(guests) ? guests : ''}
-                        onChange={(e) => setGuests(e.target.value === '' ? NaN : parseInt(e.target.value, 10))}
-                        aria-invalid={Boolean(errors.guests)}
-                        aria-describedby={errors.guests ? 'bf-guests-err' : undefined}
-                        className={`${inputClass(Boolean(errors.guests))} text-center`}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setGuests((g) => Math.min(MAX_GUESTS, (Number.isFinite(g) ? g : 0) + 1))}
-                        className="h-12 w-12 shrink-0 rounded-xl border border-slate-300 flex items-center justify-center text-[#0A3A40] hover:bg-slate-50 transition-colors"
-                        aria-label="+1"
-                      >
-                        <Plus className="w-4 h-4" />
-                      </button>
-                      <span className="text-sm text-slate-500 w-14">{t.guestsUnit}</span>
+                <section className="bf-section">
+                  <h3 className="bf-section-title"><span className="bf-num">2</span>{t.s2}</h3>
+                  <div className="bf-grid">
+                    <div className="bf-field">
+                      <label htmlFor="bf-date" className="bf-label">{t.date}</label>
+                      <div className="bf-ctrl">
+                        <CalendarDays className="bf-ico" aria-hidden="true" />
+                        <input
+                          id="bf-date"
+                          data-field="date"
+                          type="date"
+                          min={today}
+                          value={date}
+                          onChange={(e) => setDate(e.target.value)}
+                          aria-invalid={Boolean(errors.date)}
+                          aria-describedby={describedBy('date')}
+                          className={`bf-input${invalid('date')}`}
+                        />
+                      </div>
+                      {err('date')}
                     </div>
-                    {errorText('guests')}
-                  </div>
 
-                  <div>
-                    <label htmlFor="bf-pkg" className={labelClass}>{t.pkg}</label>
-                    <select
-                      id="bf-pkg"
-                      data-field="pkg"
-                      value={pkgId}
-                      onChange={(e) => setPkgId(e.target.value)}
-                      aria-invalid={Boolean(errors.pkg)}
-                      aria-describedby={errors.pkg ? 'bf-pkg-err' : undefined}
-                      className={inputClass(Boolean(errors.pkg))}
-                    >
-                      <option value="">{t.pkgPh}</option>
-                      {PACKAGE_CHOICES.map((c) => (
-                        <option key={c.id} value={c.id}>{choiceTitle(c)} · {choiceDuration(c)}</option>
-                      ))}
-                    </select>
-                    {errorText('pkg')}
-                  </div>
-
-                  {isCustom && (
-                    <div>
-                      <label htmlFor="bf-custom" className={labelClass}>{t.custom}</label>
-                      <textarea
-                        id="bf-custom"
-                        data-field="custom"
-                        rows={4}
-                        value={customPlan}
-                        onChange={(e) => setCustomPlan(e.target.value)}
-                        placeholder={t.customPh}
-                        aria-invalid={Boolean(errors.custom)}
-                        aria-describedby={errors.custom ? 'bf-custom-err' : undefined}
-                        className={inputClass(Boolean(errors.custom))}
-                      />
-                      {errorText('custom')}
-                    </div>
-                  )}
-
-                  <fieldset>
-                    <legend className={labelClass}>{t.payment}</legend>
-                    <div className="grid grid-cols-2 gap-3" role="radiogroup" aria-describedby={errors.payment ? 'bf-payment-err' : undefined}>
-                      {([
-                        { value: 'cash', label: t.cash, hint: t.cashHint, Icon: Banknote },
-                        { value: 'transfer', label: t.transfer, hint: t.transferHint, Icon: Landmark },
-                      ] as const).map(({ value, label, hint, Icon }) => (
-                        <label
-                          key={value}
-                          className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition-colors focus-within:ring-2 focus-within:ring-[#F26A4F]/30 ${
-                            payment === value
-                              ? 'border-[#F26A4F] bg-[#F26A4F]/5'
-                              : errors.payment
-                              ? 'border-red-400'
-                              : 'border-slate-300 hover:bg-slate-50'
-                          }`}
+                    <div className="bf-field">
+                      <label htmlFor="bf-guests" className="bf-label">{t.guests}</label>
+                      <div className={`bf-stepper${invalid('guests')}`}>
+                        <button
+                          type="button"
+                          className="bf-step"
+                          onClick={() => setGuests((g) => Math.max(1, (Number.isFinite(g) ? g : 1) - 1))}
+                          aria-label={t.less}
                         >
-                          <input
-                            type="radio"
-                            name="bf-payment"
-                            data-field={value === 'cash' ? 'payment' : undefined}
-                            value={value}
-                            checked={payment === value}
-                            onChange={() => setPayment(value)}
-                            className="sr-only"
-                          />
-                          <Icon className={`w-5 h-5 shrink-0 ${payment === value ? 'text-[#F26A4F]' : 'text-slate-500'}`} />
-                          <span>
-                            <span className="block font-semibold text-[#0A3A40]">{label}</span>
-                            <span className="block text-xs text-slate-500">{hint}</span>
-                          </span>
-                        </label>
-                      ))}
+                          <Minus aria-hidden="true" />
+                        </button>
+                        <input
+                          id="bf-guests"
+                          data-field="guests"
+                          className="bf-count"
+                          type="number"
+                          inputMode="numeric"
+                          min={1}
+                          max={MAX_GUESTS}
+                          value={Number.isFinite(guests) ? guests : ''}
+                          onChange={(e) => setGuests(e.target.value === '' ? NaN : parseInt(e.target.value, 10))}
+                          aria-invalid={Boolean(errors.guests)}
+                          aria-describedby={describedBy('guests')}
+                        />
+                        <span className="bf-unit">{t.guestsUnit}</span>
+                        <button
+                          type="button"
+                          className="bf-step"
+                          onClick={() => setGuests((g) => Math.min(MAX_GUESTS, (Number.isFinite(g) ? g : 0) + 1))}
+                          aria-label={t.more}
+                        >
+                          <Plus aria-hidden="true" />
+                        </button>
+                      </div>
+                      {err('guests')}
                     </div>
-                    {errorText('payment')}
-                  </fieldset>
-                </div>
 
-                <p className="mt-6 text-xs text-slate-500">{t.note}</p>
+                    <div className="bf-field" style={{ gridColumn: '1 / -1' }}>
+                      <label htmlFor="bf-pkg" className="bf-label">{t.pkg}</label>
+                      <div className="bf-ctrl">
+                        <Package className="bf-ico" aria-hidden="true" />
+                        <select
+                          id="bf-pkg"
+                          data-field="pkg"
+                          value={pkgId}
+                          onChange={(e) => setPkgId(e.target.value)}
+                          aria-invalid={Boolean(errors.pkg)}
+                          aria-describedby={describedBy('pkg')}
+                          className={`bf-input bf-select${invalid('pkg')}`}
+                        >
+                          <option value="">{t.pkgPh}</option>
+                          {PACKAGE_CHOICES.map((c) => (
+                            <option key={c.id} value={c.id}>{choiceTitle(c)} · {choiceDuration(c)}</option>
+                          ))}
+                        </select>
+                        <ChevronDown className="bf-chev" aria-hidden="true" />
+                      </div>
+                      {err('pkg')}
+                      {chosen && (
+                        <div className="bf-info">
+                          <span className="bf-pill">{choiceDuration(chosen)}</span>
+                          <span>{choiceDesc(chosen)}</span>
+                        </div>
+                      )}
+                    </div>
 
-                <button
-                  type="submit"
-                  className="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#F26A4F] hover:bg-[#EA5C40] px-6 py-3.5 text-base font-bold text-white shadow-lg shadow-[#F26A4F]/30 transition-colors"
-                >
-                  <Send className="w-4 h-4" />
-                  {t.submit}
+                    {isCustom && (
+                      <div className="bf-field" style={{ gridColumn: '1 / -1' }}>
+                        <label htmlFor="bf-custom" className="bf-label">{t.custom}</label>
+                        <div className="bf-ctrl is-area">
+                          <Compass className="bf-ico" aria-hidden="true" />
+                          <textarea
+                            id="bf-custom"
+                            data-field="custom"
+                            rows={4}
+                            value={customPlan}
+                            onChange={(e) => setCustomPlan(e.target.value)}
+                            placeholder={t.customPh}
+                            aria-invalid={Boolean(errors.custom)}
+                            aria-describedby={describedBy('custom')}
+                            className={`bf-input bf-area${invalid('custom')}`}
+                          />
+                        </div>
+                        {err('custom')}
+                      </div>
+                    )}
+                  </div>
+                </section>
+
+                <section className="bf-section">
+                  <h3 className="bf-section-title"><span className="bf-num">3</span>{t.s3}</h3>
+                  <div className={`bf-pay${invalid('payment')}`} role="radiogroup" aria-label={t.s3} aria-describedby={describedBy('payment')}>
+                    {([
+                      { value: 'cash', label: t.cash, hint: t.cashHint, Icon: Banknote },
+                      { value: 'transfer', label: t.transfer, hint: t.transferHint, Icon: Landmark },
+                    ] as const).map(({ value, label, hint, Icon }) => (
+                      <label key={value} className={`bf-pay-opt${payment === value ? ' is-on' : ''}`}>
+                        <input
+                          type="radio"
+                          name="bf-payment"
+                          data-field={value === 'cash' ? 'payment' : undefined}
+                          value={value}
+                          checked={payment === value}
+                          onChange={() => setPayment(value)}
+                        />
+                        <span className="bf-pay-ico"><Icon aria-hidden="true" /></span>
+                        <span className="bf-pay-txt"><b>{label}</b><small>{hint}</small></span>
+                        <span className="bf-pay-check"><Check aria-hidden="true" /></span>
+                      </label>
+                    ))}
+                  </div>
+                  {err('payment')}
+                </section>
+
+                <p className="bf-note"><Info aria-hidden="true" /><span>{t.note}</span></p>
+
+                <button type="submit" className="bf-submit">
+                  <Send aria-hidden="true" />{t.submit}
                 </button>
               </form>
             )}
